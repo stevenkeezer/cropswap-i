@@ -1,9 +1,9 @@
 const products = [
   {
-    name: "Airpods Wireless Bluetooth Headphones",
-    image: "/images/airpods.jpg",
+    name: "Loose leaf lettuce",
+    image: "/images/salad.jpg",
     description:
-      "Bluetooth technology lets you connect it with compatible devices wirelessly High-quality AAC audio offers immersive listening experience Built-in microphone allows you to take calls while working",
+      "Homegrown salad leaves growing in rows brightly lit by the sun. Green leaf lettuce in garden",
     brand: "Apple",
     category: "Electronics",
     price: 89.99,
@@ -12,7 +12,7 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "iPhone 11 Pro 256GB Memory",
+    name: "Golden Apples",
     image: "/images/phone.jpg",
     description:
       "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
@@ -24,8 +24,20 @@ const products = [
     numReviews: 8,
   },
   {
-    name: "Cannon EOS 80D DSLR Camera",
-    image: "/images/camera.jpg",
+    name: "Fresh Basil",
+    image: "/images/basil.jpeg",
+    description:
+      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+    brand: "Apple",
+    category: "Electronics",
+    price: 599.99,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
+  },
+  {
+    name: "Tomatoes",
+    image: "/images/tom.jpeg",
     description:
       "Characterized by versatile imaging specs, the Canon EOS 80D further clarifies itself using a pair of robust focusing systems and an intuitive design",
     brand: "Cannon",
@@ -36,8 +48,8 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Sony Playstation 4 Pro White Version",
-    image: "/images/playstation.jpg",
+    name: "Cherry Tomatoes",
+    image: "/images/tomatoe2.jpeg",
     description:
       "The ultimate home entertainment center starts with PlayStation. Whether you are into gaming, HD movies, television, music",
     brand: "Sony",
@@ -48,8 +60,8 @@ const products = [
     numReviews: 12,
   },
   {
-    name: "Logitech G-Series Gaming Mouse",
-    image: "/images/mouse.jpg",
+    name: "Assorted Winter Squash",
+    image: "/images/wintersquash.jpg",
     description:
       "Get a better handle on your games with this Logitech LIGHTSYNC gaming mouse. The six programmable buttons allow customization for a smooth playing experience",
     brand: "Logitech",
@@ -60,8 +72,8 @@ const products = [
     numReviews: 10,
   },
   {
-    name: "Amazon Echo Dot 3rd Generation",
-    image: "/images/alexa.jpg",
+    name: "Radishes",
+    image: "/images/radish.jpeg",
     description:
       "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
     brand: "Amazon",
@@ -70,6 +82,54 @@ const products = [
     countInStock: 0,
     rating: 4,
     numReviews: 12,
+  },
+  {
+    name: "Strawberry basket",
+    image: "/images/strawberries.jpeg",
+    description:
+      "Meet Echo Dot - Our most popular smart speaker with a fabric design. It is our most compact smart speaker that fits perfectly into small space",
+    brand: "Amazon",
+    category: "Electronics",
+    price: 29.99,
+    countInStock: 0,
+    rating: 4,
+    numReviews: 12,
+  },
+  {
+    name: "Kale",
+    image: "/images/kale.jpeg",
+    description:
+      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+    brand: "Apple",
+    category: "Electronics",
+    price: 599.99,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
+  },
+  {
+    name: "Blueberry Baskets",
+    image: "/images/blueberries.jpeg",
+    description:
+      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+    brand: "Apple",
+    category: "Electronics",
+    price: 599.99,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
+  },
+  {
+    name: "Pole Beans",
+    image: "/images/beans.jpeg",
+    description:
+      "Introducing the iPhone 11 Pro. A transformative triple-camera system that adds tons of capability without complexity. An unprecedented leap in battery life",
+    brand: "Apple",
+    category: "Electronics",
+    price: 599.99,
+    countInStock: 7,
+    rating: 4.0,
+    numReviews: 8,
   },
 ];
 
