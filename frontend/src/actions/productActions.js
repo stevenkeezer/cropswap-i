@@ -1,6 +1,6 @@
 // Importing axios with custom URL for now && Switch when going into prod
 
-import axios from "./axios";
+import axios from "axios";
 
 import {
   PRODUCT_LIST_REQUEST,
