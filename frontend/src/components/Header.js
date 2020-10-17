@@ -206,9 +206,17 @@ const Header = ({ addItem }) => {
             <IonText>Soil</IonText>
             <IonText>Squash</IonText>
             <IonText>Compost</IonText>
-            <button className="tw-bg-teal-500 tw-font-medium tw-tracking-wider tw-rounded-full tw-text-white tw-px-3 tw-py-2 tw-text-xs">
-              Order online
-            </button>
+            <div
+              size="small"
+              // color="none"
+              // style={{ boxShadow: "none", backgroundColor: "none" }}
+
+              className="tw-bg-teal-500 tw-font-medium tw-tracking-wider
+            tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
+            tw-text-xs"
+            >
+              <IonText>Order online</IonText>
+            </div>
           </div>
         </div>
 

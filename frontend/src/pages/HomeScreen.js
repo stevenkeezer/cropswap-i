@@ -136,8 +136,8 @@ const HomeScreen = ({ match }) => {
           <IonLoading
             cssClass="my-custom-class"
             isOpen={loading}
+            name="crescent"
             onDidDismiss={() => loading}
-            message={"Please wait..."}
             duration={5000}
           />
         ) : error ? (
