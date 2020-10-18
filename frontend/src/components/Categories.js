@@ -433,7 +433,7 @@ export default function Categories() {
           </div>
           <span class="tw-text-gray-700 tw-font-semibold">Ready-Made</span>
         </div>
-        <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
+<div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
             <svg
               class="tw-w-20 tw-h-20 hover:tw-bg-gray-300 tw-rounded-full tw-p-4  text-gray-900 tw-hover:text-white tw-mx-auto  "

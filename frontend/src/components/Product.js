@@ -40,7 +40,13 @@ export default function Product({ product, history }) {
               rootMargin="0% 0% 0%"
               threshold={[1]}
             >
-              {(src) => <img src={product.image} alt="an alternative text" />}
+              {(src) => (
+                <img
+                  src={product.image}
+                  className="tw-rounded tw-shadow-sm tw-object-cover  md:tw-w-full sm:tw-h-56 tw-h-64 tw-w-full"
+                  alt="an alternative text"
+                />
+              )}
             </ProgressiveImage>
 
             <IonCardHeader className="card-head">
