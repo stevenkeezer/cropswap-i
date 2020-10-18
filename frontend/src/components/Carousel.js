@@ -43,41 +43,67 @@ const ProductCarousel = () => {
                 : "carousel-image-one"
             }`}
           >
-            <Link to={`/product/${product._id}`}>
-              <div class="tw-absolute tw-top-0 tw-right-0 ">
-                <svg
-                  class="tw-block tw-ml-auto tw-h-auto tw-w-3/5 tw-rotate-180 tw-p-6 tw-transform"
-                  viewBox="0 0 184 184"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
-                    fill="#e2e8f0"
-                    fill-rule="evenodd"
-                    opacity=".5"
-                  ></path>
-                </svg>
-              </div>
-              <IonImg
+            <Link
+              to={`/product/${product._id}`}
+              className="tw-flex tw-justify-between tw-w-full hover:tw-no-underline"
+            >
+              {/* <IonImg
                 src={product.image}
                 alt={product.name}
                 fluid
                 className=" tw-w-56 tw-m-10 tw-rounded-full tw-h-56"
-              />
+              /> */}
 
-              <Carousel.Caption className="carousel-caption tw-pb-6">
-                <div>
-                  <p className="tw-text-xs tw--mb-3 tw-font-bold">
-                    Promo Code OCT20
-                  </p>
-                  <h1 style={{ fontWeight: "bold" }} className="tw--pt-1">
-                    {product.name}
-                  </h1>
-                  <button class="tw-bg-white tw-font-bold tw-py-3 tw-mt-2 tw-px-5 tw-text-black tw-rounded-full tw-text-xs">
-                    Learn more
-                  </button>
+              <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 lg:tw-mx-8 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
+                <div class="tw-absolute tw-top-0 tw-right-0 ">
+                  <svg
+                    class="tw-block tw-ml-auto tw-h-auto tw-w-2/5 tw-rotate-180 tw-p-5  tw-transform"
+                    viewBox="0 0 184 184"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M182 184a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 40a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm-20 80a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM22 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 144a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-60a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0-20a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM2 4a2 2 0 1 1 0-4 2 2 0 0 1 0 4z"
+                      fill="#e2e8f0"
+                      fill-rule="evenodd"
+                      opacity=".5"
+                    ></path>
+                  </svg>
                 </div>
-              </Carousel.Caption>
+                <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-m-2 tw-flex tw-items-center tw-w-full tw-pt-6 lg:tw-pt-0">
+                  <div className="tw-border-4 tw-rounded-full tw-mr-5 ">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-shadow-2xl tw-h-24"
+                    />
+                  </div>
+                  <div className="tw-flex-col">
+                    <p
+                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
+                      className="tw-text-xs tw--mb-3 tw-font-bold tw-text-white tw-pb-3 tw-mt-2"
+                    >
+                      Promo Code OCT20
+                    </p>
+                    <div
+                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
+                      className="tw--pt-1 tw-text-2xl lg:tw-text-3xl tw-font-bold tw-text-white  "
+                    >
+                      {product.name}
+                    </div>
+                    <button class="tw-bg-white tw-font-bold tw-py-2 tw-mt-2 tw-px-5 tw-text-black tw-shadow tw-rounded-full tw-text-xs">
+                      Learn more
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6 lg:tw-visible tw-invisible">
+                <img
+                  src="/farmers.svg"
+                  alt={product.name}
+                  // fluid
+                  className=" tw-mt-8 tw-w-full tw-p-0 tw-h-full"
+                />
+              </div>
             </Link>
           </Carousel.Item>
         ))}

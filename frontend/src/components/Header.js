@@ -189,7 +189,7 @@ const Header = ({ addItem }) => {
     >
       <IonToolbar
         style={{
-          paddingTop: ".2rem",
+          paddingTop: ".225rem",
           maxWidth: "75rem",
           marginLeft: "auto",
           marginRight: "auto",
@@ -198,7 +198,10 @@ const Header = ({ addItem }) => {
       >
         <div no-padding className="lg:tw-mt-2">
           <Route render={({ history }) => <SearchBox history={history} />} />
-          <div className="tw-gap-3 tw-text-sm  tw-mt-2 tw-text-gray-700 tw-px-1 tw-items-center tw-mb-1 lg:tw-flex tw-hidden">
+          <div
+            style={{ color: "rgb(74, 74, 74) !important" }}
+            className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center tw-mb-1 lg:tw-flex tw-tracking-wider tw-hidden"
+          >
             <IonText>Seasonal</IonText>
             <IonText>Tomatoes</IonText>
             <IonText>Vegetables</IonText>
@@ -211,7 +214,7 @@ const Header = ({ addItem }) => {
               // color="none"
               // style={{ boxShadow: "none", backgroundColor: "none" }}
 
-              className="tw-bg-teal-500 tw-font-medium tw-tracking-wider
+              className="tw-bg-teal-600 tw-font-medium tw-tracking-wider
             tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
             tw-text-xs"
             >

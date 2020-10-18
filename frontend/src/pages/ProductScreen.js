@@ -44,6 +44,7 @@ import {
   createProductReview,
 } from "../actions/productActions";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import ProgressiveImage from "react-progressive-graceful-image";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);

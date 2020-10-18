@@ -125,7 +125,7 @@ const HomeScreen = ({ match }) => {
             Go Back
           </Link>
         )}
-        <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-mb-3 tw-px-3 tw-items-baseline tw-mt-10">
+        <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-mb-3 tw-px-3 tw-items-baseline tw-mt-8">
           <IonTitle className="tw-p-0">Featured Products</IonTitle>
           <IonText className="tw-border tw-border-gray-400 tw-px-4 tw-py-2 tw-text-gray-800 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
             View all
@@ -175,7 +175,7 @@ const HomeScreen = ({ match }) => {
                 keyword={keyword ? keyword : ""}
               />
             </IonRow>
-            <HomeHero />
+            {/* <HomeHero /> */}
             <Regions />
 
             <Footer />

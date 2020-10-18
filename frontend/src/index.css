@@ -82,13 +82,11 @@ ion-item {
 }
 
 .carousel img {
-  height: 200px;
+  /* height: 350px; */
   /* padding-left: 55vw; */
-  margin: 60px;
-  object-fit: cover;
-  margin-left: 62vw;
 
-  border-radius: 1.725rem;
+  /* object-fit: cover; */
+  /* margin-left: 60vw; */
 }
 .carousel a {
   margin: 0 auto;
@@ -152,7 +150,7 @@ ion-item {
  */
 
 .carousel {
-  height: 380px;
+  height: 355px;
 }
 
 .carousel-control-prev,

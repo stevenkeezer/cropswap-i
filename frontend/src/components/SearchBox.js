@@ -34,8 +34,9 @@ export default function SearchBox({ history }) {
           fontSize: 14,
           height: 38,
         }}
+        className="tw-tracking-wide"
         //enter key is sending wrong address
-        placeholder="Products, farms, brands, and more"
+        placeholder="Products, farms and more"
         value={keyword}
         backgroundColor="dark"
         onIonChange={(e) => {
