@@ -2,7 +2,7 @@
 
 > eCommerce platform built with the MERN stack & Redux.
 
-[app demo](https://cropswapapp.herokuapp.com/) 
+[App demo](https://cropswapapp.herokuapp.com/) 
 
 
 ## Features
