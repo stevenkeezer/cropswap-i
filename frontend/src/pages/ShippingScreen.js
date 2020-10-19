@@ -53,22 +53,19 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
   return (
-    <div className=" tw-pt-3 tw-bg-gray-100">
-      <Container>
+    <div className="tw-bg-gray-100">
+      <div>
         <CheckoutSteps step1 step2 />
-        <Row className="justify-content-center">
-          <IonCol
-            className="card mb-4 tw-border-none tw-shadow tw-p-5 "
-            sizeLg="8"
-          >
-            <IonTitle class="card-title mb-4 tw-pl-0">
-              Shipping Information
-            </IonTitle>
-            <div class="card-body">
-              <form action="">
+      </div>
+      <Container className="tw-flex tw-justify-center">
+        <Row className="tw-gap-6 tw-justify-center tw-mx-auto">
+          <IonCol className=" " sizeLg="8">
+            <div className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto tw-font-medium tw-max-w-screen-xl">
+              Select a delivery method
+              <div class="card mb-4 tw-rounded-lg tw-shadow tw-p-5 tw-mt-3 ">
                 <div class="row">
                   <div class="form-group col-sm-6">
-                    <label class="mt-3">
+                    <label class="">
                       <input
                         type="radio"
                         name="demo"
@@ -90,7 +87,7 @@ const ShippingScreen = ({ history }) => {
                     </label>
                   </div>
                   <div class="form-group col-sm-6">
-                    <label class="mt-3">
+                    <label class="">
                       <input
                         type="radio"
                         name="demo"
@@ -858,19 +855,24 @@ const ShippingScreen = ({ history }) => {
                     </IonItem>
                   </div>
                 </div>
-              </form>
-              <IonButton
-                expand="full"
-                style={{ margin: 14 }}
-                onClick={submitHandler}
-              >
-                Continue
-              </IonButton>
+
+                <IonButton
+                  expand="full"
+                  style={{ margin: 14 }}
+                  onClick={submitHandler}
+                >
+                  Continue
+                </IonButton>
+              </div>
             </div>
           </IonCol>
 
-          {/* <IonCol sizeLg="8" size="12" class="card"> */}
-          {/* </IonCol> */}
+          <IonCol sizeLg="3" size="12">
+            <div className=" tw-text-2xl tw-font-medium  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+              Cart
+              <div className="card tw-mt-3">Cart hii</div>
+            </div>
+          </IonCol>
         </Row>
       </Container>
     </div>

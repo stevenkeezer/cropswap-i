@@ -2,7 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { usePhotoGallery } from "../hooks/usePhotoGallery";
-import { basket, personCircleOutline } from "ionicons/icons";
+import {
+  basket,
+  cogOutline,
+  cogSharp,
+  personCircleOutline,
+  settingsOutline,
+  storefront,
+  storefrontOutline,
+} from "ionicons/icons";
+import ReactTooltip from "react-tooltip";
 
 import { useHistory } from "react-router";
 import {
@@ -60,6 +69,19 @@ const Header = ({ addItem }) => {
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [showPopover, setShowPopover] = useState(false);
   const [showAdminPopover, setShowAdminPopover] = useState(false);
+  const [keyword, setKeyword] = useState("");
+
+  const searchHandler = (e) => {
+    // make it lowercase
+
+    console.log(e);
+    // e.preventDefault();
+    if (e.trim()) {
+      history.push(`/search/${e}`);
+    } else {
+      history.push("/");
+    }
+  };
 
   const { store } = React.useContext(MobXProviderContext);
   const { photos, takePhoto } = usePhotoGallery();
@@ -187,6 +209,7 @@ const Header = ({ addItem }) => {
       className="ion-no-border"
       style={{ borderBottom: "0.0625rem solid rgb(230, 229, 229)" }}
     >
+      <ReactTooltip />
       <IonToolbar
         style={{
           paddingTop: ".225rem",
@@ -200,38 +223,70 @@ const Header = ({ addItem }) => {
           <Route render={({ history }) => <SearchBox history={history} />} />
           <div
             style={{ color: "rgb(74, 74, 74) !important" }}
-            className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center tw-mb-1 lg:tw-flex tw-tracking-wider tw-hidden"
+            className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center tw-mb-1 lg:tw-flex tw-tracking-wider  tw-hidden"
           >
-            <IonText>Seasonal</IonText>
-            <IonText>Tomatoes</IonText>
-            <IonText>Vegetables</IonText>
-            <IonText>Fruits</IonText>
-            <IonText>Soil</IonText>
-            <IonText>Squash</IonText>
-            <IonText>Compost</IonText>
+            <IonText
+              onClick={(e) => searchHandler("seasonal")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Seasonal
+            </IonText>
+
+            <IonText
+              onClick={(e) => searchHandler("tomatoes")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Tomatoes
+            </IonText>
+            <IonText
+              onClick={(e) => searchHandler("vegetables")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Vegetables
+            </IonText>
+            <IonText
+              onClick={(e) => searchHandler("fruits")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Fruits
+            </IonText>
+            <IonText
+              onClick={(e) => searchHandler("soil")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Soil
+            </IonText>
+            <IonText
+              onClick={(e) => searchHandler("squash")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Squash
+            </IonText>
+            <IonText
+              onClick={(e) => searchHandler("compost")}
+              className="hover:tw-text-teal-700 tw-cursor-pointer"
+            >
+              Compost
+            </IonText>
             <div
               size="small"
               // color="none"
               // style={{ boxShadow: "none", backgroundColor: "none" }}
 
-              className="tw-bg-teal-600 tw-font-medium tw-tracking-wider
+              className="tw-bg-teal-600 tw-font-medium tw-tracking-wider hover:tw-bg-teal-500
             tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
-            tw-text-xs"
+            tw-text-xs tw-cursor-pointer"
             >
-              <IonText>Order online</IonText>
+              <IonText onClick={(e) => history.push("/cart")}>
+                Order online
+              </IonText>
             </div>
           </div>
         </div>
 
         <IonButtons slot="start">
-          {/* <IonButton
-            className="logo tw-my-3"
-            onClick={(e) => {
-              history.push("/");
-            }}
-          > */}
           <IonImg
-            className="tw-shadow tw-border tw-my-1 tw-cursor-pointer tw-mx-8"
+            className="tw-shadow tw-border tw-my-1 tw-cursor-pointer lg:tw-mx-8 tw-mx-4"
             onClick={(e) => {
               history.push("/");
             }}
@@ -243,7 +298,6 @@ const Header = ({ addItem }) => {
             }}
             src="https://i.imgur.com/K4SMB4S.png"
           ></IonImg>
-          {/* </IonButton> */}
         </IonButtons>
 
         <IonButtons slot="end" className="lg:tw--mt-8">
@@ -256,51 +310,65 @@ const Header = ({ addItem }) => {
               >
                 <IonList>
                   <IonListHeader>{userInfo.name}</IonListHeader>
-                  <IonItem item>
-                    <IonButton
-                      onClick={() => {
-                        history.push("/admin/userlist");
-                        setShowAdminPopover(false);
-                      }}
-                    >
-                      <IonText color="">Users</IonText>
-                    </IonButton>
-                    <IonButton
-                      onClick={() => {
-                        history.push("/admin/productlist");
-                        setShowAdminPopover(false);
-                      }}
-                    >
-                      <IonText color="">Products</IonText>
-                    </IonButton>
-                    <IonButton
-                      onClick={() => {
-                        history.push("/admin/orderlist");
-                        setShowAdminPopover(false);
-                      }}
-                    >
-                      <IonText color="">Order</IonText>
-                    </IonButton>
-                  </IonItem>
+                  <IonCol>
+                    <IonItem item lines="none">
+                      <IonButton
+                        onClick={() => {
+                          history.push("/admin/userlist");
+                          setShowAdminPopover(false);
+                        }}
+                      >
+                        <IonText color="">Users</IonText>
+                      </IonButton>
+                    </IonItem>
+                    <IonItem item lines="none">
+                      <IonButton
+                        onClick={() => {
+                          history.push("/admin/productlist");
+                          setShowAdminPopover(false);
+                        }}
+                      >
+                        <IonText color="">Products</IonText>
+                      </IonButton>
+                    </IonItem>
+                    <IonItem item lines="none">
+                      <IonButton
+                        onClick={() => {
+                          history.push("/admin/orderlist");
+                          setShowAdminPopover(false);
+                        }}
+                      >
+                        <IonText color="">Orders</IonText>
+                      </IonButton>
+                    </IonItem>
+                  </IonCol>
                 </IonList>
               </IonPopover>
-              <IonButton onClick={() => setShowAdminPopover(true)}>
-                Admin
-              </IonButton>
             </>
           )}
+
+          <IonButton
+            data-tip="Farm manager"
+            className="tw-pl-3"
+            onClick={() => setShowAdminPopover(true)}
+          >
+            <IonIcon size="small" color="dark" icon={storefront}></IonIcon>
+          </IonButton>
+
           <IonButton
             size="large"
             className=""
-            id="cart"
+            data-tip="Go to cart"
+            data-delay-show="100"
+            data-delay-hide="100"
             onClick={() => history.push("/cart")}
           >
             <IonIcon icon={basket} color="dark" style={{ fontSize: 24 }} />
           </IonButton>
+
           {cartItems.length > 0 && userInfo && (
             <div className="numberCircle">{cartItems.length}</div>
           )}
-
           {userInfo ? (
             <>
               <IonPopover
@@ -326,7 +394,10 @@ const Header = ({ addItem }) => {
                   </IonItem>
                 </IonList>
               </IonPopover>
-              <IonButton onClick={() => setShowPopover(true)}>
+              <IonButton
+                classnName="tw-pl-10"
+                onClick={() => setShowPopover(true)}
+              >
                 {/* {userInfo.name} */}
                 <IonIcon
                   color="dark"

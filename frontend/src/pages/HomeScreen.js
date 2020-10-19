@@ -176,7 +176,7 @@ const HomeScreen = ({ match }) => {
               />
             </IonRow>
             {/* <HomeHero /> */}
-            <Regions />
+            {/* <Regions /> */}
 
             <Footer />
           </>

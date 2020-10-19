@@ -14,12 +14,19 @@ import {
   IonItemOption,
   IonText,
 } from "@ionic/react";
+import { useDispatch, useSelector } from "react-redux";
 import { card } from "ionicons/icons";
 import Rating from "../components/Rating";
 import { useHistory } from "react-router";
 import ProgressiveImage from "react-progressive-graceful-image";
 
 export default function Product({ product, history }) {
+  const dispatch = useDispatch();
+
+  const clickHandler = (id) => {
+    history.push(`/product/${id}`);
+  };
+
   console.log(product);
   return (
     <IonCard style={{ boxShadow: "none" }}>
@@ -30,7 +37,7 @@ export default function Product({ product, history }) {
           style={{
             paddingTop: "0px !important",
           }}
-          onClick={(e) => history.push(`/product/${product._id}`)}
+          onClick={(e) => clickHandler(product._id)}
         >
           <div className=" ">
             <ProgressiveImage

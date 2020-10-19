@@ -43,7 +43,11 @@ import {
   listProductDetails,
   createProductReview,
 } from "../actions/productActions";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import {
+  PRODUCT_CREATE_REVIEW_RESET,
+  PRODUCT_DETAILS_RESET,
+} from "../constants/productConstants";
+
 import ProgressiveImage from "react-progressive-graceful-image";
 
 const ProductScreen = ({ history, match }) => {
@@ -68,6 +72,8 @@ const ProductScreen = ({ history, match }) => {
   } = productReviewCreate;
 
   useEffect(() => {
+    dispatch({ type: PRODUCT_DETAILS_RESET });
+
     if (successProductReview) {
       alert("Review Submitted!");
       setRating(0);

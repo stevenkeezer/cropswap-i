@@ -86,7 +86,7 @@ const CartScreen = ({ match, location, history }) => {
             ) : (
               <ListGroup variant="flush">
                 {cartItems.map((item) => (
-                  <article className="card mb-3 tw-border-none tw-shadow">
+                  <article className="card tw-rounded-lg mb-3 tw-border-none tw-shadow">
                     <div class="row align-items-center tw-p-5">
                       <div class="col-md-6 tw-flex tw-gap-3">
                         <Image
@@ -135,7 +135,7 @@ const CartScreen = ({ match, location, history }) => {
             )}
           </Col>
           <Col md={4}>
-            <div className=" card tw-border-none tw-shadow tw-mb-2">
+            <div className=" card tw-rounded-lg tw-border-none tw-shadow tw-mb-2">
               <div class="card-body">
                 <form>
                   <div class="form-group">
@@ -160,17 +160,17 @@ const CartScreen = ({ match, location, history }) => {
             {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
-            <Card className="tw-border-none tw-shadow ">
+            <div className="card tw-border-none tw-shadow tw-rounded-lg  ">
               <ListGroup variant="flush">
-                <ListGroup.Item className="tw-border-none">
-                  <div className="tw-border-b tw-pb-2 tw-mb-3">
-                    <IonText className="tw-font-semibold ">
-                      Subtotal (
-                      {cartItems.reduce((acc, item) => acc + item.qty, 0)} item)
-                    </IonText>
-                  </div>
+                <div className="tw-border-b tw-pb-2 tw-mb-3 tw-p-5">
+                  <IonText className="tw-font-semibold ">
+                    Subtotal (
+                    {cartItems.reduce((acc, item) => acc + item.qty, 0)} item)
+                  </IonText>
+                </div>
 
-                  <Row>
+                <ListGroup.Item className="tw-border-none ">
+                  <Row className="">
                     <Col>Total price:</Col>
                     <Col className="tw-text-right">
                       $
@@ -207,7 +207,7 @@ const CartScreen = ({ match, location, history }) => {
                   />
                 </p>
               </ListGroup>
-            </Card>
+            </div>
             <Card className="tw-border-none tw-shadow tw-py-5 tw-mt-3 tw-p-4">
               <IonButton
                 type="button"

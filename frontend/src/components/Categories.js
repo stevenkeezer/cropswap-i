@@ -4,7 +4,7 @@ import { IonLoading, IonTitle, IonListHeader } from "@ionic/react";
 export default function Categories() {
   return (
     <>
-      <div className="tw-flex tw-justify-center tw-gap-5">
+      <div className="tw-flex tw-justify-center tw-gap-5 tw-overflow-x-auto tw-max-w-screen-xl tw-mx-auto">
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -tw-pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900 tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
             <svg
@@ -51,7 +51,7 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold tw-text-gray-800">
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700 tw-text-teal-700">
             All Products
           </span>
         </div>
@@ -142,7 +142,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Tomatoes</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Tomatoes
+          </span>
         </div>
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
@@ -230,7 +232,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Farm Supplies</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Farm Supplies
+          </span>
         </div>
 
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
@@ -273,7 +277,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Compost</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Compost
+          </span>
         </div>
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
@@ -321,7 +327,9 @@ export default function Categories() {
               />
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Meal Prep</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Meal Prep
+          </span>
         </div>
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
@@ -360,7 +368,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Easy Meals</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Easy Meals
+          </span>
         </div>
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
@@ -431,9 +441,11 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Ready-Made</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Ready-Made
+          </span>
         </div>
-<div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
+        <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900  tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
             <svg
               class="tw-w-20 tw-h-20 hover:tw-bg-gray-300 tw-rounded-full tw-p-4  text-gray-900 tw-hover:text-white tw-mx-auto  "
@@ -502,7 +514,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Ready-Made</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Ready-Made
+          </span>
         </div>
 
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
@@ -563,7 +577,9 @@ export default function Categories() {
               </g>
             </svg>
           </div>
-          <span class="tw-text-gray-700 tw-font-semibold">Premade</span>
+          <span class="tw-text-gray-700 tw-font-semibold tw-text-sm lg:tw-text-md hover:tw-text-teal-700">
+            Premade
+          </span>
         </div>
       </div>
     </>

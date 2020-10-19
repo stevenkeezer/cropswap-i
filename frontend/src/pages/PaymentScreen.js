@@ -2,10 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import FormContainer from "../components/FormContainer";
 import CheckoutSteps from "../components/CheckoutSteps";
+import { Link } from "react-router-dom";
+
+import { chevronBackOutline, trashOutline } from "ionicons/icons";
 
 import { savePaymentMethod } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 import {
+  Form,
   Button,
   Row,
   Col,
@@ -18,6 +23,7 @@ import {
 import {
   IonButtons,
   IonButton,
+  IonIcon,
   IonHeader,
   IonSelectPopover,
   IonToolbar,
@@ -38,7 +44,8 @@ import {
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress } = cart;
+
+  const { shippingAddress, cartItems } = cart;
 
   if (!shippingAddress) {
     history.push("/shipping");
@@ -54,22 +61,22 @@ const PaymentScreen = ({ history }) => {
     history.push("/placeorder");
   };
   return (
-    <div className="tw-h-screen tw-pt-3 tw-bg-gray-100">
+    <div className="tw-h-screen  tw-bg-gray-100">
       <Container>
         <CheckoutSteps step1 step2 step3 />
-        <Row className="justify-content-center">
+        <div
+          className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+          style={{ fontWeight: "500" }}
+        >
+          {/* {initializationError && initializationError.message} */}
+          Select a payment method
+        </div>
+        <Row className="tw-max-w-screen-lg tw-mx-auto">
           <IonCol
-            className="card mb-3 tw-border-none tw-shadow tw-p-5"
+            className="card mb-3 tw-border-none tw-shadow tw-rounded-lg tw-p-5"
             sizeLg="6"
           >
             <div className="tw-flex tw-items-baseline">
-              <div
-                className=" tw-text-xl tw-px-3 tw-pb-3"
-                style={{ fontWeight: "500" }}
-              >
-                {/* {initializationError && initializationError.message} */}
-                Choose a payment method
-              </div>
               <span className="tw-text-sm">(pick one of the items below)</span>
             </div>
             <IonList>
@@ -108,10 +115,48 @@ const PaymentScreen = ({ history }) => {
                 </IonLabel>
               </IonItem>
             </IonList>
+          </IonCol>
+
+          <div> Cart</div>
+          <IonCol className="" sizeLg="">
+            <div
+              className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto card mb-3 tw-border-none tw-shadow tw-rounded-lg "
+              style={{ fontWeight: "500" }}
+            >
+              {/* {initializationError && initializationError.message} */}
+              {cartItems &&
+                cartItems.map((item) => (
+                  <article className="card mb-3 tw-border-none tw-shadow">
+                    <div class="row align-items-center tw-p-5">
+                      <div class="col-md-6 tw-flex tw-gap-3">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          className="border img-sm"
+                          style={{ maxWidth: "100px" }}
+                        />
+
+                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      </div>
+
+                      <div class="col">
+                        <div class="price h5"> ${item.price} </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+            </div>
+            <div className="tw-flex tw-items-baseline"></div>
+            <IonList>
+              <IonItem className="tw-px-2 tw-pr-6" lines="none"></IonItem>
+            </IonList>
             <div>
               <IonButton expand="full" onClick={submitHandler}>
                 Continue
               </IonButton>
+              <p className="tw-text-xs">
+                You can review this order before it's final
+              </p>
             </div>
           </IonCol>
         </Row>

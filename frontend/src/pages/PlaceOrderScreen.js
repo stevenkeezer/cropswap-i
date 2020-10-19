@@ -66,7 +66,7 @@ const PlaceOrderScreen = ({ history }) => {
   };
 
   return (
-    <div className="tw-h-screen tw-pt-3 tw-bg-gray-100">
+    <div className="tw-h-screen tw-bg-gray-100">
       <Container>
         <CheckoutSteps step1 step2 step3 step4 />
         <Row>

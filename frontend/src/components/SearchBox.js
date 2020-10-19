@@ -34,7 +34,7 @@ export default function SearchBox({ history }) {
           fontSize: 14,
           height: 38,
         }}
-        className="tw-tracking-wide"
+        className="tw-tracking-wide tw-w-full md:tw-w-3/5 "
         //enter key is sending wrong address
         placeholder="Products, farms and more"
         value={keyword}
@@ -51,6 +51,7 @@ export default function SearchBox({ history }) {
             opacity: "50%",
           }}
           icon={search}
+          className="tw-mr-1"
         ></IonIcon>
       </IonInput>
 

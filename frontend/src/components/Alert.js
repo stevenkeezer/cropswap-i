@@ -15,11 +15,14 @@ function AlertDismissible() {
         {/* <Alert.Heading>Oh snap! You got an error!</Alert.Heading> */}
         <Container>
           <div
-            className="blue-alert"
+            className="blue-alert tw-whitespace-no-wrap tw-truncate"
             style={{ fontSize: ".875rem", margin: 1 }}
           >
-            <span className="font-weight-bold">COVID-19 IMPACT</span> Learn more
-            about how the Coronavirus is impacting farming communities here.
+            <span className="font-weight-bold whitespace-no-wrap">
+              COVID-19 IMPACT
+            </span>{" "}
+            Learn more about how the Coronavirus is impacting farming
+            communities here.
           </div>
         </Container>
         {/* <p>Change this and that and try again. Duis mollis, est non commodo</p> */}
