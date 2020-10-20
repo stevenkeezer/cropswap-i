@@ -4,13 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { usePhotoGallery } from "../hooks/usePhotoGallery";
 import {
   basket,
+  basketSharp,
   cogOutline,
   cogSharp,
-  personCircle,
+  personCircleSharp,
   personCircleOutline,
   settingsOutline,
   storefront,
   storefrontOutline,
+  storefrontSharp,
 } from "ionicons/icons";
 import ReactTooltip from "react-tooltip";
 
@@ -356,7 +358,7 @@ const Header = ({ addItem }) => {
             <IonIcon
               className="tw-w-5 tw-h-5"
               color="dark"
-              icon={storefront}
+              icon={storefrontSharp}
             ></IonIcon>
           </IonButton>
 
@@ -368,7 +370,7 @@ const Header = ({ addItem }) => {
             data-delay-hide="100"
             onClick={() => history.push("/cart")}
           >
-            <IonIcon icon={basket} color="dark" style={{ fontSize: 24 }} />
+            <IonIcon icon={basketSharp} color="dark" style={{ fontSize: 24 }} />
           </IonButton>
 
           {cartItems.length > 0 && userInfo && (
@@ -407,7 +409,7 @@ const Header = ({ addItem }) => {
                 <IonIcon
                   color="dark"
                   className="tw-w-6 tw-h-6"
-                  icon={personCircle}
+                  icon={personCircleSharp}
                 ></IonIcon>
               </IonButton>
             </>
