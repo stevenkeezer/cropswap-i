@@ -311,7 +311,7 @@ const Header = ({ addItem }) => {
                 cssClass="my-custom-class"
                 onDidDismiss={(e) => setShowAdminPopover(false)}
               >
-                <IonTitle className="tw-px-4 tw-py-2">Administrator</IonTitle>
+                <IonTitle className="tw-px-4 tw-py-2">Farm Manager</IonTitle>
                 <p className="tw-px-4 tw-bg-gray-200  tw-text-xs tw-font-medium tw-mx-4 tw-rounded-lg tw-py-2 tw-my-3 tw-shadow-inner tw-px-3">
                   User: {userInfo.name}
                 </p>

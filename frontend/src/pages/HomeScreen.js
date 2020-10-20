@@ -111,6 +111,7 @@ const HomeScreen = ({ match }) => {
             {/* </IonRow> */}
             <Categories />
             <div
+              className="tw-hidden lg:tw-block"
               style={{
                 borderBottom: "0.0625rem solid rgb(204, 204, 204)",
                 maxWidth: "73rem",

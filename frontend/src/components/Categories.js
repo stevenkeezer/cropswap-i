@@ -4,7 +4,7 @@ import { IonLoading, IonTitle, IonListHeader } from "@ionic/react";
 export default function Categories() {
   return (
     <>
-      <div className="tw-flex tw-justify-center tw-gap-5 tw-overflow-x-auto tw-max-w-screen-xl tw-mx-auto">
+      <div className="tw-flex tw-justify-center tw-gap-5 tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl  tw-mx-auto">
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div class="  tw-h-auto -tw-pb-8 tw-w-full  tw-py-1  tw-mx-auto tw-text-gray-900 tw-hover:bg-green-500 tw-border-2 tw-border-transparent tw-hover:text-white   tw-rounded-lg tw-hover:shadow-lg">
             <svg
