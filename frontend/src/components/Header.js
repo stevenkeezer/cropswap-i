@@ -368,7 +368,10 @@ const Header = ({ addItem }) => {
             data-tip="Go to cart"
             data-delay-show="100"
             data-delay-hide="100"
-            onClick={() => history.push("/cart")}
+            onClick={(e) => {
+              e.preventDefault();
+              history.push("/cart");
+            }}
           >
             <IonIcon icon={basketSharp} color="dark" style={{ fontSize: 24 }} />
           </IonButton>
