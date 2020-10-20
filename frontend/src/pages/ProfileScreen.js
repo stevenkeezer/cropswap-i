@@ -8,7 +8,13 @@ import {
   Container,
   Card,
 } from "react-bootstrap";
-import { IonButtons, IonButton, IonPage, IonContent } from "@ionic/react";
+import {
+  IonButtons,
+  IonButton,
+  IonPage,
+  IonContent,
+  IonTitle,
+} from "@ionic/react";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -61,7 +67,7 @@ const ProfileScreen = ({ location, history }) => {
   };
 
   return (
-    <div className=" tw-pt-3 tw-bg-gray-100 tw-h-screen">
+    <div className=" tw-bg-gray-100 tw-h-auto">
       <Container>
         <Row className="tw-pt-5">
           <Col md={3}>
@@ -123,103 +129,110 @@ const ProfileScreen = ({ location, history }) => {
               )}
             </Card>
           </Col>
-          <Col md={9}>
-            <h2>My Orders</h2>
+          <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
+            <IonTitle className="tw-p-0">My Orders</IonTitle>
             {loadingOrders ? (
               <Loader />
             ) : errorOrders ? (
               <Message variant="danger">{errorOrders}</Message>
             ) : (
-              <div class="-tw-mx-4 tw-sm:-mx-8 tw-px-4 tw-sm:px-8 tw-py-4 tw-overflow-x-auto">
-                <div class="tw-inline-block tw-min-w-full  tw-rounded-lg tw-shadow tw-overflow-hidden">
-                  <table
-                    striped
-                    hover
-                    responsive
-                    className="tw-min-w-full tw-leading-normal tw-border--none"
-                  >
-                    <thead>
-                      <tr>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          ID
+              <table class="tw-w-full tw-flex tw-flex-row tw-flex-no-wrap sm:tw-bg-white tw-rounded-lg tw-overflow-hidden sm:tw-shadow-lg tw-my-5">
+                <thead class="tw-text-white ">
+                  {orders &&
+                    orders.map((order, index) => (
+                      <tr
+                        key={order._id}
+                        class="tw-bg-gray-200 tw-flex tw-flex-col tw-flex-no-wrap sm:tw-table-row tw-rounded-l-lg sm:tw-rounded-none tw-mb-2 sm:tw-mb-0"
+                      >
+                        <th class="tw-p-3 sm:tw-text-xs tw-text-left tw-bg-gray-300  lg:tw-border-b-2   tw-border-gray-200 sm:tw-bg-gray-100 tw-text-left  tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
+                          Items
                         </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          DATE
+
+                        <th class="tw-p-3 sm:tw-text-xs tw-text-left tw-bg-gray-300 lg:tw-border-b-2  tw-hidden lg:tw-table-cell tw-border-gray-200 sm:tw-bg-gray-100 tw-text-left  tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
+                          Order Date
                         </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          Total
+
+                        <th class="tw-p-3 sm:tw-text-xs tw-text-left tw-bg-gray-300  lg:tw-border-b-2  tw-border-gray-200 sm:tw-bg-gray-100 tw-text-left  tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
+                          Paid
                         </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          PAID
+                        <th class="tw-p-3 sm:tw-text-xs tw-text-left tw-bg-gray-300  lg:tw-border-b-2 tw-hidden lg:tw-table-cell tw-border-gray-200 sm:tw-bg-gray-100 tw-text-left  tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
+                          Status
                         </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          DELIVERED
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          Details
+                        <th
+                          class="tw-p-3 sm:tw-text-xs tw-text-left tw-bg-gray-300  lg:tw-border-b-2 lg:tw-table-cell tw-border-gray-200 sm:tw-bg-gray-100 tw-text-left  tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider "
+                          width="110px"
+                        >
+                          Actions
                         </th>
                       </tr>
-                    </thead>
-                    <tbody>
-                      {orders.map((order) => (
-                        <tr key={order._id}>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <div class="tw-flex tw-items-center">
-                              <div class="tw-ml-3">
-                                <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                                  {order._id}
-                                </p>
+                    ))}
+                </thead>
+                <tbody class="tw-flex-1 sm:tw-flex-none">
+                  {orders &&
+                    orders.map((order, index) => (
+                      <tr
+                        key={order._id}
+                        class="tw-flex tw-flex-col tw-flex-no tw-no-wrap sm:tw-table-row tw-mb-2 sm:tw-mb-0"
+                      >
+                        <td class=" tw-bg-white tw-border-gray-100 tw-border tw-border-r-0  tw-p-3 ">
+                          <div class="tw-flex tw-items-center ">
+                            <img
+                              class="tw-border-white tw-rounded-full tw-object-cover sm:tw-h-16 sm:tw-w-16 tw-w-6 tw-h-6 sm:tw-rounded tw-relative"
+                              key={order.orderItems[0].image}
+                              src={order.orderItems[0].image}
+                              alt={order.title}
+                            />
+                            {order.orderItems.length > 1 && (
+                              <div
+                                class={` tw-h-6 tw-w-6 tw-text-xs lg:tw-flex tw-items-center tw-hidden tw-border-white tw-border tw-font-black tw-ml-12 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
+                              >
+                                +{order.orderItems.length - 1}
                               </div>
-                            </div>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                              {order.createdAt.substring(0, 10)}
-                            </p>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                              {order.totalPrice}
-                            </p>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            {order.isPaid ? (
-                              <span className=" tw-bg-green-200  tw-px-3 tw-py-1 tw-text-green-900  tw-bg-opacity-50 tw-rounded-full">
-                                {order.paidAt.substring(0, 10)}
-                              </span>
-                            ) : (
-                              <span className=" tw-bg-orange-200  tw-px-3 tw-py-1 tw-text-orange-900  tw-bg-opacity-50 tw-rounded-full">
-                                Not Paid
-                              </span>
                             )}
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <td>
-                              {order.isDelivered ? (
-                                <span className=" tw-bg-green-200  tw-px-3 tw-py-1 tw-text-green-900  tw-bg-opacity-50 tw-rounded-full">
-                                  {order.deliveredAt.substring(0, 10)}
-                                </span>
-                              ) : (
-                                <span className=" tw-bg-orange-200  tw-px-3 tw-py-1 tw-text-orange-900  tw-bg-opacity-50 tw-rounded-full">
-                                  Not Delivered
-                                </span>
-                              )}
-                            </td>
-                          </td>
+                          </div>
+                        </td>
+                        <td class=" tw-bg-white tw-border-gray-100 tw-text-gray-600 tw-text-sm tw-border tw-border-l-0 tw-border-r-0  tw-p-3 tw-hidden sm:tw-table-cell truncate">
+                          {order.createdAt.substring(0, 10)}
+                        </td>
 
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <LinkContainer to={`/order/${order._id}`}>
-                              <Button className="btn-sm" variant="light">
-                                Details
-                              </Button>
-                            </LinkContainer>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                        <td class=" tw-bg-white tw-border-gray-100 tw-border   tw-border-l-0 tw-border-r-0  tw-p-3 tw-hidden tw-font-medium tw-text-gray-600 hover:tw-text-red-600 hover:tw-font-medium tw-cursor-pointer">
+                          ${order.totalPrice}
+                        </td>
+                        <td class=" tw-bg-white tw-border-gray-100 tw-border  tw-p-3  tw-border-l-0 tw-border-r-0  tw-text-red-400 hover:tw-text-red-600 hover:tw-font-medium tw-cursor-pointer">
+                          {order.isPaid ? (
+                            <span className=" tw-bg-green-200  tw-px-2 tw-py-1 tw-text-green-900  tw-bg-opacity-50 tw-text-xs tw-rounded-full">
+                              {order.paidAt.substring(0, 10)}
+                            </span>
+                          ) : (
+                            <span className=" tw-bg-orange-200  tw-px-2 tw-py-1 tw-text-orange-900 tw-text-xs tw-bg-opacity-50 tw-rounded-full">
+                              Not Paid
+                            </span>
+                          )}
+                        </td>
+                        <td class=" tw-bg-white tw-border-gray-100 tw-border  tw-p-3 tw-hidden  tw-border-l-0 tw-border-r-0  lg:tw-table-cell tw-text-red-400 hover:tw-text-red-600 hover:tw-font-medium tw-cursor-pointer">
+                          {order.isDelivered ? (
+                            <span className=" tw-bg-green-200 tw-px-2 tw-py-1  tw-text-green-900 tw-text-xs  tw-bg-opacity-50 tw-rounded-full">
+                              Delivered on {order.deliveredAt.substring(0, 10)}
+                            </span>
+                          ) : (
+                            <span className=" tw-bg-orange-200 tw-px-2 tw-py-1  tw-text-orange-900 tw-text-xs tw-bg-opacity-50 tw-rounded-full">
+                              Not Delivered
+                            </span>
+                          )}
+                        </td>
+                        <td class="tw-bg-white tw-border-gray-100 tw-border  tw-p-3   tw-border-l-0 tw-text-red-400 hover:tw-text-red-600 hover:tw-font-medium tw-cursor-pointer">
+                          <span
+                            onClick={() => history.push(`/order/${order._id}`)}
+                          >
+                            <span class=" tw-text-xs tw-text-teal-500 tw-font-semibold hover:tw-bg-teal-600 hover:tw-text-green-100 tw-rounded-lg tw-cursor-pointer tw-text-gray-500">
+                              Order details
+                            </span>
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
             )}
           </Col>
         </Row>

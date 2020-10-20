@@ -6,6 +6,7 @@ import {
   basket,
   cogOutline,
   cogSharp,
+  personCircle,
   personCircleOutline,
   settingsOutline,
   storefront,
@@ -308,41 +309,41 @@ const Header = ({ addItem }) => {
                 cssClass="my-custom-class"
                 onDidDismiss={(e) => setShowAdminPopover(false)}
               >
-                <IonList>
-                  <IonListHeader>{userInfo.name}</IonListHeader>
-                  <IonCol>
-                    <IonItem item lines="none">
-                      <IonButton
-                        onClick={() => {
-                          history.push("/admin/userlist");
-                          setShowAdminPopover(false);
-                        }}
-                      >
-                        <IonText color="">Users</IonText>
-                      </IonButton>
-                    </IonItem>
-                    <IonItem item lines="none">
-                      <IonButton
-                        onClick={() => {
-                          history.push("/admin/productlist");
-                          setShowAdminPopover(false);
-                        }}
-                      >
-                        <IonText color="">Products</IonText>
-                      </IonButton>
-                    </IonItem>
-                    <IonItem item lines="none">
-                      <IonButton
-                        onClick={() => {
-                          history.push("/admin/orderlist");
-                          setShowAdminPopover(false);
-                        }}
-                      >
-                        <IonText color="">Orders</IonText>
-                      </IonButton>
-                    </IonItem>
-                  </IonCol>
-                </IonList>
+                <IonTitle className="tw-px-4 tw-py-2">Administrator</IonTitle>
+                <p className="tw-px-4 tw-bg-gray-200  tw-text-xs tw-font-medium tw-mx-4 tw-rounded-lg tw-py-2 tw-my-3 tw-shadow-inner tw-px-3">
+                  User: {userInfo.name}
+                </p>
+                <p className="tw-px-4 tw-bg-gray-200  tw-text-xs tw-font-medium tw-mx-4 tw-rounded-lg tw-py-2 tw-my-3 tw-shadow-inner tw-px-3">
+                  Role: Administrator
+                </p>
+                <div className="tw-p-3 tw-m-0 tw-flex tw-flex-col">
+                  <IonButton
+                    onClick={() => {
+                      history.push("/admin/userlist");
+                      setShowAdminPopover(false);
+                    }}
+                  >
+                    <IonText color="">Users</IonText>
+                  </IonButton>
+
+                  <IonButton
+                    onClick={() => {
+                      history.push("/admin/productlist");
+                      setShowAdminPopover(false);
+                    }}
+                  >
+                    <IonText color="">Manage Products</IonText>
+                  </IonButton>
+
+                  <IonButton
+                    onClick={() => {
+                      history.push("/admin/orderlist");
+                      setShowAdminPopover(false);
+                    }}
+                  >
+                    <IonText color="">Orders</IonText>
+                  </IonButton>
+                </div>
               </IonPopover>
             </>
           )}
@@ -352,7 +353,11 @@ const Header = ({ addItem }) => {
             className="tw-pl-3"
             onClick={() => setShowAdminPopover(true)}
           >
-            <IonIcon size="small" color="dark" icon={storefront}></IonIcon>
+            <IonIcon
+              className="tw-w-5 tw-h-5"
+              color="dark"
+              icon={storefront}
+            ></IonIcon>
           </IonButton>
 
           <IonButton
@@ -378,7 +383,7 @@ const Header = ({ addItem }) => {
               >
                 <IonList>
                   <IonListHeader>{userInfo.name}</IonListHeader>
-                  <IonItem item>
+                  <div className="tw-p-3 tw-m-0 tw-flex tw-flex-col">
                     <IonButton
                       onClick={() => {
                         history.push("/profile");
@@ -386,12 +391,12 @@ const Header = ({ addItem }) => {
                         setShowPopover(false);
                       }}
                     >
-                      <IonText color="">Profile</IonText>
+                      <IonText color="">My cropswap</IonText>
                     </IonButton>
                     <IonButton onClick={logoutHandler}>
                       <IonText color="">Logout</IonText>
                     </IonButton>
-                  </IonItem>
+                  </div>
                 </IonList>
               </IonPopover>
               <IonButton
@@ -402,7 +407,7 @@ const Header = ({ addItem }) => {
                 <IonIcon
                   color="dark"
                   className="tw-w-6 tw-h-6"
-                  icon={personCircleOutline}
+                  icon={personCircle}
                 ></IonIcon>
               </IonButton>
             </>

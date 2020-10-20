@@ -154,7 +154,6 @@ const OrderScreen = ({ match, history }) => {
                     Personal Details
                   </p>
 
-                  {/* <div class="font-bold h-6 mt-3 text-gray-600 text-xs leading-8 uppercase"><span class="text-red-400 mr-1"/>*</span> First Name</div> */}
                   <div className="tw-flex tw-gap-8">
                     <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
                       <IonInput
@@ -169,6 +168,7 @@ const OrderScreen = ({ match, history }) => {
                       />
                     </div>
                   </div>
+
                   <div className="tw-flex tw-gap-8">
                     <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
                       <input

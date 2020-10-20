@@ -96,7 +96,19 @@ const CartScreen = ({ match, location, history }) => {
                           style={{ maxWidth: "100px" }}
                         />
 
-                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                        <div className="tw-flex tw-flex-col">
+                          <Link to={`/product/${item.product}`}>
+                            {item.name}
+                          </Link>
+                          <span>
+                            <Link
+                              className="tw-text-xs tw-text-gray-700"
+                              to={`/product/${item.product}`}
+                            >
+                              {item.countInStock} left in stock
+                            </Link>
+                          </span>
+                        </div>
                       </div>
 
                       <div class="col">

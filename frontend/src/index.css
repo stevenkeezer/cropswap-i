@@ -148,6 +148,25 @@ ion-item {
   max-width: 75rem !important;
 }
 
+@media (min-width: 575px) {
+  table {
+    display: inline-table !important;
+  }
+
+  thead tr:not(:first-child) {
+    display: none;
+  }
+}
+
+@media (max-width: 575px) {
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  }
+}
+td:not(:last-child) {
+  border-bottom: 0;
+}
+
 /**
  * carousel control style
  */
