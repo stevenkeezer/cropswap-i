@@ -215,7 +215,6 @@ const CartScreen = ({ match, location, history }) => {
                   </Row>
                 </ListGroup.Item>
 
-                <hr />
                 <p class="tw-justify-end tw-flex mb-3 tw-px-5 tw-pt-3">
                   <img
                     src="/images/payments.png"
