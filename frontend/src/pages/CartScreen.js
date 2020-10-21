@@ -162,7 +162,7 @@ const CartScreen = ({ match, location, history }) => {
                   <div class="">
                     <button
                       disabled
-                      class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-text-gray-800 tw-font-bold tw-py-4 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
+                      class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-text-gray-800 tw-font-bold tw-py-3 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
                     >
                       Apply
                     </button>
@@ -203,7 +203,7 @@ const CartScreen = ({ match, location, history }) => {
                     <Col className="tw-text-right">+ $0.00</Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroup.Item className="tw-border-none">
+                <ListGroup.Item lines="false" className="tw-border-none">
                   <Row>
                     <Col className="tw-font-bold tw-text-gray-800">Total:</Col>
                     <Col className="tw-text-right tw-font-bold tw-text-gray-800">
