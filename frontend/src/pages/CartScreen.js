@@ -177,7 +177,7 @@ const CartScreen = ({ match, location, history }) => {
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
             <div className="card tw-border-none tw-shadow tw-rounded-lg  ">
-              <ListGroup variant="flush">
+              <ListGroup variant="flush" lines="none">
                 <div className="b tw-pb-2 tw-mb-3 tw-p-5">
                   <IonText className="tw-font-semibold ">Subtotal</IonText>
                   <span className="tw-text-gray-800 tw-text-lg  tw-font-semibold">
