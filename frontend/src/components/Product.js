@@ -29,10 +29,10 @@ export default function Product({ product, history }) {
 
   console.log(product);
   return (
-    <IonCard style={{ boxShadow: "none" }}>
-      <IonItemSliding key={product.image}>
+    <IonCard style={{ boxShadow: "none" }} className="tw-rounded-none">
+      <IonItemSliding key={product.image} className="tw-rounded-none">
         <IonItem
-          className="ion-no-padding"
+          className="ion-no-padding tw-rounded-none"
           lines="none"
           style={{
             paddingTop: "0px !important",
@@ -50,7 +50,7 @@ export default function Product({ product, history }) {
               {(src) => (
                 <img
                   src={product.image}
-                  className="tw-rounded tw-shadow-sm tw-object-cover  md:tw-w-full sm:tw-h-56 tw-h-64 tw-w-full"
+                  className=" tw-shadow-sm tw-object-cover  md:tw-w-full sm:tw-h-56 tw-h-64 tw-w-full"
                   alt="an alternative text"
                 />
               )}

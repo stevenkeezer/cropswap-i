@@ -4,6 +4,8 @@ import FormContainer from "../components/FormContainer";
 import CheckoutSteps from "../components/CheckoutSteps";
 import SvgHero from "../components/SvgHero";
 import { saveShippingAddress } from "../actions/cartActions";
+import { Link } from "react-router-dom";
+
 import {
   Row,
   Col,
@@ -32,7 +34,7 @@ import {
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress, loading } = cart;
+  const { shippingAddress, loading, cartItems } = cart;
 
   const [address, setAddress] = useState(
     shippingAddress && shippingAddress.address
@@ -53,19 +55,24 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
   return (
-    <div className="tw-bg-gray-100">
+    <div className="tw-bg-gray-100 tw-h-screen">
       <div>
         <CheckoutSteps step1 step2 />
       </div>
       <Container className="tw-flex tw-justify-center">
-        <Row className="tw-gap-6 tw-justify-center tw-mx-auto">
-          <IonCol className=" " sizeLg="8">
-            <div className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto tw-font-medium tw-max-w-screen-xl">
-              Select a delivery method
-              <div class="card mb-4 tw-rounded-lg tw-shadow tw-p-5 tw-mt-3 ">
+        <Row className=" tw-justify-center tw-mx-auto">
+          <Col md={8}>
+            <div className=" tw-text-xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto tw-font-medium tw-max-w-screen-xl">
+              <IonTitle
+                className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+                style={{ fontWeight: "500" }}
+              >
+                Select a Delivery Method
+              </IonTitle>
+              <div class="card tw-rounded-lg tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
                 <div class="row">
-                  <div class="form-group col-sm-6">
-                    <label class="">
+                  <div class=" col-sm-6 ">
+                    <label class="tw-mb-0">
                       <input
                         type="radio"
                         name="demo"
@@ -73,39 +80,33 @@ const ShippingScreen = ({ history }) => {
                         class="card-input-element d-none"
                         value="demo2"
                       />
-                      <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-16 ">
+                      <div class="card card-body bg-light d-flex flex-row tw-border justify-content-between align-items-center tw-py-10 ">
                         <div>
                           <span className="tw-font-semibold tw-text-lg">
                             Pickup
                           </span>
-                          <div className="tw-pt-5 tw-text-sm tw-italic">
-                            Grab your items at a set location.
-                          </div>
                         </div>
+
                         <SvgHero />
                       </div>
                     </label>
                   </div>
-                  <div class="form-group col-sm-6">
-                    <label class="">
+                  <div class=" col-sm-6">
+                    <label class="tw-mb-0">
                       <input
                         type="radio"
                         name="demo"
                         class="card-input-element d-none"
                         value="demo2"
                       />
-
-                      <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-16">
+                      <div class="card card-body bg-light  d-flex flex-row justify-content-between align-items-center tw-py-10 ">
                         <div>
-                          <span className="tw-font-semibold tw-pb-3 tw-text-lg">
+                          <span className="tw-font-semibold tw-text-lg">
                             Delivery
                           </span>
-                          <div className="tw-pt-5 tw-text-sm tw-italic">
-                            Get your items delivered via Grubhub.
-                          </div>
                         </div>
                         <svg
-                          class="tw-w-24 tw-h-24 tw-smx-16"
+                          class="tw-w-24 tw-h-24 tw-sm-16"
                           id="76d98801-3a87-461e-b488-021b663cdcb4"
                           data-name="Layer 1"
                           xmlns="http://www.w3.org/2000/svg"
@@ -768,12 +769,20 @@ const ShippingScreen = ({ history }) => {
                     </label>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <IonItem>
+              </div>
+              <IonTitle
+                className=" tw-text-xl  tw-pb-3 tw-mt-8 tw-px-0 tw-mt-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+                style={{ fontWeight: "500" }}
+              >
+                Shipping Information
+              </IonTitle>
+              <div class="card tw-rounded-lg tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
+                <div class="row tw-mr-1 tw--mt-2">
+                  <div class="form-group col-sm-6 tw-p-0 tw-m-0 ">
+                    <IonItem lines="none">
                       <IonLabel position="floating">City</IonLabel>
                       <IonInput
+                        // class="tw-bg-gray-200 tw-text-gray-700 tw-border  tw-rounded tw-px-10  tw-mt-3 tw-leading-tight focus:tw-outline-none focus:tw-bg-white"
                         type="text"
                         onIonChange={(e) => {
                           setCity(e.detail.value);
@@ -784,8 +793,8 @@ const ShippingScreen = ({ history }) => {
                       />
                     </IonItem>
                   </div>
-                  <div class="form-group col-sm-6">
-                    <IonItem>
+                  <div class="form-group col-sm-6 tw-p-0 tw-m-0">
+                    <IonItem lines="none">
                       <IonLabel position="floating">Country</IonLabel>
                       <IonInput
                         type="text"
@@ -798,8 +807,8 @@ const ShippingScreen = ({ history }) => {
                       />
                     </IonItem>
                   </div>
-                  <div class="form-group col-sm-8">
-                    <IonItem>
+                  <div class="form-group col-sm-12 tw-p-0 tw-m-0">
+                    <IonItem lines="none">
                       <IonLabel position="floating">Street</IonLabel>
                       <IonInput
                         type="text"
@@ -812,8 +821,8 @@ const ShippingScreen = ({ history }) => {
                       />
                     </IonItem>
                   </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
+                  <div class="form-group col-sm-4 tw-p-0 tw-m-0">
+                    <IonItem lines="none">
                       <IonLabel position="floating">Building</IonLabel>
                       <IonInput
                         type="text"
@@ -822,12 +831,12 @@ const ShippingScreen = ({ history }) => {
                         // }}
                         name="address"
                         required
-                        placeholder=""
+                        placeholder="Apartment, Suite, ect"
                       />
                     </IonItem>
                   </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
+                  <div class="form-group col-sm-4 tw-p-0 tw-m-0">
+                    <IonItem lines="none">
                       <IonLabel position="floating">State</IonLabel>
                       <IonInput
                         type="text"
@@ -840,8 +849,8 @@ const ShippingScreen = ({ history }) => {
                       />
                     </IonItem>
                   </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
+                  <div class="form-group col-sm-4 tw-p-0 tw-m-0 tw-mb-3">
+                    <IonItem lines="none">
                       <IonLabel position="floating">Postal Code</IonLabel>
                       <IonInput
                         type="text"
@@ -855,24 +864,51 @@ const ShippingScreen = ({ history }) => {
                     </IonItem>
                   </div>
                 </div>
-
-                <IonButton
-                  expand="full"
-                  style={{ margin: 14 }}
-                  onClick={submitHandler}
-                >
-                  Continue
-                </IonButton>
               </div>
             </div>
-          </IonCol>
+          </Col>
 
-          <IonCol sizeLg="3" size="12">
-            <div className=" tw-text-2xl tw-font-medium  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
-              Cart
-              <div className="card tw-mt-3">Cart hii</div>
+          <Col md={4}>
+            <IonTitle
+              className=" tw-text-xl  tw-pb-3  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+              style={{ fontWeight: "500" }}
+            >
+              Your Order
+            </IonTitle>
+            <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+              {cartItems &&
+                cartItems.map((item) => (
+                  <article className="card mb-3 tw-border-none tw-shadow">
+                    <div class="row ">
+                      <div class="tw-px-4 tw-flex tw-gap-3">
+                        <Image
+                          src={item.image}
+                          alt={item.name}
+                          className="border img-sm tw-rounded-l-lg"
+                          style={{ maxWidth: "100px" }}
+                        />
+                        {item.qty && (
+                          <div
+                            class={` tw-h-6 tw-w-6 tw-text-xs tw-flex tw-items-center  tw-border-white tw-border tw-font-black tw-ml-20 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
+                          >
+                            {item.qty}
+                          </div>
+                        )}
+                      </div>
+                      <Link to={`/product/${item.product}`}>
+                        <div className="tw-text-sm tw-mt-2">{item.name}</div>
+                        <div class="tw-text-gray-700 tw-text-sm tw-mt-1 tw-font-medium">
+                          ${item.price}
+                        </div>
+                      </Link>
+                    </div>
+                  </article>
+                ))}
             </div>
-          </IonCol>
+            <IonButton expand="full" onClick={submitHandler}>
+              Continue
+            </IonButton>
+          </Col>
         </Row>
       </Container>
     </div>

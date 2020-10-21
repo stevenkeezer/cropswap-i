@@ -149,24 +149,28 @@ const CartScreen = ({ match, location, history }) => {
           <Col md={4}>
             <div className=" card tw-rounded-lg tw-border-none tw-shadow tw-mb-2">
               <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    {/* <label className="tw-text-gray-600 tw-font-medium tw-pb-1 tw-text-sm">
+                {/* <label className="tw-text-gray-600 tw-font-medium tw-pb-1 tw-text-sm">
                       Have a coupon?
                     </label> */}
-                    <div class="input-group tw-flex tw-items-center">
-                      <input
-                        type="text"
-                        class="form-control"
-                        name=""
-                        placeholder="Coupon code"
-                      />
-                      <span class="input-group-append">
-                        <IonButton class="">Apply</IonButton>
-                      </span>
-                    </div>
+                <div class=" tw-flex tw-items-baseline">
+                  <IonInput
+                    type="text"
+                    class="tw-mt-3 tw-mb-3 tw-mr-3 "
+                    name=""
+                    placeholder="Discount code"
+                  />
+                  <div class="">
+                    <button
+                      disabled
+                      class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-text-gray-800 tw-font-bold tw-py-4 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
+                    >
+                      Apply
+                    </button>
                   </div>
-                </form>
+                </div>
+                <span class="tw-italic tw-text-xs tw-text-gray-600 tw-px-1">
+                  No discounts or promotions available at this time
+                </span>
               </div>
             </div>
             {/* <IonText>
@@ -174,11 +178,12 @@ const CartScreen = ({ match, location, history }) => {
             </IonText> */}
             <div className="card tw-border-none tw-shadow tw-rounded-lg  ">
               <ListGroup variant="flush">
-                <div className="tw-border-b tw-pb-2 tw-mb-3 tw-p-5">
-                  <IonText className="tw-font-semibold ">
-                    Subtotal (
-                    {cartItems.reduce((acc, item) => acc + item.qty, 0)} item)
-                  </IonText>
+                <div className="b tw-pb-2 tw-mb-3 tw-p-5">
+                  <IonText className="tw-font-semibold ">Subtotal</IonText>
+                  <span className="tw-text-gray-800 tw-text-lg  tw-font-semibold">
+                    {" "}
+                    ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
+                  </span>
                 </div>
 
                 <ListGroup.Item className="tw-border-none ">
@@ -195,7 +200,7 @@ const CartScreen = ({ match, location, history }) => {
                 <ListGroup.Item className="tw-border-none ">
                   <Row className="">
                     <Col>Discount:</Col>
-                    <Col className="tw-text-right">$0.00</Col>
+                    <Col className="tw-text-right">+ $0.00</Col>
                   </Row>
                 </ListGroup.Item>
                 <ListGroup.Item className="tw-border-none">
@@ -220,16 +225,15 @@ const CartScreen = ({ match, location, history }) => {
                 </p>
               </ListGroup>
             </div>
-            <Card className="tw-border-none tw-shadow tw-py-5 tw-mt-3 tw-p-4">
-              <IonButton
-                type="button"
-                className="btn-block"
-                disabled={cartItems.length === 0}
-                onClick={checkoutHandler}
-              >
-                Proceed To Checkout
-              </IonButton>
-            </Card>
+
+            <IonButton
+              expand="full"
+              className="tw-mt-2"
+              disabled={cartItems.length === 0}
+              onClick={checkoutHandler}
+            >
+              Proceed to checkout
+            </IonButton>
           </Col>
         </Row>
       </Container>

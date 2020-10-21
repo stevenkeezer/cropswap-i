@@ -5,8 +5,8 @@ import { LinkContainer } from "react-router-bootstrap";
 const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
   return (
     <div>
-      <div class="tw-p-4 tw-max-w-screen-md tw-mx-auto">
-        <div class="tw-mx-4 tw-p-4 tw-mb-8">
+      <div class="tw-pt-2 tw-max-w-screen-md tw-mx-auto">
+        <div class="tw-mx-4 tw-p-4 tw-mb-12">
           <div class="tw-flex tw-items-center">
             <div class="tw-flex tw-items-center tw-text-teal-600 tw-relative">
               <div class="tw-rounded-full tw-transition tw-duration-500 tw-ease-in-out tw-h-12 tw-w-12 tw-py-3 tw-border-2 tw-border-teal-600">
@@ -25,7 +25,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
                   <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
                 </svg>
               </div>
-              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-16 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-teal-600">
+              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-12 tw-pt-2 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-teal-600">
                 {step1 ? (
                   <LinkContainer to="/login">
                     <Nav.Link>Sign In</Nav.Link>
@@ -62,7 +62,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
                   <line x1="23" y1="11" x2="17" y2="11"></line>
                 </svg>
               </div>
-              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-16 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-teal-600">
+              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-12 tw-pt-2 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-teal-600">
                 {step2 ? (
                   <LinkContainer to="/shipping">
                     <Nav.Link>Shipping</Nav.Link>
@@ -111,7 +111,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
               </div>
-              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-16 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-gray-500">
+              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-12 tw-pt-2 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-gray-500">
                 {step3 ? (
                   <LinkContainer to="/payment">
                     <Nav.Link>Payment</Nav.Link>
@@ -155,7 +155,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
                   <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                 </svg>
               </div>
-              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-16 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-gray-500">
+              <div class="tw-absolute tw-top-0 tw--ml-10 tw-text-center tw-mt-12 tw-pt-2 tw-w-32 tw-text-xs tw-font-medium tw-uppercase tw-text-gray-500">
                 {step4 ? (
                   <LinkContainer to="/placeorder">
                     <Nav.Link>Place Order</Nav.Link>

@@ -64,26 +64,21 @@ const PaymentScreen = ({ history }) => {
     <div className="tw-h-screen  tw-bg-gray-100">
       <Container>
         <CheckoutSteps step1 step2 step3 />
-        <div
-          className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
-          style={{ fontWeight: "500" }}
-        >
-          {/* {initializationError && initializationError.message} */}
-          Select a payment method
-        </div>
-        <Row className="tw-max-w-screen-lg tw-mx-auto">
-          <IonCol
-            className="card mb-3 tw-border-none tw-shadow tw-rounded-lg tw-p-5"
-            sizeLg="6"
-          >
-            <div className="tw-flex tw-items-baseline">
-              <span className="tw-text-sm">(pick one of the items below)</span>
-            </div>
-            <IonList>
-              <IonItem className="tw-px-2 tw-pr-6" lines="none">
+
+        <Row className=" tw-mx-auto ">
+          <Col md={8}>
+            <IonTitle
+              className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+              style={{ fontWeight: "500" }}
+            >
+              Select a Payment Method
+            </IonTitle>
+
+            <IonList className="tw-shadow tw-mt-3 tw-mb-8">
+              <IonItem className="tw-px-2 tw-pr-6 " lines="none">
                 <IonCheckbox
                   id="Paypal"
-                  className="tw-mr-10"
+                  className="tw-mr-10 "
                   name="paymentMethod"
                   value="Paypal"
                   checked
@@ -97,7 +92,7 @@ const PaymentScreen = ({ history }) => {
                     class="card-input-element d-none"
                     value="demo2"
                   />
-                  <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-12 ">
+                  <div class="card card-body bg-light d-flex  flex-row justify-content-between align-items-center tw-py-12 tw-w-64">
                     <div>
                       <span className="tw-font-semibold  tw-flex tw-items-center tw-gap-2">
                         {" "}
@@ -115,50 +110,53 @@ const PaymentScreen = ({ history }) => {
                 </IonLabel>
               </IonItem>
             </IonList>
-          </IonCol>
+          </Col>
 
-          <div> Cart</div>
-          <IonCol className="" sizeLg="">
-            <div
-              className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto card mb-3 tw-border-none tw-shadow tw-rounded-lg "
+          <Col md={4}>
+            <IonTitle
+              className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
               style={{ fontWeight: "500" }}
             >
-              {/* {initializationError && initializationError.message} */}
+              Your Order
+            </IonTitle>
+            <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
                   <article className="card mb-3 tw-border-none tw-shadow">
-                    <div class="row align-items-center tw-p-5">
-                      <div class="col-md-6 tw-flex tw-gap-3">
+                    <div class="row ">
+                      <div class="tw-px-4 tw-flex tw-gap-3">
                         <Image
                           src={item.image}
                           alt={item.name}
-                          className="border img-sm"
+                          className="border img-sm tw-rounded-l-lg"
                           style={{ maxWidth: "100px" }}
                         />
-
-                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                        {item.qty && (
+                          <div
+                            class={` tw-h-6 tw-w-6 tw-text-xs tw-flex tw-items-center  tw-border-white tw-border tw-font-black tw-ml-20 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
+                          >
+                            {item.qty}
+                          </div>
+                        )}
                       </div>
+                      <Link to={`/product/${item.product}`}>
+                        <div className="tw-text-sm tw-mt-2">{item.name}</div>
 
-                      <div class="col">
-                        <div class="price h5"> ${item.price} </div>
-                      </div>
+                        <div class="tw-text-gray-700 tw-text-sm tw-mt-1 tw-font-medium">
+                          ${item.price}
+                        </div>
+                      </Link>
                     </div>
                   </article>
                 ))}
             </div>
-            <div className="tw-flex tw-items-baseline"></div>
-            <IonList>
-              <IonItem className="tw-px-2 tw-pr-6" lines="none"></IonItem>
-            </IonList>
+
             <div>
               <IonButton expand="full" onClick={submitHandler}>
                 Continue
               </IonButton>
-              <p className="tw-text-xs">
-                You can review this order before it's final
-              </p>
             </div>
-          </IonCol>
+          </Col>
         </Row>
       </Container>
     </div>

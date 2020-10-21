@@ -24,6 +24,7 @@ const ProductCarousel = () => {
   ) : (
     <>
       <Carousel
+        pause="false"
         fade
         // interval={5000}
         style={{
@@ -37,23 +38,16 @@ const ProductCarousel = () => {
             key={product._id}
             className={`${
               index === 0
-                ? "carousel-image-one"
-                : index === 1
                 ? "carousel-image-two"
-                : "carousel-image-one"
+                : index === 1
+                ? "carousel-image-one"
+                : "carousel-image-three"
             }`}
           >
             <Link
               to={`/product/${product._id}`}
               className="tw-flex tw-justify-between tw-w-full hover:tw-no-underline"
             >
-              {/* <IonImg
-                src={product.image}
-                alt={product.name}
-                fluid
-                className=" tw-w-56 tw-m-10 tw-rounded-full tw-h-56"
-              /> */}
-
               <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 lg:tw-mx-8 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
                 <div class="tw-absolute tw-top-0 tw-right-0 ">
                   <svg

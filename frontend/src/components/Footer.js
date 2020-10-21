@@ -53,9 +53,9 @@ const Footer = () => (
               cropswap
             </span>
           </div>
-          <div className="tw-text-gray-600 tw-text-sm tw-mt-4">
-            A community connecting farmers consumers, people, retailers, and
-            brands since 2020.
+          <div className="tw-text-gray-600 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
+            Connecting farmers consumers, people, retailers, and brands since
+            2020.
           </div>
         </a>
         <div class="tw-w-2/3 tw-block sm:tw-flex tw-text-sm tw-mt-6 lg:tw-mt-0">
