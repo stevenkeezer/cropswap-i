@@ -25,6 +25,7 @@ import {
   IonInput,
   IonIcon,
   IonCol,
+  IonThumbnail,
   IonList,
   IonCardHeader,
   IonSelect,
@@ -89,12 +90,15 @@ const CartScreen = ({ match, location, history }) => {
                   <article className="card tw-rounded-lg mb-3 tw-border-none tw-shadow">
                     <div class="row align-items-center tw-p-5">
                       <div class="col-md-6 tw-flex tw-gap-3">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          className="border img-sm"
-                          style={{ maxWidth: "100px" }}
-                        />
+                        <IonItem lines="none">
+                          <IonThumbnail slot="start">
+                            <img
+                              src={item.image}
+                              alt={item.name}
+                              className="tw-p-0"
+                            />
+                          </IonThumbnail>
+                        </IonItem>
 
                         <div className="tw-flex tw-flex-col">
                           <Link to={`/product/${item.product}`}>
