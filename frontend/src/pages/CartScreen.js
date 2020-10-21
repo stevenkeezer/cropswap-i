@@ -203,7 +203,7 @@ const CartScreen = ({ match, location, history }) => {
                     <Col className="tw-text-right">+ $0.00</Col>
                   </Row>
                 </ListGroup.Item>
-                <ListGroup.Item lines="false" className="tw-border-none">
+                <ListGroup.Item lines="none" className="tw-border-none">
                   <Row>
                     <Col className="tw-font-bold tw-text-gray-800">Total:</Col>
                     <Col className="tw-text-right tw-font-bold tw-text-gray-800">
