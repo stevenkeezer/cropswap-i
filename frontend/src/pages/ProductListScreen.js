@@ -5,7 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import Paginate from "../components/Paginate";
-import { IonIcon } from "@ionic/react";
+import ProductTable from "../components/ProductTable";
+
+import { IonIcon, IonButton } from "@ionic/react";
 
 import {
   checkmarkOutline,
@@ -79,69 +81,42 @@ const ProductListScreen = ({ history, match }) => {
   };
 
   return (
-    <Container>
-      <Row className="align-items-center">
-        <Col>
-          <h1>Products</h1>
-        </Col>
-        <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler}>
+    <div className="lg:tw-bg-gray-100 ">
+      <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
+        <div className="tw-flex tw-pt-8 tw-justify-between">
+          <div className="tw-text-2xl tw-font-semibold">Products</div>
+          <IonButton className="" onClick={createProductHandler}>
             <i className="fas fa-plus"></i> Create Product
-          </Button>
-        </Col>
-      </Row>
-      {loadingDelete && <Loader />}
-      {errorDelete && <Message variant="danger">{errorDelete}</Message>}
-      {loadingCreate && <Loader />}
-      {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant="danger">{error}</Message>
-      ) : (
-        <>
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {products &&
-                products.map((product) => (
-                  <tr key={product._id}>
-                    <td>{product._id}</td>
-                    <td>{product.name}</td>
-                    <td>${product.price}</td>
-                    <td>{product.category}</td>
-                    <td>{product.brand}</td>
-                    <td>
-                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                        <Button variant="light" className="btn-sm">
-                          <IonIcon size="small" icon={createOutline}></IonIcon>
-                        </Button>
-                      </LinkContainer>
-                      <Button
-                        variant="danger"
-                        className="btn-sm"
-                        onClick={() => deleteHandler(product._id)}
-                      >
-                        <IonIcon size="small" icon={trashOutline}></IonIcon>
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </Table>
-          <Paginate pages={pages && pages} page={page && page} isAdmin={true} />
-        </>
-      )}
-    </Container>
+          </IonButton>
+        </div>
+
+        {loadingDelete && <Loader />}
+        {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+        {loadingCreate && <Loader />}
+        {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+        {loading ? (
+          <Loader />
+        ) : error ? (
+          <Message variant="danger">{error}</Message>
+        ) : (
+          <>
+            <div className="tw-text-2xl tw-font-semibold  lg:tw-shadow  tw-mt-4 tw-mx-auto">
+              <ProductTable
+                products={products}
+                deleteHandler={deleteHandler}
+                history={history}
+              />
+            </div>
+            <br></br>
+            <Paginate
+              pages={pages && pages}
+              page={page && page}
+              isAdmin={true}
+            />
+          </>
+        )}
+      </div>
+    </div>
   );
 };
 

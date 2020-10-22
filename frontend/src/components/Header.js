@@ -14,7 +14,7 @@ import {
   storefrontOutline,
   storefrontSharp,
 } from "ionicons/icons";
-import ReactTooltip from "react-tooltip";
+import AdminButton from "../components/AdminButton";
 
 import { useHistory } from "react-router";
 import {
@@ -65,6 +65,7 @@ import { MobXProviderContext, observer } from "mobx-react";
 import AddItemModal from "../pages/AddItemModal2";
 import { logout } from "../actions/userActions";
 import SearchBox from "./SearchBox";
+import ContextMenu from "./ContextMenu";
 
 const Header = ({ addItem }) => {
   const history = useHistory();
@@ -209,20 +210,19 @@ const Header = ({ addItem }) => {
 
   return (
     <IonHeader
-      className="ion-no-border"
+      className="ion-no-border tw-bg-white"
       style={{ borderBottom: "0.0625rem solid rgb(230, 229, 229)" }}
     >
-      <ReactTooltip />
       <IonToolbar
         style={{
-          paddingTop: ".225rem",
           maxWidth: "75rem",
+          paddingTop: ".225rem",
           marginLeft: "auto",
           marginRight: "auto",
           paddingBottom: ".2rem",
         }}
       >
-        <div no-padding className="lg:tw-mt-2">
+        <div no-padding>
           <Route render={({ history }) => <SearchBox history={history} />} />
           <div
             style={{ color: "rgb(74, 74, 74) !important" }}
@@ -350,17 +350,9 @@ const Header = ({ addItem }) => {
             </>
           )}
 
-          <IonButton
-            data-tip="Farm manager"
-            className="tw-pl-3"
-            onClick={() => setShowAdminPopover(true)}
-          >
-            <IonIcon
-              className="tw-w-5 tw-h-5"
-              color="dark"
-              icon={storefrontSharp}
-            ></IonIcon>
-          </IonButton>
+          <div onClick={() => setShowAdminPopover(true)}>
+            <AdminButton />
+          </div>
 
           <IonButton
             size="large"
@@ -404,17 +396,12 @@ const Header = ({ addItem }) => {
                   </div>
                 </IonList>
               </IonPopover>
-              <IonButton
-                classnName="tw-pl-10"
-                onClick={() => setShowPopover(true)}
-              >
-                {/* {userInfo.name} */}
-                <IonIcon
-                  color="dark"
-                  className="tw-w-6 tw-h-6"
-                  icon={personCircleSharp}
-                ></IonIcon>
-              </IonButton>
+
+              <ContextMenu
+                userInfo={userInfo}
+                history={history}
+                logoutHandler={logoutHandler}
+              />
             </>
           ) : (
             <IonButton

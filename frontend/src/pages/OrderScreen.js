@@ -120,7 +120,7 @@ const OrderScreen = ({ match, history }) => {
               <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
                 Shipping Details
               </IonTitle>
-              <Card className="tw-border-none tw-shadow tw-mb-3 tw-pb-6">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 tw-pb-6">
                 <ListGroup.Item className="tw-border-none">
                   <p className="tw-py-2 tw-pt-3 tw-font-semibold tw-text-gray-800 tw-text-sm">
                     Personal Details
@@ -186,7 +186,7 @@ const OrderScreen = ({ match, history }) => {
               <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
                 Payment Information
               </IonTitle>
-              <Card className="tw-border-none tw-shadow tw-pb-3 tw-mb-3 ">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 tw-mb-3 ">
                 <ListGroup.Item className="tw-border-none tw-pb-6">
                   <p>
                     {order.paymentMethod && (
@@ -215,7 +215,7 @@ const OrderScreen = ({ match, history }) => {
               <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
                 Order Items
               </IonTitle>
-              <Card className="tw-border-none tw-shadow tw-mb-3 ">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 ">
                 <ListGroup.Item className="tw-border-none">
                   {order.orderItems.length === 0 ? (
                     <Message>Order is empty</Message>
@@ -253,7 +253,7 @@ const OrderScreen = ({ match, history }) => {
           </Col>
           <Col md={4}>
             <IonTitle className="tw-p-0 tw-pb-4">Order Summary</IonTitle>
-            <Card className="tw-border-none tw-shadow mb-3 tw-py-5">
+            <Card className="tw-border-none tw-shadow tw-rounded mb-3 tw-py-5">
               <ListGroup variant="flush">
                 <ListGroup.Item className="tw-border-none">
                   <Row>

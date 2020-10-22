@@ -19,6 +19,9 @@ ion-item {
   --inner-padding-start: 0;
   --inner-padding-top: 0;
 }
+.euiPanel {
+  border: none !important;
+}
 
 :root {
   --ion-color-primary: #008480;
@@ -141,7 +144,7 @@ ion-input {
   --background: #f5f5f5 !important;
   --padding-top: 0.75rem !important;
   --padding-bottom: 0.75rem !important;
-  margin-top: 0.725rem !important;
+  /* margin-top: 0.725rem !important; */
   border-radius: 0.25rem;
   /* height: 15%; */
   /* width: 41%; */
@@ -180,6 +183,51 @@ ion-input {
 
   thead tr:not(:first-child) {
     display: none;
+  }
+
+  .euiTableCellContent {
+    padding: 0.75rem !important;
+  }
+}
+
+#count-notify {
+  border: 1px solid white;
+}
+
+table {
+  border-spacing: 0 !important;
+}
+th,
+td {
+  border: 1px solid #000;
+  padding: 2px !important;
+}
+/* the first 'th' within the first 'tr' of the 'thead': */
+thead tr:first-child th:first-child {
+  border-radius: 0.6em 0 0 0 !important;
+}
+/* the last 'th' within the first 'tr' of the 'thead': */
+thead tr:first-child th:last-child {
+  border-radius: 0 0.6em 0 0 !important;
+}
+/* the first 'td' within the last 'tr' of the 'tbody': */
+tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 0.6em !important;
+}
+/* the last 'td' within the last 'tr' of the 'tbody': */
+tbody tr:last-child td:last-child {
+  border-radius: 0 0 0.6em 0 !important;
+}
+
+@media (min-width: 767px) {
+  .euiTableRowCell,
+  .euiTableRowCellCheckbox {
+    vertical-align: middle;
+    border-top: 1px solid #eeeeee !important;
+    border-bottom: 1px solid #eeeeee !important;
+    /* font-weight: inherit; */
+    text-align: inherit;
+    color: #343741;
   }
 }
 

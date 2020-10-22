@@ -122,13 +122,13 @@ const PaymentScreen = ({ history }) => {
             <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <article className="card mb-3 tw-border-none tw-shadow">
+                  <article className="tw-rounded mb-3 tw-border-none tw-shadow">
                     <div class="row ">
                       <div class="tw-px-4 tw-flex tw-gap-3">
                         <Image
                           src={item.image}
                           alt={item.name}
-                          className="border img-sm tw-rounded-l-lg"
+                          className="border img-sm tw-rounded"
                           style={{ maxWidth: "100px" }}
                         />
                         {item.qty && (

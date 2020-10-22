@@ -101,7 +101,7 @@ const HomeScreen = ({ match }) => {
       >
         {!keyword ? (
           <>
-            <Alert></Alert>
+            {/* <Alert></Alert> */}
             <Carousel />
 
             <Categories history={history} />
@@ -761,13 +761,14 @@ const HomeScreen = ({ match }) => {
                   <Product product={product} history={history} />
                 </IonCol>
               ))}
+            </IonRow>
+            <div className="tw-mx-auto tw-flex tw-justiy-center">
               <Paginate
-                className="tw-mx-auto"
                 pages={pages && pages}
                 page={page && page}
                 keyword={keyword ? keyword : ""}
               />
-            </IonRow>
+            </div>
             {/* <HomeHero /> */}
             {/* <Regions /> */}
 

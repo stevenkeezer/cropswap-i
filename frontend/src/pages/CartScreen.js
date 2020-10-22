@@ -87,18 +87,14 @@ const CartScreen = ({ match, location, history }) => {
             ) : (
               <ListGroup variant="flush">
                 {cartItems.map((item) => (
-                  <article className="card tw-rounded-lg mb-3 tw-border-none tw-shadow">
+                  <article className="card tw-rounded mb-3 tw-border-none tw-shadow">
                     <div class="row align-items-center tw-p-5">
                       <div class="col-md-6 tw-flex tw-gap-3">
-                        <IonItem lines="none">
-                          <IonThumbnail slot="start">
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              className="tw-p-0"
-                            />
-                          </IonThumbnail>
-                        </IonItem>
+                        <img
+                          class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                          alt={item.name}
+                          src={item.image}
+                        />
 
                         <div className="tw-flex tw-flex-col">
                           <Link to={`/product/${item.product}`}>
@@ -151,7 +147,7 @@ const CartScreen = ({ match, location, history }) => {
             )}
           </Col>
           <Col md={4}>
-            <div className=" card tw-rounded-lg tw-border-none tw-shadow tw-mb-2">
+            <div className=" card tw-rounded tw-border-none tw-shadow tw-mb-2">
               <div class="card-body">
                 {/* <label className="tw-text-gray-600 tw-font-medium tw-pb-1 tw-text-sm">
                       Have a coupon?
@@ -180,7 +176,7 @@ const CartScreen = ({ match, location, history }) => {
             {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
-            <div className="card tw-border-none tw-shadow tw-rounded-lg  ">
+            <div className="card tw-border-none tw-shadow tw-rounded  ">
               <ListGroup variant="flush" lines="none">
                 <div className="b tw-pb-2 tw-mb-3 tw-p-5">
                   <IonText className="tw-font-semibold ">Subtotal</IonText>

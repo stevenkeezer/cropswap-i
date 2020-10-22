@@ -75,7 +75,7 @@ const PlaceOrderScreen = ({ history }) => {
               <IonTitle className="tw-p-0 tw-pb-4">
                 Shipping Information
               </IonTitle>
-              <Card className="tw-border-none tw-shadow tw-mb-3">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3">
                 <ListGroup.Item className="tw-border-none">
                   <p>
                     <div className="tw-col">
@@ -90,7 +90,7 @@ const PlaceOrderScreen = ({ history }) => {
               </Card>
 
               <IonTitle className="tw-p-0 tw-pb-4">Payment Method</IonTitle>
-              <Card className="tw-border-none tw-shadow tw-py-2 tw-mb-3">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
                 <ListGroup.Item className="tw-border-none ">
                   {cart.paymentMethod && (
                     <div className="tw-font-semibold tw-bg-gray-100 tw-64 tw-shadow-inner tw-rounded-lg tw-px-3 tw-flex tw-items-center tw-gap-2 tw-py-3">
@@ -109,7 +109,7 @@ const PlaceOrderScreen = ({ history }) => {
                 </ListGroup.Item>
               </Card>
               <IonTitle className="tw-p-0 tw-pb-4">Order Items</IonTitle>
-              <Card className="tw-border-none tw-shadow tw-mb-3">
+              <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3">
                 <ListGroup.Item className="tw-border-none">
                   {cart.cartItems.length === 0 ? (
                     <Message>Your cart is empty</Message>
@@ -146,7 +146,7 @@ const PlaceOrderScreen = ({ history }) => {
           </Col>
           <Col md={4}>
             <IonTitle className="tw-p-0 tw-pb-4">Order Summary</IonTitle>
-            <Card className="tw-border-none tw-shadow tw-pt-4">
+            <Card className="tw-border-none tw-rounded tw-shadow tw-pt-4">
               <ListGroup variant="flush">
                 <ListGroup.Item className="tw-border-none">
                   <Row>

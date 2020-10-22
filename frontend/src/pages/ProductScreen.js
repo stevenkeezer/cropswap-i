@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header";
+import ElasticImage from "../components/ElasticImage";
+import ElasticComment from "../components/ElasticComment";
+
 import {
   Row,
   Col,
@@ -130,18 +133,8 @@ const ProductScreen = ({ history, match }) => {
             <>
               <Meta title={product.name} />
               <Row className="justify-content-center mt-4">
-                <Col md={6}>
-                  <IonCard>
-                    <IonCardHeader>
-                      <IonImg
-                        src={product.image}
-                        alt={product.name}
-                        fluid
-                        rounded
-                        border
-                      />
-                    </IonCardHeader>
-                  </IonCard>
+                <Col md={6} size={12}>
+                  <ElasticImage image={product.image} name={product.name} />
                 </Col>
 
                 <Col md={3}>
@@ -217,25 +210,18 @@ const ProductScreen = ({ history, match }) => {
                   </ListGroup>
                 </Col>
               </Row>
+
               <Row>
-                <Col md={6}>
-                  <h2>Reviews</h2>
+                <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
+                  <h2 className="tw-py-4">Customer Reviews</h2>
                   {product &&
                     product.reviews &&
                     product.reviews.length === 0 && (
                       <Message>No Reviews</Message>
                     )}
                   <ListGroup variant="flush">
-                    {product &&
-                      product.reviews &&
-                      product.reviews.map((review) => (
-                        <ListGroup.Item key={review._id}>
-                          <strong>{review.name}</strong>
-                          <Rating value={review.rating} />
-                          <p>{review.createdAt.substring(0, 10)}</p>
-                          <p>{review.comment}</p>
-                        </ListGroup.Item>
-                      ))}
+                    <ElasticComment reviews={product.reviews}></ElasticComment>
+
                     <ListGroup.Item>
                       <h2>Write a Customer Review</h2>
                       {errorProductReview && (
