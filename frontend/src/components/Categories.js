@@ -4,7 +4,7 @@ import { IonLoading, IonTitle, IonListHeader } from "@ionic/react";
 export default function Categories({ history }) {
   return (
     <>
-      <div className="tw-flex tw-justify-center tw-gap-5 tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl  tw-mx-auto">
+      <div className="tw-flex tw-justify-center tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl tw-gap-10 tw-mx-auto">
         <div class="tw-py-3 tw-text-center tw-focus:outline-none tw-border-8 tw-border-white tw-px-1">
           <div
             onClick={(e) => history.push("/search/onion")}
