@@ -66,9 +66,10 @@ const ProductCarousel = () => {
                 <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-m-2 tw-flex tw-items-center tw-w-full tw-pt-6 lg:tw-pt-0">
                   <div className="tw-border-4 tw-rounded-full tw-mr-5 ">
                     <img
+                      style={{ border: ".125rem solid white" }}
                       src={product.image}
                       alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-shadow-2xl tw-h-24"
+                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white tw-shadow-2xl tw-h-24"
                     />
                   </div>
                   <div className="tw-flex-col">
