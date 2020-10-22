@@ -225,10 +225,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
                         <span class="euiTableCellContent__text">
                           <div class="tw-flex tw-items-center ">
-                            {/* <ElasticImage
-                              image={product.image}
-                              name={product.name}
-                            /> */}
+  
                             <img
                               class="tw-border  tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
                               alt={product.name}
