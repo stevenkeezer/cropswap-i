@@ -215,7 +215,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                               name={product.name}
                             /> */}
                             <img
-                              class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                              class="tw-border tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
                               alt={product.name}
                               src={product.image}
                             />

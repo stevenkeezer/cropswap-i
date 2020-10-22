@@ -184,10 +184,6 @@ ion-input {
   thead tr:not(:first-child) {
     display: none;
   }
-
-  .euiTableCellContent {
-    padding: 0.75rem !important;
-  }
 }
 
 #count-notify {
