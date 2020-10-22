@@ -306,9 +306,7 @@ const OrderTable = ({ orders, deleteHandler, history }) => {
                         <span class="euiToolTipAnchor">
                           <button
                             class="euiButtonIcon euiButtonIcon--primary euiTableCellContent__hoverItem"
-                            onClick={(e) =>
-                              history.push(`/admin/product/${order._id}/edit`)
-                            }
+                            onClick={(e) => history.push(`/order/${order._id}`)}
                             type="button"
                             aria-labelledby="i4ba79141-13ea-11eb-a273-5b026e5e2741"
                           >
