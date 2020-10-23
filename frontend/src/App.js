@@ -1,38 +1,25 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import store from "./store";
-
-import {
-  IonApp,
-  IonRouterOutlet,
-  IonLoading,
-  IonContent,
-  IonFooter,
-} from "@ionic/react";
+import { IonApp, IonContent, IonLoading } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-
-import HomeScreen from "./pages/HomeScreen";
-import ProductScreen from "./pages/ProductScreen";
-import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
+import { observer } from "mobx-react";
+import React from "react";
+import { Route } from "react-router-dom";
+import Header from "./components/Header";
 import CartScreen from "./pages/CartScreen";
+import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
-import RegisterScreen from "./pages/RegisterScreen";
-import ProfileScreen from "./pages/ProfileScreen";
-import ShippingScreen from "./pages/ShippingScreen";
+import OrderListScreen from "./pages/OrderListScreen";
+import OrderScreen from "./pages/OrderScreen";
 import PaymentScreen from "./pages/PaymentScreen";
 import PlaceOrderScreen from "./pages/PlaceOrderScreen";
-import OrderScreen from "./pages/OrderScreen";
-import UserListScreen from "./pages/UserListScreen";
-import UserEditScreen from "./pages/UserEditScreen";
-import ProductListScreen from "./pages/ProductListScreen";
 import ProductEditScreen from "./pages/ProductEditScreen";
-import OrderListScreen from "./pages/OrderListScreen";
-
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-
-import { observer, MobXProviderContext } from "mobx-react";
+import ProductListScreen from "./pages/ProductListScreen";
+import ProductScreen from "./pages/ProductScreen";
+import ProfileScreen from "./pages/ProfileScreen";
+import RegisterScreen from "./pages/RegisterScreen";
+import ShippingScreen from "./pages/ShippingScreen";
+import UserEditScreen from "./pages/UserEditScreen";
+import UserListScreen from "./pages/UserListScreen";
+import store from "./store";
 
 const PublicRoutes = () => {
   return (

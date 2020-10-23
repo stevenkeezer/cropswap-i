@@ -1,18 +1,7 @@
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Container } from "react-bootstrap";
-import { IonIcon } from "@ionic/react";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
+import { deleteUser, listUsers } from "../actions/userActions";
 import UsersTable from "../components/UsersTable";
-import {
-  checkmarkOutline,
-  trashOutline,
-  createOutline,
-  closeOutline,
-} from "ionicons/icons";
-import Loader from "../components/Loader";
-import { listUsers, deleteUser } from "../actions/userActions";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();

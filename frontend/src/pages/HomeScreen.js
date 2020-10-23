@@ -1,65 +1,29 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { usePhotoGallery } from "../hooks/usePhotoGallery";
-import Meta from "../components/Meta";
-
-import Categories from "../components/Categories";
-import Paginate from "../components/Paginate";
-import { chevronBackOutline } from "ionicons/icons";
-import Alert from "../components/Alert";
-import HomeHero from "../components/HomeHero";
-
-import Header from "../components/Header";
-import { useHistory } from "react-router";
 import {
-  IonItem,
-  IonIcon,
   IonAlert,
-  IonError,
-  IonContent,
-  IonLoading,
-  IonTitle,
-  IonImg,
-  IonGrid,
-  IonRow,
-  IonActionSheet,
   IonCol,
-  IonSelect,
-  IonText,
-  IonList,
+  IonContent,
+  IonIcon,
+  IonLoading,
   IonPage,
-  IonThumbnail,
-  IonHeader,
-  IonToolbar,
-  IonLabel,
-  IonItemSliding,
-  IonItemOption,
-  IonItemOptions,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
-  IonButtons,
-  IonButton,
-  IonPopover,
-  IonCardContent,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonListHeader,
+  IonRow,
+  IonText,
+  IonTitle,
 } from "@ionic/react";
-import { IonRefresher, IonRefresherContent } from "@ionic/react";
-import { ellipsisVertical, ellipsisHorizontal } from "ionicons/icons";
-import Product from "../components/Product";
-import { listProducts } from "../actions/productActions.js";
-import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
-import Regions from "../components/Regions";
-
+import { chevronBackOutline } from "ionicons/icons";
 // MOBX
-import { MobXProviderContext, observer } from "mobx-react";
-import AddItemModal from "./AddItemModal2";
+import { observer } from "mobx-react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
+import Carousel from "../components/Carousel";
+import Categories from "../components/Categories";
+import Footer from "../components/Footer";
+import Meta from "../components/Meta";
+import Paginate from "../components/Paginate";
+import Product from "../components/Product";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;

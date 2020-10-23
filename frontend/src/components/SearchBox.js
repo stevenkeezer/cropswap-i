@@ -1,15 +1,15 @@
 import {
-  EuiText,
   EuiBadge,
-  EuiSelectableTemplateSitewide,
-  EuiSelectableTemplateSitewideOption,
+  EuiButton,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
-  EuiButton,
+  EuiSelectableTemplateSitewide,
+  EuiSelectableTemplateSitewideOption,
+  EuiText,
 } from "@elastic/eui";
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default ({ history }) => {
   const [keyword, setKeyword] = useState("");

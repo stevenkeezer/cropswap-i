@@ -1,26 +1,9 @@
-import React, { useState, useEffect } from "react";
-
-import Loader from "../components/Loader";
-
+import { EuiFieldPassword, EuiFieldText } from "@elastic/eui";
+import { IonButton, IonImg } from "@ionic/react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { EuiFieldText, EuiFieldPassword } from "@elastic/eui";
-
 import { login } from "../actions/userActions";
-import {
-  IonButtons,
-  IonButton,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonImg,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonToast,
-  IonText,
-  IonPage,
-  IonContent,
-} from "@ionic/react";
+import Loader from "../components/Loader";
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");

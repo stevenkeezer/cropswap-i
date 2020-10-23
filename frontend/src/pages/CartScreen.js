@@ -1,41 +1,11 @@
+import { IonButton, IonIcon, IonInput, IonText, IonTitle } from "@ionic/react";
+import { trashOutline } from "ionicons/icons";
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Row,
-  Col,
-  ListGroup,
-  Container,
-  Image,
-  Form,
-  Button,
-  Card,
-} from "react-bootstrap";
-import { chevronBackOutline, trashOutline } from "ionicons/icons";
-import {
-  IonCard,
-  IonImg,
-  IonRow,
-  IonText,
-  IonButton,
-  IonLoading,
-  IonPage,
-  IonProgressBar,
-  IonGrid,
-  IonInput,
-  IonIcon,
-  IonCol,
-  IonThumbnail,
-  IonList,
-  IonCardHeader,
-  IonSelect,
-  IonItem,
-  IonTitle,
-  IonSelectOption,
-} from "@ionic/react";
-
-import Message from "../components/Message";
+import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import Message from "../components/Message";
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;

@@ -1,18 +1,6 @@
-import React, { useState, Fragment } from "react";
-import ElasticImage from "../components/ElasticImage";
-import {
-  EuiFlexGroup,
-  EuiFlexItem,
-  EuiTitle,
-  EuiSpacer,
-  EuiBadge,
-  EuiFlexGrid,
-} from "@elastic/eui";
-
-import {
-  euiPaletteColorBlind,
-  euiPaletteColorBlindBehindText,
-} from "@elastic/eui/lib/services";
+import { EuiBadge, EuiFlexItem } from "@elastic/eui";
+import { euiPaletteColorBlindBehindText } from "@elastic/eui/lib/services";
+import React from "react";
 
 const ProductTable = ({ products, deleteHandler, history }) => {
   return (

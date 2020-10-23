@@ -1,14 +1,10 @@
-import React from "react";
 import {
-  EuiAvatar,
   EuiButtonIcon,
+  EuiCommentList,
+  EuiCommentProps,
   EuiText,
-  EuiBadge,
-  EuiFlexGroup,
-  EuiFlexItem,
 } from "@elastic/eui";
-
-import { EuiCommentList, EuiCommentProps } from "@elastic/eui";
+import React from "react";
 import Rating from "./Rating";
 
 const body = (

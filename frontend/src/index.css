@@ -213,6 +213,10 @@ ion-input {
   border: 1px solid white;
 }
 
+.euiKeyPadMenuItem:focus {
+  outline: none;
+}
+
 td,
 th {
   border: 1px solid transparent !important;

@@ -1,27 +1,7 @@
-import React, { useState } from "react";
-
-import {
-  EuiCheckboxGroup,
-  EuiComboBox,
-  EuiFieldText,
-  EuiFormRow,
-  EuiFilePicker,
-  EuiRange,
-  EuiSelect,
-  EuiSwitch,
-  EuiPanel,
-  EuiSpacer,
-} from "@elastic/eui";
-import {
-  IonButtons,
-  IonButton,
-  IonPage,
-  IonContent,
-  IonTitle,
-} from "@ionic/react";
-
-import ElasticAccordion from "../components/ElasticAccordion";
+import { EuiFormRow, EuiPanel } from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import { IonButton } from "@ionic/react";
+import React, { useState } from "react";
 
 const ElasticCondensed = ({
   name,

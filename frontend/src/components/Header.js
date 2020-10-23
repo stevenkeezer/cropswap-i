@@ -1,65 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Route } from "react-router-dom";
-
-import { logout } from "../actions/userActions";
-import { useDispatch, useSelector } from "react-redux";
-import SearchBox from "../components/SearchBox";
-import Logo from "./Logo";
-import { useHistory } from "react-router";
-import "@elastic/eui/dist/eui_theme_light.css";
-
-import { htmlIdGenerator } from "@elastic/eui/lib/services";
-
 import {
   EuiAvatar,
-  EuiBadge,
   EuiButton,
-  EuiCollapsibleNav,
-  EuiCollapsibleNavGroup,
-  EuiFlexItem,
-  EuiFlyout,
-  EuiFlyoutBody,
-  EuiFlyoutHeader,
-  EuiFocusTrap,
-  EuiHeader,
   EuiFlexGroup,
-  EuiHeaderLink,
+  EuiFlexItem,
+  EuiHeader,
+  EuiHeaderSectionItemButton,
+  EuiIcon,
   EuiKeyPadMenu,
   EuiKeyPadMenuItem,
-  EuiSelectable,
-  EuiPopoverTitle,
-  EuiPopoverFooter,
-  EuiHeaderLogo,
-  EuiHeaderSectionItemButton,
-  EuiSpacer,
   EuiLink,
-  EuiHeaderLinks,
-  EuiIcon,
-  EuiListGroupItem,
-  EuiPage,
   EuiPopover,
-  EuiPortal,
+  EuiPopoverFooter,
+  EuiPopoverTitle,
+  EuiSelectable,
   EuiShowFor,
+  EuiSpacer,
   EuiText,
-  EuiTitle,
-  EuiSelectableTemplateSitewide,
-  EuiSelectableMessage,
 } from "@elastic/eui";
-
-import {
-  basket,
-  basketSharp,
-  cogOutline,
-  cogSharp,
-  personCircleSharp,
-  personCircleOutline,
-  settingsOutline,
-  storefront,
-  storefrontOutline,
-  storefrontSharp,
-} from "ionicons/icons";
-import AdminButton from "../components/AdminButton";
+import "@elastic/eui/dist/eui_theme_light.css";
+import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import { basketSharp } from "ionicons/icons";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { Route } from "react-router-dom";
+import { logout } from "../actions/userActions";
+import SearchBox from "../components/SearchBox";
+import Logo from "./Logo";
 
 export default ({ theme }) => {
   const history = useHistory();

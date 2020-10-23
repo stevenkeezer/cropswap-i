@@ -1,13 +1,7 @@
-import React from "react";
-import {
-  receipt,
-  starOutline,
-  triangle,
-  star,
-  starHalfOutline,
-} from "ionicons/icons";
-import PropTypes from "prop-types";
 import { IonIcon } from "@ionic/react";
+import { star, starHalfOutline, starOutline } from "ionicons/icons";
+import PropTypes from "prop-types";
+import React from "react";
 
 export default function Rating({ value, text, color }) {
   return (

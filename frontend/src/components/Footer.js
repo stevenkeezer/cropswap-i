@@ -1,5 +1,4 @@
 import React from "react";
-import { IonContent, IonFooter, IonToolbar, IonTitle } from "@ionic/react";
 import HomeHero from "./HomeHero";
 
 const Footer = () => (
@@ -22,23 +21,7 @@ const Footer = () => (
           position: "relative",
           textAlign: "left",
         }}
-      >
-        {/* <img
-          style={{ marginLeft: 455, top: -107 }}
-          className="tw-w-1/3 tw-absolute tw-p-3 tw-bottom-0 tw-border-8 tw-ml-64 tw-border-white"
-          src="/images/phone.png"
-        ></img>
-        <img
-          style={{
-            height: "auto",
-            maxWidth: "100%",
-            verticalAlign: "middle",
-            marginLeft: 285,
-          }}
-          className="tw-w-1/3 tw-absolute tw-bottom-0 tw-border-8 tw-ml-64 tw-border-white "
-          src="/images/phone.png"
-        ></img> */}
-      </div>
+      ></div>
     </div>
     <footer class="tw-bg-white tw-text-gray-700 tw-pt-16 tw-pb-8 ">
       <div class="tw-mx-auto tw-px-4 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">

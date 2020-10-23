@@ -1,24 +1,17 @@
-import React from "react";
 import {
   IonCard,
-  IonImg,
-  IonCardContent,
-  IonLabel,
-  IonItemSliding,
-  IonItem,
-  IonTitle,
   IonCardHeader,
-  IonCardTitle,
   IonCardSubtitle,
-  IonItemOptions,
+  IonCardTitle,
+  IonItem,
   IonItemOption,
-  IonText,
+  IonItemOptions,
+  IonItemSliding,
 } from "@ionic/react";
-import { useDispatch, useSelector } from "react-redux";
-import { card } from "ionicons/icons";
-import Rating from "../components/Rating";
-import { useHistory } from "react-router";
+import React from "react";
 import ProgressiveImage from "react-progressive-graceful-image";
+import { useDispatch } from "react-redux";
+import Rating from "../components/Rating";
 
 export default function Product({ product, history }) {
   const dispatch = useDispatch();

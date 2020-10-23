@@ -1,57 +1,24 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Header from "../components/Header";
-import ElasticImage from "../components/ElasticImage";
-import ElasticComment from "../components/ElasticComment";
-
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Container,
-  Form,
-} from "react-bootstrap";
-
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import Meta from "../components/Meta";
+import { IonButton, IonIcon, IonText, IonTitle } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
-import {
-  IonCard,
-  IonImg,
-  IonRow,
-  IonText,
-  IonButton,
-  IonLoading,
-  IonPage,
-  IonProgressBar,
-  IonTitle,
-  IonGrid,
-  IonInput,
-  IonIcon,
-  IonCol,
-  IonList,
-  IonCardHeader,
-  IonSelect,
-  IonSelectOption,
-} from "@ionic/react";
-
-import Rating from "../components/Rating";
+import React, { useEffect, useState } from "react";
+import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 // import Meta from "../components/Meta";
 import {
-  listProductDetails,
   createProductReview,
+  listProductDetails,
 } from "../actions/productActions";
+import ElasticComment from "../components/ElasticComment";
+import ElasticImage from "../components/ElasticImage";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import Meta from "../components/Meta";
+import Rating from "../components/Rating";
 import {
   PRODUCT_CREATE_REVIEW_RESET,
   PRODUCT_DETAILS_RESET,
 } from "../constants/productConstants";
-
-import ProgressiveImage from "react-progressive-graceful-image";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);

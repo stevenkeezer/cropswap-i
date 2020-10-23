@@ -1,14 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { EuiFlexGroup, EuiFlexItem } from "@elastic/eui";
+import { IonIcon, IonInput, IonText } from "@ionic/react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { chevronBackOutline } from "ionicons/icons";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import { chevronBackOutline, trashOutline } from "ionicons/icons";
+import { Link } from "react-router-dom";
 import { listProductDetails, updateProduct } from "../actions/productActions";
-import { IonButton, IonIcon, IonInput, IonText } from "@ionic/react";
-import { EuiFlexGroup, EuiFlexItem, EuiText, EuiSpacer } from "@elastic/eui";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
-import { set } from "mongoose";
 
 const ProductEditScreen = ({ match, location, history }) => {
   const productId = match.params.id;

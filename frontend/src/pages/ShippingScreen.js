@@ -1,42 +1,17 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
-import SvgHero from "../components/SvgHero";
-import { saveShippingAddress } from "../actions/cartActions";
-import { Link } from "react-router-dom";
 import {
+  EuiFieldText,
   EuiFlexGroup,
   EuiFlexItem,
   EuiFormRow,
-  EuiButton,
-  EuiFieldText,
 } from "@elastic/eui";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Container,
-  Form,
-} from "react-bootstrap";
-import {
-  IonButtons,
-  IonButton,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonToast,
-  IonCol,
-  IonText,
-  IonPage,
-  IonContent,
-} from "@ionic/react";
+import { IonButton, IonTitle } from "@ionic/react";
+import React, { useState } from "react";
+import { Image } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { saveShippingAddress } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import SvgHero from "../components/SvgHero";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
