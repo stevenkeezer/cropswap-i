@@ -61,7 +61,7 @@ const PaymentScreen = ({ history }) => {
     history.push("/placeorder");
   };
   return (
-    <div className="tw-h-screen  tw-bg-gray-100">
+    <div className="tw-h-screen  tw-bg-gray-100 lg:tw-mt-24 tw-mt-12">
       <Container>
         <CheckoutSteps step1 step2 step3 />
 

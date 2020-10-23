@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Loader from "../components/Loader";
 
 import { useDispatch, useSelector } from "react-redux";
+import { EuiFieldText, EuiFieldPassword } from "@elastic/eui";
 
 import { login } from "../actions/userActions";
 import {
@@ -24,6 +25,7 @@ import {
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [dual, setDual] = useState(true);
 
   const dispatch = useDispatch();
 
@@ -31,6 +33,10 @@ const LoginScreen = ({ location, history }) => {
   const { loading, error, userInfo } = userLogin;
 
   const redirect = location.search ? location.search.split("=")[1] : "/";
+
+  const onChange = (e) => {
+    setEmail(e.target.value);
+  };
 
   useEffect(() => {
     if (userInfo) {
@@ -114,7 +120,7 @@ const LoginScreen = ({ location, history }) => {
         <Loader />
       ) : (
         <>
-          <div class="tw-text-center tw-mt-12">
+          <div class="tw-text-center tw-mt-12 lg:tw-mt-32">
             <div class="tw-flex tw-items-center tw-justify-center">
               <IonImg
                 className="tw-shadow tw-border tw-my-1 tw-cursor-pointer tw-mx-8"
@@ -122,7 +128,7 @@ const LoginScreen = ({ location, history }) => {
                   history.push("/");
                 }}
                 style={{
-                  width: "62px",
+                  width: "52px",
                   backgroundColor: "#d2d2d2",
                   padding: "6px",
                   borderRadius: "9999rem",
@@ -155,13 +161,13 @@ const LoginScreen = ({ location, history }) => {
                     Email address
                   </label>
 
-                  <IonInput
-                    class="tw-appearance-none tw-block tw-w-full tw-bg-white tw-text-gray-900 tw-font-medium tw-border tw-border-gray-400 tw-rounded-lg tw-py-3 tw-px-3 tw-leading-tight focus:tw-outline-none"
-                    type="email"
-                    onIonChange={(e) => {
-                      setEmail(e.detail.value);
-                    }}
-                    name="email"
+                  <EuiFieldText
+                    type="text"
+                    placeholder="Email"
+                    value={email}
+                    fullWidth
+                    onChange={(e) => onChange(e)}
+                    aria-label="Use aria labels when no actual label is in use"
                   />
                 </div>
                 <div class="tw-w-full md:tw-w-full tw-px-3 tw-mb-6">
@@ -172,13 +178,13 @@ const LoginScreen = ({ location, history }) => {
                     Password
                   </label>
 
-                  <IonInput
-                    class="tw-appearance-none tw-block tw-w-full tw-bg-white tw-text-gray-900 tw-font-medium tw-border tw-border-gray-400 tw-rounded-lg tw-py-3 tw-px-3 tw-leading-tight focus:tw-outline-none"
-                    type="password"
-                    onIonChange={(e) => {
-                      setPassword(e.detail.value);
-                    }}
-                    name="password"
+                  <EuiFieldPassword
+                    placeholder="Placeholder text"
+                    type={dual ? "dual" : undefined}
+                    value={password}
+                    fullWidth
+                    onChange={(e) => setPassword(e.target.value)}
+                    aria-label="Use aria labels when no actual label is in use"
                   />
                 </div>
                 <div class="tw-w-full tw-flex tw-items-center tw-justify-between tw-px-3 tw-mb-3 ">

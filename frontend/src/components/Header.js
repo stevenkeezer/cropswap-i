@@ -274,6 +274,7 @@ export default ({ theme }) => {
                         <EuiLink
                           onClick={(e) => {
                             logoutHandler();
+                            history.push("/login");
                             closeMenu();
                           }}
                         >
@@ -466,51 +467,51 @@ export default ({ theme }) => {
     <>
       {/* FocusTrap for Docs only */}
       {fullScreen && (
-        <EuiFocusTrap>
-          <EuiHeader
-            className="tw-bg-white tw-mx-auto xl:tw-px-40 lg:tw-h-24 tw-h-16"
-            borderBottom="none"
-            style={{
-              borderBottom: "1px solid white",
-              boxShadow: "none!important",
-            }}
-            theme="light"
-            position="fixed"
-            sections={[
-              {
-                items: [
-                  <Logo history={history} />,
+        // <EuiFocusTrap>
+        <EuiHeader
+          className="tw-bg-white tw-mx-auto xl:tw-px-40 lg:tw-h-24 tw-h-16"
+          borderBottom="none"
+          style={{
+            borderBottom: "1px solid white",
+            boxShadow: "none!important",
+          }}
+          theme="light"
+          position="fixed"
+          sections={[
+            {
+              items: [
+                <Logo history={history} />,
 
-                  <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
-                    {search}
-                  </EuiShowFor>,
-                ],
-                borders: "none",
-              },
+                <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
+                  {search}
+                </EuiShowFor>,
+              ],
+              borders: "none",
+            },
 
-              {
-                items: [
-                  <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
-                  <EuiHeaderSectionItemButton
-                    aria-haspopup="true"
-                    aria-label="Apps menu with 1 new app"
-                    notification={cartItems.length}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      history.push("/cart");
-                    }}
-                  >
-                    <EuiIcon type={basketSharp} size="l" />
-                  </EuiHeaderSectionItemButton>,
-                  <HeaderSpacesMenu history={history} />,
-                  <HeaderUserMenu history={history} />,
-                  <HeaderAppMenu history={history} />,
-                ],
-                borders: "none",
-              },
-            ]}
-          />
-        </EuiFocusTrap>
+            {
+              items: [
+                <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
+                <EuiHeaderSectionItemButton
+                  aria-haspopup="true"
+                  aria-label="Apps menu with 1 new app"
+                  notification={cartItems.length}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    history.push("/cart");
+                  }}
+                >
+                  <EuiIcon type={basketSharp} size="l" />
+                </EuiHeaderSectionItemButton>,
+                <HeaderSpacesMenu history={history} />,
+                <HeaderUserMenu history={history} />,
+                <HeaderAppMenu history={history} />,
+              ],
+              borders: "none",
+            },
+          ]}
+        />
+        // </EuiFocusTrap>
       )}
     </>
   );

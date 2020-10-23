@@ -89,7 +89,7 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="tw-mt-24">
+    <IonPage className="lg:tw-mt-24 tw-mt-12">
       <Meta />
       <IonContent
         padding
