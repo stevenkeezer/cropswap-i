@@ -55,7 +55,7 @@ const ProfileScreen = ({ location, history }) => {
   };
 
   return (
-    <div className=" tw-bg-gray-100 tw-h-auto">
+    <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12">
       <Container>
         <Row className="tw-pt-5">
           <Col md={3}>

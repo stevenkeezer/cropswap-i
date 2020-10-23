@@ -42,7 +42,7 @@ const UserListScreen = ({ history }) => {
 
   return (
     <>
-      <div className="tw-px-4 lg:tw-bg-gray-100 tw-h-screen ">
+      <div className="tw-px-4 lg:tw-bg-gray-100 tw-h-screen lg:tw-mt-24 tw-mt-12 ">
         <div className="tw-text-2xl tw-font-semibold tw-max-w-screen-xl tw-pt-8 tw-mx-auto">
           Users
           <div className="tw-mt-4  lg:tw-shadow  tw-text-gray-800 ">

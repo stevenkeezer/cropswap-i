@@ -103,7 +103,7 @@ const OrderScreen = ({ match, history }) => {
   ) : error ? (
     <Message variant="danger">{error}</Message>
   ) : (
-    <div className=" tw-pt-3 tw-bg-gray-100">
+    <div className=" tw-pt-3 tw-bg-gray-100 lg:tw-mt-24 tw-mt-12">
       <Container>
         <Row>
           <Col md={8}>

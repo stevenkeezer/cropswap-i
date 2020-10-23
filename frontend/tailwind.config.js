@@ -1,4 +1,5 @@
 module.exports = {
+  important: true,
   prefix: "tw-",
   purge: ["./src/**/*.html", "./src/**/*.vue", "./src/**/*.jsx"],
   theme: {

@@ -25,7 +25,7 @@ const OrderListScreen = ({ history }) => {
   }, [dispatch, history, userInfo]);
 
   return (
-    <div className="tw-bg-gray-100 ">
+    <div className="tw-bg-gray-100 lg:tw-mt-24 tw-mt-12">
       <div className="tw-max-w-screen-xl tw-pt-4 tw-px-4 tw-mx-auto">
         <div className="tw-text-gray-800 tw-text-2xl tw-font-semibold tw-py-4">
           Order Manager

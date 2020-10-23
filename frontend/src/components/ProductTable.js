@@ -1,5 +1,18 @@
 import React, { useState, Fragment } from "react";
 import ElasticImage from "../components/ElasticImage";
+import {
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiTitle,
+  EuiSpacer,
+  EuiBadge,
+  EuiFlexGrid,
+} from "@elastic/eui";
+
+import {
+  euiPaletteColorBlind,
+  euiPaletteColorBlindBehindText,
+} from "@elastic/eui/lib/services";
 
 const ProductTable = ({ products, deleteHandler, history }) => {
   return (
@@ -225,7 +238,6 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
                         <span class="euiTableCellContent__text">
                           <div class="tw-flex tw-items-center ">
-  
                             <img
                               class="tw-border  tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
                               alt={product.name}
@@ -280,22 +292,23 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--overflowingContent">
                         <div class="euiHealth">
                           <div class="euiFlexGroup euiFlexGroup--gutterExtraSmall euiFlexGroup--alignItemsCenter euiFlexGroup--directionRow">
+                            <div class="euiFlexItem euiFlexItem--flexGrowZero"></div>
                             <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                              <svg
-                                width="16"
-                                height="16"
-                                viewBox="0 0 16 16"
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="euiIcon euiIcon--medium euiIcon--danger"
-                                focusable="false"
-                                role="img"
-                                aria-hidden="true"
-                              >
-                                <circle cx="8" cy="8" r="4"></circle>
-                              </svg>
-                            </div>
-                            <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                              {product.countInStock} left in stock
+                              <EuiFlexItem grow={false}>
+                                <span>
+                                  <EuiBadge
+                                    color={
+                                      euiPaletteColorBlindBehindText({
+                                        sortBy: "warm",
+                                      })[8]
+                                    }
+                                  >
+                                    <span className="tw-text-red-100 tw-font-medium">
+                                      {product.countInStock} left in stock
+                                    </span>
+                                  </EuiBadge>
+                                </span>
+                              </EuiFlexItem>
                             </div>
                           </div>
                         </div>

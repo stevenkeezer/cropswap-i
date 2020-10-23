@@ -1,7 +1,52 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Route } from "react-router-dom";
+
+import { logout } from "../actions/userActions";
 import { useDispatch, useSelector } from "react-redux";
-import { usePhotoGallery } from "../hooks/usePhotoGallery";
+import SearchBox from "../components/SearchBox";
+import Logo from "./Logo";
+import { useHistory } from "react-router";
+import "@elastic/eui/dist/eui_theme_light.css";
+
+import { htmlIdGenerator } from "@elastic/eui/lib/services";
+
+import {
+  EuiAvatar,
+  EuiBadge,
+  EuiButton,
+  EuiCollapsibleNav,
+  EuiCollapsibleNavGroup,
+  EuiFlexItem,
+  EuiFlyout,
+  EuiFlyoutBody,
+  EuiFlyoutHeader,
+  EuiFocusTrap,
+  EuiHeader,
+  EuiFlexGroup,
+  EuiHeaderLink,
+  EuiKeyPadMenu,
+  EuiKeyPadMenuItem,
+  EuiSelectable,
+  EuiPopoverTitle,
+  EuiPopoverFooter,
+  EuiHeaderLogo,
+  EuiHeaderSectionItemButton,
+  EuiSpacer,
+  EuiLink,
+  EuiHeaderLinks,
+  EuiIcon,
+  EuiListGroupItem,
+  EuiPage,
+  EuiPopover,
+  EuiPortal,
+  EuiShowFor,
+  EuiText,
+  EuiTitle,
+  EuiSelectableTemplateSitewide,
+  EuiSelectableMessage,
+} from "@elastic/eui";
+
 import {
   basket,
   basketSharp,
@@ -16,415 +61,670 @@ import {
 } from "ionicons/icons";
 import AdminButton from "../components/AdminButton";
 
-import { useHistory } from "react-router";
-import {
-  IonItem,
-  IonIcon,
-  IonAlert,
-  IonError,
-  IonContent,
-  IonLoading,
-  IonTitle,
-  IonImg,
-  IonRadio,
-  IonProgressBar,
-  IonGrid,
-  IonRow,
-  IonBadge,
-  IonActionSheet,
-  IonCol,
-  IonSelect,
-  IonSplitPane,
-  IonText,
-  IonList,
-  IonPage,
-  IonThumbnail,
-  IonHeader,
-  IonToolbar,
-  IonLabel,
-  IonItemSliding,
-  IonItemOption,
-  IonItemOptions,
-  IonButtons,
-  IonButton,
-  IonPopover,
-  IonCardContent,
-  IonCard,
-  IonCardHeader,
-  IonMenu,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonListHeader,
-} from "@ionic/react";
-import { IonRefresher, IonRefresherContent } from "@ionic/react";
-import { ellipsisVertical, ellipsisHorizontal } from "ionicons/icons";
-import Product from "../components/Product";
-import { listProducts } from "../actions/productActions.js";
-// MOBX
-import { MobXProviderContext, observer } from "mobx-react";
-import AddItemModal from "../pages/AddItemModal2";
-import { logout } from "../actions/userActions";
-import SearchBox from "./SearchBox";
-import ContextMenu from "./ContextMenu";
-
-const Header = ({ addItem }) => {
+export default ({ theme }) => {
   const history = useHistory();
-  const [refreshing, setRefreshing] = useState(false);
-  const [showAddItemModal, setShowAddItemModal] = useState(false);
-  const [showPopover, setShowPopover] = useState(false);
-  const [showAdminPopover, setShowAdminPopover] = useState(false);
-  const [keyword, setKeyword] = useState("");
-
-  const searchHandler = (e) => {
-    // make it lowercase
-
-    console.log(e);
-    // e.preventDefault();
-    if (e.trim()) {
-      history.push(`/search/${e}`);
-    } else {
-      history.push("/");
-    }
-  };
-
-  const { store } = React.useContext(MobXProviderContext);
-  const { photos, takePhoto } = usePhotoGallery();
-
-  const dispatch = useDispatch();
-
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products } = productList;
-
-  useEffect(() => {
-    dispatch(listProducts());
-  }, [dispatch]);
 
   /**
-   *
+   * FullScreen for docs only
    */
-  const _renderItems = () => {
-    return photos.map((photo, index) => {
-      return (
-        <IonCol
-          size="6"
-          sizeSm="6"
-          sizeXs="12"
-          sizeMd="4"
-          sizeLg="3"
-          sizeXl="2.4"
-          className="p-0 m-0"
-          width="100%"
-        >
-          <div style={{ paddingTop: refreshing ? 40 : 0 }}>
-            <IonCard>
-              <IonItemSliding key={photo.webviewPath}>
-                <IonItem
-                  className="ion-no-padding"
-                  lines="none"
-                  style={{
-                    paddingTop: "0px !important",
-                  }}
-                  onClick={(e) => {
-                    history.push("/tabs/tab1-detail/" + photo);
-                  }}
-                >
-                  <div className="p-0 ">
-                    <IonImg src={photo.webviewPath} />
-
-                    <IonCardContent>
-                      <IonLabel text-wrap>
-                        <IonText color="primary">
-                          <h3>test</h3>
-                        </IonText>
-                        <p>atest</p>
-                        <IonText color="secondary">
-                          {/* <p>{value.content.dueDate}</p> */}
-                        </IonText>
-                      </IonLabel>
-                    </IonCardContent>
-                  </div>
-                </IonItem>
-
-                <IonItemOptions side="end">
-                  <IonItemOption
-                    // onClick={(e) => _delete(e, value)}
-                    color="danger"
-                  >
-                    Delete
-                  </IonItemOption>
-                </IonItemOptions>
-              </IonItemSliding>
-            </IonCard>
-          </div>
-        </IonCol>
-      );
-    });
-  };
-
-  const _delete = async (_e, _item) => {
-    // close the item
-    await _e.target.parentElement.parentElement.closeOpened();
-    let result = await store.deleteItem({ id: _item.id });
-    if (result) {
-      alert("item deleted " + _item.id);
+  const [fullScreen, setFullScreen] = useState(true);
+  useEffect(() => {
+    if (fullScreen) {
+      document.body.classList.add("guideBody--overflowHidden");
+      document.body.classList.add("euiBody--headerIsFixed--double");
     }
-  };
+    return () => {
+      document.body.classList.remove("guideBody--overflowHidden");
+      document.body.classList.remove("euiBody--headerIsFixed--double");
+    };
+  }, [fullScreen]);
 
-  const _doRefresh = async (event) => {
-    console.log("Begin async operation");
-    setRefreshing(true);
-    await store.loadData();
-    setRefreshing(false);
-    console.log("Async operation has ended");
-  };
+  /**
+   * Collapsible Nav
+   */
+  const [navIsOpen, setNavIsOpen] = useState(
+    JSON.parse(String(localStorage.getItem("navIsDocked"))) || false
+  );
+  const [navIsDocked, setNavIsDocked] = useState(
+    JSON.parse(String(localStorage.getItem("navIsDocked"))) || false
+  );
 
-  const _renderList = () => {
+  /**
+   * Header App Menu
+   */
+  const [isAlertFlyoutVisible, setIsAlertFlyoutVisible] = useState(false);
+  const HeaderAppMenu = ({ history }) => {
+    const idGenerator = htmlIdGenerator();
+    const popoverId = idGenerator("popover");
+    const keypadId = idGenerator("keypad");
+
+    const [isOpen, setIsOpen] = useState(false);
+
+    const onMenuButtonClick = () => {
+      setIsOpen(!isOpen);
+    };
+
+    const closeMenu = () => {
+      setIsOpen(false);
+    };
+
+    const button = (
+      <EuiHeaderSectionItemButton
+        aria-controls={keypadId}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label="Apps menu with 1 new app"
+        onClick={onMenuButtonClick}
+      >
+        <EuiIcon type="apps" size="m" />
+      </EuiHeaderSectionItemButton>
+    );
+
     return (
-      <IonList className="p-0 m-0">
-        <IonRefresher onIonRefresh={(e) => _doRefresh(e)}>
-          <IonRefresherContent
-            style={{ color: "black" }}
-            refreshingText="Refreshing..."
-            padding
-          />
-        </IonRefresher>
-        <IonGrid className="p-0 m-0">
-          <IonRow text-center className="text-center">
-            {_renderItems()}
-          </IonRow>
-        </IonGrid>
-      </IonList>
+      <EuiPopover
+        id={popoverId}
+        ownFocus
+        button={button}
+        isOpen={isOpen}
+        anchorPosition="downRight"
+        closePopover={closeMenu}
+      >
+        <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
+          <EuiKeyPadMenuItem
+            label="Discover"
+            onClick={(e) => {
+              history.push("/");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="discoverApp" size="l" />
+          </EuiKeyPadMenuItem>
+
+          <EuiKeyPadMenuItem
+            label="Orders"
+            onClick={(e) => {
+              history.push("/profile");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="dashboardApp" size="l" />
+          </EuiKeyPadMenuItem>
+
+          <EuiKeyPadMenuItem label="Dev Tools">
+            <EuiIcon type="devToolsApp" size="l" />
+          </EuiKeyPadMenuItem>
+
+          <EuiKeyPadMenuItem
+            label="Cart"
+            onClick={(e) => {
+              history.push("/cart");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="submodule" size="l" />
+          </EuiKeyPadMenuItem>
+
+          <EuiKeyPadMenuItem label="Graph">
+            <EuiIcon type="graphApp" size="l" />
+          </EuiKeyPadMenuItem>
+
+          <EuiKeyPadMenuItem label="Visualize">
+            <EuiIcon type="visualizeApp" size="l" />
+          </EuiKeyPadMenuItem>
+        </EuiKeyPadMenu>
+      </EuiPopover>
     );
   };
 
-  const logoutHandler = () => {
-    dispatch(logout());
+  /**
+   * User Menu
+   */
+  const [isUserMenuVisible, setIsUserMenuVisible] = useState(false);
+  const HeaderUserMenu = ({ history }) => {
+    const id = htmlIdGenerator()();
+    const [isOpen, setIsOpen] = useState(false);
+
+    const dispatch = useDispatch();
+
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
+    const logoutHandler = () => {
+      dispatch(logout());
+    };
+
+    const onMenuButtonClick = () => {
+      setIsOpen(!isOpen);
+    };
+
+    const closeMenu = () => {
+      setIsOpen(false);
+    };
+
+    const button = (
+      <EuiHeaderSectionItemButton
+        aria-controls={id}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label="Account menu"
+        onClick={onMenuButtonClick}
+      >
+        <svg
+          class="tw-h-6 tw-h-6 tw-mx-auto"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </EuiHeaderSectionItemButton>
+    );
+
+    return (
+      <EuiPopover
+        id={id}
+        ownFocus
+        button={button}
+        isOpen={isOpen}
+        anchorPosition="downRight"
+        closePopover={closeMenu}
+        panelPaddingSize="none"
+      >
+        <div style={{ width: 320 }}>
+          <EuiFlexGroup
+            gutterSize="m"
+            className="euiHeaderProfile"
+            responsive={false}
+          >
+            <EuiFlexItem grow={false}>
+              <svg
+                class="tw-h-16 tw-h-16 tw-mx-auto"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </EuiFlexItem>
+
+            <EuiFlexItem>
+              <EuiText>
+                <p>{userInfo.name}</p>
+              </EuiText>
+
+              <EuiSpacer size="m" />
+
+              <EuiFlexGroup>
+                <EuiFlexItem>
+                  <EuiFlexGroup justifyContent="spaceBetween">
+                    <EuiFlexItem grow={false}>
+                      <EuiLink href="/profile">Edit profile</EuiLink>
+                    </EuiFlexItem>
+
+                    <EuiFlexItem grow={false}>
+                      {userInfo ? (
+                        <EuiLink
+                          onClick={(e) => {
+                            logoutHandler();
+                            closeMenu();
+                          }}
+                        >
+                          Log out
+                        </EuiLink>
+                      ) : (
+                        <EuiLink
+                          onClick={(e) => {
+                            history.push("/login");
+                            closeMenu();
+                          }}
+                        >
+                          Sign In
+                        </EuiLink>
+                      )}
+                    </EuiFlexItem>
+                  </EuiFlexGroup>
+                </EuiFlexItem>
+              </EuiFlexGroup>
+            </EuiFlexItem>
+          </EuiFlexGroup>
+        </div>
+      </EuiPopover>
+    );
   };
-  // if (!store.activeUser) return null;
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
+
+  /**
+   * Spaces Menu
+   */
+  const [isSpacesMenuVisible, setIsSpacesMenuVisible] = useState(false);
+  const HeaderSpacesMenu = ({ history }) => {
+    const id = htmlIdGenerator()();
+    const spacesValues = [
+      {
+        label: "Sales team",
+        prepend: <EuiAvatar type="space" name="Sales Team" size="s" />,
+        checked: "on",
+        onClick: () => {
+          history.push("/admin/userlist");
+          closePopover();
+        },
+      },
+      {
+        label: "Product Manager",
+        prepend: <EuiAvatar type="space" name="Engineering" size="s" />,
+        onClick: () => {
+          history.push("/admin/productlist");
+          closePopover();
+        },
+      },
+      {
+        label: "Order Manager",
+        prepend: <EuiAvatar type="space" name="Security" size="s" />,
+        onClick: () => {
+          history.push("/admin/orderlist");
+          closePopover();
+        },
+      },
+    ];
+
+    const additionalSpaces = [
+      {
+        label: "Sales team 2",
+        prepend: <EuiAvatar type="space" name="Sales Team 2" size="s" />,
+      },
+      {
+        label: "Engineering 2",
+        prepend: <EuiAvatar type="space" name="Engineering 2" size="s" />,
+      },
+      {
+        label: "Security 2",
+        prepend: <EuiAvatar type="space" name="Security 2" size="s" />,
+      },
+      {
+        label: "Default 2",
+        prepend: <EuiAvatar type="space" name="Default 2" size="s" />,
+      },
+    ];
+
+    const [spaces, setSpaces] = useState(spacesValues);
+    const [selectedSpace, setSelectedSpace] = useState(
+      spaces.filter((option) => option.checked)[0]
+    );
+    const [isOpen, setIsOpen] = useState(false);
+
+    const isListExtended = () => {
+      return spaces.length > 4 ? true : false;
+    };
+
+    const onMenuButtonClick = () => {
+      setIsOpen(!isOpen);
+    };
+
+    const closePopover = () => {
+      setIsOpen(false);
+    };
+
+    const onChange = (options) => {
+      setSpaces(options);
+      setSelectedSpace(options.filter((option) => option.checked)[0]);
+      setIsOpen(false);
+    };
+
+    const addMoreSpaces = () => {
+      setSpaces(spaces.concat(additionalSpaces));
+    };
+
+    const button = (
+      <EuiHeaderSectionItemButton
+        aria-controls={id}
+        aria-expanded={isOpen}
+        aria-haspopup="true"
+        aria-label="Spaces menu"
+        onClick={onMenuButtonClick}
+      >
+        <svg
+          class="tw-w-6 tw-h-6 tw-mx-auto"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+            clip-rule="evenodd"
+          ></path>
+        </svg>
+      </EuiHeaderSectionItemButton>
+    );
+
+    return (
+      <EuiPopover
+        id={id}
+        ownFocus
+        button={button}
+        isOpen={isOpen}
+        anchorPosition="downRight"
+        closePopover={closePopover}
+        panelPaddingSize="none"
+      >
+        <EuiSelectable
+          searchable={isListExtended()}
+          searchProps={{
+            placeholder: "Find a space",
+            compressed: true,
+          }}
+          options={spaces}
+          singleSelection="always"
+          style={{ width: 300 }}
+          onChange={onChange}
+          listProps={{
+            rowHeight: 40,
+            showIcons: false,
+          }}
+        >
+          {(list, search) => (
+            <>
+              <EuiPopoverTitle paddingSize="s">
+                {search || "Farm Manager"}
+              </EuiPopoverTitle>
+              {list}
+              <EuiPopoverFooter paddingSize="s">
+                <EuiButton
+                  size="s"
+                  fullWidth
+                  onClick={addMoreSpaces}
+                  disabled={true}
+                >
+                  Add more spaces
+                </EuiButton>
+              </EuiPopoverFooter>
+            </>
+          )}
+        </EuiSelectable>
+      </EuiPopover>
+    );
+  };
+
+  /**
+   * Sitewide search
+   */
+  const search = (
+    <Route render={({ history }) => <SearchBox history={history} />} />
+  );
 
   const cart = useSelector((state) => state.cart);
-
   const { cartItems } = cart;
 
   return (
-    <IonHeader
-      className="ion-no-border tw-bg-white"
-      style={{ borderBottom: "0.0625rem solid rgb(230, 229, 229)" }}
-    >
-      <IonToolbar
-        style={{
-          maxWidth: "75rem",
-          paddingTop: ".225rem",
-          marginLeft: "auto",
-          marginRight: "auto",
-          paddingBottom: ".2rem",
-        }}
-      >
-        <div no-padding>
-          <Route render={({ history }) => <SearchBox history={history} />} />
-          <div
-            style={{ color: "rgb(74, 74, 74) !important" }}
-            className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center tw-mb-1 lg:tw-flex tw-tracking-wider  tw-hidden"
-          >
-            <IonText
-              onClick={(e) => searchHandler("seasonal")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Seasonal
-            </IonText>
-
-            <IonText
-              onClick={(e) => searchHandler("tomatoes")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Tomatoes
-            </IonText>
-            <IonText
-              onClick={(e) => searchHandler("vegetables")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Vegetables
-            </IonText>
-            <IonText
-              onClick={(e) => searchHandler("fruits")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Fruits
-            </IonText>
-            <IonText
-              onClick={(e) => searchHandler("soil")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Soil
-            </IonText>
-            <IonText
-              onClick={(e) => searchHandler("squash")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Squash
-            </IonText>
-            <IonText
-              onClick={(e) => searchHandler("compost")}
-              className="hover:tw-text-teal-700 tw-cursor-pointer"
-            >
-              Compost
-            </IonText>
-            <div
-              size="small"
-              // color="none"
-              // style={{ boxShadow: "none", backgroundColor: "none" }}
-
-              className="tw-bg-teal-600 tw-font-medium tw-tracking-wider hover:tw-bg-teal-500
-            tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
-            tw-text-xs tw-cursor-pointer"
-            >
-              <IonText onClick={(e) => history.push("/cart")}>
-                Order online
-              </IonText>
-            </div>
-          </div>
-        </div>
-
-        <IonButtons slot="start">
-          <IonImg
-            className="tw-shadow tw-border tw-my-1 tw-cursor-pointer lg:tw-mx-8 tw-mx-4"
-            onClick={(e) => {
-              history.push("/");
-            }}
+    <>
+      {/* FocusTrap for Docs only */}
+      {fullScreen && (
+        <EuiFocusTrap>
+          <EuiHeader
+            className="tw-bg-white tw-mx-auto xl:tw-px-40 lg:tw-h-24 tw-h-16"
+            borderBottom="none"
             style={{
-              width: "32px",
-              backgroundColor: "#d2d2d2",
-              padding: "5px",
-              borderRadius: "9999rem",
+              borderBottom: "1px solid white",
+              boxShadow: "none!important",
             }}
-            src="https://i.imgur.com/K4SMB4S.png"
-          ></IonImg>
-        </IonButtons>
+            theme="light"
+            position="fixed"
+            sections={[
+              {
+                items: [
+                  <Logo history={history} />,
 
-        <IonButtons slot="end" className="lg:tw--mt-8">
-          {userInfo && userInfo.isAdmin && (
-            <>
-              <IonPopover
-                isOpen={showAdminPopover}
-                cssClass="my-custom-class"
-                onDidDismiss={(e) => setShowAdminPopover(false)}
-              >
-                <IonTitle className="tw-px-4 tw-py-2">Farm Manager</IonTitle>
-                <p className="tw-px-4 tw-bg-gray-200  tw-text-xs tw-font-medium tw-mx-4 tw-rounded-lg tw-py-2 tw-my-3 tw-shadow-inner tw-px-3">
-                  User: {userInfo.name}
-                </p>
-                <p className="tw-px-4 tw-bg-gray-200  tw-text-xs tw-font-medium tw-mx-4 tw-rounded-lg tw-py-2 tw-my-3 tw-shadow-inner tw-px-3">
-                  Role: Administrator
-                </p>
-                <div className="tw-p-3 tw-m-0 tw-flex tw-flex-col">
-                  <IonButton
-                    onClick={() => {
-                      history.push("/admin/userlist");
-                      setShowAdminPopover(false);
+                  <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
+                    {search}
+                  </EuiShowFor>,
+                ],
+                borders: "none",
+              },
+
+              {
+                items: [
+                  <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
+                  <EuiHeaderSectionItemButton
+                    aria-haspopup="true"
+                    aria-label="Apps menu with 1 new app"
+                    notification={cartItems.length}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/cart");
                     }}
                   >
-                    <IonText color="">Users</IonText>
-                  </IonButton>
-
-                  <IonButton
-                    onClick={() => {
-                      history.push("/admin/productlist");
-                      setShowAdminPopover(false);
-                    }}
-                  >
-                    <IonText color="">Manage Products</IonText>
-                  </IonButton>
-
-                  <IonButton
-                    onClick={() => {
-                      history.push("/admin/orderlist");
-                      setShowAdminPopover(false);
-                    }}
-                  >
-                    <IonText color="">Orders</IonText>
-                  </IonButton>
-                </div>
-              </IonPopover>
-            </>
-          )}
-
-          <div onClick={() => setShowAdminPopover(true)}>
-            <AdminButton />
-          </div>
-
-          <IonButton
-            size="large"
-            className=""
-            data-tip="Go to cart"
-            data-delay-show="100"
-            data-delay-hide="100"
-            onClick={(e) => {
-              e.preventDefault();
-              history.push("/cart");
-            }}
-          >
-            <IonIcon icon={basketSharp} color="dark" style={{ fontSize: 24 }} />
-          </IonButton>
-
-          {cartItems.length > 0 && userInfo && (
-            <div className="numberCircle">{cartItems.length}</div>
-          )}
-          {userInfo ? (
-            <>
-              <IonPopover
-                isOpen={showPopover}
-                cssClass="my-custom-class"
-                onDidDismiss={(e) => setShowPopover(false)}
-              >
-                <IonList>
-                  <IonListHeader>{userInfo.name}</IonListHeader>
-                  <div className="tw-p-3 tw-m-0 tw-flex tw-flex-col">
-                    <IonButton
-                      onClick={() => {
-                        history.push("/profile");
-                        setShowAdminPopover(false);
-                        setShowPopover(false);
-                      }}
-                    >
-                      <IonText color="">My cropswap</IonText>
-                    </IonButton>
-                    <IonButton onClick={logoutHandler}>
-                      <IonText color="">Logout</IonText>
-                    </IonButton>
-                  </div>
-                </IonList>
-              </IonPopover>
-
-              <ContextMenu
-                userInfo={userInfo}
-                history={history}
-                logoutHandler={logoutHandler}
-              />
-            </>
-          ) : (
-            <IonButton
-              className=""
-              style={{
-                fontSize: ".875rem",
-                marginRight: ".9rem",
-                fontWeight: "bold",
-                padding: "0px 10px 0px",
-                color: "white",
-                textTransform: "none",
-                backgroundColor: "var(--ion-color-primary, #3880ff)",
-                borderRadius: 9999,
-              }}
-              onClick={() => history.push("/login")}
-            >
-              <IonText color="white">Log in</IonText>
-            </IonButton>
-          )}
-        </IonButtons>
-      </IonToolbar>
-    </IonHeader>
+                    <EuiIcon type={basketSharp} size="l" />
+                  </EuiHeaderSectionItemButton>,
+                  <HeaderSpacesMenu history={history} />,
+                  <HeaderUserMenu history={history} />,
+                  <HeaderAppMenu history={history} />,
+                ],
+                borders: "none",
+              },
+            ]}
+          />
+        </EuiFocusTrap>
+      )}
+    </>
   );
 };
 
-export default observer(Header);
+// import React, { useState } from "react";
+// import "@elastic/eui/dist/eui_theme_light.css";
+// import { Link } from "react-router-dom";
+// import { logout } from "../actions/userActions";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useHistory } from "react-router";
+//   const history = useHistory();
+
+// import Logo from "./Logo";
+
+// import {
+//   basket,
+//   basketSharp,
+//   cogOutline,
+//   cogSharp,
+//   personCircleSharp,
+//   personCircleOutline,
+//   settingsOutline,
+//   storefront,
+//   storefrontOutline,
+//   storefrontSharp,
+// } from "ionicons/icons";
+// import AdminButton from "../components/AdminButton";
+
+// import { IonItem, IonIcon, IonListHeader } from "@ionic/react";
+
+// import {
+//   EuiAvatar,
+//   EuiButton,
+//   EuiFlexGroup,
+//   EuiFlexItem,
+//   EuiHeader,
+//   EuiHeaderBreadcrumbs,
+//   EuiHeaderLogo,
+//   EuiHeaderSection,
+//   EuiHeaderSectionItem,
+//   EuiHeaderSectionItemButton,
+//   EuiIcon,
+//   EuiKeyPadMenu,
+//   EuiKeyPadMenuItem,
+//   EuiLink,
+//   EuiPopover,
+//   EuiPopoverFooter,
+//   EuiPopoverTitle,
+//   EuiSelectable,
+//   EuiSelectableMessage,
+//   EuiSelectableTemplateSitewide,
+//   EuiSpacer,
+//   EuiText,
+// } from "@elastic/eui";
+// import { htmlIdGenerator } from "@elastic/eui/lib/services";
+
+// export default () => {
+//   const history = useHistory();
+
+//   const userLogin = useSelector((state) => state.userLogin);
+//   const { userInfo } = userLogin;
+
+//   const cart = useSelector((state) => state.cart);
+//   const { cartItems } = cart;
+
+//   const renderLogo = () => (
+//     <EuiHeaderSectionItem border="right">
+//       <Logo history={history} />
+//     </EuiHeaderSectionItem>
+//   );
+
+//   const search = (
+//     <EuiSelectableTemplateSitewide
+//       options={[]}
+//       searchProps={{
+//         compressed: true,
+//       }}
+//       popoverButton={
+//         <EuiHeaderSectionItemButton aria-label="Sitewide search">
+//           <EuiIcon type="search" size="m" />
+//         </EuiHeaderSectionItemButton>
+//       }
+//       emptyMessage={
+//         <EuiSelectableMessage style={{ minHeight: 300 }}>
+//           <p>
+//             Please see the component page for{" "}
+//             <Link to="/forms/selectable">
+//               <strong>EuiSelectableTemplateSitewide</strong>
+//             </Link>{" "}
+//             on how to configure your sitewide search.
+//           </p>
+//         </EuiSelectableMessage>
+//       }
+//     />
+//   );
+
+//   return (
+//     <EuiHeader>
+//       <EuiHeaderSection grow={false}>
+//         <EuiHeaderSectionItem border="right">
+//           {renderLogo()}
+//         </EuiHeaderSectionItem>
+//         <EuiHeaderSectionItem border="right">
+//           <HeaderSpacesMenu history={history} />
+//         </EuiHeaderSectionItem>
+//       </EuiHeaderSection>
+
+//       <EuiHeaderSection side="right">
+//         <EuiHeaderSectionItemButton
+//           aria-haspopup="true"
+//           aria-label="Apps menu with 1 new app"
+//           notification={cartItems.length}
+//           onClick={(e) => {
+//             e.preventDefault();
+//             history.push("/cart");
+//           }}
+//         >
+//           <EuiIcon type={basketSharp} size="l" />
+//         </EuiHeaderSectionItemButton>
+
+//         <EuiHeaderSectionItem>{search}</EuiHeaderSectionItem>
+
+//         <EuiHeaderSectionItem>
+//           <HeaderUserMenu history={history} />
+//         </EuiHeaderSectionItem>
+
+//         <EuiHeaderSectionItem>
+//           <HeaderAppMenu history={history} />
+//         </EuiHeaderSectionItem>
+//       </EuiHeaderSection>
+//     </EuiHeader>
+//   );
+// };
+
+// const HeaderAppMenu = ({ history }) => {
+//   const idGenerator = htmlIdGenerator();
+//   const popoverId = idGenerator("popover");
+//   const keypadId = idGenerator("keypad");
+
+//   const [isOpen, setIsOpen] = useState(false);
+
+//   const onMenuButtonClick = () => {
+//     setIsOpen(!isOpen);
+//   };
+
+//   const closeMenu = () => {
+//     setIsOpen(false);
+//   };
+
+//   const button = (
+//     <EuiHeaderSectionItemButton
+//       aria-controls={keypadId}
+//       aria-expanded={isOpen}
+//       aria-haspopup="true"
+//       aria-label="Apps menu with 1 new app"
+//       onClick={onMenuButtonClick}
+//     >
+//       <EuiIcon type="apps" size="m" />
+//     </EuiHeaderSectionItemButton>
+//   );
+
+//   return (
+//     <EuiPopover
+//       id={popoverId}
+//       ownFocus
+//       button={button}
+//       isOpen={isOpen}
+//       anchorPosition="downRight"
+//       closePopover={closeMenu}
+//     >
+//       <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
+//         <EuiKeyPadMenuItem
+//           label="Discover"
+//           onClick={(e) => {
+//             history.push("/");
+//             closeMenu();
+//           }}
+//         >
+//           <EuiIcon type="discoverApp" size="l" />
+//         </EuiKeyPadMenuItem>
+
+//         <EuiKeyPadMenuItem
+//           label="Orders"
+//           onClick={(e) => {
+//             history.push("/profile");
+//             closeMenu();
+//           }}
+//         >
+//           <EuiIcon type="dashboardApp" size="l" />
+//         </EuiKeyPadMenuItem>
+
+//         <EuiKeyPadMenuItem label="Dev Tools">
+//           <EuiIcon type="devToolsApp" size="l" />
+//         </EuiKeyPadMenuItem>
+
+//         <EuiKeyPadMenuItem
+//           label="Cart"
+//           onClick={(e) => {
+//             history.push("/cart");
+//             closeMenu();
+//           }}
+//         >
+//           <EuiIcon type="submodule" size="l" />
+//         </EuiKeyPadMenuItem>
+
+//         <EuiKeyPadMenuItem label="Graph">
+//           <EuiIcon type="graphApp" size="l" />
+//         </EuiKeyPadMenuItem>
+
+//         <EuiKeyPadMenuItem label="Visualize">
+//           <EuiIcon type="visualizeApp" size="l" />
+//         </EuiKeyPadMenuItem>
+//       </EuiKeyPadMenu>
+//     </EuiPopover>
+//   );
+// };

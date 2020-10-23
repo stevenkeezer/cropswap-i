@@ -61,7 +61,7 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
   return (
-    <div className="tw-bg-gray-100 tw-h-screen">
+    <div className="tw-bg-gray-100 tw-h-screen lg:tw-pt-24 tw-pt-12">
       <div>
         <CheckoutSteps step1 step2 />
       </div>
@@ -802,97 +802,6 @@ const ShippingScreen = ({ history }) => {
                   </EuiFormRow>
                 </EuiFlexItem> */}
             </EuiFlexGroup>
-
-            {/* <div class="card tw-rounded-lg tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
-                <div class="row tw-mr-1 tw--mt-2">
-                  <div class="form-group col-sm-6 tw-p-0 tw-m-0 ">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">City</IonLabel>
-                      <IonInput
-                        // class="tw-bg-gray-200 tw-text-gray-700 tw-border  tw-rounded tw-px-10  tw-mt-3 tw-leading-tight focus:tw-outline-none focus:tw-bg-white"
-                        type="text"
-                        onIonChange={(e) => {
-                          setCity(e.detail.value);
-                        }}
-                        name="city"
-                        required
-                        placeholder={city}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-6 tw-p-0 tw-m-0">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">Country</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setCountry(e.detail.value);
-                        }}
-                        name="Country"
-                        required
-                        placeholder={country}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-12 tw-p-0 tw-m-0">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">Street</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setAddress(e.detail.value);
-                        }}
-                        name="address"
-                        required
-                        placeholder={address}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4 tw-p-0 tw-m-0">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">Building</IonLabel>
-                      <IonInput
-                        type="text"
-                        // onIonChange={(e) => {
-                        //   setAddress(e.detail.value);
-                        // }}
-                        name="address"
-                        required
-                        placeholder="Apartment, Suite, ect"
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4 tw-p-0 tw-m-0">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">State</IonLabel>
-                      <IonInput
-                        type="text"
-                        // onIonChange={(e) => {
-                        //   setAddress(e.detail.value);
-                        // }}
-                        name="address"
-                        required
-                        placeholder="CA"
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4 tw-p-0 tw-m-0 tw-mb-3">
-                    <IonItem lines="none">
-                      <IonLabel position="floating">Postal Code</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setPostalCode(e.detail.value);
-                        }}
-                        name="postal code"
-                        required
-                        placeholder={postalCode}
-                      />
-                    </IonItem>
-                  </div>
-                </div>
-              </div>
-            */}
           </div>
         </div>
 

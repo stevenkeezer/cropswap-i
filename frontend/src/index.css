@@ -23,6 +23,16 @@ ion-item {
   border: none !important;
 }
 
+.euiHeaderSectionItem:after {
+  background: transparent !important;
+}
+.euiHeaderSectionItem__button {
+  outline: none !important;
+}
+.euiHeaderSectionItem__button:focus {
+  background: none !important;
+}
+
 :root {
   --ion-color-primary: #008480;
   --ion-color-primary-rgb: rgb(0, 168, 163);
@@ -102,6 +112,14 @@ ion-item {
   }
 }
 
+@media only screen and (min-width: 992px) {
+  .euiHeaderSection:last-child,
+  .euiHeaderSection--dontGrow:last-child,
+  .euiHeaderSection--left:last-child {
+    height: 70px;
+  }
+}
+
 @media only screen and (min-width: 600px) {
   .card-head,
   .card-cont {
@@ -109,6 +127,13 @@ ion-item {
     padding-right: 0;
   }
 }
+/* .euiHeaderSectionItem {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: start !important;
+  align-items: start !important;
+} */
 
 .pagination {
   margin-left: auto;
@@ -120,13 +145,7 @@ ion-item {
     margin-top: 10px;
     border-radius: 20px;
   }
-  .logo {
-    padding-left: 1rem;
-  }
-  .logo {
-    padding-left: 1.5rem;
-    padding-right: 1.75rem;
-  }
+
   #cart {
     margin-left: 20.55rem;
   }
@@ -184,6 +203,10 @@ ion-input {
   thead tr:not(:first-child) {
     display: none;
   }
+}
+
+.euiNotificationBadge {
+  background: #e7664c !important;
 }
 
 #count-notify {
