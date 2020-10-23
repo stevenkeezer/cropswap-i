@@ -257,7 +257,7 @@ export default ({ theme }) => {
 
             <EuiFlexItem>
               <EuiText>
-                <p>{userInfo.name}</p>
+                <p>{userInfo && userInfo.name}</p>
               </EuiText>
 
               <EuiSpacer size="m" />
