@@ -228,7 +228,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                               name={product.name}
                             /> */}
                             <img
-                              class="tw-border tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                              class="tw-border tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded-full tw-relative"
                               alt={product.name}
                               src={product.image}
                             />
@@ -239,7 +239,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                         <span class="euiTableCellContent__text">
                           <div class="tw-flex tw-items-center ">
                             <img
-                              class="tw-border  tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                              class="tw-border  tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded-full tw-relative"
                               alt={product.name}
                               src={product.image}
                             />

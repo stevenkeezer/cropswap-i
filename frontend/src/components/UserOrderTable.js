@@ -190,7 +190,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
                         <div class="tw-flex tw-items-center ">
                           <img
-                            class="tw-border-white tw-rounded-full tw-object-cover sm:tw-h-16 sm:tw-w-16 tw-w-6 tw-h-6 sm:tw-rounded tw-relative"
+                            class="tw-border-white tw-shadow tw-object-cover sm:tw-h-32 sm:tw-w-32 tw-w-6 tw-h-6 tw-relative"
                             key={order.orderItems[0].image}
                             src={order.orderItems[0].image}
                             alt={order.title}

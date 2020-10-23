@@ -117,7 +117,10 @@ const ProductEditScreen = ({ match, location, history }) => {
         <div>{error}</div>
       ) : (
         <>
-          <EuiFlexGroup justifyContent="center">
+          <EuiFlexGroup
+            justifyContent="center"
+            className="lg:tw-mt-24 tw-mt-12"
+          >
             <EuiFlexItem grow={false}>
               <div class="euiForm">
                 <div role="group" class="euiDescribedFormGroup">
