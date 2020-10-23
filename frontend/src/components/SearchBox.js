@@ -209,7 +209,7 @@ export default ({ history }) => {
           // style={{ boxShadow: "none", backgroundColor: "none" }}
 
           className="tw-bg-teal-500 tw-font-medium tw-tracking-wider hover:tw-bg-teal-500
-            tw-rounded-full tw-text-white tw-px-4 tw-shadow-none tw-py-2
+            tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
             tw-text-xs tw-cursor-pointer"
         >
           <span onClick={(e) => history.push("/cart")}>Order online</span>
