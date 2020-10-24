@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import SubFooter from "../components/SubFooter";
 // import Meta from "../components/Meta";
 import {
   createProductReview,
@@ -74,7 +75,7 @@ const ProductScreen = ({ history, match }) => {
   return (
     <>
       <div className="tw-bg-gray-100 ">
-        <div className=" tw-pt-3 lg:tw-mt-24 tw-mt-12 tw-px-4 tw-max-w-screen-xl tw-mx-auto">
+        <div className="  lg:tw-mt-24 tw-mt-16 tw-px-4  tw-pt-4 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
@@ -100,7 +101,7 @@ const ProductScreen = ({ history, match }) => {
             <>
               <Meta title={product.name} />
               <Row className="justify-content-center mt-4">
-                <Col md={6} size={12}>
+                <Col md={6} size={12} className="tw-mb-8">
                   <ElasticImage image={product.image} name={product.name} />
                 </Col>
 
@@ -237,6 +238,7 @@ const ProductScreen = ({ history, match }) => {
             </>
           )}
         </div>
+        <SubFooter />
       </div>
     </>
   );

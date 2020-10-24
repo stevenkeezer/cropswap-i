@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import React from "react";
 import { Route } from "react-router-dom";
 import Header from "./components/Header";
+import SubFooter from "./components/SubFooter";
 import CartScreen from "./pages/CartScreen";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";

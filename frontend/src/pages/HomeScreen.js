@@ -121,7 +121,7 @@ const HomeScreen = ({ match }) => {
                   </div>
                 </div>
               ) : products.length !== 0 ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4  tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
+                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
                   Search results
                 </div>
               ) : (
@@ -153,6 +153,7 @@ const HomeScreen = ({ match }) => {
                 keyword={keyword ? keyword : ""}
               />
             </div>
+
             {/* <HomeHero /> */}
             {/* <Regions /> */}
 
@@ -160,6 +161,7 @@ const HomeScreen = ({ match }) => {
           </>
         )}
       </IonContent>
+      {keyword && <SubFooter />}
     </IonPage>
   );
 };
