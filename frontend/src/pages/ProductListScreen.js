@@ -11,6 +11,7 @@ import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductTable from "../components/ProductTable";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import SubFooter from "../components/SubFooter";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -71,42 +72,45 @@ const ProductListScreen = ({ history, match }) => {
   };
 
   return (
-    <div className="lg:tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 ">
-      <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
-        <div className="tw-flex tw-pt-8 tw-justify-between">
-          <div className="tw-text-2xl tw-font-semibold">Products</div>
-          <IonButton className="" onClick={createProductHandler}>
-            <i className="fas fa-plus"></i> Create Product
-          </IonButton>
-        </div>
+    <>
+      <div className="lg:tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-h-auto tw-min-h-screen">
+        <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
+          <div className="tw-flex tw-pt-8 tw-justify-between">
+            <div className="tw-text-2xl tw-font-semibold">Products</div>
+            <IonButton className="" onClick={createProductHandler}>
+              <i className="fas fa-plus"></i> Create Product
+            </IonButton>
+          </div>
 
-        {loadingDelete && <Loader />}
-        {errorDelete && <Message variant="danger">{errorDelete}</Message>}
-        {loadingCreate && <Loader />}
-        {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : (
-          <>
-            <div className="tw-text-2xl tw-font-semibold  lg:tw-shadow  tw-mt-4 tw-mx-auto">
-              <ProductTable
-                products={products}
-                deleteHandler={deleteHandler}
-                history={history}
+          {loadingDelete && <Loader />}
+          {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+          {loadingCreate && <Loader />}
+          {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <>
+              <div className="tw-text-2xl tw-font-semibold  lg:tw-shadow  tw-mt-4 tw-mx-auto">
+                <ProductTable
+                  products={products}
+                  deleteHandler={deleteHandler}
+                  history={history}
+                />
+              </div>
+              <br></br>
+              <Paginate
+                pages={pages && pages}
+                page={page && page}
+                isAdmin={true}
               />
-            </div>
-            <br></br>
-            <Paginate
-              pages={pages && pages}
-              page={page && page}
-              isAdmin={true}
-            />
-          </>
-        )}
+            </>
+          )}
+        </div>
       </div>
-    </div>
+      <SubFooter />
+    </>
   );
 };
 

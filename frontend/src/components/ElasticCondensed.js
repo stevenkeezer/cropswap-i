@@ -1,4 +1,9 @@
-import { EuiFormRow, EuiPanel } from "@elastic/eui";
+import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiFieldText,
+} from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
 import { IonButton } from "@ionic/react";
 import React, { useState } from "react";
@@ -36,7 +41,7 @@ const ElasticCondensed = ({
   });
 
   const [comboBoxSelectionOptions, setComboBoxSelectionOptions] = useState([]);
-
+  const [dual, setDual] = useState(true);
   const [value, setValue] = useState(20);
 
   const onRangeChange = (e) => {
@@ -60,43 +65,39 @@ const ElasticCondensed = ({
     <EuiPanel className="tw-max-w-lg tw-mx-auto">
       <form onSubmit={submitHandler}>
         <EuiFormRow label="Name" display="rowCompressed">
-          <input
-            name="first"
-            isLoading={!name}
-            compressed
-            class="euiFieldText"
+          <EuiFieldText
+            placeholder="Placeholder text"
+            value={value}
             value={name}
             onChange={(e) => setName(e.target.value)}
+            aria-label="Use aria labels when no actual label is in use"
           />
         </EuiFormRow>
         <EuiFormRow label="Email" display="rowCompressed">
-          <input
-            name="first"
-            isLoading={!email}
-            compressed
-            class="euiFieldText"
+          <EuiFieldText
+            placeholder="Placeholder text"
+            value={value}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
+            aria-label="Use aria labels when no actual label is in use"
           />
         </EuiFormRow>
         <EuiFormRow label="Password" display="rowCompressed">
-          <input
-            name="first"
-            class="euiFieldText"
-            // isLoading={!password}
-            onChange={(e) => setPassword(e.target.value)}
-            compressed
+          <EuiFieldPassword
+            placeholder="********"
+            // type={dual ? "dual" : undefined}
             value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            aria-label="Use aria labels when no actual label is in use"
           />
         </EuiFormRow>
         <EuiFormRow label="Confirm Password" display="rowCompressed">
-          <input
-            name="first"
-            class="euiFieldText"
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            // isLoading={!confirmPassword}
-            compressed
+          <EuiFieldPassword
+            placeholder="********"
+            type={dual ? "dual" : undefined}
             value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            aria-label="Use aria labels when no actual label is in use"
           />
         </EuiFormRow>
 

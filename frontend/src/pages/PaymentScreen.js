@@ -1,46 +1,18 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { Link } from "react-router-dom";
-
-import { chevronBackOutline, trashOutline } from "ionicons/icons";
-
-import { savePaymentMethod } from "../actions/cartActions";
-import { addToCart, removeFromCart } from "../actions/cartActions";
-
 import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  Container,
-} from "react-bootstrap";
-
-import {
-  IonButtons,
   IonButton,
-  IonIcon,
-  IonHeader,
-  IonSelectPopover,
-  IonToolbar,
-  IonList,
-  IonCol,
-  IonTitle,
-  IonItem,
-  IonItemDivider,
   IonCheckbox,
+  IonItem,
   IonLabel,
-  IonInput,
-  IonToast,
-  IonSelect,
-  IonText,
-  IonPage,
-  IonContent,
+  IonList,
+  IonTitle,
 } from "@ionic/react";
+import React, { useState } from "react";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { savePaymentMethod } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import SubFooter from "../components/SubFooter";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -61,11 +33,14 @@ const PaymentScreen = ({ history }) => {
     history.push("/placeorder");
   };
   return (
-    <div className="tw-h-screen  tw-bg-gray-100 lg:tw-mt-24 tw-mt-12">
-      <Container>
-        <CheckoutSteps step1 step2 step3 />
+    <>
+      <div className="tw-h-screen  tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-pt-4">
+        {/* <Container> */}
+        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
+          <CheckoutSteps step1 step2 step3 />
+        </div>
 
-        <Row className=" tw-mx-auto ">
+        <Row className=" tw-mx-auto tw-max-w-screen-lg  tw-text-gray-800 tw-mx-auto">
           <Col md={8}>
             <IonTitle
               className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
@@ -158,8 +133,10 @@ const PaymentScreen = ({ history }) => {
             </div>
           </Col>
         </Row>
-      </Container>
-    </div>
+        {/* </Container> */}
+      </div>
+      <SubFooter />
+    </>
   );
 };
 

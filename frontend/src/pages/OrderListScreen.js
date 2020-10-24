@@ -4,6 +4,7 @@ import { listOrders } from "../actions/orderActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import OrderTable from "../components/OrderTable";
+import SubFooter from "../components/SubFooter";
 
 const OrderListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -23,22 +24,27 @@ const OrderListScreen = ({ history }) => {
   }, [dispatch, history, userInfo]);
 
   return (
-    <div className="tw-bg-gray-100 lg:tw-mt-24 tw-mt-12">
-      <div className="tw-max-w-screen-xl tw-pt-4 tw-px-4 tw-mx-auto">
-        <div className="tw-text-gray-800 tw-text-2xl tw-font-semibold tw-py-4">
-          Order Manager
-        </div>
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant="danger">{error}</Message>
-        ) : (
-          <div className="xl:tw-shadow xl:tw-rounded-lg ">
-            <OrderTable orders={orders} history={history} />
+    <>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <>
+          <div className="lg:tw-bg-gray-100 tw-px-4  lg:tw-mt-24 tw-mt-12  tw-h-auto">
+            <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-mt-4 tw-mb-24">
+              <div className="tw-text-gray-800 tw-text-2xl tw-font-semibold tw-py-4 tw-pt-8 ">
+                Order Manager
+              </div>
+              <div className="xl:tw-shadow xl:tw-rounded-lg ">
+                <OrderTable orders={orders} history={history} />
+              </div>
+            </div>
+            <SubFooter />
           </div>
-        )}
-      </div>
-    </div>
+        </>
+      )}
+    </>
   );
 };
 

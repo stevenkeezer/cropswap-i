@@ -3,7 +3,7 @@ import { EuiIcon, EuiKeyPadMenuItem } from "@elastic/eui";
 export default function Categories({ history }) {
   return (
     <>
-      <div className="tw-flex tw-justify-center tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl tw-py-3 tw-gap-10 tw-mx-auto">
+      <div className="tw-flex tw-justify-center tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl tw-py-3 tw-py-6 tw-gap-10 tw-mx-auto">
         <EuiKeyPadMenuItem
           onClick={(e) => history.push("/search/onion")}
           label="All Products"

@@ -164,7 +164,7 @@ const OrderTable = ({ users, deleteHandler, history }) => {
                     data-test-subj="tableHeaderSortButton"
                   >
                     <span class="euiTableCellContent">
-                      <span class="euiTableCellContent__text">User ID</span>
+                      <span class="euiTableCellContent__text">Role</span>
                       <span class="euiScreenReaderOnly">
                         Click to sort in ascending order
                       </span>
@@ -178,7 +178,7 @@ const OrderTable = ({ users, deleteHandler, history }) => {
                   data-test-subj="tableHeaderCell_nationality_4"
                 >
                   <div class="euiTableCellContent">
-                    <span class="euiTableCellContent__text">Role</span>
+                    <span class="euiTableCellContent__text">ID</span>
                   </div>
                 </th>
 
@@ -247,14 +247,7 @@ const OrderTable = ({ users, deleteHandler, history }) => {
                         </a>
                       </div>
                     </td>
-                    <td class="euiTableRowCell">
-                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
-                        Total
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        {user._id}
-                      </div>
-                    </td>
+
                     <td class="euiTableRowCell">
                       <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
                         Role
@@ -277,6 +270,16 @@ const OrderTable = ({ users, deleteHandler, history }) => {
                             <span class="tw-relative">User</span>
                           </>
                         )}
+                      </div>
+                    </td>
+                    <td class="euiTableRowCell">
+                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
+                        Total
+                      </div>
+                      <div class="euiTableCellContent euiTableCellContent--truncateText">
+                        <span class="euiTableCellContent__text">
+                          {user._id}
+                        </span>
                       </div>
                     </td>
 

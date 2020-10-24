@@ -1,6 +1,6 @@
 import {
   EuiBadge,
-  EuiButton,
+  EuiIcon,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
@@ -134,7 +134,7 @@ export default ({ history }) => {
         popoverProps={{
           className: "customPopoverClass",
         }}
-        popoverButton={<EuiButton>Mobile toggle</EuiButton>}
+        popoverButton={<EuiIcon type={"/search.svg"} size="l"></EuiIcon>}
         popoverButtonBreakpoints={["xs", "s"]}
         popoverFooter={
           <EuiText color="subdued" size="xs">

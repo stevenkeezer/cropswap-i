@@ -1,4 +1,5 @@
 import React, { useState, Fragment } from "react";
+import { EuiImage, EuiNotificationBadge } from "@elastic/eui";
 
 const UserOrderTable = ({ orders, deleteHandler, history }) => {
   return (
@@ -83,7 +84,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                         title="[object Object]"
                         class="euiTableCellContent__text"
                       >
-                        Id
+                        Items
                       </span>
 
                       <span class="euiScreenReaderOnly">
@@ -170,16 +171,17 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
                         <span class="euiTableCellContent__text">
                           <div class="tw-flex tw-items-center">
-                            <img
-                              class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
-                              key={order.orderItems[0].image}
-                              src={order.orderItems[0].image}
+                            <EuiImage
+                              size="m"
+                              className="tw-m-0"
+                              hasShadow
+                              allowFullScreen
                               alt={order.title}
+                              url={order.orderItems[0].image}
                             />
                             {order.orderItems.length > 1 && (
                               <div
-                                id="count-notify"
-                                className={` tw-h-6 tw-w-6 tw-text-xs tw-flex tw-items-center tw-border-8  tw-font-black tw-ml-12 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute tw-shadow-lg  tw-bg-orange-500  tw-rounded-full `}
+                                class={` w-text-xs lg:tw-flex  tw-hidden  tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
                               >
                                 +{order.orderItems.length - 1}
                               </div>
@@ -188,22 +190,24 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                         </span>
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
-                        <div class="tw-flex tw-items-center ">
-                          <img
-                            class="tw-border-white tw-shadow tw-object-cover sm:tw-h-32 sm:tw-w-32 tw-w-6 tw-h-6 tw-relative"
-                            key={order.orderItems[0].image}
-                            src={order.orderItems[0].image}
-                            alt={order.title}
-                          />
-                          {order.orderItems.length > 1 && (
-                            <div
-                              id="count-notify"
-                              class={` tw-h-6 tw-w-6 tw-text-xs lg:tw-flex tw-items-center tw-hidden  tw-font-black tw-ml-12 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
-                            >
+                        <EuiImage
+                          // size="l"
+                          className="tw-m-0 tw-p-2 tw-pl-0"
+                          hasShadow
+                          allowFullScreen
+                          // caption="Click me"
+                          alt={order.title}
+                          url={order.orderItems[0].image}
+                        />
+                        {order.orderItems.length > 1 && (
+                          <div
+                            class={` w-text-xs lg:tw-flex  tw-hidden  tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
+                          >
+                            <EuiNotificationBadge>
                               +{order.orderItems.length - 1}
-                            </div>
-                          )}
-                        </div>
+                            </EuiNotificationBadge>
+                          </div>
+                        )}
                       </div>
                     </td>
 

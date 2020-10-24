@@ -1,24 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
+import { IonButton, IonInput, IonItem, IonLabel, IonText } from "@ionic/react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import FormContainer from "../components/FormContainer";
+import { Link } from "react-router-dom";
 import { register } from "../actions/userActions";
-import {
-  IonButtons,
-  IonButton,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonToast,
-  IonText,
-  IonPage,
-  IonContent,
-} from "@ionic/react";
 
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -53,7 +37,7 @@ const RegisterScreen = ({ location, history }) => {
   console.log("err", { error });
   return (
     <>
-      <FormContainer>
+      <form>
         <IonText color="danger" padding style={{ fontWeight: "500" }}>
           {/* {initializationError && initializationError.message} */}
           Sign up
@@ -127,7 +111,7 @@ const RegisterScreen = ({ location, history }) => {
           message={errorInfo.errMsg}
           duration={2000}
         /> */}
-      </FormContainer>
+      </form>
     </>
   );
 };

@@ -9,6 +9,19 @@ import UserOrderTable from "../components/UserOrderTable";
 import ElasticCondensed from "../components/ElasticCondensed";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
+import SubFooter from "../components/SubFooter";
+import {
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageContentHeader,
+  EuiPageContentHeaderSection,
+  EuiPageHeader,
+  EuiPageHeaderSection,
+  EuiPageSideBar,
+  EuiTitle,
+} from "@elastic/eui";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -55,48 +68,59 @@ const ProfileScreen = ({ location, history }) => {
   };
 
   return (
-    <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12">
-      <Container>
-        <Row className="tw-pt-12">
-          <Col md={3}>
-            {message && <Message variant="danger">{message}</Message>}
-            {}
-            {success && <Message variant="success">Profile Updated</Message>}
-            {loading ? (
-              <Loader />
-            ) : error ? (
-              <Message variant="danger">{error}</Message>
-            ) : (
-              <ElasticCondensed
-                name={name}
-                email={email}
-                password={password}
-                confirmPassword={confirmPassword}
-                setName={setName}
-                setEmail={setEmail}
-                setPassword={setPassword}
-                setConfirmPassword={setConfirmPassword}
-                submitHandler={submitHandler}
-              />
-            )}
-          </Col>
-          <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
-            <div className="tw-p-0 tw-mb-4 tw-mt-8 md:tw-mt-0 lg:tw-mb-8 tw-text-gray-800 tw-text-2xl tw-font-semibold ">
-              My Orders
+    <>
+      <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12 tw-pb-12  tw-min-h-screen">
+        <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
+          {loading ? (
+            <Loader />
+          ) : (
+            <div>
+              <Row className="tw-pt-8">
+                <Col md={3}>
+                  {message && <Message variant="danger">{message}</Message>}
+                  {}
+                  {success && (
+                    <Message variant="success">Profile Updated</Message>
+                  )}
+                  {loading ? (
+                    <Loader />
+                  ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                  ) : (
+                    <ElasticCondensed
+                      name={name}
+                      email={email}
+                      password={password}
+                      confirmPassword={confirmPassword}
+                      setName={setName}
+                      setEmail={setEmail}
+                      setPassword={setPassword}
+                      setConfirmPassword={setConfirmPassword}
+                      submitHandler={submitHandler}
+                    />
+                  )}
+                </Col>
+                <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
+                  <div className="tw-p-0 tw-mb-4 tw-mt-8 md:tw-mt-0 lg:tw-mb-8 tw-text-gray-800 tw-text-2xl tw-font-semibold ">
+                    My Orders
+                  </div>
+                  {loadingOrders ? (
+                    <Loader />
+                  ) : errorOrders ? (
+                    <Message variant="danger">{errorOrders}</Message>
+                  ) : (
+                    <div className="xl:tw-shadow-lg tw-m-2  xl:tw-rounded-lg">
+                      <UserOrderTable orders={orders} history={history} />
+                    </div>
+                  )}
+                </Col>
+              </Row>
             </div>
-            {loadingOrders ? (
-              <Loader />
-            ) : errorOrders ? (
-              <Message variant="danger">{errorOrders}</Message>
-            ) : (
-              <div className="xl:tw-shadow-lg xl:tw-rounded-lg">
-                <UserOrderTable orders={orders} history={history} />
-              </div>
-            )}
-          </Col>
-        </Row>
-      </Container>
-    </div>
+          )}
+        </div>
+      </div>
+      <SubFooter />
+    </>
   );
 };
 

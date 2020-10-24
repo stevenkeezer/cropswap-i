@@ -25,6 +25,7 @@ const ProductCarousel = () => {
     <>
       <Carousel
         pause="false"
+        className="tw-mt-4 lg:tw-mt-0"
         fade
         // interval={5000}
         style={{
@@ -69,13 +70,13 @@ const ProductCarousel = () => {
                       style={{ border: ".125rem solid white" }}
                       src={product.image}
                       alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white tw-shadow-2xl tw-h-24"
+                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-mr-1 tw-border-white tw-shadow-2xl tw-h-24"
                     />
                   </div>
-                  <div className="tw-flex-col">
+                  <div className="tw-flex-col tw-text-center ">
                     <p
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className="tw-text-xs tw--mb-3 tw-font-bold tw-text-white tw-pb-3 tw-mt-2"
+                      className="tw-text-xs tw--mb-3 tw-font-bold tw-text-white tw-pb-5 tw-mt-2"
                     >
                       Promo Code OCT20
                     </p>
@@ -85,7 +86,7 @@ const ProductCarousel = () => {
                     >
                       {product.name}
                     </div>
-                    <button class="tw-bg-white tw-font-bold tw-py-2 tw-mt-2 tw-px-5 tw-text-black tw-shadow tw-rounded-full tw-text-xs">
+                    <button class="tw-bg-white tw-font-bold tw-py-1  tw-mt-3 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs">
                       Learn more
                     </button>
                   </div>
