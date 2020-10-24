@@ -129,7 +129,7 @@ const HomeScreen = ({ match }) => {
               )}
             </div>
 
-            <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-h-screen  tw-px-1">
+            <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-px-1">
               {products.map((product) => (
                 <IonCol
                   size="6"
@@ -157,7 +157,6 @@ const HomeScreen = ({ match }) => {
             {/* <Regions /> */}
 
             {!keyword && <Footer />}
-            <SubFooter />
           </>
         )}
       </IonContent>
