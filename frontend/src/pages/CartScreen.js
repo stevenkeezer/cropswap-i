@@ -38,7 +38,7 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div className=" tw-h-screen tw-bg-gray-100 lg:tw-mt-24 tw-mt-12  tw-min-h-screen">
+        <div className=" tw-h-auto tw-bg-gray-100 lg:tw-mt-24 tw-mt-12  tw-min-h-screen">
           <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
             <div className="tw-p-0 tw-pb-4 tw-pt-6 tw-text-gray-800 tw-text-2xl ">
               Your pickup order
