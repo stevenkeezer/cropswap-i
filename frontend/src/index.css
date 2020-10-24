@@ -35,6 +35,14 @@ ion-item {
   /* background: gray !important; */
 }
 
+.euiFormControlLayoutIcons {
+  display: none !important;
+}
+
+.euiFieldSearch {
+  padding-left: 0.5rem !important;
+}
+
 :root {
   --ion-color-primary: #008480;
   --ion-color-primary-rgb: rgb(0, 168, 163);

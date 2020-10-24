@@ -458,15 +458,14 @@ export default ({ theme }) => {
     <>
       {/* FocusTrap for Docs only */}
       {fullScreen && (
-        // <EuiFocusTrap>
         <EuiHeader
-          className="tw-bg-white tw-mx-auto tw-px-2 sm:px-0 xl:tw-px-32 lg:tw-h-24 tw-h-16"
+          className=" tw-mx-auto sm:px-0  tw-px-4 xl:tw-px-32 lg:tw-h-24 tw-h-16"
           borderBottom="none"
           style={{
             borderBottom: "1px solid white",
             boxShadow: "none!important",
           }}
-          theme="light"
+          // theme="light"
           position="fixed"
           sections={[
             {
@@ -536,14 +535,11 @@ export default ({ theme }) => {
                     </EuiLink>
                   </>
                 ),
-
-                // <HeaderAppMenu history={history} />,
               ],
               borders: "none",
             },
           ]}
         />
-        // </EuiFocusTrap>
       )}
     </>
   );

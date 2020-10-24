@@ -56,19 +56,21 @@ const CartScreen = ({ match, location, history }) => {
                       <article className="card tw-rounded mb-3 tw-border-none tw-shadow">
                         <div class="row align-items-center tw-p-5">
                           <div class="col-md-6 tw-flex tw-gap-3">
-                            <img
-                              class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
-                              alt={item.name}
-                              src={item.image}
-                            />
+                            <Link to={`/product/${item.product}`}>
+                              <img
+                                class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                                alt={item.name}
+                                src={item.image}
+                              />
+                            </Link>
 
                             <div className="tw-flex tw-flex-col">
                               <Link to={`/product/${item.product}`}>
                                 {item.name}
                               </Link>
-                              <span>
+                              <span className="tw-mt-1">
                                 <Link
-                                  className="tw-text-xs tw-text-gray-700"
+                                  className="tw-text-xs  tw-text-gray-700"
                                   to={`/product/${item.product}`}
                                 >
                                   {item.countInStock} left in stock
@@ -80,6 +82,7 @@ const CartScreen = ({ match, location, history }) => {
                           <div class="col">
                             <div class="input-group input-spinner">
                               <Form.Control
+                                className="tw-cursor-pointer"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -106,7 +109,7 @@ const CartScreen = ({ match, location, history }) => {
                           </div>
                           <div class="col flex-grow-0 text-right">
                             <IonIcon
-                              className="tw-h-6 tw-w-6 tw-text-gray-600"
+                              className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
                               onClick={() =>
                                 removeFromCartHandler(item.product)
                               }
@@ -128,14 +131,14 @@ const CartScreen = ({ match, location, history }) => {
                     <div class=" tw-flex tw-items-baseline">
                       <IonInput
                         type="text"
-                        class="tw-mt-3 tw-mb-3 tw-mr-3 "
+                        class="tw-mt-3 tw-mb-3 tw-mr-3  "
                         name=""
                         placeholder="Discount code"
                       />
                       <div class="">
                         <button
                           disabled
-                          class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-text-gray-800 tw-font-bold tw-py-3 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
+                          class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-cursor-pointer tw-text-gray-800 tw-font-bold tw-py-3 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
                         >
                           Apply
                         </button>
@@ -209,7 +212,7 @@ const CartScreen = ({ match, location, history }) => {
 
                 <IonButton
                   expand="full"
-                  className="tw-mt-2"
+                  className="tw-mt-4"
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}
                 >

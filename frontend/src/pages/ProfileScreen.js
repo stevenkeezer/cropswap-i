@@ -101,7 +101,7 @@ const ProfileScreen = ({ location, history }) => {
                   )}
                 </Col>
                 <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
-                  <div className="tw-p-0 tw-mb-4 tw-mt-8 md:tw-mt-0 lg:tw-mb-8 tw-text-gray-800 tw-text-2xl tw-font-semibold ">
+                  <div className="tw-p-0 tw-mb-4 tw-mt-8 md:tw-mt-0 lg:tw-mb-8 tw-text-gray-800 tw-text-2xl  ">
                     My Orders
                   </div>
                   {loadingOrders ? (

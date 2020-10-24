@@ -6,7 +6,7 @@ export default ({ history }) => (
   <EuiHeaderSectionItemButton
     onClick={(e) => history.push("/")}
     border="right"
-    className="xl:tw-mr-6 "
+    className="xl:tw-mr-8 xl:tw-ml-6   "
   >
     <EuiIcon
       size="xl"
