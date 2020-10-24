@@ -5,6 +5,9 @@ export default function Categories({ history }) {
     <>
       <div className="tw-flex tw-justify-center tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl tw-py-3 tw-py-6 tw-gap-10 tw-mx-auto">
         <EuiKeyPadMenuItem
+          style={{
+            boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.15)",
+          }}
           onClick={(e) => history.push("/search/onion")}
           label="All Products"
         >
