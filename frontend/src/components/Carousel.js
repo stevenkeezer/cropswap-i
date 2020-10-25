@@ -70,13 +70,13 @@ const ProductCarousel = () => {
                       style={{ border: ".125rem solid white" }}
                       src={product.image}
                       alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white   tw-shadow-2xl tw-h-24"
+                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white  tw-min-w-24 tw-shadow-2xl tw-h-24"
                     />
                   </div>
-                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-20 tw-ml-6 lg:tw-mr-16">
+                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-6 lg:tw-ml-0 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-xs tw-mb-3 tw-mt-2 tw-font-bold  ${
+                      className={` tw-text-xs tw-mb-2 tw-mt-2 tw-font-bold  ${
                         index === 0 ? `tw-text-gray-900` : `tw-text-white`
                       } `}
                     >
