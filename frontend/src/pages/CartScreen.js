@@ -1,6 +1,7 @@
 import { IonButton, IonIcon, IonInput, IonText, IonTitle } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
 import React, { useEffect } from "react";
+import { EuiCard, EuiFlexItem, EuiIcon } from "@elastic/eui";
 import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -54,36 +55,47 @@ const CartScreen = ({ match, location, history }) => {
                 ) : (
                   <ListGroup variant="flush">
                     {cartItems.map((item) => (
-                      <article className="card tw-rounded mb-3 tw-border-none tw-shadow">
-                        <div class="row align-items-center tw-p-5">
-                          <div class="col-md-6 tw-flex tw-gap-3">
-                            <Link to={`/product/${item.product}`}>
-                              <img
-                                class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
-                                alt={item.name}
-                                src={item.image}
-                              />
-                            </Link>
-
-                            <div className="tw-flex tw-flex-col">
-                              <Link to={`/product/${item.product}`}>
-                                {item.name}
-                              </Link>
-                              <span className="tw-mt-1">
-                                <Link
-                                  className="tw-text-xs  tw-text-gray-700"
-                                  to={`/product/${item.product}`}
-                                >
-                                  {item.countInStock} left in stock
-                                </Link>
-                              </span>
+                      <EuiFlexItem className="pb-1">
+                        <EuiCard
+                          layout="horizontal"
+                          icon={
+                            <img
+                              onClick={() =>
+                                history.push(`/product/${item.product}`)
+                              }
+                              className="tw-border tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-cursor-pointer tw-relative"
+                              alt={item.name}
+                              src={item.image}
+                            />
+                          }
+                          iconSize="sm"
+                          titleSize="xs"
+                          title={
+                            <div
+                              className="tw-cursor-pointer"
+                              onClick={() =>
+                                history.push(`/product/${item.product}`)
+                              }
+                            >
+                              {item.name}
                             </div>
-                          </div>
-
-                          <div class="col">
-                            <div class="input-group input-spinner">
+                          }
+                          description={
+                            <div>
+                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-text-sm">
+                                ${item.price}
+                              </div>
+                              {item.countInStock} left in stock
+                            </div>
+                          }
+                          // onClick={() =>
+                          //   history.push(`/product/${item.product}`)
+                          // }
+                        >
+                          <>
+                            <div className="tw-flex tw-justify-between  ">
                               <Form.Control
-                                className="tw-cursor-pointer"
+                                className="tw-cursor-pointer tw-w-24"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -103,22 +115,87 @@ const CartScreen = ({ match, location, history }) => {
                                   )
                                 )}
                               </Form.Control>
+                              <div className="tw-flex-col tw-text-right tw-items-center">
+                                <div>
+                                  <IonIcon
+                                    className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
+                                    onClick={() =>
+                                      removeFromCartHandler(item.product)
+                                    }
+                                    icon={trashOutline}
+                                  ></IonIcon>
+                                </div>
+                              </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="price h5"> ${item.price} </div>
-                          </div>
-                          <div class="col flex-grow-0 text-right">
-                            <IonIcon
-                              className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
-                              onClick={() =>
-                                removeFromCartHandler(item.product)
-                              }
-                              icon={trashOutline}
-                            ></IonIcon>
-                          </div>
-                        </div>
-                      </article>
+                          </>
+                        </EuiCard>
+                      </EuiFlexItem>
+
+                      // <article className="card tw-rounded mb-3 tw-border-none tw-shadow">
+                      //   <div class="row align-items-center tw-p-5">
+                      //     <div class="col-md-6 tw-flex tw-gap-3">
+                      //       <Link to={`/product/${item.product}`}>
+                      //         <img
+                      //           class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
+                      //           alt={item.name}
+                      //           src={item.image}
+                      //         />
+                      //       </Link>
+
+                      //       <div className="tw-flex tw-flex-col">
+                      //         <Link to={`/product/${item.product}`}>
+                      //           {item.name}
+                      //         </Link>
+                      //         <span className="tw-mt-1">
+                      //           <Link
+                      //             className="tw-text-xs  tw-text-gray-700"
+                      //             to={`/product/${item.product}`}
+                      //           >
+                      //             {item.countInStock} left in stock
+                      //           </Link>
+                      //         </span>
+                      //       </div>
+                      //     </div>
+
+                      //     <div class="col">
+                      //       <div class="input-group input-spinner">
+                      //         <Form.Control
+                      //           className="tw-cursor-pointer"
+                      //           as="select"
+                      //           value={item.qty}
+                      //           onChange={(e) =>
+                      //             dispatch(
+                      //               addToCart(
+                      //                 item.product,
+                      //                 Number(e.target.value)
+                      //               )
+                      //             )
+                      //           }
+                      //         >
+                      //           {[...Array(item.countInStock).keys()].map(
+                      //             (x) => (
+                      //               <option key={x + 1} value={x + 1}>
+                      //                 {x + 1}
+                      //               </option>
+                      //             )
+                      //           )}
+                      //         </Form.Control>
+                      //       </div>
+                      //     </div>
+                      //     <div class="col">
+                      //       <div class="price h5"> ${item.price} </div>
+                      //     </div>
+                      //     <div class="col flex-grow-0 text-right">
+                      //       <IonIcon
+                      //         className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
+                      //         onClick={() =>
+                      //           removeFromCartHandler(item.product)
+                      //         }
+                      //         icon={trashOutline}
+                      //       ></IonIcon>
+                      //     </div>
+                      //   </div>
+                      // </article>
                     ))}
                   </ListGroup>
                 )}

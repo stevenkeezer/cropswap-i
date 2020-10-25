@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { EuiCard } from "@elastic/eui";
+import { EuiCard, EuiButton } from "@elastic/eui";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
 import {
@@ -291,22 +291,16 @@ const OrderScreen = ({ match, history }) => {
                   </ListGroup.Item>
                   {order.isPaid && (
                     <ListGroup.Item>
-                      <Button
-                        type="button"
-                        variant="none"
-                        style={{ border: "1px solid rgba(0,0,0,0.125)" }}
-                        className="btn-block tw-bg-gray-300 tw-font-medium tw-uppercase tw-text-sm tw-focus:bg-gray-400"
-                        onClick={() => history.push("/profile")}
-                      >
-                        Go to orders
-                      </Button>
-                      <IonButton
-                        type="button"
-                        className="btn-block"
+                      <EuiButton
+                        fullWidth
+                        color="none"
+                        className="tw-mt-3 tw-bg-gray-300 tw-text-gray-800 "
+                        size="m"
+                        fill
                         onClick={() => history.push("/")}
                       >
                         Continue Shopping
-                      </IonButton>
+                      </EuiButton>
                     </ListGroup.Item>
                   )}
                   {!order.isPaid && (
@@ -334,14 +328,16 @@ const OrderScreen = ({ match, history }) => {
                       Complete Order
                     </div>
                     <ListGroup.Item>
-                      <IonButton
-                        type="button"
-                        color="dark"
-                        className="tw-w-full "
+                      <EuiButton
+                        fullWidth
+                        color="secondary"
+                        className="tw-mt-3"
+                        size="m"
+                        fill
                         onClick={deliverHandler}
                       >
-                        Mark As Delivered
-                      </IonButton>
+                        Mark As Delivered{" "}
+                      </EuiButton>
                     </ListGroup.Item>
                     <br></br>
                     <br></br>

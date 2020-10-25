@@ -2,6 +2,13 @@ import { IonButton } from "@ionic/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+} from "@elastic/eui";
+import {
   createProduct,
   deleteProduct,
   listProducts,
@@ -79,9 +86,16 @@ const ProductListScreen = ({ history, match }) => {
             <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">
               Products
             </div>
-            <IonButton className="" onClick={createProductHandler}>
-              <i className="fas fa-plus"></i> Create Product
-            </IonButton>
+
+            <EuiButton
+              color="secondary"
+              className="tw-mt-3 "
+              size="m"
+              fill
+              onClick={createProductHandler}
+            >
+              Create Product
+            </EuiButton>
           </div>
 
           {loadingDelete && <Loader />}

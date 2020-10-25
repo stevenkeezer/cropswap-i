@@ -10,6 +10,13 @@ import {
   createProductReview,
   listProductDetails,
 } from "../actions/productActions";
+import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+} from "@elastic/eui";
 import ElasticComment from "../components/ElasticComment";
 import ElasticImage from "../components/ElasticImage";
 import Loader from "../components/Loader";
@@ -163,16 +170,17 @@ const ProductScreen = ({ history, match }) => {
                           </ListGroup.Item>
                         )}
 
-                        <ListGroup.Item>
-                          <IonButton
-                            onClick={addToCartHandler}
-                            className="btn-block"
-                            type="button"
-                            disabled={product.countInStock === 0}
-                          >
-                            Add To Cart
-                          </IonButton>
-                        </ListGroup.Item>
+                        <EuiButton
+                          fullWidth
+                          color="secondary"
+                          className="tw-mt-3"
+                          size="m"
+                          fill
+                          disabled={product.countInStock === 0}
+                          onClick={addToCartHandler}
+                        >
+                          Add To Cart
+                        </EuiButton>
                       </ListGroup>
                     </Card>
                   </ListGroup>

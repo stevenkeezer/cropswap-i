@@ -108,7 +108,7 @@ const HomeScreen = ({ match }) => {
           />
         ) : (
           <>
-            <div className=" tw-mb-3 tw-px-3 tw-items-baseline tw-mt-3">
+            <div className=" tw-mb-3 tw-px-3 tw-items-baseline ">
               {!keyword ? (
                 <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 tw-pt-4  tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
                   <div className="tw-text-xl tw-font-medium tw-text-gray-900">

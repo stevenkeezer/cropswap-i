@@ -5,6 +5,7 @@ import {
   EuiSpacer,
   EuiFormRow,
   EuiNotificationBadge,
+  EuiButton,
   EuiImage,
 } from "@elastic/eui";
 import { IonButton, IonTitle } from "@ionic/react";
@@ -851,9 +852,18 @@ const ShippingScreen = ({ history }) => {
                   </article>
                 ))}
             </div>
-            <IonButton expand="full" onClick={submitHandler}>
+
+            <EuiButton
+              fullWidth
+              color="secondary"
+              className="tw-mt-3"
+              size="m"
+              fill
+              disabled={cartItems.length === 0}
+              onClick={submitHandler}
+            >
               Continue
-            </IonButton>
+            </EuiButton>
           </div>
         </div>
         <SubFooter />

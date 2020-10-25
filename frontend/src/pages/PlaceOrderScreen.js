@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { EuiCard, EuiCheckableCard } from "@elastic/eui";
+import { EuiCard, EuiCheckableCard, EuiButton } from "@elastic/eui";
 import {
   Button,
   Row,
@@ -237,14 +237,18 @@ const PlaceOrderScreen = ({ history }) => {
                     </ListGroup.Item>
                   </ListGroup>
                 </Card>
-                <IonButton
-                  expand="full"
-                  className="tw-mt-4"
+
+                <EuiButton
+                  fullWidth
+                  color="secondary"
+                  className="tw-mt-3"
+                  size="m"
+                  fill
                   disabled={cart.cartItems === 0}
                   onClick={placeOrderHandler}
                 >
                   Continue
-                </IonButton>
+                </EuiButton>
                 <p className="tw-text-xs tw-pt-2">
                   *You can review this order before it's final
                 </p>

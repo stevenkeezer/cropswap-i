@@ -2,6 +2,7 @@ import {
   EuiFormRow,
   EuiPanel,
   EuiFieldPassword,
+  EuiButton,
   EuiFieldText,
 } from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
@@ -101,14 +102,16 @@ const ElasticCondensed = ({
           />
         </EuiFormRow>
 
-        <IonButton
-          type="submit"
-          variant="primary"
-          className="tw-mt-4"
+        <EuiButton
+          fullWidth
+          color="none"
+          className="tw-mt-3 tw-bg-gray-300 tw-text-gray-800 "
+          size="m"
+          fill
           onClick={submitHandler}
         >
           Update
-        </IonButton>
+        </EuiButton>
         {/* <ElasticAccordion /> */}
         {/* </EuiFormRow> */}
       </form>

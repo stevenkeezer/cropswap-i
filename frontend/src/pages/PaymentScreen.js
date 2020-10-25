@@ -10,6 +10,7 @@ import {
   EuiFieldText,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiButton,
   EuiSpacer,
   EuiFormRow,
   EuiNotificationBadge,
@@ -143,9 +144,17 @@ const PaymentScreen = ({ history }) => {
             </div>
 
             <div>
-              <IonButton expand="full" onClick={submitHandler}>
+              <EuiButton
+                fullWidth
+                color="secondary"
+                className="tw-mt-3"
+                size="m"
+                fill
+                disabled={cartItems.length === 0}
+                onClick={submitHandler}
+              >
                 Continue
-              </IonButton>
+              </EuiButton>
             </div>
           </Col>
         </Row>

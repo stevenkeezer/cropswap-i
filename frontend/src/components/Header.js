@@ -76,7 +76,7 @@ export default ({ theme }) => {
     };
 
     const button = (
-      <EuiToolTip position="bottom" content="More Stuff">
+      <EuiToolTip position="bottom" delay="long" content="More Stuff">
         <EuiHeaderSectionItemButton
           aria-controls={keypadId}
           aria-expanded={isOpen}
@@ -191,7 +191,7 @@ export default ({ theme }) => {
     };
 
     const button = (
-      <EuiToolTip position="bottom" content="User Profile">
+      <EuiToolTip position="bottom" delay="long" content="User Profile">
         <EuiHeaderSectionItemButton
           aria-controls={id}
           aria-expanded={isOpen}
@@ -383,7 +383,7 @@ export default ({ theme }) => {
     };
 
     const button = (
-      <EuiToolTip position="left" content="Farm Manager">
+      <EuiToolTip position="left" delay="long" content="Farm Manager">
         <EuiHeaderSectionItemButton
           aria-controls={id}
           aria-expanded={isOpen}
@@ -508,7 +508,7 @@ export default ({ theme }) => {
                     history.push("/cart");
                   }}
                 >
-                  <EuiToolTip position="bottom" content="My Cart">
+                  <EuiToolTip position="bottom" delay="long" content="My Cart">
                     <svg
                       class="tw-w-6 tw-h-6 tw-mx-auto tw-text-gray-800"
                       fill="currentColor"
