@@ -47,13 +47,13 @@ const CartScreen = ({ match, location, history }) => {
             </div>
 
             <div className="tw-flex  tw-justify-between xl:tw-flex-row tw-flex-col">
-              <div className="lg:tw-w-3/4">
+              <div className="lg:tw-w-4/5">
                 {cartItems.length === 0 ? (
                   <Message>
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="l">
+                  <EuiFlexGrid gutterSize="m">
                     {cartItems.map((item) => (
                       <EuiFlexItem>
                         <EuiCard
@@ -63,7 +63,7 @@ const CartScreen = ({ match, location, history }) => {
                               onClick={() =>
                                 history.push(`/product/${item.product}`)
                               }
-                              className="tw-h-20 tw-w-20 tw-rounded tw-object-cover tw-cursor-pointer tw-relative"
+                              className="lg:tw-h-32 lg:tw-w-32 tw-hidden lg:tw-flex  tw-object-cover lg:tw-rounded tw-cursor-pointer tw-relative"
                               alt={item.name}
                               src={item.image}
                             />
@@ -82,7 +82,7 @@ const CartScreen = ({ match, location, history }) => {
                           }
                           description={
                             <div>
-                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-w-64 tw-text-sm">
+                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-w-56 tw-text-sm">
                                 ${item.price}
                               </div>
                               {item.countInStock} left in stock
@@ -91,6 +91,14 @@ const CartScreen = ({ match, location, history }) => {
                         >
                           <>
                             <div className="tw-flex tw-justify-between  ">
+                              <img
+                                onClick={() =>
+                                  history.push(`/product/${item.product}`)
+                                }
+                                className="lg:tw-h-32 lg:tw-w-32 tw-flex lg:tw-hidden tw-w-10 tw-h-10 tw-object-cover lg:tw-rounded tw-cursor-pointer tw-relative"
+                                alt={item.name}
+                                src={item.image}
+                              />
                               <Form.Control
                                 className="tw-cursor-pointer tw-w-24"
                                 as="select"
