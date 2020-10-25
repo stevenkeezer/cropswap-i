@@ -35,6 +35,10 @@ ion-item {
   /* background: gray !important; */
 }
 
+.euiNotificationBadge {
+  border: 0.25px solid white !important;
+}
+
 .euiFormControlLayoutIcons {
   display: none !important;
 }
@@ -432,7 +436,7 @@ label {
 .card-input-element:checked + .card::after {
   content: "‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎";
   background-repeat: no-repeat;
-  background-image: url("data:image/svg+xml,%3Csvg height='200' width='200' fill='currentColor' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg height='275' width='275' fill='%2348bb78' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
   position: absolute;
   top: 0;
   left: 0;
@@ -447,6 +451,23 @@ label {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* {
+  background-color: #38b2ac !important;
+} */
+
+.euiStepHorizontal-isComplete > .euiStepNumber {
+  background-color: #38b2ac !important;
+}
+
+.euiStepHorizontal-isSelected > .euiStepNumber {
+  background-color: #38b2ac !important;
+}
+.euiStepHorizontal-isComplete::before,
+.euiStepHorizontal-isComplete::after,
+.euiStepHorizontal-isSelected::before {
+  height: 2px;
+  background-color: #38b2ac !important;
+}
 @-webkit-keyframes fadeInCheckbox {
   from {
     opacity: 0;

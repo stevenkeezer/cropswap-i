@@ -4,10 +4,12 @@ import {
   EuiFlexItem,
   EuiSpacer,
   EuiFormRow,
+  EuiNotificationBadge,
+  EuiImage,
 } from "@elastic/eui";
 import { IonButton, IonTitle } from "@ionic/react";
 import React, { useState } from "react";
-import { Image } from "react-bootstrap";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
@@ -44,15 +46,12 @@ const ShippingScreen = ({ history }) => {
           <CheckoutSteps step1 step2 />
         </div>
 
-        <div className=" tw-max-w-screen-lg tw-px-4 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-min-h-screen tw-gap-8">
+        <div className=" tw-max-w-screen-lg tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row tw-min-h-screen tw-gap-12">
           <div className="lg:tw-w-3/5 tw-w-full">
-            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto tw-font-medium tw-max-w-screen-xl">
-              <IonTitle
-                className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
-                style={{ fontWeight: "500" }}
-              >
+            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto  tw-max-w-screen-xl">
+              <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
                 Select a Delivery Method
-              </IonTitle>
+              </div>
               <div class="card tw-rounded tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
                 <div class="row">
                   <div class=" col-sm-6 ">
@@ -64,9 +63,9 @@ const ShippingScreen = ({ history }) => {
                         class="card-input-element d-none"
                         value="demo2"
                       />
-                      <div class="card card-body bg-light d-flex flex-row tw-border justify-content-between align-items-center tw-py-10 ">
+                      <div class="card card-body bg-light d-flex flex-row tw-border justify-content-between align-items-center tw-py-10  ">
                         <div>
-                          <span className="tw-font-semibold tw-text-lg">
+                          <span className="tw-font-semibold tw-text-lg tw-ml-4">
                             Pickup
                           </span>
                         </div>
@@ -83,7 +82,7 @@ const ShippingScreen = ({ history }) => {
                         class="card-input-element d-none"
                         value="demo2"
                       />
-                      <div class="card card-body bg-light  d-flex flex-row justify-content-between align-items-center tw-py-10 ">
+                      <div class="card card-body bg-light tw-mt-4 sm:tw-mt-0 d-flex flex-row justify-content-between align-items-center tw-py-10 ">
                         <div>
                           <span className="tw-font-semibold tw-text-lg">
                             Delivery
@@ -754,10 +753,7 @@ const ShippingScreen = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div
-                className=" tw-text-xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-mx-auto "
-                style={{ fontWeight: "500" }}
-              >
+              <div className=" tw-text-2xl  tw-pb-6 tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-base tw-mx-auto ">
                 Shipping Information
               </div>
 
@@ -811,31 +807,36 @@ const ShippingScreen = ({ history }) => {
           </div>
 
           <div className="lg:tw-w-2/5 tw-w-full">
-            <IonTitle
-              className=" tw-text-xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
-              style={{ fontWeight: "500" }}
-            >
+            <div className=" tw-text-2xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               Your Order
-            </IonTitle>
+            </div>
             <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
                   <article className="tw-bg-white tw-rounded mb-3 tw-border-none tw-shadow">
                     <div class="row ">
                       <div class="tw-px-4 tw-flex tw-gap-3">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          className="border img-sm tw-rounded"
-                          style={{ maxWidth: "100px" }}
-                        />
-                        {item.qty && (
-                          <div
-                            class={` tw-h-6 tw-w-6 tw-text-xs tw-flex tw-items-center  tw-border-white tw-border tw-font-black tw-ml-20 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
-                          >
-                            {item.qty}
-                          </div>
-                        )}
+                        <div class="tw-flex tw-items-center">
+                          <EuiImage
+                            // size="l"
+                            className="tw-m-0 tw-p-2 tw-pl-2"
+                            hasShadow
+                            allowFullScreen
+                            // caption="Click me"
+                            src={item.image}
+                            alt={item.name}
+                            style={{ maxWidth: "100px", maxHeight: "75px" }}
+                          />
+                          {item.qty > 1 && (
+                            <div
+                              class={` w-text-xs lg:tw-flex   tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
+                            >
+                              <EuiNotificationBadge>
+                                {item.qty}
+                              </EuiNotificationBadge>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       <Link to={`/product/${item.product}`}>
                         <div className="tw-text-sm tw-mt-2">{item.name}</div>

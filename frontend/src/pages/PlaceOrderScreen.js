@@ -73,7 +73,7 @@ const PlaceOrderScreen = ({ history }) => {
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
           </div>
-          <div className="tw-max-w-screen-lg  tw-mx-auto tw-px-4">
+          <div className="tw-max-w-screen-lg tw-mt-8 tw-mx-auto tw-px-4">
             <Row>
               <Col md={8}>
                 <ListGroup variant="flush">

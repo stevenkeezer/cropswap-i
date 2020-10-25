@@ -6,6 +6,15 @@ import {
   IonList,
   IonTitle,
 } from "@ionic/react";
+import {
+  EuiFieldText,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiSpacer,
+  EuiFormRow,
+  EuiNotificationBadge,
+  EuiImage,
+} from "@elastic/eui";
 import React, { useState } from "react";
 import { Col, Container, Image, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
@@ -39,15 +48,14 @@ const PaymentScreen = ({ history }) => {
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-
-        <Row className=" tw-mx-auto tw-max-w-screen-lg  tw-text-gray-800 tw-mx-auto">
-          <Col md={8}>
-            <IonTitle
-              className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center  tw-text-gray-800 tw-gap-8 tw-mt-8 tw-mx-auto">
+          <Col md={6}>
+            <div
+              className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
               style={{ fontWeight: "500" }}
             >
               Select a Payment Method
-            </IonTitle>
+            </div>
 
             <IonList className="tw-shadow tw-mt-3 tw-mb-8">
               <IonItem className="tw-px-2 tw-pr-6 " lines="none">
@@ -89,7 +97,7 @@ const PaymentScreen = ({ history }) => {
 
           <Col md={4}>
             <IonTitle
-              className=" tw-text-xl  tw-pb-3 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+              className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
               style={{ fontWeight: "500" }}
             >
               Your Order
@@ -97,22 +105,30 @@ const PaymentScreen = ({ history }) => {
             <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <article className="tw-rounded mb-3 tw-border-none tw-shadow">
+                  <article className="tw-rounded mb-3 tw-border-none tw-bg-white tw-shadow">
                     <div class="row ">
                       <div class="tw-px-4 tw-flex tw-gap-3">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          className="border img-sm tw-rounded"
-                          style={{ maxWidth: "100px" }}
-                        />
-                        {item.qty && (
-                          <div
-                            class={` tw-h-6 tw-w-6 tw-text-xs tw-flex tw-items-center  tw-border-white tw-border tw-font-black tw-ml-20 tw-mt-12 tw-text-orange-100 tw-justify-center tw-absolute  tw-bg-orange-500  tw-rounded-full `}
-                          >
-                            {item.qty}
-                          </div>
-                        )}
+                        <div class="tw-flex tw-items-center">
+                          <EuiImage
+                            // size="l"
+                            className="tw-m-0 tw-p-2 tw-pl-2"
+                            hasShadow
+                            allowFullScreen
+                            // caption="Click me"
+                            src={item.image}
+                            alt={item.name}
+                            style={{ maxWidth: "100px", maxHeight: "75px" }}
+                          />
+                          {item.qty > 1 && (
+                            <div
+                              class={` w-text-xs lg:tw-flex   tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
+                            >
+                              <EuiNotificationBadge>
+                                {item.qty}
+                              </EuiNotificationBadge>
+                            </div>
+                          )}
+                        </div>
                       </div>
                       <Link to={`/product/${item.product}`}>
                         <div className="tw-text-sm tw-mt-2">{item.name}</div>

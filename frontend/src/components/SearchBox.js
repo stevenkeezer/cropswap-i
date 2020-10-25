@@ -128,7 +128,7 @@ export default ({ history }) => {
           prepend: (
             <div className="tw-pl-2 tw-mx-auto tw-bg-gray-200 tw-opacity-75 tw-items-center tw-flex">
               <svg
-                className="tw-w-5 tw-h-5 "
+                className="tw-w-5 tw-h-5 tw-text-gray-700 tw-opacity-75 "
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
