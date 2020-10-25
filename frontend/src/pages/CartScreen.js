@@ -1,7 +1,7 @@
 import { IonButton, IonIcon, IonInput, IonText, IonTitle } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
 import React, { useEffect } from "react";
-import { EuiCard, EuiFlexItem, EuiIcon } from "@elastic/eui";
+import { EuiCard, EuiFlexItem, EuiIcon, EuiFlexGrid } from "@elastic/eui";
 import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -46,16 +46,16 @@ const CartScreen = ({ match, location, history }) => {
               Your pickup order
             </div>
 
-            <Row>
-              <Col md={8}>
+            <div className="tw-flex tw-gap-4 tw-justify-between xl:tw-flex-row tw-flex-col">
+              <div className="lg:tw-w-4/5">
                 {cartItems.length === 0 ? (
                   <Message>
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <ListGroup variant="flush">
+                  <EuiFlexGrid gutterSize="m">
                     {cartItems.map((item) => (
-                      <EuiFlexItem className="pb-1">
+                      <EuiFlexItem style={{ minWidth: "416px" }}>
                         <EuiCard
                           layout="horizontal"
                           icon={
@@ -63,7 +63,7 @@ const CartScreen = ({ match, location, history }) => {
                               onClick={() =>
                                 history.push(`/product/${item.product}`)
                               }
-                              className="tw-border tw-border-white tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-cursor-pointer tw-relative"
+                              className="tw-h-20 tw-w-20 tw-rounded tw-cursor-pointer tw-relative"
                               alt={item.name}
                               src={item.image}
                             />
@@ -88,9 +88,6 @@ const CartScreen = ({ match, location, history }) => {
                               {item.countInStock} left in stock
                             </div>
                           }
-                          // onClick={() =>
-                          //   history.push(`/product/${item.product}`)
-                          // }
                         >
                           <>
                             <div className="tw-flex tw-justify-between  ">
@@ -130,77 +127,11 @@ const CartScreen = ({ match, location, history }) => {
                           </>
                         </EuiCard>
                       </EuiFlexItem>
-
-                      // <article className="card tw-rounded mb-3 tw-border-none tw-shadow">
-                      //   <div class="row align-items-center tw-p-5">
-                      //     <div class="col-md-6 tw-flex tw-gap-3">
-                      //       <Link to={`/product/${item.product}`}>
-                      //         <img
-                      //           class="tw-border  tw-object-cover tw-h-16 tw-w-16 tw-rounded tw-relative"
-                      //           alt={item.name}
-                      //           src={item.image}
-                      //         />
-                      //       </Link>
-
-                      //       <div className="tw-flex tw-flex-col">
-                      //         <Link to={`/product/${item.product}`}>
-                      //           {item.name}
-                      //         </Link>
-                      //         <span className="tw-mt-1">
-                      //           <Link
-                      //             className="tw-text-xs  tw-text-gray-700"
-                      //             to={`/product/${item.product}`}
-                      //           >
-                      //             {item.countInStock} left in stock
-                      //           </Link>
-                      //         </span>
-                      //       </div>
-                      //     </div>
-
-                      //     <div class="col">
-                      //       <div class="input-group input-spinner">
-                      //         <Form.Control
-                      //           className="tw-cursor-pointer"
-                      //           as="select"
-                      //           value={item.qty}
-                      //           onChange={(e) =>
-                      //             dispatch(
-                      //               addToCart(
-                      //                 item.product,
-                      //                 Number(e.target.value)
-                      //               )
-                      //             )
-                      //           }
-                      //         >
-                      //           {[...Array(item.countInStock).keys()].map(
-                      //             (x) => (
-                      //               <option key={x + 1} value={x + 1}>
-                      //                 {x + 1}
-                      //               </option>
-                      //             )
-                      //           )}
-                      //         </Form.Control>
-                      //       </div>
-                      //     </div>
-                      //     <div class="col">
-                      //       <div class="price h5"> ${item.price} </div>
-                      //     </div>
-                      //     <div class="col flex-grow-0 text-right">
-                      //       <IonIcon
-                      //         className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
-                      //         onClick={() =>
-                      //           removeFromCartHandler(item.product)
-                      //         }
-                      //         icon={trashOutline}
-                      //       ></IonIcon>
-                      //     </div>
-                      //   </div>
-                      // </article>
                     ))}
-                  </ListGroup>
+                  </EuiFlexGrid>
                 )}
-              </Col>
-              <Col md={4}>
+              </div>
+              <div>
                 <div className=" card tw-rounded tw-border-none tw-shadow tw-mb-2">
                   <div class="card-body">
                     {/* <label className="tw-text-gray-600 tw-font-medium tw-pb-1 tw-text-sm">
@@ -299,8 +230,8 @@ const CartScreen = ({ match, location, history }) => {
                 >
                   Proceed to checkout
                 </EuiButton>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
         </div>
       )}
