@@ -76,7 +76,7 @@ const ProductCarousel = () => {
                   <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-6 lg:tw-ml-0 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-xs tw-mb-2 tw-mt-2 tw-font-bold  ${
+                      className={` tw-text-xs  tw-mt-2 tw-font-bold  ${
                         index === 0 ? `tw-text-gray-900` : `tw-text-white`
                       } `}
                     >
@@ -91,7 +91,7 @@ const ProductCarousel = () => {
                       {product.name}
                     </div>
                     <div
-                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-4 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs ${
+                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-3 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs ${
                         index === 0 ? `tw-bg-gray-900 tw-text-white` : ``
                       } `}
                     >
