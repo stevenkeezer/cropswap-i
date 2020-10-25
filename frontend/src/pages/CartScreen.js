@@ -46,16 +46,16 @@ const CartScreen = ({ match, location, history }) => {
               Your pickup order
             </div>
 
-            <div className="tw-flex tw-gap-4 tw-justify-between xl:tw-flex-row tw-flex-col">
-              <div className="lg:tw-w-4/5">
+            <div className="tw-flex  tw-justify-between xl:tw-flex-row tw-flex-col">
+              <div className="lg:tw-w-3/4">
                 {cartItems.length === 0 ? (
                   <Message>
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="m">
+                  <EuiFlexGrid gutterSize="l">
                     {cartItems.map((item) => (
-                      <EuiFlexItem style={{ minWidth: "416px" }}>
+                      <EuiFlexItem>
                         <EuiCard
                           layout="horizontal"
                           icon={
@@ -63,7 +63,7 @@ const CartScreen = ({ match, location, history }) => {
                               onClick={() =>
                                 history.push(`/product/${item.product}`)
                               }
-                              className="tw-h-20 tw-w-20 tw-rounded tw-cursor-pointer tw-relative"
+                              className="tw-h-20 tw-w-20 tw-rounded tw-object-cover tw-cursor-pointer tw-relative"
                               alt={item.name}
                               src={item.image}
                             />
@@ -82,7 +82,7 @@ const CartScreen = ({ match, location, history }) => {
                           }
                           description={
                             <div>
-                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-text-sm">
+                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-w-64 tw-text-sm">
                                 ${item.price}
                               </div>
                               {item.countInStock} left in stock
