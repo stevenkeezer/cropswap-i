@@ -87,7 +87,7 @@ const ProductCarousel = () => {
                       {product.name}
                     </div>
                     <div
-                      className={`tw-bg-white tw-font-bold tw-py-1 tw-w-24 sm:tw-mx-auto tw-mt-3 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
+                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-3 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
                     >
                       Learn more
                     </div>

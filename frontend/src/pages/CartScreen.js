@@ -8,6 +8,7 @@ import { addToCart, removeFromCart } from "../actions/cartActions";
 import Message from "../components/Message";
 import SubFooter from "../components/SubFooter";
 import Loader from "../components/Loader";
+import { EuiButton, EuiTitle } from "@elastic/eui";
 
 const CartScreen = ({ match, location, history }) => {
   const productId = match.params.id;
@@ -210,14 +211,17 @@ const CartScreen = ({ match, location, history }) => {
                   </ListGroup>
                 </div>
 
-                <IonButton
-                  expand="full"
-                  className="tw-mt-4"
+                <EuiButton
+                  fullWidth
+                  color="secondary"
+                  className="tw-mt-3"
+                  size="m"
+                  fill
                   disabled={cartItems.length === 0}
                   onClick={checkoutHandler}
                 >
                   Proceed to checkout
-                </IonButton>
+                </EuiButton>
               </Col>
             </Row>
           </div>
