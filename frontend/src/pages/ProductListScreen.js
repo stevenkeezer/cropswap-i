@@ -75,8 +75,10 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <div className="lg:tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-h-auto tw-min-h-screen">
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
-          <div className="tw-flex tw-pt-8 tw-justify-between">
-            <div className="tw-text-2xl ">Products</div>
+          <div className="tw-flex tw-pt-8 tw-justify-between tw-items-center">
+            <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">
+              Products
+            </div>
             <IonButton className="" onClick={createProductHandler}>
               <i className="fas fa-plus"></i> Create Product
             </IonButton>
@@ -92,7 +94,7 @@ const ProductListScreen = ({ history, match }) => {
             <Message variant="danger">{error}</Message>
           ) : (
             <>
-              <div className="tw-text-2xl  lg:tw-shadow tw-text-gray-700  tw-mt-4 tw-mx-auto">
+              <div className="tw-text-2xl  lg:tw-shadow tw-text-gray-700  tw-mt-6 tw-mx-auto">
                 <ProductTable
                   products={products}
                   deleteHandler={deleteHandler}

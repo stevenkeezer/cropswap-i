@@ -48,8 +48,8 @@ const PaymentScreen = ({ history }) => {
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center  tw-text-gray-800 tw-gap-8 tw-mt-8 tw-mx-auto">
-          <Col md={6}>
+        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center tw-px-4  tw-text-gray-800  tw-mt-8 tw-mx-auto">
+          <Col md={8}>
             <div
               className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
               style={{ fontWeight: "500" }}
@@ -75,7 +75,7 @@ const PaymentScreen = ({ history }) => {
                     class="card-input-element d-none"
                     value="demo2"
                   />
-                  <div class="card card-body bg-light d-flex  flex-row justify-content-between align-items-center tw-py-12 tw-w-64">
+                  <div class="card card-body bg-light d-flex tw-rounded  flex-row justify-content-between align-items-center tw-py-12 tw-w-64">
                     <div>
                       <span className="tw-font-semibold  tw-flex tw-items-center tw-gap-2">
                         {" "}

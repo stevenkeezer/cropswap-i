@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { EuiCard } from "@elastic/eui";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
 import {
@@ -112,19 +113,19 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup variant="flush">
                 {order.isPaid && (
                   <div className="tw-flex tw-justify-between">
-                    <IonTitle className="tw-p-0 tw-pb-4 tw-text-xl tw-pb-6">
-                      Your order has been confirmed.{" "}
+                    <div className="tw-p-0 tw-pb-4 tw-text-xl tw-pt-8 tw-pb-6">
+                      Thank you. Your order has been confirmed.{" "}
                       <span className="tw-text-sm"> ID {order._id}</span>
-                    </IonTitle>
+                    </div>
                   </div>
                 )}
 
-                <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
+                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium ">
                   Shipping Details
-                </IonTitle>
+                </div>
                 <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 tw-pb-6">
                   <ListGroup.Item className="tw-border-none">
-                    <p className="tw-py-2 tw-pt-3 tw-font-semibold tw-text-gray-800 tw-text-sm">
+                    <p className="tw-py-3 tw-pt-3 tw-font-semibold tw-text-gray-800 tw-text-sm">
                       Personal Details
                     </p>
 
@@ -141,40 +142,32 @@ const OrderScreen = ({ match, history }) => {
                           class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
                         />
                       </div>
-                    </div>
-
-                    <div className="tw-flex tw-gap-8">
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
-                        <input
-                          value={order.shippingAddress.address}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
-                        />
-                      </div>
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
-                        <input
-                          value={order.shippingAddress.city}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
-                        />
-                      </div>
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12  tw-border-gray-200 tw-rounded">
-                        <input
-                          value={order.shippingAddress.postalCode}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full tw-w-20 text-gray-800"
-                        />
-                      </div>
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
-                        <input
-                          value={order.shippingAddress.country}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
-                        />
+                      <div className="tw-mb-3">
+                        <a href={`mailto:${order.user.email}`}>
+                          {order.user.email}
+                        </a>
                       </div>
                     </div>
-
-                    <p className="tw-mb-3">
-                      <a href={`mailto:${order.user.email}`}>
-                        {order.user.email}
-                      </a>
+                    <p className="tw-py-3 tw-pt-4 tw-font-semibold tw-text-gray-800 tw-text-sm">
+                      Shipping Address
                     </p>
+                    <div className="tw-flex tw-gap-8 tw-mb-4">
+                      <p>
+                        <div className="tw-col">
+                          <div className="tw-text-gray-600 tw-text-sm tw-py-1 tw-font-medium">
+                            {order.shippingAddress.address}
+                          </div>
+                          <div className="tw-text-gray-600 tw-text-sm tw-py-1 tw-font-medium">
+                            {order.shippingAddress.city},{" "}
+                            {order.shippingAddress.postalCode}
+                          </div>
+                          <div className="tw-text-gray-600 tw-text-sm tw-py-1 tw-font-medium">
+                            {order.shippingAddress.country}
+                          </div>
+                        </div>
+                      </p>
+                    </div>
+
                     {order.isDelivered ? (
                       <Message variant="success">
                         Delivered on {order.deliveredAt}
@@ -185,9 +178,9 @@ const OrderScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 </Card>
 
-                <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
+                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium ">
                   Payment Information
-                </IonTitle>
+                </div>
                 <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 tw-mb-3 ">
                   <ListGroup.Item className="tw-border-none tw-pb-6">
                     <p>
@@ -216,9 +209,9 @@ const OrderScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 </Card>
 
-                <IonTitle className="tw-p-0 tw-pb-4 tw-mt-3">
+                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium  ">
                   Order Items
-                </IonTitle>
+                </div>
                 <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 ">
                   <ListGroup.Item className="tw-border-none">
                     {order.orderItems.length === 0 ? (
@@ -256,7 +249,9 @@ const OrderScreen = ({ match, history }) => {
               </ListGroup>
             </Col>
             <Col md={4}>
-              <IonTitle className="tw-p-0 tw-pb-4">Order Summary</IonTitle>
+              <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                Order Summary
+              </div>
               <Card className="tw-border-none tw-shadow tw-rounded mb-3 tw-py-5">
                 <ListGroup variant="flush">
                   <ListGroup.Item className="tw-border-none">
@@ -269,7 +264,7 @@ const OrderScreen = ({ match, history }) => {
                     <Row>
                       <Col>Shipping</Col>
                       <Col className="tw-text-right">
-                        ${order.shippingPrice}
+                        + ${order.shippingPrice}.00
                       </Col>
                     </Row>
                   </ListGroup.Item>
@@ -277,13 +272,21 @@ const OrderScreen = ({ match, history }) => {
                   <ListGroup.Item className="tw-border-none">
                     <Row>
                       <Col>Tax</Col>
-                      <Col className="tw-text-right">${order.taxPrice}</Col>
+                      <Col className="tw-text-right">+ ${order.taxPrice}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item className="tw-border-none">
                     <Row>
-                      <Col>Sub total</Col>
-                      <Col className="tw-text-right">${order.totalPrice}</Col>
+                      <Col className="">
+                        <div className="tw-font-semibold tw-text-gray-800">
+                          Sub total
+                        </div>
+                      </Col>
+                      <Col className="tw-text-right">
+                        <div className="tw-font-semibold tw-text-gray-800">
+                          ${order.totalPrice}
+                        </div>
+                      </Col>
                     </Row>
                   </ListGroup.Item>
                   {order.isPaid && (
@@ -320,22 +323,30 @@ const OrderScreen = ({ match, history }) => {
                     </ListGroup.Item>
                   )}
                   {loadingDeliver && <Loader />}
-                  {userInfo &&
-                    userInfo.isAdmin &&
-                    order.isPaid &&
-                    !order.isDelivered && (
-                      <ListGroup.Item>
-                        <IonButton
-                          type="button"
-                          className="tw-w-full"
-                          onClick={deliverHandler}
-                        >
-                          Mark As Delivered
-                        </IonButton>
-                      </ListGroup.Item>
-                    )}
                 </ListGroup>
               </Card>
+              {userInfo &&
+                userInfo.isAdmin &&
+                order.isPaid &&
+                !order.isDelivered && (
+                  <>
+                    <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                      Complete Order
+                    </div>
+                    <ListGroup.Item>
+                      <IonButton
+                        type="button"
+                        color="dark"
+                        className="tw-w-full "
+                        onClick={deliverHandler}
+                      >
+                        Mark As Delivered
+                      </IonButton>
+                    </ListGroup.Item>
+                    <br></br>
+                    <br></br>
+                  </>
+                )}
             </Col>
           </Row>
         </Container>

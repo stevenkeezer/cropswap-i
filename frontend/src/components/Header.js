@@ -136,12 +136,24 @@ export default ({ theme }) => {
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
 
-          {/* <EuiKeyPadMenuItem label="Dev Tools">
+          <EuiKeyPadMenuItem
+            label="Product List"
+            onClick={(e) => {
+              history.push("/admin/productlist");
+              closeMenu();
+            }}
+          >
             <EuiIcon type="devToolsApp" size="l" />
           </EuiKeyPadMenuItem>
-          <EuiKeyPadMenuItem label="Graph">
-            <EuiIcon type="graphApp" size="l" />
-          </EuiKeyPadMenuItem> */}
+          <EuiKeyPadMenuItem
+            label="Profile"
+            onClick={(e) => {
+              history.push("/profile");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="usersRolesApp" size="l" />
+          </EuiKeyPadMenuItem>
 
           <a href="https://github.com/stevenkeezer/cropswap-i" target="_blank">
             <EuiKeyPadMenuItem label="Github">
@@ -250,6 +262,7 @@ export default ({ theme }) => {
                           history.push("/profile");
                           closeMenu();
                         }}
+                        className="tw-text-gray-800 tw-border tw-font-medium tw-text-xs tw-rounded  "
                       >
                         Edit profile
                       </EuiLink>
@@ -263,6 +276,7 @@ export default ({ theme }) => {
                             history.push("/login");
                             closeMenu();
                           }}
+                          className="tw-text-gray-800 tw-text-xs  tw-font-medium"
                         >
                           Log out
                         </EuiLink>

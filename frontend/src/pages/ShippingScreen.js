@@ -46,10 +46,10 @@ const ShippingScreen = ({ history }) => {
           <CheckoutSteps step1 step2 />
         </div>
 
-        <div className=" tw-max-w-screen-lg tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row tw-min-h-screen tw-gap-12">
+        <div className=" tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row tw-min-h-screen tw-gap-12">
           <div className="lg:tw-w-3/5 tw-w-full">
-            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto  tw-max-w-screen-xl">
-              <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lgx  tw-max-w-screen-xl">
+              <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
                 Select a Delivery Method
               </div>
               <div class="card tw-rounded tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
@@ -753,67 +753,70 @@ const ShippingScreen = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className=" tw-text-2xl  tw-pb-6 tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-base tw-mx-auto ">
+              <div className=" tw-text-2xl  tw-pb-6 tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
                 Shipping Information
               </div>
 
-              <EuiFlexItem>
-                <EuiFormRow
-                  fullWidth
-                  helpText="No shipping available right now this app is still in development!"
-                  label="Address"
-                >
-                  <EuiFieldText
-                    placeholder="Address"
+              <div className="tw-bg-white tw-shadow tw-p-5 tw-py-6  tw-rounded">
+                <EuiFlexItem>
+                  <EuiFormRow
                     fullWidth
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                  />
-                </EuiFormRow>
-              </EuiFlexItem>
-              <EuiSpacer />
+                    helpText="No shipping available right now this app is still in development!"
+                    label="Address"
+                  >
+                    <EuiFieldText
+                      placeholder="Address"
+                      className="tw-mb-3"
+                      fullWidth
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </EuiFormRow>
+                </EuiFlexItem>
+                <EuiSpacer />
 
-              <EuiFlexGroup>
-                <EuiFlexItem>
-                  <EuiFormRow fullWidth label="City">
-                    <EuiFieldText
-                      fullWidth
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                    />
-                  </EuiFormRow>
-                </EuiFlexItem>
+                <EuiFlexGroup>
+                  <EuiFlexItem>
+                    <EuiFormRow fullWidth label="City">
+                      <EuiFieldText
+                        fullWidth
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
 
-                <EuiFlexItem>
-                  <EuiFormRow fullWidth label="Country">
-                    <EuiFieldText
-                      fullWidth
-                      value={country}
-                      onChange={(e) => setCountry(e.target.value)}
-                    />
-                  </EuiFormRow>
-                </EuiFlexItem>
-                <EuiFlexItem grow={false}>
-                  <EuiFormRow fullWidth label="Postal Code">
-                    <EuiFieldText
-                      fullWidth
-                      value={postalCode}
-                      onChange={(e) => setPostalCode(e.target.value)}
-                    />
-                  </EuiFormRow>
-                </EuiFlexItem>
-              </EuiFlexGroup>
+                  <EuiFlexItem>
+                    <EuiFormRow fullWidth label="Country">
+                      <EuiFieldText
+                        fullWidth
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
+                  <EuiFlexItem grow={false}>
+                    <EuiFormRow fullWidth label="Postal Code">
+                      <EuiFieldText
+                        fullWidth
+                        value={postalCode}
+                        onChange={(e) => setPostalCode(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
+                </EuiFlexGroup>
+              </div>
             </div>
           </div>
 
           <div className="lg:tw-w-2/5 tw-w-full">
-            <div className=" tw-text-2xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+            <div className=" tw-text-2xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
               Your Order
             </div>
             <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <article className="tw-bg-white tw-rounded mb-3 tw-border-none tw-shadow">
+                  <article className="tw-bg-white tw-rounded mb-3 tw-p-2 tw-border-none tw-shadow">
                     <div class="row ">
                       <div class="tw-px-4 tw-flex tw-gap-3">
                         <div class="tw-flex tw-items-center">
@@ -840,7 +843,7 @@ const ShippingScreen = ({ history }) => {
                       </div>
                       <Link to={`/product/${item.product}`}>
                         <div className="tw-text-sm tw-mt-2">{item.name}</div>
-                        <div class="tw-text-gray-700 tw-text-sm tw-mt-1 tw-font-medium">
+                        <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
                           ${item.price}
                         </div>
                       </Link>

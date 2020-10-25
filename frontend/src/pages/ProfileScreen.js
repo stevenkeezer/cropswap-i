@@ -101,7 +101,7 @@ const ProfileScreen = ({ location, history }) => {
                   )}
                 </Col>
                 <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
-                  <div className="tw-p-0 tw-mb-4 tw-mt-8 md:tw-mt-0 lg:tw-mb-8 tw-text-gray-800 tw-text-2xl  ">
+                  <div className=" tw-text-2xl  tw-pb-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
                     My Orders
                   </div>
                   {loadingOrders ? (
@@ -109,7 +109,7 @@ const ProfileScreen = ({ location, history }) => {
                   ) : errorOrders ? (
                     <Message variant="danger">{errorOrders}</Message>
                   ) : (
-                    <div className="xl:tw-shadow-lg tw-m-2  xl:tw-rounded-lg">
+                    <div className="sm:tw-shadow  sm:tw-rounded-lg tw-px-2 tw-bg-white">
                       <UserOrderTable orders={orders} history={history} />
                     </div>
                   )}

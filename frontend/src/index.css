@@ -47,6 +47,9 @@ ion-item {
   padding-left: 0.5rem !important;
 }
 
+.euiCheckbox--noLabel {
+  display: none;
+}
 :root {
   --ion-color-primary: #008480;
   --ion-color-primary-rgb: rgb(0, 168, 163);
