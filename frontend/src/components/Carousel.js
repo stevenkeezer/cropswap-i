@@ -65,28 +65,36 @@ const ProductCarousel = () => {
                   </svg>
                 </div>
                 <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-m-2 tw-flex tw-items-center tw-w-full tw-pt-6 lg:tw-pt-0">
-                  <div className="tw-border-4 tw-rounded-full tw-mr-5 ">
+                  <div className=" tw-rounded-full lg:tw--ml-10 tw-w-32 lg:tw--mt-24 ">
                     <img
                       style={{ border: ".125rem solid white" }}
                       src={product.image}
                       alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-mr-1 tw-border-white tw-shadow-2xl tw-h-24"
+                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white   tw-shadow-2xl tw-h-24"
                     />
                   </div>
-                  <div className="tw-flex-col sm:tw-text-center tw-w-64 lg:tw-mt-10 ">
+                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-20 tw-ml-6 lg:tw-mr-16">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className="tw-text-xs tw--mb-3 tw-font-bold tw-text-white tw-pb-5 tw-mt-2"
+                      className={` tw-text-xs tw-mb-3 tw-mt-2 tw-font-bold  ${
+                        index === 0 ? `tw-text-gray-900` : `tw-text-white`
+                      } `}
                     >
                       Promo Code OCT20
                     </div>
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className="tw--pt-1 tw-text-2xl lg:tw-text-3xl tw-font-bold tw-text-white  "
+                      className={` tw-text-2xl lg:tw-text-4xl tw-font-bold  ${
+                        index === 0 ? `tw-text-gray-900` : `tw-text-white`
+                      } `}
                     >
                       {product.name}
                     </div>
-                    <div class="tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-3 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs">
+                    <div
+                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-4 tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs ${
+                        index === 0 ? `tw-bg-gray-900 tw-text-white` : ``
+                      } `}
+                    >
                       Learn more
                     </div>
                   </div>
