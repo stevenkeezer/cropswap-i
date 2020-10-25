@@ -34,7 +34,7 @@ const OrderListScreen = ({ history }) => {
           <div className="lg:tw-bg-gray-100  lg:tw-mt-24 tw-mt-12  tw-h-auto">
             <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-mt-4 tw-mb-24">
               <div className="tw-text-gray-800 tw-text-2xl tw-py-4 tw-font-medium tw-pt-8 ">
-                Order Manager
+                Orders
               </div>
               <div className="xl:tw-shadow xl:tw-rounded-lg tw-mt-2 ">
                 <OrderTable orders={orders} history={history} />
