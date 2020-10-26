@@ -154,6 +154,14 @@ ion-item {
   margin-right: auto;
 }
 
+.my-custom-class {
+  --background: rgb(0, 0, 0, 0.4);
+  --spinner-color: #fff;
+  --backdrop-opacity: 0;
+
+  color: #fff;
+}
+
 .euiCard,
 .euiCard__image {
   border-radius: 0px !important;
