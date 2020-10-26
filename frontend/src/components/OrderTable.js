@@ -220,15 +220,52 @@ const OrderTable = ({ orders, deleteHandler, history }) => {
                     <td class="euiTableRowCell euiTableRowCell--enlargeForMobile euiTableRowCell--isMobileFullWidth">
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
                         <span class="euiTableCellContent__text">
-                          <span>hi</span>
+                          <div class="tw-flex tw-items-center tw-mt-4 tw-overflow-hidden tw-text-blue-600 tw-cursor-pointer hover:tw-underline">
+                            <img
+                              style={{ border: ".5px solid" }}
+                              class="tw-inline-block tw-object-cover tw-w-10 tw-h-10 tw-text-white tw-border-2 tw-border-gray-100 tw-rounded-full tw-shadow-sm"
+                              src={order.orderItems[0].image}
+                              alt=""
+                            />
+                            {order.orderItems.slice(1).map((order) => (
+                              <img
+                                style={{ border: ".5px solid" }}
+                                class="tw-inline-block tw-object-cover tw-w-10 tw-h-10 tw--ml-2 tw-text-white tw-border-2 tw-border-gray-100 tw-rounded-full tw-shadow-sm"
+                                src={order.image}
+                                alt=""
+                              />
+                            ))}
+                            {/* <p class="pl-2 text-sm font-medium text-blue-600">
+                              + 49,635
+                            </p> */}
+                          </div>
                         </span>
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
                         <span class="euiTableCellContent__text">
-                          {order._id}
+                          <div class="tw-flex tw-items-center tw-mt-4 tw-overflow-hidden tw-text-blue-600 tw-cursor-pointer hover:tw-underline">
+                            <img
+                              style={{ border: ".5px solid" }}
+                              class="tw-inline-block tw-object-cover tw-w-10 tw-h-10 tw-text-white tw-border-2 tw-border-gray-100 tw-rounded-full tw-shadow-sm"
+                              src={order.orderItems[0].image}
+                              alt=""
+                            />
+                            {order.orderItems.slice(1).map((order) => (
+                              <img
+                                style={{ border: ".5px solid" }}
+                                class="tw-inline-block tw-object-cover tw-w-10 tw-h-10 tw--ml-2 tw-text-white tw-border-2 tw-border-gray-100 tw-rounded-full tw-shadow-sm"
+                                src={order.image}
+                                alt=""
+                              />
+                            ))}
+                            {/* <p class="pl-2 text-sm font-medium text-blue-600">
+                              + 49,635
+                            </p> */}
+                          </div>{" "}
                         </span>
                       </div>
                     </td>
+
                     <td class="euiTableRowCell euiTableRowCell--hideForMobile">
                       <div class="euiTableCellContent euiTableCellContent--truncateText">
                         <span class="euiTableCellContent__text">
@@ -241,14 +278,9 @@ const OrderTable = ({ orders, deleteHandler, history }) => {
                         Date
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        <a
-                          class="euiLink euiLink--primary"
-                          href="https://github.com/elissaw"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <div target="_blank" rel="noopener noreferrer">
                           {order.createdAt.substring(0, 10)}
-                        </a>
+                        </div>
                       </div>
                     </td>
                     <td class="euiTableRowCell">

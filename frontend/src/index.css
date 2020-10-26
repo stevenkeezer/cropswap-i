@@ -39,13 +39,9 @@ ion-item {
   border: 0.25px solid white !important;
 }
 
-.euiFormControlLayoutIcons {
-  display: none !important;
-}
-
-.euiFieldSearch {
+/* .euiFieldSearch {
   padding-left: 0.5rem !important;
-}
+} */
 
 :root {
   --ion-color-primary: #008480;
@@ -117,6 +113,10 @@ ion-item {
 }
 .carousel a {
   margin: 0 auto;
+}
+
+.euiCard__top + .euiCard__content {
+  margin-top: 8px !important;
 }
 
 @media only screen and (max-width: 1436px) {

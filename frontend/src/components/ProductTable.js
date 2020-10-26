@@ -247,14 +247,13 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                         Price
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        <a
-                          class="euiLink euiLink--primary"
-                          href="https://github.com/elissaw"
+                        <div
+                          className="tw-text-gray-800"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
                           ${product.price}
-                        </a>
+                        </div>
                       </div>
                     </td>
                     <td class="euiTableRowCell">

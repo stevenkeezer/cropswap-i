@@ -125,26 +125,8 @@ export default ({ history }) => {
         options={searchValueExists ? searchData : recentsWithIcon}
         searchProps={{
           placeholder: "Products, brands, farms & more",
-          prepend: (
-            <div className="tw-pl-2 tw-mx-auto tw-bg-gray-200 tw-opacity-75 tw-items-center tw-flex">
-              <svg
-                className="tw-w-5 tw-h-5 tw-text-gray-800 tw-opacity-75 "
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </div>
-          ),
-          // append: "",
           onKeyUpCapture: onKeyUpCapture,
-          className:
-            "main-search tw-pr-64 tw-bg-gray-200 tw-opacity-75  tw-h-10 tw-shadow-inner ",
+          className: "customSearchClass",
           inputRef: setSearchRef,
         }}
         listProps={{
@@ -155,15 +137,14 @@ export default ({ history }) => {
         }}
         popoverButton={
           <svg
-            class="tw-w-6 tw-h-6 tw-text-gray-800"
+            class="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M9 9a2 2 0 114 0 2 2 0 01-4 0z"></path>
             <path
               fill-rule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a4 4 0 00-3.446 6.032l-2.261 2.26a1 1 0 101.414 1.415l2.261-2.261A4 4 0 1011 5z"
+              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
               clip-rule="evenodd"
             ></path>
           </svg>

@@ -217,14 +217,9 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                         Date
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        <a
-                          class="euiLink euiLink--primary"
-                          href="https://github.com/elissaw"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
+                        <div target="_blank" rel="noopener noreferrer">
                           {order.createdAt.substring(0, 10)}
-                        </a>
+                        </div>
                       </div>
                     </td>
                     <td class="euiTableRowCell">

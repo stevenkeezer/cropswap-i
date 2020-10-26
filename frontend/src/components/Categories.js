@@ -6,8 +6,10 @@ export default function Categories({ history }) {
       <div className="tw-flex tw-justify-center tw-overflow-x-auto tw-hidden lg:tw-flex tw-max-w-screen-xl tw-py-4 tw-px-4 tw-gap-10 tw-mx-auto">
         <EuiKeyPadMenuItem
           style={{
-            boxShadow: "0 0 0 1px rgba(0, 0, 0, 0.15)",
+            transition: "border-color 150ms ease-in, box-shadow 150ms ease-in",
+            border: "1px solid #D3DAE6",
           }}
+          className="tw-shadow"
           onClick={(e) => history.push("/search/onion")}
           label="All Products"
         >

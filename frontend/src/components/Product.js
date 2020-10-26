@@ -1,4 +1,10 @@
-import { EuiCard, EuiFlexItem, EuiLoadingContent } from "@elastic/eui";
+import {
+  EuiCard,
+  EuiFlexItem,
+  EuiText,
+  EuiLoadingContent,
+  EuiSpacer,
+} from "@elastic/eui";
 import React from "react";
 import { useDispatch } from "react-redux";
 
@@ -11,34 +17,42 @@ export default function Product({ product, history }) {
 
   console.log(product);
   return (
-    <EuiFlexItem
-      className="flexCard"
-      onClick={(e) => clickHandler(product._id)}
-      style={{ minWidth: 200 }}
-    >
-      {product.image ? (
-        <EuiCard
-          paddingSize="none"
-          textAlign="left"
-          rounded="false"
-          // href="https://elastic.github.io/eui/"
-          image={
-            <img
-              src={product.image}
-              style={{ borderRadius: "0px!important" }}
-            />
-          }
-          grow={false}
-          display="plain"
-          className="tw-object-fit"
-          // icon={<EuiIcon size="xxl" type="logoBeats" />}
-          title={product.name}
-          description={product.price}
-        />
-      ) : (
-        <EuiLoadingContent lines={3} />
-      )}
-    </EuiFlexItem>
+    <>
+      <EuiFlexItem
+        className="flexCard tw-mb-16"
+        onClick={(e) => clickHandler(product._id)}
+        style={{ minWidth: 200 }}
+      >
+        {product.image ? (
+          <EuiCard
+            paddingSize="none"
+            textAlign="left"
+            rounded="false"
+            image={
+              <img
+                className="lg:tw-h-56 tw-pt-3 tw-w-auto tw-object-cover tw-cursor-pointer"
+                src={product.image}
+                style={{ borderRadius: "0px!important" }}
+              />
+            }
+            grow={false}
+            display="plain"
+            className="tw-object-fit"
+            title={
+              <EuiText>
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-lg tw-font-semibold tw-tracking-wide">
+                  {product.name}
+                </div>
+              </EuiText>
+            }
+            description={product.price}
+          />
+        ) : (
+          <EuiLoadingContent lines={3} />
+        )}
+      </EuiFlexItem>
+    </>
+
     // <IonCard style={{ boxShadow: "none" }} className="tw-rounded-none">
     //   <IonItemSliding key={product.image} className="tw-rounded-none">
     //     <IonItem
