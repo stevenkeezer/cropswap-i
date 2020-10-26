@@ -823,7 +823,7 @@ const ShippingScreen = ({ history }) => {
                         <div class="tw-flex tw-items-center">
                           <EuiImage
                             // size="l"
-                            className="tw-m-0 tw-p-2 tw-pl-2"
+                            className="tw-m-0 tw-p-2 tw-pl-2 tw-object-cover"
                             hasShadow
                             allowFullScreen
                             // caption="Click me"

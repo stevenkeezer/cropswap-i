@@ -32,7 +32,11 @@ export default function Product({ product, history }) {
 
   console.log(product);
   return (
-    <EuiFlexItem className="flexCard" style={{ minWidth: 200 }}>
+    <EuiFlexItem
+      className="flexCard"
+      onClick={(e) => clickHandler(product._id)}
+      style={{ minWidth: 200 }}
+    >
       <EuiCard
         paddingSize="none"
         textAlign="left"
@@ -40,7 +44,6 @@ export default function Product({ product, history }) {
         image={product.image}
         grow={false}
         display="plain"
-        onClick={(e) => clickHandler(product._id)}
         className="tw-object-fit"
         // icon={<EuiIcon size="xxl" type="logoBeats" />}
         title={product.name}

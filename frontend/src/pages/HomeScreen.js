@@ -144,14 +144,14 @@ const HomeScreen = ({ match }) => {
 
             <EuiFlexGroup
               wrap
-              className="tw-max-w-screen-xl tw-mx-auto tw-px-4"
+              className="tw-max-w-screen-xl tw-mx-auto tw-px-4 lg:tw-px-0"
             >
               {products.map((product) => (
                 <Product product={product} history={history} />
               ))}
             </EuiFlexGroup>
 
-            <div className="tw-mx-auto tw-flex tw-justiy-center">
+            <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
               <Paginate
                 pages={pages && pages}
                 page={page && page}
