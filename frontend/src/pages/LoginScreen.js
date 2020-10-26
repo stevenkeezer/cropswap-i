@@ -24,7 +24,7 @@ const LoginScreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const onChange = (e) => {
-    email = e.targer.value.toLowerCase();
+    email = e.target.value.toLowerCase();
     setEmail(email);
   };
 
