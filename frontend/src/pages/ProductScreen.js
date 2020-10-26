@@ -81,7 +81,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <div className="tw-bg-gray-100 ">
+      <div className="tw-bg-gray-100 tw-h-auto ">
         <div className="  lg:tw-mt-24 tw-mt-16 tw-px-4  tw-pt-4 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "

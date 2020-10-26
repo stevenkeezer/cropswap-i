@@ -154,6 +154,11 @@ ion-item {
   margin-right: auto;
 }
 
+.euiCard,
+.euiCard__image {
+  border-radius: 0px !important;
+}
+
 @media only screen and (min-width: 1200px) {
   .carousel-item {
     margin-top: 10px;

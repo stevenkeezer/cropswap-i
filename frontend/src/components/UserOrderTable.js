@@ -179,6 +179,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                               alt={order.title}
                               url={order.orderItems[0].image}
                             />
+
                             {order.orderItems.length > 1 && (
                               <div
                                 class={` w-text-xs lg:tw-flex  tw-hidden  tw-font-black tw-absolute tw-ml-24 tw-mt-16`}

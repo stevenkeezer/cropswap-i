@@ -1,4 +1,4 @@
-import { EuiCard, EuiFlexItem } from "@elastic/eui";
+import { EuiCard, EuiFlexItem, EuiLoadingContent } from "@elastic/eui";
 import React from "react";
 import { useDispatch } from "react-redux";
 
@@ -16,18 +16,28 @@ export default function Product({ product, history }) {
       onClick={(e) => clickHandler(product._id)}
       style={{ minWidth: 200 }}
     >
-      <EuiCard
-        paddingSize="none"
-        textAlign="left"
-        // href="https://elastic.github.io/eui/"
-        image={product.image}
-        grow={false}
-        display="plain"
-        className="tw-object-fit"
-        // icon={<EuiIcon size="xxl" type="logoBeats" />}
-        title={product.name}
-        description={product.price}
-      />
+      {product.image ? (
+        <EuiCard
+          paddingSize="none"
+          textAlign="left"
+          rounded="false"
+          // href="https://elastic.github.io/eui/"
+          image={
+            <img
+              src={product.image}
+              style={{ borderRadius: "0px!important" }}
+            />
+          }
+          grow={false}
+          display="plain"
+          className="tw-object-fit"
+          // icon={<EuiIcon size="xxl" type="logoBeats" />}
+          title={product.name}
+          description={product.price}
+        />
+      ) : (
+        <EuiLoadingContent lines={3} />
+      )}
     </EuiFlexItem>
     // <IonCard style={{ boxShadow: "none" }} className="tw-rounded-none">
     //   <IonItemSliding key={product.image} className="tw-rounded-none">

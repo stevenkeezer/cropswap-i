@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { EuiPortal, EuiProgress } from "@elastic/eui";
 import { IonApp, IonContent, IonLoading } from "@ionic/react";
+import { Container } from "react-bootstrap";
+
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { Switch, useLocation } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 import { observer } from "mobx-react";
-import { Route } from "react-router-dom";
 import Header from "./components/Header";
 import CartScreen from "./pages/CartScreen";
 import HomeScreen from "./pages/HomeScreen";
@@ -44,10 +46,10 @@ const PublicRoutes = ({ history }) => {
 
   return (
     <>
-      <IonReactRouter>
+      <Router>
         <Header></Header>
+        {/* <IonRouterOutlet> */}
         <IonContent>
-          {/* <IonRouterOutlet> */}
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />
@@ -79,9 +81,9 @@ const PublicRoutes = ({ history }) => {
             exact
           />
           <Route path="/" component={HomeScreen} exact />
-          {/* </IonRouterOutlet> */}
         </IonContent>
-      </IonReactRouter>
+        {/* </IonRouterOutlet> */}
+      </Router>
     </>
   );
 };

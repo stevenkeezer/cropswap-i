@@ -74,14 +74,35 @@ const HomeScreen = ({ match }) => {
     <IonPage className="lg:tw-mt-24 tw-mt-12">
       <Meta />
       <IonContent>
+        {!keyword ? (
+          <>
+            {/* <Alert></Alert> */}
+            <Carousel />
+            <Categories history={history} />
+          </>
+        ) : (
+          <div className=" tw-max-w-screen-xl tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
+            <Link
+              className="tw-items-center tw-flex hover:tw-no-underline "
+              to="/"
+            >
+              <IonIcon
+                icon={chevronBackOutline}
+                className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+                size="small"
+                style={{ marginBottom: -3 }}
+              ></IonIcon>
+              <IonText
+                className="tw-text-md hover:tw-text-teal-600 "
+                color="light"
+              >
+                Back to search
+              </IonText>
+            </Link>
+          </div>
+        )}
         {loading ? (
-          <IonLoading
-            cssClass="my-custom-class"
-            isOpen={loading}
-            name="crescent"
-            onDidDismiss={() => loading}
-            duration={5000}
-          />
+          <Loader />
         ) : error ? (
           <IonAlert
             isOpen={error}
@@ -94,33 +115,6 @@ const HomeScreen = ({ match }) => {
           />
         ) : (
           <>
-            {!keyword ? (
-              <>
-                {/* <Alert></Alert> */}
-                <Carousel />
-                <Categories history={history} />
-              </>
-            ) : (
-              <div className=" tw-max-w-screen-xl tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
-                <Link
-                  className="tw-items-center tw-flex hover:tw-no-underline "
-                  to="/"
-                >
-                  <IonIcon
-                    icon={chevronBackOutline}
-                    className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
-                    size="small"
-                    style={{ marginBottom: -3 }}
-                  ></IonIcon>
-                  <IonText
-                    className="tw-text-md hover:tw-text-teal-600 "
-                    color="light"
-                  >
-                    Back to search
-                  </IonText>
-                </Link>
-              </div>
-            )}
             <div className=" tw-mb-3 tw-px-3 tw-items-baseline ">
               {!keyword ? (
                 <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 tw-pt-4  tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
