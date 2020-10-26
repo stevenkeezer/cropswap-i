@@ -484,7 +484,9 @@ export default ({ theme }) => {
           sections={[
             {
               items: [
-                <Logo history={history} />,
+                <div className="xl:tw-mr-8 xl:tw-ml-6">
+                  <Logo history={history} />
+                </div>,
 
                 <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
                   {search}

@@ -125,7 +125,6 @@ const ProductListScreen = ({ history, match }) => {
           )}
         </div>
       </div>
-      <SubFooter />
     </>
   );
 };

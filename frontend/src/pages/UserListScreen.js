@@ -41,7 +41,6 @@ const UserListScreen = ({ history }) => {
             </div>
           </div>
         </div>
-        <SubFooter />
       </div>
     </>
   );

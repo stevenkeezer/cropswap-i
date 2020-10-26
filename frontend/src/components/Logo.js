@@ -3,11 +3,7 @@ import React from "react";
 import { EuiIcon, EuiHeaderSectionItemButton } from "@elastic/eui";
 
 export default ({ history }) => (
-  <EuiHeaderSectionItemButton
-    onClick={(e) => history.push("/")}
-    border="right"
-    className="xl:tw-mr-8 xl:tw-ml-6   "
-  >
+  <EuiHeaderSectionItemButton onClick={(e) => history.push("/")} border="right">
     <EuiIcon
       size="xl"
       type="/images/shopping.svg"

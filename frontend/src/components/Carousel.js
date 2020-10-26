@@ -49,10 +49,10 @@ const ProductCarousel = () => {
               to={`/product/${product._id}`}
               className="tw-flex tw-justify-between tw-w-full hover:tw-no-underline"
             >
-              <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 lg:tw-mx-8 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
+              <div className=" tw-flex tw-justify-between tw-w-full tw-px-3 sm:tw-px-8 lg:tw-mx-8 tw-my-2 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
                 <div class="tw-absolute tw-top-0 tw-right-0 ">
                   <svg
-                    class="tw-block tw-ml-auto tw-h-auto tw-w-2/5 tw-rotate-180 tw-p-5  tw-transform"
+                    class="tw-block tw-ml-auto tw-h-auto sm:tw-w-2/5 tw-w-1/4 tw-rotate-180 tw-p-5  tw-transform"
                     viewBox="0 0 184 184"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -64,16 +64,8 @@ const ProductCarousel = () => {
                     ></path>
                   </svg>
                 </div>
-                <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-m-2 tw-flex tw-items-center tw-w-full tw-pt-6 lg:tw-pt-0">
-                  <div className=" tw-rounded-full lg:tw--ml-10 tw-w-32 lg:tw--mt-24 ">
-                    <img
-                      style={{ border: ".125rem solid white" }}
-                      src={product.image}
-                      alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-border-4 tw-border-white  tw-min-w-24 tw-shadow-2xl tw-h-24"
-                    />
-                  </div>
-                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-6 lg:tw-ml-0 lg:tw-mr-20">
+                <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-flex tw-items-center tw-w-full sm:tw-pt-6 lg:tw-pt-0">
+                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
                       className={` tw-text-xs  tw-mt-2 tw-font-bold tw-text-white`}
@@ -82,7 +74,7 @@ const ProductCarousel = () => {
                     </div>
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-2xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
+                      className={` tw-text-xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
                     >
                       {product.name}
                     </div>

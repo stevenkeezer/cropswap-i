@@ -42,12 +42,12 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-bg-gray-100 tw-h-auto tw-min-h-screen lg:tw-mt-24 tw-mt-12 tw-pt-4">
+      <div className="tw-bg-gray-100 lg:tw-mt-24 tw-min-h-screen tw-mt-12 tw-pb-12 tw-pt-4">
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 />
         </div>
 
-        <div className=" tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row tw-min-h-screen tw-gap-12">
+        <div className=" tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row  tw-gap-12">
           <div className="lg:tw-w-3/5 tw-w-full">
             <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lgx  tw-max-w-screen-xl">
               <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
@@ -866,7 +866,6 @@ const ShippingScreen = ({ history }) => {
             </EuiButton>
           </div>
         </div>
-        <SubFooter />
       </div>
     </>
   );

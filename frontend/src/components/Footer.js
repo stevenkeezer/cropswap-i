@@ -1,8 +1,9 @@
 import React from "react";
 import HomeHero from "./HomeHero";
 import SubFooter from "./SubFooter";
+import Logo from "./Logo";
 
-const Footer = () => (
+const Footer = ({ history }) => (
   <>
     <div
       style={{
@@ -25,15 +26,11 @@ const Footer = () => (
       ></div>
     </div>
     <footer class="tw-bg-white tw-text-gray-700 tw-pt-16 tw-pb-16 ">
-      <div class="tw-mx-auto tw-px-4 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">
+      <div class="tw-mx-auto tw-px-1 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">
         <a href="/" class="tw-block tw-mr-4 tw-w-1/3 hover:tw-no-underline">
-          <div className="tw-flex">
-            <img
-              src="https://i.imgur.com/K4SMB4S.png"
-              class="tw-w-12 tw-ml-4 lg:tw-ml-0 tw-bg-gray-300 tw-rounded-full tw-p-2"
-              alt="logo"
-            />
-            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-font-black  tw-ml-3">
+          <div className="tw-flex tw-px-2">
+            <Logo history={history} />
+            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-font-semibold  tw-ml-3">
               cropswap
             </span>
           </div>

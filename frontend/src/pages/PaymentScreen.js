@@ -49,7 +49,7 @@ const PaymentScreen = ({ history }) => {
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center tw-px-4  tw-text-gray-800  tw-mt-8 tw-mx-auto">
+        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center  tw-text-gray-800  tw-mt-8 tw-mx-auto">
           <Col md={8}>
             <div
               className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
@@ -160,7 +160,6 @@ const PaymentScreen = ({ history }) => {
         </Row>
         {/* </Container> */}
       </div>
-      <SubFooter />
     </>
   );
 };

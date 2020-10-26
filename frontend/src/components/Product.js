@@ -34,10 +34,12 @@ export default function Product({ product, history }) {
   return (
     <EuiFlexItem className="flexCard" style={{ minWidth: 200 }}>
       <EuiCard
+        paddingSize="none"
         textAlign="left"
         // href="https://elastic.github.io/eui/"
         image={product.image}
         grow={false}
+        display="plain"
         onClick={(e) => clickHandler(product._id)}
         className="tw-object-fit"
         // icon={<EuiIcon size="xxl" type="logoBeats" />}

@@ -74,7 +74,7 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen tw-bg-gray-100 lg:tw-mt-24  tw-mt-12 tw-pt-4">
+      <div className="tw-h-auto tw-min-h-screen tw-bg-gray-100 lg:tw-mt-24  tw-mt-12 tw-pb-4 tw-pt-4">
         <div>
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
@@ -257,7 +257,6 @@ const PlaceOrderScreen = ({ history }) => {
           </div>
         </div>
       </div>
-      <SubFooter />
     </>
   );
 };

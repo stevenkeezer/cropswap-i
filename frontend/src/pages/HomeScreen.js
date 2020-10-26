@@ -142,7 +142,10 @@ const HomeScreen = ({ match }) => {
               )}
             </div>
 
-            <EuiFlexGroup wrap className="tw-max-w-screen-xl tw-mx-auto">
+            <EuiFlexGroup
+              wrap
+              className="tw-max-w-screen-xl tw-mx-auto tw-px-4"
+            >
               {products.map((product) => (
                 <Product product={product} history={history} />
               ))}
@@ -159,7 +162,7 @@ const HomeScreen = ({ match }) => {
             {/* <HomeHero /> */}
             {/* <Regions /> */}
 
-            {!keyword && <Footer />}
+            {!keyword && <Footer history={history} />}
           </>
         )}
       </IonContent>
