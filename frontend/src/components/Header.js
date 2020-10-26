@@ -507,6 +507,7 @@ export default ({ theme }) => {
                   ),
                   <EuiHeaderSectionItemButton
                     aria-haspopup="true"
+                    style={{ paddingBottom: ".5px" }}
                     aria-label="Apps menu with 1 new app"
                     notification={cartItems.length}
                     onClick={(e) => {
@@ -520,7 +521,7 @@ export default ({ theme }) => {
                       content="My Cart"
                     >
                       <svg
-                        class="tw-w-6 tw-h-6 tw-mx-auto tw-text-gray-800"
+                        className="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
                         fill="currentColor"
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"

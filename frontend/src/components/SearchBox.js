@@ -137,7 +137,7 @@ export default ({ history }) => {
           className: "customPopoverClass",
         }}
         popoverButton={
-          <button>
+          <button className="tw-py-2 tw-px-1">
             <svg
               class="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
               fill="currentColor"
