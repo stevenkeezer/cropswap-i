@@ -24,8 +24,7 @@ const LoginScreen = ({ location, history }) => {
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const onChange = (e) => {
-    email = e.target.value.toLowerCase();
-    setEmail(email);
+    setEmail(e.target.value);
   };
 
   useEffect(() => {
@@ -36,7 +35,8 @@ const LoginScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(login(email, password));
+
+    dispatch(login(email.toLowerCase(), password));
   };
 
   return (
