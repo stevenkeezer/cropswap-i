@@ -1,10 +1,11 @@
+import React, { useEffect, useState } from "react";
+import { EuiPortal, EuiProgress } from "@elastic/eui";
 import { IonApp, IonContent, IonLoading } from "@ionic/react";
+import { Switch, useLocation } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 import { observer } from "mobx-react";
-import React from "react";
 import { Route } from "react-router-dom";
 import Header from "./components/Header";
-import SubFooter from "./components/SubFooter";
 import CartScreen from "./pages/CartScreen";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
@@ -21,8 +22,26 @@ import ShippingScreen from "./pages/ShippingScreen";
 import UserEditScreen from "./pages/UserEditScreen";
 import UserListScreen from "./pages/UserListScreen";
 import store from "./store";
+import { set } from "mongoose";
 
-const PublicRoutes = () => {
+const PublicRoutes = ({ history }) => {
+  // const location = useLocation();
+  // const [value, setValue] = useState(0);
+  // const [max, setMax] = useState(null);
+
+  // React.useEffect(() => {
+  //   setValue(10);
+  //   setValue(20);
+
+  //   setTimeout(() => {
+  //     // setMax(100);
+  //     setValue(25);
+  //     setValue(50);
+  //     setValue(100);
+  //     setValue(null);
+  //   }, 450);
+  // }, [location]);
+
   return (
     <>
       <IonReactRouter>

@@ -1,27 +1,6 @@
-import {
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonItem,
-  IonItemOption,
-  IonItemOptions,
-  IonItemSliding,
-} from "@ionic/react";
+import { EuiCard, EuiFlexItem } from "@elastic/eui";
 import React from "react";
-import ProgressiveImage from "react-progressive-graceful-image";
 import { useDispatch } from "react-redux";
-import Rating from "../components/Rating";
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-  EuiFlexItem,
-  EuiCard,
-  EuiIcon,
-} from "@elastic/eui";
 
 export default function Product({ product, history }) {
   const dispatch = useDispatch();

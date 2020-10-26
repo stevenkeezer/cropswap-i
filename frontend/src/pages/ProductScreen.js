@@ -246,7 +246,6 @@ const ProductScreen = ({ history, match }) => {
             </>
           )}
         </div>
-        <SubFooter />
       </div>
     </>
   );
