@@ -495,13 +495,13 @@ export default ({ theme }) => {
                   <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
                     {search}
                   </EuiShowFor>,
-                  <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
                 ],
                 borders: "none",
               },
 
               {
                 items: [
+                  <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
                   userInfo && userInfo.isAdmin && (
                     <HeaderSpacesMenu history={history} />
                   ),

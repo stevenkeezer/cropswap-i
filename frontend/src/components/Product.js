@@ -45,7 +45,13 @@ export default function Product({ product, history }) {
                 </div>
               </EuiText>
             }
-            description={product.price}
+            description={
+              <EuiText>
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-lg tw-font-medium tw-tracking-wide">
+                  ${product.price}
+                </div>
+              </EuiText>
+            }
           />
         ) : (
           <EuiLoadingContent lines={3} />

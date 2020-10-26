@@ -113,7 +113,10 @@ const ProductScreen = ({ history, match }) => {
                 </Col>
 
                 <Col md={3}>
-                  <IonTitle>{product.name}</IonTitle>
+                  <div className="tw-text-xl  tw-font-medium tw-text-gray-900">
+                    {product.name}
+                  </div>
+
                   <ListGroup
                     variant="flush"
                     className="tw-border-none tw-shadow tw-mt-2"
