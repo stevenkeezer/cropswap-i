@@ -166,6 +166,9 @@ ion-item {
   .carousel {
     height: 355px;
   }
+  .flexCard {
+    max-width: 25% !important;
+  }
 }
 
 .card {

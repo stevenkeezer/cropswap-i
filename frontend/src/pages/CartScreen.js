@@ -1,7 +1,13 @@
 import { IonButton, IonIcon, IonInput, IonText, IonTitle } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
 import React, { useEffect } from "react";
-import { EuiCard, EuiFlexItem, EuiIcon, EuiFlexGrid } from "@elastic/eui";
+import {
+  EuiCard,
+  EuiFlexItem,
+  EuiIcon,
+  EuiFlexGrid,
+  EuiFlexGroup,
+} from "@elastic/eui";
 import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -53,7 +59,7 @@ const CartScreen = ({ match, location, history }) => {
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="m">
+                  <EuiFlexGroup gutterSize="m">
                     {cartItems.map((item) => (
                       <EuiFlexItem>
                         <EuiCard
@@ -136,7 +142,7 @@ const CartScreen = ({ match, location, history }) => {
                         </EuiCard>
                       </EuiFlexItem>
                     ))}
-                  </EuiFlexGrid>
+                  </EuiFlexGroup>
                 )}
               </div>
               <div>

@@ -11,6 +11,19 @@ import {
 } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
 // MOBX
+import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+  EuiFlexItem,
+  EuiFlexGrid,
+  EuiCard,
+  EuiFlexGroup,
+  EuiIcon,
+} from "@elastic/eui";
+
 import { observer } from "mobx-react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -129,23 +142,12 @@ const HomeScreen = ({ match }) => {
               )}
             </div>
 
-            <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-px-1">
+            <EuiFlexGroup wrap className="tw-max-w-screen-xl tw-mx-auto">
               {products.map((product) => (
-                <IonCol
-                  size="6"
-                  sizeSm="6"
-                  sizeXs="12"
-                  sizeMd="4"
-                  sizeLg="3"
-                  sizeXl="2.4"
-                  className="p-0 m-0"
-                  width="100%"
-                  key={product.name}
-                >
-                  <Product product={product} history={history} />
-                </IonCol>
+                <Product product={product} history={history} />
               ))}
-            </IonRow>
+            </EuiFlexGroup>
+
             <div className="tw-mx-auto tw-flex tw-justiy-center">
               <Paginate
                 pages={pages && pages}
