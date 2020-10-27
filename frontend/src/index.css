@@ -330,6 +330,15 @@ tbody tr:last-child td:last-child {
   }
 }
 
+@media only screen and (max-width: 574px) {
+  .euiTable.euiTable--responsive .euiTableRow {
+    border: 1px solid #fff !important;
+  }
+}
+.euiTable.euiTable--responsive .euiTableRow:hover {
+  background-color: none;
+}
+
 @media (max-width: 499px) {
   .flexCard {
     max-width: 100% !important;

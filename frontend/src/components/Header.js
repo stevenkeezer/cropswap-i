@@ -634,6 +634,7 @@ export default ({ theme }) => {
             <EuiHeader
               theme="light"
               style={{ height: 57, boxShadow: "none" }}
+              className="tw-border-gray-300 tw-border-opacity-75"
               position={"fixed"}
             >
               <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">

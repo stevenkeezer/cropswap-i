@@ -172,21 +172,20 @@ const ProductScreen = ({ history, match }) => {
                             </Row>
                           </ListGroup.Item>
                         )}
-
-                        <EuiButton
-                          fullWidth
-                          color="secondary"
-                          className="tw-mt-3"
-                          size="m"
-                          fill
-                          disabled={product.countInStock === 0}
-                          onClick={addToCartHandler}
-                        >
-                          Add To Cart
-                        </EuiButton>
                       </ListGroup>
                     </Card>
                   </ListGroup>
+                  <EuiButton
+                    fullWidth
+                    color="secondary"
+                    className="tw-mt-3"
+                    size="m"
+                    fill
+                    disabled={product.countInStock === 0}
+                    onClick={addToCartHandler}
+                  >
+                    Add To Cart
+                  </EuiButton>
                 </Col>
               </Row>
 

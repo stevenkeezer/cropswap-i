@@ -80,7 +80,7 @@ const HomeScreen = ({ match }) => {
           <>
             {/* <Alert></Alert> */}
             <EuiShowFor sizes={["xs", "s", "m"]}>
-              <CategorySlider />
+              <CategorySlider history={history} />
             </EuiShowFor>
             <Carousel />
             <Categories history={history} />

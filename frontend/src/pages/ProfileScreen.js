@@ -109,7 +109,7 @@ const ProfileScreen = ({ location, history }) => {
                   ) : errorOrders ? (
                     <Message variant="danger">{errorOrders}</Message>
                   ) : (
-                    <div className="sm:tw-shadow  sm:tw-rounded-lg tw-px-2 tw-bg-white">
+                    <div className="md:tw-shadow  sm:tw-rounded-lg tw-px-2 md:tw-bg-white">
                       <UserOrderTable orders={orders} history={history} />
                     </div>
                   )}
