@@ -315,6 +315,25 @@ tbody tr:last-child td:last-child {
   .euiTable {
     background: none !important;
   }
+  .flexCard {
+    padding: 4px;
+  }
+  .flexCard {
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .flexCard {
+    max-width: 50% !important;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 499px) {
+  .flexCard {
+    max-width: 100% !important;
+  }
 }
 
 td:not(:last-child) {

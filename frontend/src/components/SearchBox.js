@@ -125,7 +125,7 @@ export default ({ history }) => {
         onSubmit={submitHandler}
         options={searchValueExists ? searchData : recentsWithIcon}
         searchProps={{
-          placeholder: "Products, brands, farms & more",
+          placeholder: "Products, brands, farms and more",
           onKeyUpCapture: onKeyUpCapture,
           className:
             "mainSearch tw-bg-gray-200 tw-rounded-lg tw-border-none tw-shadow-inner",
@@ -137,7 +137,6 @@ export default ({ history }) => {
         popoverProps={{
           className: "customPopoverClass",
         }}
-
         popoverButtonBreakpoints={["xs", "s"]}
         popoverFooter={
           <EuiText color="subdued" size="xs">

@@ -65,7 +65,7 @@ const ProductCarousel = () => {
                   </svg>
                 </div>
                 <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-flex tw-items-center tw-w-full sm:tw-pt-6 lg:tw-pt-0">
-                  <div className="tw-flex-col sm:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
+                  <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
                       className={` tw-text-xs tw-mb-2 tw-mt-2 tw-font-bold tw-text-white`}
@@ -79,19 +79,19 @@ const ProductCarousel = () => {
                       {product.name}
                     </div>
                     <div
-                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 sm:tw-mx-auto tw-mt-4 tw-text-center tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
+                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 lg:tw-mx-auto tw-mt-4 tw-text-center tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
                     >
                       Learn more
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6 tw-visible sm:tw-invisible lg:tw-visible">
+              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6  tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
                   alt={product.name}
                   // fluid
-                  className=" tw-w-full xl:tw-pt-1 xl:tw-mt-10  lg:tw-mt-12 lg:tw-pt-10 tw-mt-12 tw-h-full"
+                  className=" tw-w-full xl:tw-pt-1 xl:tw-mt-10 lg:tw-mt-12 lg:tw-pt-10 tw-mt-16  sm:tw-mt-10 tw-pt-2   tw-ml-10 sm:tw-ml-0 tw-h-full"
                 />
               </div>
             </Link>

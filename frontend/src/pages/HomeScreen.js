@@ -144,7 +144,7 @@ const HomeScreen = ({ match }) => {
             <EuiFlexGroup
               wrap
               gutterSize="l"
-              className="tw-max-w-screen-xl tw-mx-auto tw-px-4 md:tw-px-1"
+              className="tw-max-w-screen-xl tw-mx-auto tw-px-3 sm:tw-px-4 md:tw-px-1"
             >
               {products.map((product) => (
                 <Product product={product} history={history} />
