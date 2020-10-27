@@ -1,7 +1,19 @@
+import React, { useEffect, useState } from "react";
 import { IonButton, IonIcon, IonInput, IonText, IonTitle } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
-import React, { useEffect } from "react";
-import { EuiCard, EuiFlexItem, EuiIcon, EuiFlexGrid } from "@elastic/eui";
+import {
+  EuiCard,
+  EuiFlexItem,
+  EuiIcon,
+  EuiFlexGrid,
+  EuiFieldText,
+  EuiToolTip,
+  EuiPopover,
+  EuiSelect,
+  EuiShowFor,
+  EuiButtonIcon,
+  EuiFieldNumber,
+} from "@elastic/eui";
 import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -10,9 +22,19 @@ import Message from "../components/Message";
 import SubFooter from "../components/SubFooter";
 import Loader from "../components/Loader";
 import { EuiButton, EuiTitle } from "@elastic/eui";
+import CheckoutBottomBar from "../components/CheckoutBottomBar";
 
 const CartScreen = ({ match, location, history }) => {
+  const [value, setValue] = useState("");
+  const [isCompressed, setCompressed] = useState(false);
+  const [isDisabled, setDisabled] = useState(false);
+  const [isReadOnly, setReadOnly] = useState(false);
+
   const productId = match.params.id;
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+  };
 
   const qty = location.search ? Number(location.search.split("=")[1]) : 1;
 
@@ -40,20 +62,20 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div className=" tw-h-auto tw-bg-gray-100 lg:tw-mt-24 tw-mt-12  tw-min-h-screen">
-          <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
-            <div className="tw-p-0 tw-pb-6 tw-pt-6 tw-text-gray-800 tw-text-2xl tw-font-medium ">
-              Your pickup order
+        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12  tw-min-h-screen">
+          <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-1 ">
+            <div className="tw-p-0 tw-pb-3  tw-pt-16  lg:tw-pt-1 tw-px-4 tw-text-gray-800 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
+              Your delivery order
             </div>
 
-            <div className="tw-flex  tw-justify-between xl:tw-flex-row tw-flex-col">
-              <div className="lg:tw-w-4/5">
+            <div className="tw-flex sm:tw-px-4 tw-justify-between xl:tw-flex-row tw-flex-col">
+              <div className="lg:tw-w-3/5">
                 {cartItems.length === 0 ? (
                   <Message>
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="l">
+                  <EuiFlexGrid gutterSize="">
                     {cartItems.map((item) => (
                       <EuiFlexItem>
                         <EuiCard
@@ -71,36 +93,43 @@ const CartScreen = ({ match, location, history }) => {
                           iconSize="sm"
                           titleSize="xs"
                           title={
-                            <div
-                              className="tw-cursor-pointer"
-                              onClick={() =>
-                                history.push(`/product/${item.product}`)
-                              }
-                            >
-                              {item.name}
-                            </div>
-                          }
-                          description={
-                            <div>
-                              <div className="tw-font-gray-600 tw-font-medium tw-pb-2 tw-w-56 tw-text-sm">
-                                ${item.price}
-                              </div>
-                              {item.countInStock} left in stock
-                            </div>
-                          }
-                        >
-                          <>
-                            <div className="tw-flex tw-justify-between  ">
-                              <img
+                            <div className="tw-flex  tw-items-center tw-justify-between">
+                              <div
+                                className="tw-cursor-pointer"
                                 onClick={() =>
                                   history.push(`/product/${item.product}`)
                                 }
-                                className="lg:tw-h-32 lg:tw-w-32 tw-flex lg:tw-hidden tw-w-10 tw-h-10 tw-object-cover lg:tw-rounded tw-cursor-pointer tw-relative"
-                                alt={item.name}
-                                src={item.image}
-                              />
-                              <Form.Control
-                                className="tw-cursor-pointer tw-w-24"
+                              >
+                                {item.name}
+                              </div>
+                              <div>
+                                <IonIcon
+                                  className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
+                                  onClick={() =>
+                                    removeFromCartHandler(item.product)
+                                  }
+                                  icon={trashOutline}
+                                ></IonIcon>
+                              </div>
+                            </div>
+                          }
+                          description={<div></div>}
+                        >
+                          <>
+                            <div className="tw-flex  tw-items-baseline tw-justify-between">
+                              <div>
+                                <img
+                                  onClick={() =>
+                                    history.push(`/product/${item.product}`)
+                                  }
+                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-24 tw-h-24 tw-object-cover lg:tw-rounded tw-cursor-pointer "
+                                  alt={item.name}
+                                  src={item.image}
+                                />
+                              </div>
+
+                              <select
+                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10  tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -119,17 +148,9 @@ const CartScreen = ({ match, location, history }) => {
                                     </option>
                                   )
                                 )}
-                              </Form.Control>
-                              <div className="tw-flex-col tw-text-right tw-items-center">
-                                <div>
-                                  <IonIcon
-                                    className="tw-h-6 tw-w-6 tw-text-gray-600 hover:tw-text-gray-800"
-                                    onClick={() =>
-                                      removeFromCartHandler(item.product)
-                                    }
-                                    icon={trashOutline}
-                                  ></IonIcon>
-                                </div>
+                              </select>
+                              <div className="tw-font-gray-600 text-right tw-font-medium tw-pb-2 tw-w-56 tw-text-sm">
+                                ${item.price}
                               </div>
                             </div>
                           </>
@@ -139,37 +160,12 @@ const CartScreen = ({ match, location, history }) => {
                   </EuiFlexGrid>
                 )}
               </div>
-              <div>
-                <div className=" card tw-rounded tw-border-none tw-shadow tw-mb-2">
-                  <div class="card-body">
-                    {/* <label className="tw-text-gray-600 tw-font-medium tw-pb-1 tw-text-sm">
-                      Have a coupon?
-                    </label> */}
-                    <div class=" tw-flex tw-items-baseline">
-                      <IonInput
-                        type="text"
-                        class="tw-mt-3 tw-mb-3 tw-mr-3  "
-                        name=""
-                        placeholder="Discount code"
-                      />
-                      <div class="">
-                        <button
-                          disabled
-                          class="tw-bg-gray-300 hover:tw-bg-gray-500 tw-cursor-pointer tw-text-gray-800 tw-font-bold tw-py-3 tw-px-4 tw-rounded tw-inline-flex tw-items-center"
-                        >
-                          Apply
-                        </button>
-                      </div>
-                    </div>
-                    <span class="tw-italic tw-text-xs tw-text-gray-600 tw-px-1">
-                      No discounts or promotions available at this time
-                    </span>
-                  </div>
-                </div>
+              <div className="lg:tw-w-2/5">
                 {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
-                <div className="card tw-border-none tw-shadow tw-rounded  ">
+
+                <div className="w-full tw-border-none tw-shadow tw-rounded  ">
                   <ListGroup variant="flush" lines="none">
                     <div className="b tw-pb-2 tw-mb-3 tw-p-5">
                       <IonText className="tw-font-semibold ">Subtotal</IonText>
@@ -226,18 +222,34 @@ const CartScreen = ({ match, location, history }) => {
                     </p>
                   </ListGroup>
                 </div>
-
-                <EuiButton
-                  fullWidth
-                  color="secondary"
-                  className="tw-mt-3"
-                  size="m"
-                  fill
-                  disabled={cartItems.length === 0}
-                  onClick={checkoutHandler}
-                >
-                  Proceed to checkout
-                </EuiButton>
+                <EuiShowFor sizes={["xl"]}>
+                  <EuiButton
+                    fullWidth
+                    color="secondary"
+                    className="tw-mt-3 tw-font-semibold"
+                    size="m"
+                    fill
+                    disabled={cartItems.length === 0}
+                    onClick={checkoutHandler}
+                  >
+                    Proceed to checkout
+                  </EuiButton>
+                </EuiShowFor>
+                <EuiShowFor sizes={["xs", "s", "m", "l"]}>
+                  <CheckoutBottomBar>
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-mt-3 tw-font-semibold"
+                      size="m"
+                      fill
+                      disabled={cartItems.length === 0}
+                      onClick={checkoutHandler}
+                    >
+                      Proceed to checkout
+                    </EuiButton>
+                  </CheckoutBottomBar>
+                </EuiShowFor>
               </div>
             </div>
           </div>
