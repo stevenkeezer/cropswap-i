@@ -24,6 +24,7 @@ import {
   EuiProgress,
   EuiFlexGroup,
   EuiIcon,
+  EuiShowFor,
 } from "@elastic/eui";
 
 import { observer } from "mobx-react";
@@ -42,6 +43,7 @@ import Paginate from "../components/Paginate";
 import Product from "../components/Product";
 import SubFooter from "../components/SubFooter";
 import Loader from "../components/Loader";
+import CategorySlider from "../components/CategorySlider";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -71,12 +73,15 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="tw-mt-24 ">
+    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4">
       <Meta />
       <IonContent>
         {!keyword ? (
           <>
             {/* <Alert></Alert> */}
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <CategorySlider />
+            </EuiShowFor>
             <Carousel />
             <Categories history={history} />
           </>
@@ -115,14 +120,14 @@ const HomeScreen = ({ match }) => {
           />
         ) : (
           <>
-            <div className=" tw-mb-3 tw-px-4  tw-items-center ">
+            <div className=" tw-mb-3 tw-px-4 tw-pt-2 tw-items-center ">
               {!keyword ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-6 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
-                  <div className="tw-text-xl  tw-font-medium tw-text-gray-900">
-                    Featured products
+                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
+                  <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
+                    Featured brands
                   </div>
                   <div className="tw-justify-end">
-                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-800 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
+                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
                       View all
                     </IonText>
                   </div>

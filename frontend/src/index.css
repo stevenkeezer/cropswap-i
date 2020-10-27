@@ -175,7 +175,7 @@ ion-item {
     margin-left: 20.55rem;
   }
   .carousel {
-    height: 355px;
+    height: 385px;
   }
   .flexCard {
     max-width: 25% !important;
@@ -289,8 +289,18 @@ tbody tr:last-child td:last-child {
 
 @media (min-width: 992px) {
   .euiHeader {
-    height: 6.05rem !important;
+    height: 6rem !important;
   }
+}
+
+@media (max-width: 992px) {
+  .carousel-indicators {
+    bottom: -38px !important;
+  }
+}
+
+.euiIcon--accent {
+  color: #e7664c !important;
 }
 
 .euiIcon--xxLarge {
@@ -315,17 +325,8 @@ td:not(:last-child) {
   height: 35.5px !important;
 }
 
-.euiFormControlLayoutIcons {
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 12px;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: center;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.4);
+.category-slider::-webkit-scrollbar {
+  display: none;
 }
 
 /**

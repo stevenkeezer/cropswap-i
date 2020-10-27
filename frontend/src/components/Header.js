@@ -40,6 +40,12 @@ import Logo from "./Logo";
 export default ({ theme }) => {
   const history = useHistory();
 
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+  const onButtonClick = () =>
+    setIsPopoverOpen((isPopoverOpen) => !isPopoverOpen);
+  const closePopover = () => setIsPopoverOpen(false);
+
   /**
    * FullScreen for docs only
    */
@@ -208,18 +214,7 @@ export default ({ theme }) => {
           aria-label="Account menu"
           onClick={onMenuButtonClick}
         >
-          <svg
-            class="tw-h-6 tw-h-6 tw-mx-auto tw-text-gray-800"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
+          <EuiIcon type="menu" />
         </EuiHeaderSectionItemButton>
       </EuiToolTip>
     );
@@ -579,8 +574,8 @@ export default ({ theme }) => {
               position={"fixed"}
               menu
             >
-              <EuiHeaderSectionItem className="tw-px-5" border="right">
-                <EuiIcon type="menu"></EuiIcon>
+              <EuiHeaderSectionItem className="tw-px-2" border="right">
+                <HeaderUserMenu history={history} />
               </EuiHeaderSectionItem>
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
               <EuiHeaderSectionItem
@@ -593,34 +588,55 @@ export default ({ theme }) => {
                 ></EuiIcon>
               </EuiHeaderSectionItem>
 
-              <EuiHeaderSectionItem className="tw-mx-3">
-                <EuiHeaderSectionItemButton
-                  aria-haspopup="true"
-                  className="tw-rounded-full focus:tw-bg-white"
-                  aria-label="Apps menu with 1 new app"
-                  notification={cartItems.length}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    history.push("/cart");
-                  }}
-                >
-                  <svg
-                    className="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
+              <EuiHeaderSectionItem className="tw-mx-2">
+                <EuiShowFor sizes={["s", "m", "l", "xl"]}>
+                  <EuiHeaderSectionItemButton
+                    aria-haspopup="true"
+                    aria-label="Apps menu with 1 new app"
+                    notification={cartItems.length}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/cart");
+                    }}
                   >
-                    <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                  </svg>
-                </EuiHeaderSectionItemButton>
+                    <svg
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                    </svg>
+                  </EuiHeaderSectionItemButton>
+                </EuiShowFor>
+                <EuiShowFor sizes={["xs"]}>
+                  <EuiHeaderSectionItemButton
+                    aria-haspopup="true"
+                    aria-label="Apps menu with 1 new app"
+                    notification={cartItems.length > 0 && true}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      history.push("/cart");
+                    }}
+                  >
+                    <svg
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                    </svg>
+                  </EuiHeaderSectionItemButton>
+                </EuiShowFor>
               </EuiHeaderSectionItem>
             </EuiHeader>
             <EuiHeader
               theme="light"
-              style={{ height: 57, boxShadow: "none", paddingTop: "5px" }}
+              style={{ height: 57, boxShadow: "none" }}
               position={"fixed"}
             >
-              <div className="tw-w-full tw-items-center tw-px-4 tw-mb-2">
+              <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">
                 {search}
               </div>
             </EuiHeader>
