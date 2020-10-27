@@ -47,7 +47,7 @@ export default function Product({ product, history }) {
             }
             description={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-lg tw-font-medium tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-sm tw-font-medium tw-tracking-wide">
                   ${product.price}
                 </div>
               </EuiText>

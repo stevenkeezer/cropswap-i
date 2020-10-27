@@ -43,6 +43,12 @@ ion-item {
   padding-left: 0.5rem !important;
 } */
 
+/* .euiHeaderSection, */
+
+.euiHeaderSection--left:last-child {
+  height: 55px !important;
+}
+
 :root {
   --ion-color-primary: #008480;
   --ion-color-primary-rgb: rgb(0, 168, 163);
@@ -123,14 +129,6 @@ ion-item {
   .carousel-control-prev,
   .carousel-control-next {
     display: none;
-  }
-}
-
-@media only screen and (min-width: 992px) {
-  .euiHeaderSection:last-child,
-  .euiHeaderSection--dontGrow:last-child,
-  .euiHeaderSection--left:last-child {
-    height: 70px;
   }
 }
 
@@ -277,7 +275,7 @@ tbody tr:last-child td:last-child {
   border-radius: 0 0 0.6em 0 !important;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 765px) {
   .euiTableRowCell,
   .euiTableRowCellCheckbox {
     vertical-align: middle;
@@ -289,12 +287,18 @@ tbody tr:last-child td:last-child {
   }
 }
 
+@media (min-width: 992px) {
+  .euiHeader {
+    height: 6.05rem !important;
+  }
+}
+
 .euiIcon--xxLarge {
   width: 300px !important;
   height: 300px !important;
 }
 
-@media (max-width: 575px) {
+@media (max-width: 576px) {
   th:not(:last-child) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.08);
   }
@@ -305,6 +309,23 @@ tbody tr:last-child td:last-child {
 
 td:not(:last-child) {
   border-bottom: 0;
+}
+
+.euiFieldSearch {
+  height: 35.5px !important;
+}
+
+.euiFormControlLayoutIcons {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 12px;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 /**

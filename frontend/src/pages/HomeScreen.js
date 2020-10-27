@@ -71,7 +71,7 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="lg:tw-mt-24 tw-mt-12">
+    <IonPage className="tw-mt-24 ">
       <Meta />
       <IonContent>
         {!keyword ? (
@@ -122,7 +122,7 @@ const HomeScreen = ({ match }) => {
                     Featured products
                   </div>
                   <div className="tw-justify-end">
-                    <IonText className="tw-border tw-border-gray-400 tw-px-4 tw-py-2 tw-text-gray-800 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
+                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-800 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
                       View all
                     </IonText>
                   </div>
