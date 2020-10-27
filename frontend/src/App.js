@@ -1,46 +1,55 @@
-import React from "react";
-import { Route, Redirect } from "react-router-dom";
-import store from "./store";
+import React, { useEffect, useState } from "react";
+import { EuiPortal, EuiProgress } from "@elastic/eui";
+import { IonApp, IonContent, IonLoading } from "@ionic/react";
+import { Container } from "react-bootstrap";
 
-import {
-  IonApp,
-  IonRouterOutlet,
-  IonLoading,
-  IonContent,
-  IonFooter,
-} from "@ionic/react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Switch, useLocation } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
-
-import HomeScreen from "./pages/HomeScreen";
-import ProductScreen from "./pages/ProductScreen";
-import LoginPage from "./pages/LoginPage";
-import RegistrationPage from "./pages/RegistrationPage";
+import { observer } from "mobx-react";
+import Header from "./components/Header";
 import CartScreen from "./pages/CartScreen";
+import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
-import RegisterScreen from "./pages/RegisterScreen";
-import ProfileScreen from "./pages/ProfileScreen";
-import ShippingScreen from "./pages/ShippingScreen";
+import OrderListScreen from "./pages/OrderListScreen";
+import OrderScreen from "./pages/OrderScreen";
 import PaymentScreen from "./pages/PaymentScreen";
 import PlaceOrderScreen from "./pages/PlaceOrderScreen";
-import OrderScreen from "./pages/OrderScreen";
-import UserListScreen from "./pages/UserListScreen";
-import UserEditScreen from "./pages/UserEditScreen";
-import ProductListScreen from "./pages/ProductListScreen";
 import ProductEditScreen from "./pages/ProductEditScreen";
-import OrderListScreen from "./pages/OrderListScreen";
+import ProductListScreen from "./pages/ProductListScreen";
+import ProductScreen from "./pages/ProductScreen";
+import ProfileScreen from "./pages/ProfileScreen";
+import RegisterScreen from "./pages/RegisterScreen";
+import ShippingScreen from "./pages/ShippingScreen";
+import UserEditScreen from "./pages/UserEditScreen";
+import UserListScreen from "./pages/UserListScreen";
+import store from "./store";
+import { set } from "mongoose";
 
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+const PublicRoutes = ({ history }) => {
+  // const location = useLocation();
+  // const [value, setValue] = useState(0);
+  // const [max, setMax] = useState(null);
 
-import { observer, MobXProviderContext } from "mobx-react";
+  // React.useEffect(() => {
+  //   setValue(10);
+  //   setValue(20);
 
-const PublicRoutes = () => {
+  //   setTimeout(() => {
+  //     // setMax(100);
+  //     setValue(25);
+  //     setValue(50);
+  //     setValue(100);
+  //     setValue(null);
+  //   }, 450);
+  // }, [location]);
+
   return (
     <>
-      <IonReactRouter>
+      <Router>
         <Header></Header>
+        {/* <IonRouterOutlet> */}
         <IonContent>
-          {/* <IonRouterOutlet> */}
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />
@@ -72,9 +81,9 @@ const PublicRoutes = () => {
             exact
           />
           <Route path="/" component={HomeScreen} exact />
-          {/* </IonRouterOutlet> */}
         </IonContent>
-      </IonReactRouter>
+        {/* </IonRouterOutlet> */}
+      </Router>
     </>
   );
 };

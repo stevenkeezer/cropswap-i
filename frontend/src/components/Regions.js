@@ -1,20 +1,5 @@
+import { IonRow, IonTitle } from "@ionic/react";
 import React from "react";
-import {
-  IonCard,
-  IonImg,
-  IonCardContent,
-  IonLabel,
-  IonItemSliding,
-  IonItem,
-  IonTitle,
-  IonRow,
-  IonCardHeader,
-  IonCardTitle,
-  IonCardSubtitle,
-  IonItemOptions,
-  IonItemOption,
-  IonHeader,
-} from "@ionic/react";
 
 export default function Regions() {
   return (

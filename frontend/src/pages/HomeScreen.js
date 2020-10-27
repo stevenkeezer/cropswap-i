@@ -1,64 +1,49 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { usePhotoGallery } from "../hooks/usePhotoGallery";
-import Meta from "../components/Meta";
-
-import Categories from "../components/Categories";
-import Paginate from "../components/Paginate";
-import Alert from "../components/Alert";
-import HomeHero from "../components/HomeHero";
-
-import Header from "../components/Header";
-import { useHistory } from "react-router";
 import {
-  IonItem,
-  IonIcon,
   IonAlert,
-  IonError,
-  IonContent,
-  IonLoading,
-  IonTitle,
-  IonImg,
-  IonGrid,
-  IonRow,
-  IonActionSheet,
   IonCol,
-  IonSelect,
-  IonText,
-  IonList,
+  IonContent,
+  IonIcon,
+  IonLoading,
   IonPage,
-  IonThumbnail,
-  IonHeader,
-  IonToolbar,
-  IonLabel,
-  IonItemSliding,
-  IonItemOption,
-  IonItemOptions,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
-  IonButtons,
-  IonButton,
-  IonPopover,
-  IonCardContent,
-  IonCard,
-  IonCardHeader,
-  IonCardSubtitle,
-  IonCardTitle,
-  IonListHeader,
+  IonRow,
+  IonText,
+  IonTitle,
 } from "@ionic/react";
-import { IonRefresher, IonRefresherContent } from "@ionic/react";
-import { ellipsisVertical, ellipsisHorizontal } from "ionicons/icons";
-import Product from "../components/Product";
-import { listProducts } from "../actions/productActions.js";
-import Carousel from "../components/Carousel";
-import Footer from "../components/Footer";
-import Regions from "../components/Regions";
 
+import { chevronBackOutline } from "ionicons/icons";
 // MOBX
-import { MobXProviderContext, observer } from "mobx-react";
-import AddItemModal from "./AddItemModal2";
+import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+  EuiFlexItem,
+  EuiFlexGrid,
+  EuiCard,
+  EuiProgress,
+  EuiFlexGroup,
+  EuiIcon,
+  EuiShowFor,
+} from "@elastic/eui";
+
+import { observer } from "mobx-react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
+import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
+import Carousel from "../components/Carousel";
+import Categories from "../components/Categories";
+import SearchEmpty from "../components/SearchEmpty";
+import Footer from "../components/Footer";
+import Meta from "../components/Meta";
+import Paginate from "../components/Paginate";
+import Product from "../components/Product";
+import SubFooter from "../components/SubFooter";
+import Loader from "../components/Loader";
+import CategorySlider from "../components/CategorySlider";
 
 const HomeScreen = ({ match }) => {
   const keyword = match.params.keyword;
@@ -88,58 +73,41 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage>
+    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4">
       <Meta />
-      <IonContent
-        padding
-        style={
-          {
-            // "--background": "#EAEDED",
-          }
-        }
-      >
+      <IonContent>
         {!keyword ? (
           <>
-            <Alert></Alert>
+            {/* <Alert></Alert> */}
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <CategorySlider />
+            </EuiShowFor>
             <Carousel />
-            {/* <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-mt-3 tw-px-3 tw-items-baseline tw-mt-10"> */}
-            {/* <IonTitle className="tw-p-0 tw-pb-2">Categories</IonTitle> */}
-
-            {/* <IonText className="tw-border tw-px-4 tw-py-2 tw-text-gray-600 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
-                View all
-              </IonText> */}
-            {/* </IonRow> */}
-            <Categories />
-            <div
-              style={{
-                borderBottom: "0.0625rem solid rgb(204, 204, 204)",
-                maxWidth: "73rem",
-                marginLeft: "auto",
-                marginRight: "auto",
-                marginTop: ".9rem",
-              }}
-            ></div>
+            <Categories history={history} />
           </>
         ) : (
-          <Link to="/" className="btn btn-light">
-            Go Back
-          </Link>
+          <div className=" tw-max-w-screen-xl tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
+            <Link
+              className="tw-items-center tw-flex hover:tw-no-underline "
+              to="/"
+            >
+              <IonIcon
+                icon={chevronBackOutline}
+                className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+                size="small"
+                style={{ marginBottom: -3 }}
+              ></IonIcon>
+              <IonText
+                className="tw-text-md hover:tw-text-teal-600 "
+                color="light"
+              >
+                Back to search
+              </IonText>
+            </Link>
+          </div>
         )}
-        <IonRow className="tw-max-w-screen-xl tw-mx-auto tw-mb-3 tw-px-3 tw-items-baseline tw-mt-8">
-          <IonTitle className="tw-p-0">Featured Products</IonTitle>
-          <IonText className="tw-border tw-border-gray-400 tw-px-4 tw-py-2 tw-text-gray-800 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-medium tw-text-sm tw-rounded">
-            View all
-          </IonText>
-        </IonRow>
-
         {loading ? (
-          <IonLoading
-            cssClass="my-custom-class"
-            isOpen={loading}
-            name="crescent"
-            onDidDismiss={() => loading}
-            duration={5000}
-          />
+          <Loader />
         ) : error ? (
           <IonAlert
             isOpen={error}
@@ -152,33 +120,49 @@ const HomeScreen = ({ match }) => {
           />
         ) : (
           <>
-            <IonRow className="tw-max-w-screen-xl tw-mx-auto  tw-px-1">
+            <div className=" tw-mb-3 tw-px-4 tw-pt-2 tw-items-center ">
+              {!keyword ? (
+                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
+                  <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
+                    Featured brands
+                  </div>
+                  <div className="tw-justify-end">
+                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
+                      View all
+                    </IonText>
+                  </div>
+                </div>
+              ) : products.length !== 0 ? (
+                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
+                  Search results
+                </div>
+              ) : (
+                <SearchEmpty history={history} />
+              )}
+            </div>
+
+            <EuiFlexGroup
+              wrap
+              gutterSize="l"
+              className="tw-max-w-screen-xl tw-mx-auto tw-px-3 sm:tw-px-4 md:tw-px-1"
+            >
               {products.map((product) => (
-                <IonCol
-                  size="6"
-                  sizeSm="6"
-                  sizeXs="12"
-                  sizeMd="4"
-                  sizeLg="3"
-                  sizeXl="2.4"
-                  className="p-0 m-0"
-                  width="100%"
-                  key={product.name}
-                >
-                  <Product product={product} history={history} />
-                </IonCol>
+                <Product product={product} history={history} />
               ))}
+            </EuiFlexGroup>
+
+            <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
               <Paginate
-                className="tw-mx-auto"
                 pages={pages && pages}
                 page={page && page}
                 keyword={keyword ? keyword : ""}
               />
-            </IonRow>
+            </div>
+
             {/* <HomeHero /> */}
             {/* <Regions /> */}
 
-            <Footer />
+            {!keyword && <Footer history={history} />}
           </>
         )}
       </IonContent>

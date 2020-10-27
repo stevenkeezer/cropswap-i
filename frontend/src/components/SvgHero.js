@@ -4,7 +4,7 @@ export default function SvgHero() {
   return (
     <>
       <svg
-        class="tw-w-48 tw-h-48 tw-pl-6 "
+        class="tw-w-32 tw-h-32 tw-pl-1 "
         id="e3f28eb1-f0aa-4d99-bf37-0b9524df0b9c"
         dataName="Layer 1"
         xmlns="http://www.w3.org/2000/svg"

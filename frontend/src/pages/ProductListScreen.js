@@ -1,24 +1,24 @@
+import { IonButton } from "@ionic/react";
 import React, { useEffect } from "react";
-import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Row, Col, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import Paginate from "../components/Paginate";
-import { IonIcon } from "@ionic/react";
-
 import {
-  checkmarkOutline,
-  trashOutline,
-  createOutline,
-  closeOutline,
-} from "ionicons/icons";
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+} from "@elastic/eui";
 import {
-  listProducts,
-  deleteProduct,
   createProduct,
+  deleteProduct,
+  listProducts,
 } from "../actions/productActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import Paginate from "../components/Paginate";
+import ProductTable from "../components/ProductTable";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import SubFooter from "../components/SubFooter";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -79,69 +79,53 @@ const ProductListScreen = ({ history, match }) => {
   };
 
   return (
-    <Container>
-      <Row className="align-items-center">
-        <Col>
-          <h1>Products</h1>
-        </Col>
-        <Col className="text-right">
-          <Button className="my-3" onClick={createProductHandler}>
-            <i className="fas fa-plus"></i> Create Product
-          </Button>
-        </Col>
-      </Row>
-      {loadingDelete && <Loader />}
-      {errorDelete && <Message variant="danger">{errorDelete}</Message>}
-      {loadingCreate && <Loader />}
-      {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-      {loading ? (
-        <Loader />
-      ) : error ? (
-        <Message variant="danger">{error}</Message>
-      ) : (
-        <>
-          <Table striped bordered hover responsive className="table-sm">
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>NAME</th>
-                <th>PRICE</th>
-                <th>CATEGORY</th>
-                <th>BRAND</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {products &&
-                products.map((product) => (
-                  <tr key={product._id}>
-                    <td>{product._id}</td>
-                    <td>{product.name}</td>
-                    <td>${product.price}</td>
-                    <td>{product.category}</td>
-                    <td>{product.brand}</td>
-                    <td>
-                      <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                        <Button variant="light" className="btn-sm">
-                          <IonIcon size="small" icon={createOutline}></IonIcon>
-                        </Button>
-                      </LinkContainer>
-                      <Button
-                        variant="danger"
-                        className="btn-sm"
-                        onClick={() => deleteHandler(product._id)}
-                      >
-                        <IonIcon size="small" icon={trashOutline}></IonIcon>
-                      </Button>
-                    </td>
-                  </tr>
-                ))}
-            </tbody>
-          </Table>
-          <Paginate pages={pages && pages} page={page && page} isAdmin={true} />
-        </>
-      )}
-    </Container>
+    <>
+      <div className="tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-h-auto tw-min-h-screen">
+        <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
+          <div className="tw-flex tw-pt-8 tw-justify-between tw-items-center">
+            <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">
+              Products
+            </div>
+
+            <EuiButton
+              color="secondary"
+              className="tw-mt-3 "
+              size="m"
+              fill
+              onClick={createProductHandler}
+            >
+              Create Product
+            </EuiButton>
+          </div>
+
+          {loadingDelete && <Loader />}
+          {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+          {loadingCreate && <Loader />}
+          {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+          {loading ? (
+            <Loader />
+          ) : error ? (
+            <Message variant="danger">{error}</Message>
+          ) : (
+            <>
+              <div className="tw-text-2xl  lg:tw-shadow tw-text-gray-700  tw-mt-6 tw-mx-auto">
+                <ProductTable
+                  products={products}
+                  deleteHandler={deleteHandler}
+                  history={history}
+                />
+              </div>
+              <br></br>
+              <Paginate
+                pages={pages && pages}
+                page={page && page}
+                isAdmin={true}
+              />
+            </>
+          )}
+        </div>
+      </div>
+    </>
   );
 };
 

@@ -1,24 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import { getUserDetails, updateUser } from "../actions/userActions";
-import { USER_UPDATE_RESET } from "../constants/userConstants";
 import {
-  IonButtons,
   IonButton,
-  IonHeader,
-  IonToolbar,
   IonCheckbox,
-  IonTitle,
+  IonInput,
   IonItem,
   IonLabel,
-  IonInput,
-  IonToast,
   IonText,
-  IonPage,
-  IonContent,
 } from "@ionic/react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserDetails, updateUser } from "../actions/userActions";
+import { USER_UPDATE_RESET } from "../constants/userConstants";
 
 const UserEditScreen = ({ match, location, history }) => {
   const userId = match.params.id;
@@ -65,7 +56,7 @@ const UserEditScreen = ({ match, location, history }) => {
       <IonButton onClick={() => history.push("/admin/userlist")}>
         Go back
       </IonButton>
-      <FormContainer>
+      <div>
         {loadingUpdate && <div>loading..</div>}
         {errorUpdate && <div>{errorUpdate}</div>}
 
@@ -136,7 +127,7 @@ const UserEditScreen = ({ match, location, history }) => {
         /> */}
           </>
         )}
-      </FormContainer>
+      </div>
     </>
   );
 };

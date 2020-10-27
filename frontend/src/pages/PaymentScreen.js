@@ -1,46 +1,28 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { Link } from "react-router-dom";
-
-import { chevronBackOutline, trashOutline } from "ionicons/icons";
-
-import { savePaymentMethod } from "../actions/cartActions";
-import { addToCart, removeFromCart } from "../actions/cartActions";
-
 import {
-  Form,
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  Container,
-} from "react-bootstrap";
-
-import {
-  IonButtons,
   IonButton,
-  IonIcon,
-  IonHeader,
-  IonSelectPopover,
-  IonToolbar,
-  IonList,
-  IonCol,
-  IonTitle,
-  IonItem,
-  IonItemDivider,
   IonCheckbox,
+  IonItem,
   IonLabel,
-  IonInput,
-  IonToast,
-  IonSelect,
-  IonText,
-  IonPage,
-  IonContent,
+  IonList,
+  IonTitle,
 } from "@ionic/react";
+import {
+  EuiFieldText,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiButton,
+  EuiSpacer,
+  EuiFormRow,
+  EuiNotificationBadge,
+  EuiImage,
+} from "@elastic/eui";
+import React, { useState } from "react";
+import { Col, Container, Image, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { savePaymentMethod } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import SubFooter from "../components/SubFooter";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -61,29 +43,26 @@ const PaymentScreen = ({ history }) => {
     history.push("/placeorder");
   };
   return (
-    <div className="tw-h-screen  tw-bg-gray-100">
-      <Container>
-        <CheckoutSteps step1 step2 step3 />
-        <div
-          className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
-          style={{ fontWeight: "500" }}
-        >
-          {/* {initializationError && initializationError.message} */}
-          Select a payment method
+    <>
+      <div className="tw-h-screen  tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-pt-4">
+        {/* <Container> */}
+        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
+          <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className="tw-max-w-screen-lg tw-mx-auto">
-          <IonCol
-            className="card mb-3 tw-border-none tw-shadow tw-rounded-lg tw-p-5"
-            sizeLg="6"
-          >
-            <div className="tw-flex tw-items-baseline">
-              <span className="tw-text-sm">(pick one of the items below)</span>
+        <Row className=" tw-mx-auto tw-max-w-screen-xl tw-justify-center  tw-text-gray-800  tw-mt-8 tw-mx-auto">
+          <Col md={8}>
+            <div
+              className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
+              style={{ fontWeight: "500" }}
+            >
+              Select a Payment Method
             </div>
-            <IonList>
-              <IonItem className="tw-px-2 tw-pr-6" lines="none">
+
+            <IonList className="tw-shadow tw-mt-3 tw-mb-8">
+              <IonItem className="tw-px-2 tw-pr-6 " lines="none">
                 <IonCheckbox
                   id="Paypal"
-                  className="tw-mr-10"
+                  className="tw-mr-10 "
                   name="paymentMethod"
                   value="Paypal"
                   checked
@@ -97,7 +76,7 @@ const PaymentScreen = ({ history }) => {
                     class="card-input-element d-none"
                     value="demo2"
                   />
-                  <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-12 ">
+                  <div class="card card-body bg-light d-flex tw-rounded  flex-row justify-content-between align-items-center tw-py-12 tw-w-64">
                     <div>
                       <span className="tw-font-semibold  tw-flex tw-items-center tw-gap-2">
                         {" "}
@@ -115,53 +94,73 @@ const PaymentScreen = ({ history }) => {
                 </IonLabel>
               </IonItem>
             </IonList>
-          </IonCol>
+          </Col>
 
-          <div> Cart</div>
-          <IonCol className="" sizeLg="">
-            <div
-              className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto card mb-3 tw-border-none tw-shadow tw-rounded-lg "
+          <Col md={4}>
+            <IonTitle
+              className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto "
               style={{ fontWeight: "500" }}
             >
-              {/* {initializationError && initializationError.message} */}
+              Your Order
+            </IonTitle>
+            <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <article className="card mb-3 tw-border-none tw-shadow">
-                    <div class="row align-items-center tw-p-5">
-                      <div class="col-md-6 tw-flex tw-gap-3">
-                        <Image
-                          src={item.image}
-                          alt={item.name}
-                          className="border img-sm"
-                          style={{ maxWidth: "100px" }}
-                        />
-
-                        <Link to={`/product/${item.product}`}>{item.name}</Link>
+                  <article className="tw-rounded mb-3 tw-border-none tw-bg-white tw-shadow">
+                    <div class="row ">
+                      <div class="tw-px-4 tw-flex tw-gap-3">
+                        <div class="tw-flex tw-items-center">
+                          <EuiImage
+                            // size="l"
+                            className="tw-m-0 tw-p-2 tw-pl-2"
+                            hasShadow
+                            allowFullScreen
+                            // caption="Click me"
+                            src={item.image}
+                            alt={item.name}
+                            style={{ maxWidth: "100px", maxHeight: "75px" }}
+                          />
+                          {item.qty > 1 && (
+                            <div
+                              class={` w-text-xs lg:tw-flex   tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
+                            >
+                              <EuiNotificationBadge>
+                                {item.qty}
+                              </EuiNotificationBadge>
+                            </div>
+                          )}
+                        </div>
                       </div>
+                      <Link to={`/product/${item.product}`}>
+                        <div className="tw-text-sm tw-mt-2">{item.name}</div>
 
-                      <div class="col">
-                        <div class="price h5"> ${item.price} </div>
-                      </div>
+                        <div class="tw-text-gray-700 tw-text-sm tw-mt-1 tw-font-medium">
+                          ${item.price}
+                        </div>
+                      </Link>
                     </div>
                   </article>
                 ))}
             </div>
-            <div className="tw-flex tw-items-baseline"></div>
-            <IonList>
-              <IonItem className="tw-px-2 tw-pr-6" lines="none"></IonItem>
-            </IonList>
+
             <div>
-              <IonButton expand="full" onClick={submitHandler}>
+              <EuiButton
+                fullWidth
+                color="secondary"
+                className="tw-mt-3"
+                size="m"
+                fill
+                disabled={cartItems.length === 0}
+                onClick={submitHandler}
+              >
                 Continue
-              </IonButton>
-              <p className="tw-text-xs">
-                You can review this order before it's final
-              </p>
+              </EuiButton>
             </div>
-          </IonCol>
+          </Col>
         </Row>
-      </Container>
-    </div>
+        {/* </Container> */}
+      </div>
+    </>
   );
 };
 

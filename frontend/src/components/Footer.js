@@ -1,7 +1,9 @@
 import React from "react";
-import { IonContent, IonFooter, IonToolbar, IonTitle } from "@ionic/react";
+import HomeHero from "./HomeHero";
+import SubFooter from "./SubFooter";
+import Logo from "./Logo";
 
-const Footer = () => (
+const Footer = ({ history }) => (
   <>
     <div
       style={{
@@ -9,62 +11,43 @@ const Footer = () => (
         height: "11.125rem",
         marginTop: "8.9375rem",
         display: "grid",
-        gridTemplateColumns: "3fr 2fr",
+        // gridTemplateColumns: "3fr 2fr",
         columnGap: "1rem",
       }}
       className=""
     >
+      <HomeHero></HomeHero>
       <div
         style={{
           width: "100%",
           position: "relative",
           textAlign: "left",
         }}
-      >
-        <img
-          style={{ marginLeft: 455, top: -107 }}
-          className="tw-w-1/3 tw-absolute tw-p-3 tw-bottom-0 tw-border-8 tw-ml-64 tw-border-white"
-          src="/images/phone.png"
-        ></img>
-        <img
-          style={{
-            height: "auto",
-            maxWidth: "100%",
-            verticalAlign: "middle",
-            marginLeft: 285,
-          }}
-          className="tw-w-1/3 tw-absolute tw-bottom-0 tw-border-8 tw-ml-64 tw-border-white "
-          src="/images/phone.png"
-        ></img>
-      </div>
+      ></div>
     </div>
-    <footer class="tw-bg-white tw-text-gray-700 tw-pt-16 tw-pb-8 ">
-      <div class="tw-mx-auto tw-px-4 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">
+    <footer class="tw-bg-white tw-text-gray-700 tw-pt-16 tw-pb-16 ">
+      <div class="tw-mx-auto tw-px-1 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">
         <a href="/" class="tw-block tw-mr-4 tw-w-1/3 hover:tw-no-underline">
-          <div className="tw-flex">
-            <img
-              src="https://i.imgur.com/K4SMB4S.png"
-              class="tw-w-12 tw-ml-4 lg:tw-ml-0 tw-bg-gray-300 tw-rounded-full tw-p-2"
-              alt="logo"
-            />
-            <span className="tw-italic tw-text-orange-700 tw-text-2xl tw-font-extrabold  tw-ml-3">
+          <div className="tw-flex tw-px-2">
+            <Logo history={history} />
+            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-font-semibold  tw-ml-3">
               cropswap
             </span>
           </div>
-          <div className="tw-text-gray-600 tw-text-sm tw-mt-4">
+          <div className="tw-text-gray-600 tw-tracking-wide tw-leading-6 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
             A community connecting farmers consumers, people, retailers, and
             brands since 2020.
           </div>
         </a>
         <div class="tw-w-2/3 tw-block sm:tw-flex tw-text-sm tw-mt-6 lg:tw-mt-0">
           <ul class="tw-text-gray-700 tw-list-none tw-p-0  tw-flex tw-flex-col tw-text-left tw-w-full">
-            <li class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
+            <li class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
               Product
             </li>
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Features
               </a>
@@ -72,7 +55,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Integrations
               </a>
@@ -80,7 +63,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Pricing
               </a>
@@ -88,20 +71,20 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 FAQ
               </a>
             </li>
           </ul>
           <ul class="text-gray-700 tw-list-none tw-p-0  tw-flex tw-flex-col tw-text-left tw-w-full">
-            <li class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
+            <li class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
               Discover
             </li>
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Brands
               </a>
@@ -109,7 +92,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Deliveries
               </a>
@@ -117,7 +100,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Farm supplies
               </a>
@@ -125,7 +108,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Produce
               </a>
@@ -133,7 +116,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Fruit
               </a>
@@ -141,7 +124,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Veggies
               </a>
@@ -149,20 +132,20 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Terms of Service
               </a>
             </li>
           </ul>
           <ul class="tw-text-gray-700 tw-list-none tw-p-0  tw-flex tw-flex-col tw-text-left tw-w-full">
-            <li class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
+            <li class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
               Developers
             </li>
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Developer API
               </a>
@@ -170,7 +153,7 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Documentation
               </a>
@@ -178,14 +161,14 @@ const Footer = () => (
             <li>
               <a
                 href="#"
-                class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
+                class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-600 hover:tw-text-gray-700 tw-no-underline tw-text-base tw-font-base"
               >
                 Guides
               </a>
             </li>
           </ul>
           <div class="tw-text-gray-700 tw-flex tw-flex-col tw-w-full">
-            <div class="tw-inline-block tw-py-1 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
+            <div class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">
               Follow Us
             </div>
             <div class="tw-flex tw-pl-4 tw-justify-start tw-mt-2">
@@ -229,12 +212,8 @@ const Footer = () => (
           </div>
         </div>
       </div>
-      <br></br>
-      <div class="tw-pt-8 tw-mt-8  tw-text-gray-600 tw-text-sm tw-border-t tw-border-gray-300 tw-text-center">
-        Copyright © 2020 Cropswap. & are registered trademarks of Swapp
-        Management Group, LLC. All Rights Reserved.
-      </div>
     </footer>
+    <SubFooter />
   </>
 );
 

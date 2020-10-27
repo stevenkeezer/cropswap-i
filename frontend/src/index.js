@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import store from "./store";
+import { IonReactRouter } from "@ionic/react-router";
 
 import "./bootstrap.min.css";
 import "./my_colors.scss";
@@ -23,7 +24,9 @@ import * as serviceWorker from "./serviceWorker";
 defineCustomElements(window);
 ReactDOM.render(
   <Provider store={store}>
+    {/* <IonReactRouter> */}
     <App />
+    {/* </IonReactRouter> */}
   </Provider>,
   document.getElementById("root")
 );

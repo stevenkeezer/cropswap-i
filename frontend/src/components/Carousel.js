@@ -24,6 +24,8 @@ const ProductCarousel = () => {
   ) : (
     <>
       <Carousel
+        pause="false"
+        className="tw-mt-3 tw-shadow-inner lg:tw-mt-0"
         fade
         // interval={5000}
         style={{
@@ -37,27 +39,20 @@ const ProductCarousel = () => {
             key={product._id}
             className={`${
               index === 0
-                ? "carousel-image-one"
-                : index === 1
                 ? "carousel-image-two"
-                : "carousel-image-one"
+                : index === 1
+                ? "carousel-image-one"
+                : "carousel-image-three"
             }`}
           >
             <Link
               to={`/product/${product._id}`}
               className="tw-flex tw-justify-between tw-w-full hover:tw-no-underline"
             >
-              {/* <IonImg
-                src={product.image}
-                alt={product.name}
-                fluid
-                className=" tw-w-56 tw-m-10 tw-rounded-full tw-h-56"
-              /> */}
-
-              <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 lg:tw-mx-8 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
+              <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 sm:tw-px-8 lg:tw-mx-8 tw-my-6 tw-pb-3 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
                 <div class="tw-absolute tw-top-0 tw-right-0 ">
                   <svg
-                    class="tw-block tw-ml-auto tw-h-auto tw-w-2/5 tw-rotate-180 tw-p-5  tw-transform"
+                    class="tw-block tw-ml-auto tw-h-auto sm:tw-w-2/5 tw-w-1/4 tw-rotate-180 tw-p-5  tw-transform"
                     viewBox="0 0 184 184"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -69,39 +64,34 @@ const ProductCarousel = () => {
                     ></path>
                   </svg>
                 </div>
-                <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-m-2 tw-flex tw-items-center tw-w-full tw-pt-6 lg:tw-pt-0">
-                  <div className="tw-border-4 tw-rounded-full tw-mr-5 ">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className=" tw-w-24 tw-rounded-full tw-object-cover tw-shadow-2xl tw-h-24"
-                    />
-                  </div>
-                  <div className="tw-flex-col">
-                    <p
-                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className="tw-text-xs tw--mb-3 tw-font-bold tw-text-white tw-pb-3 tw-mt-2"
-                    >
-                      Promo Code OCT20
-                    </p>
+                <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-flex tw-items-center tw-w-full sm:tw-pt-6 lg:tw-pt-0">
+                  <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-16 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className="tw--pt-1 tw-text-2xl lg:tw-text-3xl tw-font-bold tw-text-white  "
+                      className={` tw-text-xs tw-mb-2 tw-mt-2 tw-font-bold tw-text-white`}
+                    >
+                      Promo Code OCT20
+                    </div>
+                    <div
+                      style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
+                      className={` tw-text-2xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
                     >
                       {product.name}
                     </div>
-                    <button class="tw-bg-white tw-font-bold tw-py-2 tw-mt-2 tw-px-5 tw-text-black tw-shadow tw-rounded-full tw-text-xs">
+                    <div
+                      className={`tw-bg-white tw-font-bold tw-py-2 tw-w-24 lg:tw-mx-auto tw-mt-4 tw-text-center tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
+                    >
                       Learn more
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6 lg:tw-visible tw-invisible">
+              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6  tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
                   alt={product.name}
                   // fluid
-                  className=" tw-mt-8 tw-w-full tw-p-0 tw-h-full"
+                  className=" tw-w-full xl:tw-pt-1 xl:tw-mt-10 lg:tw-mt-12 lg:tw-pt-10 tw-mt-16  sm:tw-mt-10 tw-pt-2   tw-ml-10 sm:tw-ml-0 tw-h-full"
                 />
               </div>
             </Link>

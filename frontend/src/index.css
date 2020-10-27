@@ -19,6 +19,35 @@ ion-item {
   --inner-padding-start: 0;
   --inner-padding-top: 0;
 }
+.euiPanel {
+  border: none !important;
+}
+
+.euiHeaderSectionItem:after {
+  background: transparent !important;
+}
+.euiHeaderSectionItem__button {
+  outline: none !important;
+  outline-color: #cbd5e0 !important;
+}
+.euiHeaderSectionItem__button:focus {
+  background: #f5f5f5 !important;
+  /* background: gray !important; */
+}
+
+.euiNotificationBadge {
+  border: 0.25px solid white !important;
+}
+
+/* .euiFieldSearch {
+  padding-left: 0.5rem !important;
+} */
+
+/* .euiHeaderSection, */
+
+.euiHeaderSection--left:last-child {
+  height: 55px !important;
+}
 
 :root {
   --ion-color-primary: #008480;
@@ -92,13 +121,14 @@ ion-item {
   margin: 0 auto;
 }
 
-@media only screen and (min-width: 1200px) {
-  .carousel-item {
-    margin-top: 10px;
-    border-radius: 20px;
-  }
-  .logo {
-    padding-left: 1rem;
+.euiCard__top + .euiCard__content {
+  margin-top: 8px !important;
+}
+
+@media only screen and (max-width: 1436px) {
+  .carousel-control-prev,
+  .carousel-control-next {
+    display: none;
   }
 }
 
@@ -109,23 +139,64 @@ ion-item {
     padding-right: 0;
   }
 }
+/* .euiHeaderSectionItem {
+  position: relative;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: start !important;
+  align-items: start !important;
+} */
 
 .pagination {
   margin-left: auto;
   margin-right: auto;
 }
 
+.my-custom-class {
+  --background: rgb(0, 0, 0, 0.4);
+  --spinner-color: #fff;
+  --backdrop-opacity: 0;
+
+  color: #fff;
+}
+
+.euiCard,
+.euiCard__image {
+  border-radius: 0px !important;
+}
+
 @media only screen and (min-width: 1200px) {
-  .logo {
-    padding-left: 1.5rem;
-    padding-right: 1.75rem;
+  .carousel-item {
+    margin-top: 10px;
+    border-radius: 20px;
   }
+
   #cart {
     margin-left: 20.55rem;
   }
   .carousel {
-    height: 355px;
+    height: 385px;
   }
+  .flexCard {
+    max-width: 25% !important;
+  }
+}
+
+.card {
+  border-radius: 0.5rem;
+}
+
+ion-input {
+  --padding-start: 1rem !important;
+  --background: #f5f5f5 !important;
+  --padding-top: 0.75rem !important;
+  --padding-bottom: 0.75rem !important;
+  /* margin-top: 0.725rem !important; */
+  border-radius: 0.25rem;
+  /* height: 15%; */
+  /* width: 41%; */
+  /* max-width: 50vw; */
+  /* height: 30px; */
 }
 
 .ion-content {
@@ -144,8 +215,137 @@ ion-item {
   background: rgba(246, 108, 61);
 }
 
+.carousel-image-three {
+  background: rgb(216, 57, 75);
+}
+
 .container {
   max-width: 75rem !important;
+}
+
+@media (min-width: 575px) {
+  table {
+    display: inline-table !important;
+  }
+
+  thead tr:not(:first-child) {
+    display: none;
+  }
+}
+
+.euiNotificationBadge {
+  background: #e7664c !important;
+}
+
+#count-notify {
+  border: 1px solid white;
+}
+
+.euiKeyPadMenuItem:focus {
+  outline: none;
+}
+
+td,
+th {
+  border: 1px solid transparent !important;
+}
+
+table {
+  border-spacing: 0 !important;
+}
+th,
+td {
+  border: 1px solid #000;
+  padding: 2px !important;
+}
+/* the first 'th' within the first 'tr' of the 'thead': */
+thead tr:first-child th:first-child {
+  border-radius: 0.6em 0 0 0 !important;
+}
+/* the last 'th' within the first 'tr' of the 'thead': */
+thead tr:first-child th:last-child {
+  border-radius: 0 0.6em 0 0 !important;
+}
+/* the first 'td' within the last 'tr' of the 'tbody': */
+tbody tr:last-child td:first-child {
+  border-radius: 0 0 0 0.6em !important;
+}
+/* the last 'td' within the last 'tr' of the 'tbody': */
+tbody tr:last-child td:last-child {
+  border-radius: 0 0 0.6em 0 !important;
+}
+
+@media (min-width: 765px) {
+  .euiTableRowCell,
+  .euiTableRowCellCheckbox {
+    vertical-align: middle;
+    border-top: 1px solid #eeeeee !important;
+    border-bottom: 1px solid #eeeeee !important;
+    /* font-weight: inherit; */
+    text-align: inherit;
+    color: #343741;
+  }
+}
+
+@media (min-width: 992px) {
+  .euiHeader {
+    height: 6rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .carousel-indicators {
+    bottom: -38px !important;
+  }
+}
+
+.euiIcon--accent {
+  color: #e7664c !important;
+}
+
+.euiIcon--xxLarge {
+  width: 300px !important;
+  height: 300px !important;
+}
+
+@media (max-width: 576px) {
+  th:not(:last-child) {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+  }
+  .euiTable {
+    background: none !important;
+  }
+  .flexCard {
+    padding: 4px;
+  }
+  .flexCard {
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .flexCard {
+    max-width: 50% !important;
+    padding: 4px;
+  }
+}
+
+@media (max-width: 499px) {
+  .flexCard {
+    max-width: 100% !important;
+  }
+}
+
+td:not(:last-child) {
+  border-bottom: 0;
+}
+
+.euiFieldSearch {
+  height: 35.5px !important;
+}
+
+.category-slider::-webkit-scrollbar {
+  display: none;
 }
 
 /**
@@ -291,7 +491,12 @@ label {
 }
 
 .card-input-element:checked + .card::after {
-  /* content: "\e5cb"; */
+  content: "‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎";
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml,%3Csvg height='275' width='275' fill='%2348bb78' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E");
+  position: absolute;
+  top: 0;
+  left: 0;
   color: #afb8ea;
   font-family: "Material Icons";
   font-size: 24px;
@@ -303,6 +508,23 @@ label {
   animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* {
+  background-color: #38b2ac !important;
+} */
+
+.euiStepHorizontal-isComplete > .euiStepNumber {
+  background-color: #38b2ac !important;
+}
+
+.euiStepHorizontal-isSelected > .euiStepNumber {
+  background-color: #38b2ac !important;
+}
+.euiStepHorizontal-isComplete::before,
+.euiStepHorizontal-isComplete::after,
+.euiStepHorizontal-isSelected::before {
+  height: 2px;
+  background-color: #38b2ac !important;
+}
 @-webkit-keyframes fadeInCheckbox {
   from {
     opacity: 0;

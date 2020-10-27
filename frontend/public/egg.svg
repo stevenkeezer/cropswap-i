@@ -1,0 +1,15 @@
+ <svg
+              class=" hover:tw-bg-gray-300 tw-bg-gray-100 tw-shadow-sm tw-p-3  tw-text-gray-700 tw-hover:text-white tw-mx-auto  "
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              preserveAspectRatio="xMidYMid"
+              fill="currentColor"
+              width="59"
+              height="60"
+              viewBox="0 0 44 60"
+            >
+              <path
+                d="M22.000,59.999 C9.458,59.999 -0.000,47.933 -0.000,31.932 C-0.000,14.735 12.097,-0.001 22.000,-0.001 C31.903,-0.001 44.000,14.735 44.000,31.932 C44.000,47.933 34.542,59.999 22.000,59.999 ZM22.000,1.999 C13.184,1.999 2.000,16.093 2.000,31.932 C2.000,46.792 10.598,57.999 22.000,57.999 C33.402,57.999 42.000,46.792 42.000,31.932 C42.000,16.093 30.815,1.999 22.000,1.999 Z"
+                class="cls-1"
+              />
+            </svg>

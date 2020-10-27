@@ -1,54 +1,32 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import Header from "../components/Header";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Container,
-  Form,
-} from "react-bootstrap";
-
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import Meta from "../components/Meta";
+import { IonButton, IonIcon, IonText, IonTitle } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
-import {
-  IonCard,
-  IonImg,
-  IonRow,
-  IonText,
-  IonButton,
-  IonLoading,
-  IonPage,
-  IonProgressBar,
-  IonTitle,
-  IonGrid,
-  IonInput,
-  IonIcon,
-  IonCol,
-  IonList,
-  IonCardHeader,
-  IonSelect,
-  IonSelectOption,
-} from "@ionic/react";
-
-import Rating from "../components/Rating";
+import React, { useEffect, useState } from "react";
+import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import SubFooter from "../components/SubFooter";
 // import Meta from "../components/Meta";
 import {
-  listProductDetails,
   createProductReview,
+  listProductDetails,
 } from "../actions/productActions";
+import {
+  EuiFormRow,
+  EuiPanel,
+  EuiFieldPassword,
+  EuiButton,
+  EuiFieldText,
+} from "@elastic/eui";
+import ElasticComment from "../components/ElasticComment";
+import ElasticImage from "../components/ElasticImage";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import Meta from "../components/Meta";
+import Rating from "../components/Rating";
 import {
   PRODUCT_CREATE_REVIEW_RESET,
   PRODUCT_DETAILS_RESET,
 } from "../constants/productConstants";
-
-import ProgressiveImage from "react-progressive-graceful-image";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -103,8 +81,8 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <div className=" tw-pt-3 tw-bg-gray-100">
-        <Container>
+      <div className="tw-bg-gray-100 tw-h-auto ">
+        <div className="  lg:tw-mt-24 tw-mt-16 tw-px-4  tw-pt-4 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
@@ -130,22 +108,15 @@ const ProductScreen = ({ history, match }) => {
             <>
               <Meta title={product.name} />
               <Row className="justify-content-center mt-4">
-                <Col md={6}>
-                  <IonCard>
-                    <IonCardHeader>
-                      <IonImg
-                        src={product.image}
-                        alt={product.name}
-                        fluid
-                        rounded
-                        border
-                      />
-                    </IonCardHeader>
-                  </IonCard>
+                <Col md={6} size={12} className="tw-mb-8">
+                  <ElasticImage image={product.image} name={product.name} />
                 </Col>
 
                 <Col md={3}>
-                  <IonTitle>{product.name}</IonTitle>
+                  <div className="tw-text-xl  tw-font-medium tw-text-gray-900">
+                    {product.name}
+                  </div>
+
                   <ListGroup
                     variant="flush"
                     className="tw-border-none tw-shadow tw-mt-2"
@@ -202,40 +173,34 @@ const ProductScreen = ({ history, match }) => {
                           </ListGroup.Item>
                         )}
 
-                        <ListGroup.Item>
-                          <IonButton
-                            onClick={addToCartHandler}
-                            className="btn-block"
-                            type="button"
-                            disabled={product.countInStock === 0}
-                          >
-                            Add To Cart
-                          </IonButton>
-                        </ListGroup.Item>
+                        <EuiButton
+                          fullWidth
+                          color="secondary"
+                          className="tw-mt-3"
+                          size="m"
+                          fill
+                          disabled={product.countInStock === 0}
+                          onClick={addToCartHandler}
+                        >
+                          Add To Cart
+                        </EuiButton>
                       </ListGroup>
                     </Card>
                   </ListGroup>
                 </Col>
               </Row>
+
               <Row>
-                <Col md={6}>
-                  <h2>Reviews</h2>
+                <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
+                  <h2 className="tw-py-4">Customer Reviews</h2>
                   {product &&
                     product.reviews &&
                     product.reviews.length === 0 && (
                       <Message>No Reviews</Message>
                     )}
                   <ListGroup variant="flush">
-                    {product &&
-                      product.reviews &&
-                      product.reviews.map((review) => (
-                        <ListGroup.Item key={review._id}>
-                          <strong>{review.name}</strong>
-                          <Rating value={review.rating} />
-                          <p>{review.createdAt.substring(0, 10)}</p>
-                          <p>{review.comment}</p>
-                        </ListGroup.Item>
-                      ))}
+                    <ElasticComment reviews={product.reviews}></ElasticComment>
+
                     <ListGroup.Item>
                       <h2>Write a Customer Review</h2>
                       {errorProductReview && (
@@ -283,7 +248,7 @@ const ProductScreen = ({ history, match }) => {
               </Row>
             </>
           )}
-        </Container>
+        </div>
       </div>
     </>
   );

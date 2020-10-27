@@ -1,20 +1,27 @@
 import React, { useState, useEffect } from "react";
-import {
-  Table,
-  Form,
-  Button,
-  Row,
-  Col,
-  Container,
-  Card,
-} from "react-bootstrap";
-import { IonButtons, IonButton, IonPage, IonContent } from "@ionic/react";
-import { LinkContainer } from "react-router-bootstrap";
+import { Row, Col, Container } from "react-bootstrap";
+import { IonTitle } from "@ionic/react";
+
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
+import UserOrderTable from "../components/UserOrderTable";
+import ElasticCondensed from "../components/ElasticCondensed";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
+import SubFooter from "../components/SubFooter";
+import {
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
+  EuiPageContentBody,
+  EuiPageContentHeader,
+  EuiPageContentHeaderSection,
+  EuiPageHeader,
+  EuiPageHeaderSection,
+  EuiPageSideBar,
+  EuiTitle,
+} from "@elastic/eui";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -61,170 +68,59 @@ const ProfileScreen = ({ location, history }) => {
   };
 
   return (
-    <div className=" tw-pt-3 tw-bg-gray-100 tw-h-screen">
-      <Container>
-        <Row className="tw-pt-5">
-          <Col md={3}>
-            <Card className="tw-inline-block tw-min-w-full  tw-rounded-lg tw-shadow tw-overflow-hidden tw-border-none tw-p-5">
-              <h2>User Profile</h2>
-              {message && <Message variant="danger">{message}</Message>}
-              {}
-              {success && <Message variant="success">Profile Updated</Message>}
-              {loading ? (
-                <Loader />
-              ) : error ? (
-                <Message variant="danger">{error}</Message>
-              ) : (
-                <Form onSubmit={submitHandler}>
-                  <Form.Group controlId="name">
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control
-                      type="name"
-                      placeholder="Enter name"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    ></Form.Control>
-                  </Form.Group>
-
-                  <Form.Group controlId="email">
-                    <Form.Label>Email Address</Form.Label>
-                    <Form.Control
-                      type="email"
-                      placeholder="Enter email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    ></Form.Control>
-                  </Form.Group>
-
-                  <Form.Group controlId="password">
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Enter password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                    ></Form.Control>
-                  </Form.Group>
-
-                  <Form.Group controlId="confirmPassword">
-                    <Form.Label>Confirm Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      placeholder="Confirm password"
-                      value={confirmPassword}
-                      onChange={(e) => setConfirmPassword(e.target.value)}
-                    ></Form.Control>
-                  </Form.Group>
-
-                  <IonButton type="submit" variant="primary">
-                    Update
-                  </IonButton>
-                </Form>
-              )}
-            </Card>
-          </Col>
-          <Col md={9}>
-            <h2>My Orders</h2>
-            {loadingOrders ? (
-              <Loader />
-            ) : errorOrders ? (
-              <Message variant="danger">{errorOrders}</Message>
-            ) : (
-              <div class="-tw-mx-4 tw-sm:-mx-8 tw-px-4 tw-sm:px-8 tw-py-4 tw-overflow-x-auto">
-                <div class="tw-inline-block tw-min-w-full  tw-rounded-lg tw-shadow tw-overflow-hidden">
-                  <table
-                    striped
-                    hover
-                    responsive
-                    className="tw-min-w-full tw-leading-normal tw-border--none"
-                  >
-                    <thead>
-                      <tr>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          ID
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          DATE
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          Total
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          PAID
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          DELIVERED
-                        </th>
-                        <th class="tw-px-5 tw-py-3 tw-border-b-2 tw-border-gray-200 tw-bg-gray-100 tw-text-left tw-text-xs tw-font-semibold tw-text-gray-600 tw-uppercase tw-tracking-wider">
-                          Details
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {orders.map((order) => (
-                        <tr key={order._id}>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <div class="tw-flex tw-items-center">
-                              <div class="tw-ml-3">
-                                <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                                  {order._id}
-                                </p>
-                              </div>
-                            </div>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                              {order.createdAt.substring(0, 10)}
-                            </p>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <p class="tw-text-gray-900 tw-whitespace-no-wrap">
-                              {order.totalPrice}
-                            </p>
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            {order.isPaid ? (
-                              <span className=" tw-bg-green-200  tw-px-3 tw-py-1 tw-text-green-900  tw-bg-opacity-50 tw-rounded-full">
-                                {order.paidAt.substring(0, 10)}
-                              </span>
-                            ) : (
-                              <span className=" tw-bg-orange-200  tw-px-3 tw-py-1 tw-text-orange-900  tw-bg-opacity-50 tw-rounded-full">
-                                Not Paid
-                              </span>
-                            )}
-                          </td>
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <td>
-                              {order.isDelivered ? (
-                                <span className=" tw-bg-green-200  tw-px-3 tw-py-1 tw-text-green-900  tw-bg-opacity-50 tw-rounded-full">
-                                  {order.deliveredAt.substring(0, 10)}
-                                </span>
-                              ) : (
-                                <span className=" tw-bg-orange-200  tw-px-3 tw-py-1 tw-text-orange-900  tw-bg-opacity-50 tw-rounded-full">
-                                  Not Delivered
-                                </span>
-                              )}
-                            </td>
-                          </td>
-
-                          <td class="tw-px-5 tw-py-5 tw-border-b tw-border-gray-200 tw-bg-white tw-text-sm">
-                            <LinkContainer to={`/order/${order._id}`}>
-                              <Button className="btn-sm" variant="light">
-                                Details
-                              </Button>
-                            </LinkContainer>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-          </Col>
-        </Row>
-      </Container>
-    </div>
+    <>
+      <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12 tw-pb-12  tw-min-h-screen">
+        <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
+          {loading ? (
+            <Loader />
+          ) : (
+            <div>
+              <Row className="tw-pt-8">
+                <Col md={3}>
+                  {message && <Message variant="danger">{message}</Message>}
+                  {}
+                  {success && (
+                    <Message variant="success">Profile Updated</Message>
+                  )}
+                  {loading ? (
+                    <Loader />
+                  ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                  ) : (
+                    <ElasticCondensed
+                      name={name}
+                      email={email}
+                      password={password}
+                      confirmPassword={confirmPassword}
+                      setName={setName}
+                      setEmail={setEmail}
+                      setPassword={setPassword}
+                      setConfirmPassword={setConfirmPassword}
+                      submitHandler={submitHandler}
+                    />
+                  )}
+                </Col>
+                <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
+                  <div className=" tw-text-2xl  tw-pb-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                    My Orders
+                  </div>
+                  {loadingOrders ? (
+                    <Loader />
+                  ) : errorOrders ? (
+                    <Message variant="danger">{errorOrders}</Message>
+                  ) : (
+                    <div className="sm:tw-shadow  sm:tw-rounded-lg tw-px-2 tw-bg-white">
+                      <UserOrderTable orders={orders} history={history} />
+                    </div>
+                  )}
+                </Col>
+              </Row>
+            </div>
+          )}
+        </div>
+      </div>
+      <SubFooter />
+    </>
   );
 };
 

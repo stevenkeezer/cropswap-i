@@ -1,38 +1,26 @@
-import React, { useState, useEffect } from "react";
+import {
+  EuiFieldText,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiSpacer,
+  EuiFormRow,
+  EuiNotificationBadge,
+  EuiButton,
+  EuiImage,
+} from "@elastic/eui";
+import { IonButton, IonTitle } from "@ionic/react";
+import React, { useState } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
-import FormContainer from "../components/FormContainer";
+import { Link } from "react-router-dom";
+import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 import SvgHero from "../components/SvgHero";
-import { saveShippingAddress } from "../actions/cartActions";
-import {
-  Row,
-  Col,
-  Image,
-  ListGroup,
-  Card,
-  Button,
-  Container,
-  Form,
-} from "react-bootstrap";
-import {
-  IonButtons,
-  IonButton,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonItem,
-  IonLabel,
-  IonInput,
-  IonToast,
-  IonCol,
-  IonText,
-  IonPage,
-  IonContent,
-} from "@ionic/react";
+import SubFooter from "../components/SubFooter";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
-  const { shippingAddress, loading } = cart;
+  const { shippingAddress, loading, cartItems } = cart;
 
   const [address, setAddress] = useState(
     shippingAddress && shippingAddress.address
@@ -53,19 +41,22 @@ const ShippingScreen = ({ history }) => {
     history.push("/payment");
   };
   return (
-    <div className="tw-bg-gray-100">
-      <div>
-        <CheckoutSteps step1 step2 />
-      </div>
-      <Container className="tw-flex tw-justify-center">
-        <Row className="tw-gap-6 tw-justify-center tw-mx-auto">
-          <IonCol className=" " sizeLg="8">
-            <div className=" tw-text-2xl  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto tw-font-medium tw-max-w-screen-xl">
-              Select a delivery method
-              <div class="card mb-4 tw-rounded-lg tw-shadow tw-p-5 tw-mt-3 ">
+    <>
+      <div className="tw-bg-gray-100 lg:tw-mt-24 tw-min-h-screen tw-mt-12 tw-pb-12 tw-pt-4">
+        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
+          <CheckoutSteps step1 step2 />
+        </div>
+
+        <div className=" tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row  tw-gap-12">
+          <div className="lg:tw-w-3/5 tw-w-full">
+            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lgx  tw-max-w-screen-xl">
+              <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                Select a Delivery Method
+              </div>
+              <div class="card tw-rounded tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
                 <div class="row">
-                  <div class="form-group col-sm-6">
-                    <label class="">
+                  <div class=" col-sm-6 ">
+                    <label class="tw-mb-0">
                       <input
                         type="radio"
                         name="demo"
@@ -73,39 +64,33 @@ const ShippingScreen = ({ history }) => {
                         class="card-input-element d-none"
                         value="demo2"
                       />
-                      <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-16 ">
+                      <div class="card card-body bg-light d-flex flex-row tw-border justify-content-between align-items-center tw-py-10  ">
                         <div>
-                          <span className="tw-font-semibold tw-text-lg">
+                          <span className="tw-font-semibold tw-text-lg tw-ml-4">
                             Pickup
                           </span>
-                          <div className="tw-pt-5 tw-text-sm tw-italic">
-                            Grab your items at a set location.
-                          </div>
                         </div>
+
                         <SvgHero />
                       </div>
                     </label>
                   </div>
-                  <div class="form-group col-sm-6">
-                    <label class="">
+                  <div class=" col-sm-6">
+                    <label class="tw-mb-0">
                       <input
                         type="radio"
                         name="demo"
                         class="card-input-element d-none"
                         value="demo2"
                       />
-
-                      <div class="card card-body bg-light d-flex flex-row justify-content-between align-items-center tw-py-16">
+                      <div class="card card-body bg-light tw-mt-4 sm:tw-mt-0 d-flex flex-row justify-content-between align-items-center tw-py-10 ">
                         <div>
-                          <span className="tw-font-semibold tw-pb-3 tw-text-lg">
+                          <span className="tw-font-semibold tw-text-lg">
                             Delivery
                           </span>
-                          <div className="tw-pt-5 tw-text-sm tw-italic">
-                            Get your items delivered via Grubhub.
-                          </div>
                         </div>
                         <svg
-                          class="tw-w-24 tw-h-24 tw-smx-16"
+                          class="tw-w-24 tw-h-24 tw-sm-16"
                           id="76d98801-3a87-461e-b488-021b663cdcb4"
                           data-name="Layer 1"
                           xmlns="http://www.w3.org/2000/svg"
@@ -768,114 +753,121 @@ const ShippingScreen = ({ history }) => {
                     </label>
                   </div>
                 </div>
+              </div>
+              <div className=" tw-text-2xl  tw-pb-6 tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                Shipping Information
+              </div>
 
-                <div class="row">
-                  <div class="form-group col-sm-6">
-                    <IonItem>
-                      <IonLabel position="floating">City</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setCity(e.detail.value);
-                        }}
-                        name="city"
-                        required
-                        placeholder={city}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-6">
-                    <IonItem>
-                      <IonLabel position="floating">Country</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setCountry(e.detail.value);
-                        }}
-                        name="Country"
-                        required
-                        placeholder={country}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-8">
-                    <IonItem>
-                      <IonLabel position="floating">Street</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setAddress(e.detail.value);
-                        }}
-                        name="address"
-                        required
-                        placeholder={address}
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
-                      <IonLabel position="floating">Building</IonLabel>
-                      <IonInput
-                        type="text"
-                        // onIonChange={(e) => {
-                        //   setAddress(e.detail.value);
-                        // }}
-                        name="address"
-                        required
-                        placeholder=""
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
-                      <IonLabel position="floating">State</IonLabel>
-                      <IonInput
-                        type="text"
-                        // onIonChange={(e) => {
-                        //   setAddress(e.detail.value);
-                        // }}
-                        name="address"
-                        required
-                        placeholder="CA"
-                      />
-                    </IonItem>
-                  </div>
-                  <div class="form-group col-sm-4">
-                    <IonItem>
-                      <IonLabel position="floating">Postal Code</IonLabel>
-                      <IonInput
-                        type="text"
-                        onIonChange={(e) => {
-                          setPostalCode(e.detail.value);
-                        }}
-                        name="postal code"
-                        required
-                        placeholder={postalCode}
-                      />
-                    </IonItem>
-                  </div>
-                </div>
+              <div className="tw-bg-white tw-shadow tw-p-5 tw-py-6  tw-rounded">
+                <EuiFlexItem>
+                  <EuiFormRow
+                    fullWidth
+                    helpText="No shipping available right now this app is still in development!"
+                    label="Address"
+                  >
+                    <EuiFieldText
+                      placeholder="Address"
+                      className="tw-mb-3"
+                      fullWidth
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </EuiFormRow>
+                </EuiFlexItem>
+                <EuiSpacer />
 
-                <IonButton
-                  expand="full"
-                  style={{ margin: 14 }}
-                  onClick={submitHandler}
-                >
-                  Continue
-                </IonButton>
+                <EuiFlexGroup>
+                  <EuiFlexItem>
+                    <EuiFormRow fullWidth label="City">
+                      <EuiFieldText
+                        fullWidth
+                        value={city}
+                        onChange={(e) => setCity(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
+
+                  <EuiFlexItem>
+                    <EuiFormRow fullWidth label="Country">
+                      <EuiFieldText
+                        fullWidth
+                        value={country}
+                        onChange={(e) => setCountry(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
+                  <EuiFlexItem grow={false}>
+                    <EuiFormRow fullWidth label="Postal Code">
+                      <EuiFieldText
+                        fullWidth
+                        value={postalCode}
+                        onChange={(e) => setPostalCode(e.target.value)}
+                      />
+                    </EuiFormRow>
+                  </EuiFlexItem>
+                </EuiFlexGroup>
               </div>
             </div>
-          </IonCol>
+          </div>
 
-          <IonCol sizeLg="3" size="12">
-            <div className=" tw-text-2xl tw-font-medium  tw-pb-3 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
-              Cart
-              <div className="card tw-mt-3">Cart hii</div>
+          <div className="lg:tw-w-2/5 tw-w-full">
+            <div className=" tw-text-2xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
+              Your Order
             </div>
-          </IonCol>
-        </Row>
-      </Container>
-    </div>
+            <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+              {cartItems &&
+                cartItems.map((item) => (
+                  <article className="tw-bg-white tw-rounded mb-3 tw-p-2 tw-border-none tw-shadow">
+                    <div class="row ">
+                      <div class="tw-px-4 tw-flex tw-gap-3">
+                        <div class="tw-flex tw-items-center">
+                          <EuiImage
+                            // size="l"
+                            className="tw-m-0 tw-p-2 tw-pl-2 tw-object-cover"
+                            hasShadow
+                            allowFullScreen
+                            // caption="Click me"
+                            src={item.image}
+                            alt={item.name}
+                            style={{ maxWidth: "100px", maxHeight: "75px" }}
+                          />
+                          {item.qty > 1 && (
+                            <div
+                              class={` w-text-xs lg:tw-flex   tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
+                            >
+                              <EuiNotificationBadge>
+                                {item.qty}
+                              </EuiNotificationBadge>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                      <Link to={`/product/${item.product}`}>
+                        <div className="tw-text-sm tw-mt-2">{item.name}</div>
+                        <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
+                          ${item.price}
+                        </div>
+                      </Link>
+                    </div>
+                  </article>
+                ))}
+            </div>
+
+            <EuiButton
+              fullWidth
+              color="secondary"
+              className="tw-mt-3"
+              size="m"
+              fill
+              disabled={cartItems.length === 0}
+              onClick={submitHandler}
+            >
+              Continue
+            </EuiButton>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
