@@ -546,6 +546,11 @@ label {
   background: transparent !important;
 }
 
+.euiBottomBar.euiBottomBar--paddingMedium {
+  padding-top: 5px !important;
+  padding-bottom: 0px !important;
+}
+
 .euiStepHorizontal-isComplete > .euiStepNumber {
   background-color: #38b2ac !important;
 }
