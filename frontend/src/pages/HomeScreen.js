@@ -122,7 +122,7 @@ const HomeScreen = ({ match }) => {
           <>
             <div className=" tw-mb-3 tw-px-4 sm:tw-pt-2 tw-items-center ">
               {!keyword ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-2 sm:tw-pb-4 ">
+                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
                   <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
                     Featured brands
                   </div>
