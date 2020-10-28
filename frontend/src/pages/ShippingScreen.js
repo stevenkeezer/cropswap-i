@@ -5,6 +5,8 @@ import {
   EuiSpacer,
   EuiFormRow,
   EuiNotificationBadge,
+  EuiShowFor,
+  EuiHorizontalRule,
   EuiButton,
   EuiImage,
 } from "@elastic/eui";
@@ -21,6 +23,9 @@ import SubFooter from "../components/SubFooter";
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, loading, cartItems } = cart;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const [address, setAddress] = useState(
     shippingAddress && shippingAddress.address
@@ -42,18 +47,36 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-bg-gray-100 lg:tw-mt-24 tw-min-h-screen tw-mt-12 tw-pb-12 tw-pt-4">
+      <div className="sm:tw-bg-gray-100 tw-mt-24 tw-min-h-screen tw-pb-12 tw-pt-4">
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 />
         </div>
 
-        <div className=" tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-flex tw-flex-col tw-mt-4 lg:tw-flex-row  tw-gap-12">
+        <div className=" tw-max-w-screen-xl sm:tw-px-4 tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 tw-pt-4 lg:tw-flex-row  tw-gap-12">
           <div className="lg:tw-w-3/5 tw-w-full">
-            <div className=" tw-text-xl  tw-pt-4 tw-pb-3 tw-max-w-screen-lgx  tw-max-w-screen-xl">
-              <div className=" tw-text-2xl  tw-pb-4 tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
-                Select a Delivery Method
+            <div className=" tw-text-xl  sm:tw-pt-4 tw-pb-3 tw-max-w-screen-lg ">
+              <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4 tw-max-w-screen-lg tw-text-gray-800 tw-font-semibold sm:tw-font-medium tw-mx-auto ">
+                Confirm delivery details
               </div>
-              <div class="card tw-rounded tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
+              <EuiShowFor sizes={["xs", "s", "m"]}>
+                <EuiHorizontalRule margin="s" />
+              </EuiShowFor>
+              <div className="tw-flex tw-items-center tw-px-4 tw-text-sm tw-font-medium tw-text-gray-800 sm:tw-pt-3">
+                <svg
+                  class="tw-w-5 tw-h-5 tw-mr-2 tw-text-gray-700"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                {userInfo.name}
+              </div>
+              {/* <div class="card tw-rounded tw-border-none tw-shadow tw-p-5 tw-mt-3 ">
                 <div class="row">
                   <div class=" col-sm-6 ">
                     <label class="tw-mb-0">
@@ -754,11 +777,14 @@ const ShippingScreen = ({ history }) => {
                   </div>
                 </div>
               </div>
-              <div className=" tw-text-2xl  tw-pb-6 tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
-                Shipping Information
+             */}
+              <EuiShowFor sizes={["xs", "s", "m"]}>
+                <EuiHorizontalRule margin="s" />
+              </EuiShowFor>
+              <div className="tw-text-sm sm:tw-text-2xl  tw-px-4 tw-pb-6  tw-mt-4 sm:tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 lg:tw-font-medium tw-mx-auto ">
+                Delivery address
               </div>
-
-              <div className="tw-bg-white tw-shadow tw-p-5 tw-py-6  tw-rounded">
+              <div className="sm:tw-bg-white sm:tw-shadow tw-px-4 sm:tw-p-5 sm:tw-py-6  tw-rounded">
                 <EuiFlexItem>
                   <EuiFormRow
                     fullWidth
@@ -808,22 +834,34 @@ const ShippingScreen = ({ history }) => {
                 </EuiFlexGroup>
               </div>
             </div>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
           </div>
-
           <div className="lg:tw-w-2/5 tw-w-full">
-            <div className=" tw-text-2xl  tw-pb-3 tw-pt-4  tw-px-0 tw-max-w-screen-lg tw-text-gray-800 tw-font-medium tw-mx-auto ">
-              Your Order
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+
+            <div className="tw-px-4">
+              <div className=" tw-text-sm sm:tw-text-2xl sm:tw-font-medium lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                Your items
+              </div>
             </div>
-            <div className=" tw-text-2xl tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+            <div className=" tw-text-2xl tw-font-medium  tw-px-4 tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <article className="tw-bg-white tw-rounded mb-3 tw-p-2 tw-border-none tw-shadow">
+                  <div className="tw-bg-white tw-rounded mb-3 tw-border card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 tw-p-2 ">
                     <div class="row ">
-                      <div class="tw-px-4 tw-flex tw-gap-3">
-                        <div class="tw-flex tw-items-center">
+                      <div class=" tw-flex tw-gap-3">
+                        <div class="tw-flex tw-ml-5 tw-my-2 tw-items-center">
                           <EuiImage
                             // size="l"
-                            className="tw-m-0 tw-p-2 tw-pl-2 tw-object-cover"
+                            className="tw-m-0  tw-object-cover"
                             hasShadow
                             allowFullScreen
                             // caption="Click me"
@@ -831,39 +869,48 @@ const ShippingScreen = ({ history }) => {
                             alt={item.name}
                             style={{ maxWidth: "100px", maxHeight: "75px" }}
                           />
-                          {item.qty > 1 && (
-                            <div
-                              class={` w-text-xs lg:tw-flex   tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
-                            >
-                              <EuiNotificationBadge>
-                                {item.qty}
-                              </EuiNotificationBadge>
-                            </div>
-                          )}
+                          {/* {item.qty > 1 && ( */}
+
+                          {/* )} */}
                         </div>
                       </div>
-                      <Link to={`/product/${item.product}`}>
-                        <div className="tw-text-sm tw-mt-2">{item.name}</div>
-                        <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
-                          ${item.price}
+                      <div className="tw-flex tw-flex-grow tw-px-4 tw-justify-between ">
+                        <div className="tw-items-center">
+                          <Link to={`/product/${item.product}`}>
+                            <div className="tw-text-sm tw-text-gray-800 tw-mt-2">
+                              {item.name}
+                            </div>
+                            <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
+                              ${item.price}
+                            </div>
+                          </Link>
                         </div>
-                      </Link>
+                        <div
+                          class={` tw-text-sm  tw-font-semibold tw-mt-auto tw-py-1 tw-align-baseline `}
+                        >
+                          x{item.qty}
+                        </div>
+                      </div>
                     </div>
-                  </article>
+                  </div>
                 ))}
+              <EuiShowFor sizes={["xs", "s", "m"]}>
+                <EuiHorizontalRule margin="s" />
+              </EuiShowFor>
             </div>
-
-            <EuiButton
-              fullWidth
-              color="secondary"
-              className="tw-mt-3"
-              size="m"
-              fill
-              disabled={cartItems.length === 0}
-              onClick={submitHandler}
-            >
-              Continue
-            </EuiButton>
+            <div className="tw-px-4">
+              <EuiButton
+                fullWidth
+                color="secondary"
+                className="tw-mt-3 tw-font-semibold "
+                size="m"
+                fill
+                disabled={cartItems.length === 0}
+                onClick={submitHandler}
+              >
+                Continue
+              </EuiButton>
+            </div>
           </div>
         </div>
       </div>

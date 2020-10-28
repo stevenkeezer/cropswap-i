@@ -199,6 +199,17 @@ ion-input {
   /* height: 30px; */
 }
 
+.euiRadio .euiRadio__input + .euiRadio__circle {
+  display: none !important;
+}
+.euiRadio .euiRadio__input ~ .euiRadio__label {
+  padding-left: 0px !important;
+}
+
+.euiRadioGroup__item + .euiRadioGroup__item {
+  margin-top: 0px !important;
+}
+
 .ion-content {
   max-width: 75rem;
 }
@@ -234,6 +245,8 @@ ion-input {
 }
 
 .euiNotificationBadge {
+  border-radius: 99999rem !important;
+
   background: #e7664c !important;
 }
 
@@ -320,6 +333,10 @@ tbody tr:last-child td:last-child {
   }
   .flexCard {
     max-width: 50% !important;
+  }
+
+  .euiCard__top + .euiCard__content {
+    margin-top: 0px !important;
   }
 }
 
@@ -478,6 +495,10 @@ label {
   font-size: 1rem;
 }
 
+.euiHorizontalRule {
+  background-color: #eeeeee !important;
+}
+
 .card-input-element + .card {
   height: calc(36px + 2 * 1rem);
   color: #495057;
@@ -520,6 +541,10 @@ label {
 /* {
   background-color: #38b2ac !important;
 } */
+
+.euiStepsHorizontal {
+  background: transparent !important;
+}
 
 .euiStepHorizontal-isComplete > .euiStepNumber {
   background-color: #38b2ac !important;

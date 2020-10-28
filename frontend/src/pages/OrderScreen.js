@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { EuiCard, EuiButton } from "@elastic/eui";
+import {
+  EuiCard,
+  EuiButton,
+  EuiImage,
+  EuiShowFor,
+  EuiHorizontalRule,
+} from "@elastic/eui";
 import { PayPalButton } from "react-paypal-button-v2";
 import { Link } from "react-router-dom";
 import {
@@ -106,10 +112,10 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div className=" tw-pt-3 tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-h-auto tw-min-h-screen">
+      <div className=" tw-pt-8 sm:tw-bg-gray-100 tw-mt-24 tw-h-auto tw-min-h-screen">
         <Container>
-          <Row>
-            <Col md={8}>
+          <Row className=" sm:tw-px-4">
+            <Col md={8} className="tw-p-0 sm:tw-4">
               <ListGroup variant="flush">
                 {order.isPaid && (
                   <div className="tw-flex tw-justify-between">
@@ -120,38 +126,47 @@ const OrderScreen = ({ match, history }) => {
                   </div>
                 )}
 
-                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium ">
-                  Shipping Details
+                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
+                  Complete your order
                 </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 tw-pb-6">
-                  <ListGroup.Item className="tw-border-none">
-                    <p className="tw-py-3 tw-pt-3 tw-font-semibold tw-text-gray-800 tw-text-sm">
+                <div className="tw-border-none tw-rounded   sm:tw-bg-white sm:tw-shadow tw-mb-3 tw-pb-6">
+                  <div className="tw-border-none">
+                    <p className="tw-py-3 tw-pt-3 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
                       Personal Details
                     </p>
-
-                    <div className="tw-flex tw-gap-8">
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
-                        <IonInput
-                          value={order.user.name}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
-                        />
-                      </div>
-                      <div class="tw-my-2 tw-bg-white tw-p-1 tw-flex tw-border tw-h-12 tw-border-gray-200 tw-rounded">
-                        <input
-                          value={order.user.name}
-                          class="p-1 tw-px-2 appearance-none outline-none w-full text-gray-800"
-                        />
-                      </div>
-                      <div className="tw-mb-3">
-                        <a href={`mailto:${order.user.email}`}>
-                          {order.user.email}
-                        </a>
+                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
+                    <div className="tw-flex tw-px-4 tw-gap-8">
+                      <div className="tw-flex tw-items-center tw-text-sm tw-font-medium tw-text-gray-800 sm:tw-pt-3">
+                        <svg
+                          class="tw-w-5 tw-h-5 tw-mr-2 tw-text-gray-700"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+                            clip-rule="evenodd"
+                          ></path>
+                        </svg>
+                        {userInfo.name}
                       </div>
                     </div>
-                    <p className="tw-py-3 tw-pt-4 tw-font-semibold tw-text-gray-800 tw-text-sm">
+                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
+                    <div
+                      className="tw-text-teal-600 tw-px-4"
+                      href={`mailto:${order.user.email}`}
+                    >
+                      {order.user.email}
+                    </div>
+                    <p className="tw-py-3 tw-pt-4 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
                       Shipping Address
                     </p>
-                    <div className="tw-flex tw-gap-8 tw-mb-4">
+                    <div className="tw-flex tw-gap-8 tw-px-4 tw-mb-4">
                       <p>
                         <div className="tw-col">
                           <div className="tw-text-gray-600 tw-text-sm tw-py-1 tw-font-medium">
@@ -167,18 +182,19 @@ const OrderScreen = ({ match, history }) => {
                         </div>
                       </p>
                     </div>
+                    <div className="tw-px-5">
+                      {order.isDelivered ? (
+                        <Message variant="success">
+                          Delivered on {order.deliveredAt}
+                        </Message>
+                      ) : (
+                        <Message variant="danger">Not Delivered</Message>
+                      )}
+                    </div>
+                  </div>
+                </div>
 
-                    {order.isDelivered ? (
-                      <Message variant="success">
-                        Delivered on {order.deliveredAt}
-                      </Message>
-                    ) : (
-                      <Message variant="danger">Not Delivered</Message>
-                    )}
-                  </ListGroup.Item>
-                </Card>
-
-                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium ">
+                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                   Payment Information
                 </div>
                 <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 tw-mb-3 ">
@@ -209,50 +225,70 @@ const OrderScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 </Card>
 
-                <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium  ">
+                <div className="tw-text-lg  sm:tw-text-2xl  tw-px-4  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium  ">
                   Order Items
                 </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3 ">
-                  <ListGroup.Item className="tw-border-none">
+                <div className="tw-border-none tw-rounded tw-px-4 tw-mb-3 ">
+                  <div className="tw-border-none sm:tw-bg-transparent">
                     {order.orderItems.length === 0 ? (
                       <Message>Order is empty</Message>
                     ) : (
-                      <ListGroup variant="flush">
+                      <div variant="flush">
                         {order &&
                           order.orderItems.map((item, index) => (
-                            <ListGroup.Item key={index}>
-                              <Row>
-                                <Col md={1}>
-                                  <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    fluid
-                                    rounded
-                                  />
-                                </Col>
-                                <Col>
-                                  <Link to={`/product/${item.product}`}>
-                                    {item.name}
-                                  </Link>
-                                </Col>
-                                <Col md={4}>
-                                  {item.qty} x ${item.price} = $
-                                  {item.qty * item.price}
-                                </Col>
-                              </Row>
-                            </ListGroup.Item>
+                            <div className="tw-bg-white tw-rounded mb-3 tw-border card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 tw-p-2 ">
+                              <div class="row ">
+                                <div class=" tw-flex tw-gap-3">
+                                  <div class="tw-flex tw-ml-5 tw-my-2 tw-items-center">
+                                    <EuiImage
+                                      // size="l"
+                                      className="tw-m-0  tw-object-cover"
+                                      hasShadow
+                                      allowFullScreen
+                                      // caption="Click me"
+                                      src={item.image}
+                                      alt={item.name}
+                                      style={{
+                                        maxWidth: "100px",
+                                        maxHeight: "75px",
+                                      }}
+                                    />
+                                    {/* {item.qty > 1 && ( */}
+
+                                    {/* )} */}
+                                  </div>
+                                </div>
+                                <div className="tw-flex tw-flex-grow tw-px-4 tw-justify-between ">
+                                  <div className="tw-items-center">
+                                    <Link to={`/product/${item.product}`}>
+                                      <div className="tw-text-sm tw-text-gray-800 tw-mt-2">
+                                        {item.name}
+                                      </div>
+                                      <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
+                                        ${item.price}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                  <div
+                                    class={` tw-text-sm  tw-font-semibold tw-mt-auto tw-py-1 tw-align-baseline `}
+                                  >
+                                    x{item.qty}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           ))}
-                      </ListGroup>
+                      </div>
                     )}
-                  </ListGroup.Item>
-                </Card>
+                  </div>
+                </div>
               </ListGroup>
             </Col>
-            <Col md={4}>
-              <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+            <Col md={4} className="tw-p-0 sm:tw-px-4">
+              <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                 Order Summary
               </div>
-              <Card className="tw-border-none tw-shadow tw-rounded mb-3 tw-py-5">
+              <div className="tw-border-none tw-shadow tw-rounded mb-3 tw-py-5">
                 <ListGroup variant="flush">
                   <ListGroup.Item className="tw-border-none">
                     <Row>
@@ -260,6 +296,9 @@ const OrderScreen = ({ match, history }) => {
                       <Col className="tw-text-right">${order.itemsPrice}</Col>
                     </Row>
                   </ListGroup.Item>
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
                   <ListGroup.Item className="tw-border-none">
                     <Row>
                       <Col>Shipping</Col>
@@ -275,6 +314,9 @@ const OrderScreen = ({ match, history }) => {
                       <Col className="tw-text-right">+ ${order.taxPrice}</Col>
                     </Row>
                   </ListGroup.Item>
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
                   <ListGroup.Item className="tw-border-none">
                     <Row>
                       <Col className="">
@@ -289,6 +331,9 @@ const OrderScreen = ({ match, history }) => {
                       </Col>
                     </Row>
                   </ListGroup.Item>
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
                   {order.isPaid && (
                     <ListGroup.Item>
                       <EuiButton
@@ -318,7 +363,7 @@ const OrderScreen = ({ match, history }) => {
                   )}
                   {loadingDeliver && <Loader />}
                 </ListGroup>
-              </Card>
+              </div>
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&

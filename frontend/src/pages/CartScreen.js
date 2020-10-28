@@ -7,6 +7,7 @@ import {
   EuiIcon,
   EuiFlexGrid,
   EuiFieldText,
+  EuiHorizontalRule,
   EuiToolTip,
   EuiPopover,
   EuiSelect,
@@ -62,24 +63,62 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12  tw-min-h-screen">
-          <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-1 ">
-            <div className="tw-p-0 tw-pb-3  tw-pt-16  lg:tw-pt-1 tw-px-4 tw-text-gray-800 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
+        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 sm:tw-bg-gray-100 tw-min-h-screen">
+          <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-1 ">
+            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+            <div className="tw-px-4">
+              <div
+                onClick={() => history.push("/")}
+                className="tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-700"
+              >
+                Continue shopping{" "}
+                <svg
+                  class="tw-w-5 tw-h-5 tw-text-gray-700"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+              </div>
+            </div>
 
-            <div className="tw-flex sm:tw-px-4 tw-justify-between xl:tw-flex-row tw-flex-col">
-              <div className="lg:tw-w-3/5">
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+
+            <div className="tw-px-4">
+              <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                Your items
+              </div>
+            </div>
+
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+
+            <div className="tw-flex sm:tw-px-4 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
+              <div className="lg:tw-w-2/3">
                 {cartItems.length === 0 ? (
                   <Message>
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="">
+                  <EuiFlexGrid gutterSize="s">
                     {cartItems.map((item) => (
-                      <EuiFlexItem>
+                      <EuiFlexItem className="tw-flex tw-flex-grow">
                         <EuiCard
                           layout="horizontal"
+                          className="tw-border-none tw-shadow"
                           icon={
                             <img
                               onClick={() =>
@@ -95,7 +134,7 @@ const CartScreen = ({ match, location, history }) => {
                           title={
                             <div className="tw-flex  tw-items-center tw-justify-between">
                               <div
-                                className="tw-cursor-pointer"
+                                className="tw-cursor-pointer "
                                 onClick={() =>
                                   history.push(`/product/${item.product}`)
                                 }
@@ -116,7 +155,7 @@ const CartScreen = ({ match, location, history }) => {
                           description={<div></div>}
                         >
                           <>
-                            <div className="tw-flex  tw-items-baseline tw-justify-between">
+                            <div className="tw-flex  tw-items-baseline   tw-justify-between">
                               <div>
                                 <img
                                   onClick={() =>
@@ -129,7 +168,7 @@ const CartScreen = ({ match, location, history }) => {
                               </div>
 
                               <select
-                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10  tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
+                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -160,48 +199,57 @@ const CartScreen = ({ match, location, history }) => {
                   </EuiFlexGrid>
                 )}
               </div>
-              <div className="lg:tw-w-2/5">
+              <div className="lg:tw-w-1/3">
                 {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
 
-                <div className="w-full tw-border-none tw-shadow tw-rounded  ">
+                <div className="w-full tw-border-none tw-shadow tw-rounded card ">
                   <ListGroup variant="flush" lines="none">
-                    <div className="b tw-pb-2 tw-mb-3 tw-p-5">
-                      <IonText className="tw-font-semibold ">Subtotal</IonText>
-                      <span className="tw-text-gray-800 tw-text-lg  tw-font-semibold">
-                        {" "}
-                        ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
-                        items
-                      </span>
-                    </div>
+                    <div className="tw-pb-0 tw-pt-6 tw-mb-3 tw-p-4 tw-flex tw-justify-between tw-items-baseline">
+                      <div className="tw-flex  tw-items-baseline">
+                        <div className="tw-font-semibold tw-text-md tw-mr-1">
+                          Subtotal
+                        </div>
+                        <span className="tw-text-gray-900 tw-text-md  tw-font-semibold">
+                          {" "}
+                          ({cartItems.reduce(
+                            (acc, item) => acc + item.qty,
+                            0
+                          )}{" "}
+                          item{cartItems.length === 1 ? "" : "s"})
+                        </span>
+                      </div>
 
-                    <ListGroup.Item className="tw-border-none ">
+                      <div className="tw-font-semibold tw-text-md">
+                        $
+                        {cartItems
+                          .reduce((acc, item) => acc + item.qty * item.price, 0)
+                          .toFixed(2)}
+                      </div>
+                    </div>
+                    <EuiHorizontalRule margin="s" />
+
+                    <ListGroup.Item className="tw-border-none tw-tracking-wide">
                       <Row className="">
-                        <Col>Total price:</Col>
-                        <Col className="tw-text-right">
-                          $
-                          {cartItems
-                            .reduce(
-                              (acc, item) => acc + item.qty * item.price,
-                              0
-                            )
-                            .toFixed(2)}
-                        </Col>
+                        <Col className="tw-text-sm">Est. tax & fees</Col>
+                        <Col className="tw-text-right tw-text-sm">$0.00</Col>
                       </Row>
                     </ListGroup.Item>
                     <ListGroup.Item className="tw-border-none ">
                       <Row className="">
-                        <Col>Discount:</Col>
-                        <Col className="tw-text-right">+ $0.00</Col>
+                        <Col className="tw-text-sm">Delivery fee</Col>
+                        <Col className="tw-text-right tw-text-sm">$0.00</Col>
                       </Row>
                     </ListGroup.Item>
+                    <EuiHorizontalRule margin="s" />
+
                     <ListGroup.Item lines="none" className="tw-border-none">
                       <Row>
-                        <Col className="tw-font-bold tw-text-gray-800">
-                          Total:
+                        <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
+                          Order total
                         </Col>
-                        <Col className="tw-text-right tw-font-bold tw-text-gray-800">
+                        <Col className="tw-text-right tw-font-bold tw-text-sm tw-text-gray-900">
                           $
                           {cartItems
                             .reduce(
@@ -212,15 +260,15 @@ const CartScreen = ({ match, location, history }) => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+                    <EuiHorizontalRule margin="s" />
 
-                    <p class="tw-justify-end tw-flex mb-3 tw-px-5 tw-pt-3">
-                      <img
-                        src="/images/payments.png"
-                        height="22"
-                        className="tw-h-6"
-                      />
+                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-4 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                      Taxes (if shown) are estimates. The seller, and not
+                      Cropswap, is solely responsible for collecting all
+                      applicable taxes.
                     </p>
                   </ListGroup>
+         
                 </div>
                 <EuiShowFor sizes={["xl"]}>
                   <EuiButton

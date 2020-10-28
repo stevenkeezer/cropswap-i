@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { EuiCard, EuiCheckableCard, EuiButton } from "@elastic/eui";
+import {
+  EuiCard,
+  EuiCheckableCard,
+  EuiButton,
+  EuiImage,
+  EuiShowFor,
+  EuiHorizontalRule,
+} from "@elastic/eui";
 import {
   Button,
   Row,
@@ -74,21 +81,25 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen tw-bg-gray-100 lg:tw-mt-24  tw-mt-12 tw-pb-4 tw-pt-4">
+      <div className="tw-h-auto tw-min-h-screen sm:tw-bg-gray-100 tw-mt-24  tw-pb-4 tw-pt-4">
         <div>
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
           </div>
-          <div className="tw-max-w-screen-xl tw-mt-8 tw-mx-auto tw-px-4">
+          <div className="tw-max-w-screen-xl  tw-mt-4 lg:tw-mt-8 tw-mx-auto sm:tw-px-8">
             <Row>
-              <Col md={8}>
+              <Col lg={8}>
                 <ListGroup variant="flush">
-                  <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pb-6">
+                  <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                     Shipping Information
                   </div>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
-                    <div className="tw-text-gray-800 tw-font-semibold tw-px-4 tw-py-3">
-                      Your items will be shipped to the address listed
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-border-none tw-rounded tw-shadow tw-bg-white tw-py-2 tw-mb-3">
+                    <div className="tw-text-gray-800  tw-text-sm sm:tw-text-lg sm:tw-font-semibold tw-px-4 tw-py-3">
+                      Delivery address
                     </div>
                     <ListGroup.Item className="tw-border-none tw-py-4">
                       <EuiCheckableCard
@@ -97,9 +108,6 @@ const PlaceOrderScreen = ({ history }) => {
                         label={
                           <>
                             <div className="tw-flex tw-gap-8 tw-py-2">
-                              <div className="tw-font-semibold tw-text-gray-800 tw-pb-0 tw-text-sm">
-                                Address:
-                              </div>
                               <div className="tw-flex-col">
                                 <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
                                   {cart.shippingAddress.address}
@@ -124,8 +132,8 @@ const PlaceOrderScreen = ({ history }) => {
                         }}
                       />
                     </ListGroup.Item>
-                  </Card>
-                  <div className=" tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 tw-pb-6">
+                  </div>
+                  <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                     Payment Method
                   </div>
                   <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
@@ -149,52 +157,70 @@ const PlaceOrderScreen = ({ history }) => {
                     </ListGroup.Item>
                   </Card>
 
-                  <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 lg:tw-pt-6 tw-pb-6">
+                  <div className="tw-p-0 tw-text-lg tw-px-4 sm:tw-px-0  lg:tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 lg:tw-pt-6 tw-pb-6">
                     Order Items
                   </div>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3">
-                    <ListGroup.Item className="tw-border-none">
+
+                  <div className="tw-border-none tw-rounded s:tw-shadow tw-mb-3">
+                    <div className="tw-border-none">
                       {cart.cartItems.length === 0 ? (
                         <Message>Your cart is empty</Message>
                       ) : (
-                        <ListGroup variant="flush">
+                        <div variant="flush" className="tw-px-4 sm:tw-px-0">
                           {cart.cartItems.map((item, index) => (
-                            <ListGroup.Item
-                              key={index}
-                              className="tw-border-none"
-                            >
-                              <Row>
-                                <Col md={1}>
-                                  <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    fluid
-                                    rounded
-                                  />
-                                </Col>
-                                <Col>
-                                  <Link to={`/product/${item.product}`}>
-                                    {item.name}
-                                  </Link>
-                                </Col>
-                                <Col md={4}>
-                                  {item.qty} x ${item.price} = $
-                                  {item.qty * item.price}
-                                </Col>
-                              </Row>
-                            </ListGroup.Item>
+                            <div className="tw-rounded mb-3 tw-border  card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 tw-p-2 ">
+                              <div class="row ">
+                                <div class=" tw-flex tw-gap-3">
+                                  <div class="tw-flex tw-ml-5 tw-my-2 tw-items-center">
+                                    <EuiImage
+                                      // size="l"
+                                      className="tw-m-0  tw-object-cover"
+                                      hasShadow
+                                      allowFullScreen
+                                      // caption="Click me"
+                                      src={item.image}
+                                      alt={item.name}
+                                      style={{
+                                        maxWidth: "100px",
+                                        maxHeight: "75px",
+                                      }}
+                                    />
+                                    {/* {item.qty > 1 && ( */}
+
+                                    {/* )} */}
+                                  </div>
+                                </div>
+                                <div className="tw-flex tw-flex-grow tw-px-4 tw-justify-between ">
+                                  <div className="tw-items-center">
+                                    <Link to={`/product/${item.product}`}>
+                                      <div className="tw-text-sm tw-text-gray-800 tw-mt-2">
+                                        {item.name}
+                                      </div>
+                                      <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
+                                        ${item.price}
+                                      </div>
+                                    </Link>
+                                  </div>
+                                  <div
+                                    class={` tw-text-sm  tw-font-semibold tw-mt-auto tw-py-1 tw-align-baseline `}
+                                  >
+                                    x{item.qty}
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           ))}
-                        </ListGroup>
+                        </div>
                       )}
-                    </ListGroup.Item>
-                  </Card>
+                    </div>
+                  </div>
                 </ListGroup>
               </Col>
-              <Col md={4}>
-                <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pb-6 sm:tw-pt-0 tw-pt-6">
+              <Col lg={4}>
+                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                   Order Summary
                 </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-pt-4 tw-px-2">
+                <Card className="tw-border-none tw-rounded tw-shadow tw-pt-4 tw-px-4">
                   <ListGroup variant="flush">
                     <ListGroup.Item className="tw-border-none">
                       <Row className="tw-items-baseline">
@@ -204,6 +230,9 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
                     <ListGroup.Item className="tw-border-none">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0">Shipping</Col>
@@ -221,6 +250,9 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
                       </Row>
                     </ListGroup.Item>
+                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
                     <ListGroup.Item className="tw-border-none">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0 tw-text-sm tw-font-semibold">
@@ -237,20 +269,23 @@ const PlaceOrderScreen = ({ history }) => {
                     </ListGroup.Item>
                   </ListGroup>
                 </Card>
-
-                <EuiButton
-                  fullWidth
-                  color="secondary"
-                  className="tw-mt-3"
-                  size="m"
-                  fill
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrderHandler}
-                >
-                  Continue
-                </EuiButton>
-                <p className="tw-text-xs tw-pt-2">
-                  *You can review this order before it's final
+                <div className="tw-px-4 sm:tw-px-0 tw-text-lg lg:tw-text-2xl">
+                  <EuiButton
+                    fullWidth
+                    color="secondary"
+                    className="tw-mt-3"
+                    size="m"
+                    fill
+                    disabled={cart.cartItems === 0}
+                    onClick={placeOrderHandler}
+                  >
+                    Place order
+                  </EuiButton>
+                </div>
+                <p class="tw-justify-end tw-flex mb-3 sm:tw-px-2 tw-px-4 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                  I agree to the collection and sharing of my personal
+                  infomation to initiate my order, with and for fulfillment by,
+                  the chosen seller.
                 </p>
               </Col>
             </Row>
