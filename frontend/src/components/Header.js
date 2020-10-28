@@ -215,7 +215,7 @@ export default ({ theme }) => {
           aria-label="Account menu"
           onClick={onMenuButtonClick}
         >
-          <EuiIcon type="menu" />
+          <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
         </EuiHeaderSectionItemButton>
       </EuiToolTip>
     );
