@@ -301,7 +301,6 @@ const CartScreen = ({ match, location, history }) => {
           </div>
         </div>
       )}
-      <SubFooter />
     </>
   );
 };
