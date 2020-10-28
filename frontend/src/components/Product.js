@@ -21,7 +21,6 @@ export default function Product({ product, history }) {
       <EuiFlexItem
         className="flexCard tw-mb-16"
         onClick={(e) => clickHandler(product._id)}
-        style={{ minWidth: 200 }}
       >
         {product.image ? (
           <EuiCard

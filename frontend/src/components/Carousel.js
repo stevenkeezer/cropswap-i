@@ -74,7 +74,7 @@ const ProductCarousel = () => {
                     </div>
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-2xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
+                      className={`xs:tw-text-xl sm:tw-text-2xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
                     >
                       {product.name}
                     </div>
@@ -86,7 +86,7 @@ const ProductCarousel = () => {
                   </div>
                 </div>
               </div>
-              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 tw-mt-6  tw-visible lg:tw-visible">
+              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-mr-10 sm:tw-mt-6  tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
                   alt={product.name}

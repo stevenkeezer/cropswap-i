@@ -211,9 +211,9 @@ ion-item {
   .carousel {
     height: 385px;
   }
-  .flexCard {
+  /* .flexCard {
     max-width: 25% !important;
-  }
+  } */
 }
 
 .card {
@@ -272,7 +272,9 @@ ion-input {
   table {
     display: inline-table !important;
   }
-
+  .flexCard {
+    min-width: 200px;
+  }
   thead tr:not(:first-child) {
     display: none;
   }
@@ -362,12 +364,10 @@ tbody tr:last-child td:last-child {
   .euiTable {
     background: none !important;
   }
-  .flexCard {
-    padding: 4px;
-  }
-  .flexCard {
+
+  /* .flexCard {
     max-width: 50% !important;
-  }
+  } */
 
   .euiCard__top + .euiCard__content {
     margin-top: 0px !important;
@@ -375,10 +375,10 @@ tbody tr:last-child td:last-child {
 }
 
 @media (max-width: 767px) {
-  .flexCard {
-    max-width: 50% !important;
-    padding: 4px;
-  }
+}
+.flexCard {
+  max-width: 50% !important;
+  padding: 2px;
 }
 
 @media only screen and (max-width: 574px) {
@@ -390,11 +390,11 @@ tbody tr:last-child td:last-child {
   background-color: none;
 }
 
-@media (max-width: 499px) {
+/* @media (max-width: 499px) {
   .flexCard {
     max-width: 100% !important;
   }
-}
+} */
 
 td:not(:last-child) {
   border-bottom: 0;
