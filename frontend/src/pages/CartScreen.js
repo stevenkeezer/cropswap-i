@@ -65,16 +65,17 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 sm:tw-bg-gray-100 tw-min-h-screen">
           <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-1 ">
-            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
+            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  tw-tracking-wide lg:tw-pt-1 tw-px-5 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
+
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div className="tw-px-4">
+            <div className="tw-px-5">
               <div
                 onClick={() => history.push("/")}
-                className="tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-700"
+                className="tw-py-3 tw-text-md tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-700"
               >
                 Continue shopping{" "}
                 <svg
@@ -96,7 +97,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-px-4">
+            <div className="tw-px-5">
               <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
@@ -106,7 +107,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-flex sm:tw-px-4 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
+            <div className="tw-flex sm:tw-px-5 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="lg:tw-w-2/3">
                 {cartItems.length === 0 ? (
                   <Message>
@@ -168,7 +169,7 @@ const CartScreen = ({ match, location, history }) => {
                               </div>
 
                               <select
-                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
+                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-5 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -262,13 +263,12 @@ const CartScreen = ({ match, location, history }) => {
                     </ListGroup.Item>
                     <EuiHorizontalRule margin="s" />
 
-                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-4 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-5 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
                       Taxes (if shown) are estimates. The seller, and not
                       Cropswap, is solely responsible for collecting all
                       applicable taxes.
                     </p>
                   </ListGroup>
-         
                 </div>
                 <EuiShowFor sizes={["xl"]}>
                   <EuiButton
