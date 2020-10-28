@@ -74,7 +74,7 @@ const CartScreen = ({ match, location, history }) => {
             <div className="tw-px-4">
               <div
                 onClick={() => history.push("/")}
-                className="tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
+                className="sm:tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
               >
                 Continue shopping{" "}
                 <svg
@@ -155,39 +155,39 @@ const CartScreen = ({ match, location, history }) => {
                         >
                           <>
                             <div className="tw-flex  tw-items-baseline   tw-justify-between">
-                              <div>
+                              <div className="tw-gap-4 tw-flex">
                                 <img
                                   onClick={() =>
                                     history.push(`/product/${item.product}`)
                                   }
-                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-16 tw-h-16 tw-min-w-16 tw-min-h-16 tw-object-cover lg:tw-rounded tw-cursor-pointer "
+                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-16 tw-h-16  tw-object-cover lg:tw-rounded tw-cursor-pointer "
                                   alt={item.name}
                                   src={item.image}
                                 />
+                                <select
+                                  className="tw-cursor-pointer tw-bg-gray-200  tw-px-4  tw-mr-auto tw-mt-auto  tw-rounded-lg  tw-h-8  tw-w-24"
+                                  as="select"
+                                  value={item.qty}
+                                  onChange={(e) =>
+                                    dispatch(
+                                      addToCart(
+                                        item.product,
+                                        Number(e.target.value)
+                                      )
+                                    )
+                                  }
+                                >
+                                  {[...Array(item.countInStock).keys()].map(
+                                    (x) => (
+                                      <option key={x + 1} value={x + 1}>
+                                        {x + 1}
+                                      </option>
+                                    )
+                                  )}
+                                </select>
                               </div>
 
-                              <select
-                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
-                                as="select"
-                                value={item.qty}
-                                onChange={(e) =>
-                                  dispatch(
-                                    addToCart(
-                                      item.product,
-                                      Number(e.target.value)
-                                    )
-                                  )
-                                }
-                              >
-                                {[...Array(item.countInStock).keys()].map(
-                                  (x) => (
-                                    <option key={x + 1} value={x + 1}>
-                                      {x + 1}
-                                    </option>
-                                  )
-                                )}
-                              </select>
-                              <div className="tw-font-gray-600 text-right tw-font-medium tw-pb-2 tw-w-56 tw-text-sm">
+                              <div className="tw-font-gray-600 text-right tw-font-medium tw-w-56 tw-text-sm">
                                 ${item.price}
                               </div>
                             </div>
