@@ -65,17 +65,16 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 sm:tw-bg-gray-100 tw-min-h-screen">
           <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-1 ">
-            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  tw-tracking-wide lg:tw-pt-1 tw-px-5 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
+            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  tw-tracking-wide lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
-
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div className="tw-px-5">
+            <div className="tw-px-4">
               <div
                 onClick={() => history.push("/")}
-                className="tw-py-3 tw-text-md tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-700"
+                className="tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
               >
                 Continue shopping{" "}
                 <svg
@@ -97,7 +96,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-px-5">
+            <div className="tw-px-4">
               <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
@@ -107,7 +106,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-flex sm:tw-px-5 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
+            <div className="tw-flex sm:tw-px-4 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="lg:tw-w-2/3">
                 {cartItems.length === 0 ? (
                   <Message>
@@ -153,7 +152,6 @@ const CartScreen = ({ match, location, history }) => {
                               </div>
                             </div>
                           }
-                          description={<div></div>}
                         >
                           <>
                             <div className="tw-flex  tw-items-baseline   tw-justify-between">
@@ -162,14 +160,14 @@ const CartScreen = ({ match, location, history }) => {
                                   onClick={() =>
                                     history.push(`/product/${item.product}`)
                                   }
-                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-24 tw-h-24 tw-object-cover lg:tw-rounded tw-cursor-pointer "
+                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-16 tw-h-16 tw-min-w-16 tw-min-h-16 tw-object-cover lg:tw-rounded tw-cursor-pointer "
                                   alt={item.name}
                                   src={item.image}
                                 />
                               </div>
 
                               <select
-                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-5 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
+                                className="tw-cursor-pointer tw-bg-gray-200 tw-px-4 tw-mt-10 tw-mr-auto tw-ml-4 tw-py-2 tw-rounded-lg   tw-w-24"
                                 as="select"
                                 value={item.qty}
                                 onChange={(e) =>
@@ -206,7 +204,7 @@ const CartScreen = ({ match, location, history }) => {
             </IonText> */}
 
                 <div className="w-full tw-border-none tw-shadow tw-rounded card ">
-                  <ListGroup variant="flush" lines="none">
+                  <div variant="flush" lines="none">
                     <div className="tw-pb-0 tw-pt-6 tw-mb-3 tw-p-4 tw-flex tw-justify-between tw-items-baseline">
                       <div className="tw-flex  tw-items-baseline">
                         <div className="tw-font-semibold tw-text-md tw-mr-1">
@@ -231,21 +229,21 @@ const CartScreen = ({ match, location, history }) => {
                     </div>
                     <EuiHorizontalRule margin="s" />
 
-                    <ListGroup.Item className="tw-border-none tw-tracking-wide">
-                      <Row className="">
+                    <div className="tw-border-none tw-tracking-wide">
+                      <Row className="tw-px-4 tw-pb-3">
                         <Col className="tw-text-sm">Est. tax & fees</Col>
                         <Col className="tw-text-right tw-text-sm">$0.00</Col>
                       </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="tw-border-none ">
-                      <Row className="">
+                    </div>
+                    <div className="tw-border-none ">
+                      <Row className="tw-px-4">
                         <Col className="tw-text-sm">Delivery fee</Col>
                         <Col className="tw-text-right tw-text-sm">$0.00</Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
                     <EuiHorizontalRule margin="s" />
 
-                    <ListGroup.Item lines="none" className="tw-border-none">
+                    <div lines="none" className="tw-border-none tw-px-4">
                       <Row>
                         <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
                           Order total
@@ -260,15 +258,15 @@ const CartScreen = ({ match, location, history }) => {
                             .toFixed(2)}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
                     <EuiHorizontalRule margin="s" />
 
-                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-5 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-4 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
                       Taxes (if shown) are estimates. The seller, and not
                       Cropswap, is solely responsible for collecting all
                       applicable taxes.
                     </p>
-                  </ListGroup>
+                  </div>
                 </div>
                 <EuiShowFor sizes={["xl"]}>
                   <EuiButton
