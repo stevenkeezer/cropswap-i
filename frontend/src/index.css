@@ -37,6 +37,40 @@ ion-item {
 
 .euiNotificationBadge {
   border: 0.25px solid white !important;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px !important;
+  /* height: 18px !important; */
+  min-width: 18px !important;
+  min-height: 18px !important;
+  vertical-align: middle;
+  text-align: center;
+  transition: all 150ms ease-in;
+  cursor: default;
+  background: #dd0a73;
+  color: #fff;
+}
+
+@media only screen and (max-width: 574px) {
+  .euiHeaderSectionItemButton__notification--badge {
+    width: initial !important;
+    height: initial !important;
+
+    /* min-width: 0; */
+    border-radius: 8px;
+    color: white !important;
+    overflow: hidden;
+  }
+  .euiNotificationBadge {
+    top: 8% !important;
+    right: 0 !important;
+    font-size: 10px !important;
+    line-height: 16px !important;
+    /* height: 16px !important; */
+    min-width: 16px !important;
+    min-height: 16px !important;
+  }
 }
 
 /* .euiFieldSearch {

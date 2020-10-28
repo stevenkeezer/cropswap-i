@@ -17,6 +17,7 @@ import {
   EuiPopover,
   EuiToolTip,
   EuiPopoverFooter,
+  EuiFacetButton,
   EuiPopoverTitle,
   EuiSelectable,
   EuiShowFor,
@@ -613,7 +614,7 @@ export default ({ theme }) => {
                   <EuiHeaderSectionItemButton
                     aria-haspopup="true"
                     aria-label="Apps menu with 1 new app"
-                    notification={cartItems.length > 0 && true}
+                    notification={cartItems.length}
                     onClick={(e) => {
                       e.preventDefault();
                       history.push("/cart");
