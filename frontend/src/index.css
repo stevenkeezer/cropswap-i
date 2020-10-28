@@ -375,10 +375,10 @@ tbody tr:last-child td:last-child {
 }
 
 @media (max-width: 767px) {
-}
-.flexCard {
-  max-width: 50% !important;
-  padding: 2px;
+  .flexCard {
+    max-width: 50% !important;
+    padding: 2px;
+  }
 }
 
 @media only screen and (max-width: 574px) {
