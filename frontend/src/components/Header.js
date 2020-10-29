@@ -575,7 +575,7 @@ export default ({ theme }) => {
               position={"fixed"}
               menu
             >
-              <EuiHeaderSectionItem className="tw-px-2" border="right">
+              <EuiHeaderSectionItem className="tw-px-1" border="right">
                 <HeaderUserMenu history={history} />
               </EuiHeaderSectionItem>
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
@@ -589,7 +589,7 @@ export default ({ theme }) => {
                 ></EuiIcon>
               </EuiHeaderSectionItem>
 
-              <EuiHeaderSectionItem className="tw-mx-2">
+              <EuiHeaderSectionItem className="tw-mx-1">
                 <EuiShowFor sizes={["s", "m", "l", "xl"]}>
                   <EuiHeaderSectionItemButton
                     aria-haspopup="true"
@@ -621,7 +621,7 @@ export default ({ theme }) => {
                     }}
                   >
                     <svg
-                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-mr-3 tw-text-gray-800"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
