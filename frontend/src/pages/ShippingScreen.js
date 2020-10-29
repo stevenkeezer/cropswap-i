@@ -304,7 +304,7 @@ const ShippingScreen = ({ history }) => {
                             <div className="tw-text-sm tw-text-gray-800 tw-font-semibold tw-tracking-wide">
                               {item.name}
                             </div>
-                            <div class="tw-text-gray-800 tw-text-sm tw-py-2">
+                            <div class="tw-text-gray-800 tw-text-sm tw-py-1">
                               Each
                             </div>
                             <div class="tw-text-gray-800 tw-text-sm tw-tracking-wide ">
