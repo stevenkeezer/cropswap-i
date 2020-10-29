@@ -67,16 +67,16 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 tw-mb-20 sm:tw-mb-0 sm:tw-bg-gray-100 tw-min-h-screen">
           <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-2 ">
-            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16 tw-pb-1  tw-tracking-wide lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
+            <div className="tw-p-0  lg:tw-pt-8 tw-pt-16 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div className="tw-px-4 tw-pb-2 sm:tw-pb-0 tw-shadow-md sm:tw-shadow-none">
+            <div className="tw-px-4 sm:tw-pb-0">
               <div
                 onClick={() => history.push("/")}
-                className="sm:tw-py-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
+                className="sm:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
               >
                 Continue shopping{" "}
                 <svg
@@ -96,11 +96,17 @@ const CartScreen = ({ match, location, history }) => {
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div className="tw-px-4">
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+            <div className="tw-px-4 ">
               <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
             </div>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
 
             <div className="tw-flex sm:tw-px-4 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="lg:tw-w-2/3">
@@ -207,7 +213,9 @@ const CartScreen = ({ match, location, history }) => {
                 {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
-
+                <EuiShowFor sizes={["xs", "s", "m"]}>
+                  <EuiHorizontalRule margin="s" />
+                </EuiShowFor>
                 <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
                   <div variant="flush" lines="none">
                     <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
