@@ -376,6 +376,10 @@ tbody tr:last-child td:last-child {
   height: 300px !important;
 }
 
+.euiHeaderSectionItem {
+  justify-content: center !important;
+}
+
 @media (max-width: 576px) {
   th:not(:last-child) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.08);
