@@ -119,7 +119,7 @@ const OrderScreen = ({ match, history }) => {
               <ListGroup variant="flush">
                 {order.isPaid && (
                   <div className="tw-flex tw-justify-between">
-                    <div className="tw-p-0 tw-pb-4 tw-text-xl tw-pt-8 tw-pb-6">
+                    <div className="tw-p-0 tw-pb-4 tw-text-xl sm:tw-pt-8 tw-px-4  tw-pb-6">
                       Thank you. Your order has been confirmed.{" "}
                       <span className="tw-text-sm"> ID {order._id}</span>
                     </div>
@@ -285,71 +285,79 @@ const OrderScreen = ({ match, history }) => {
               </ListGroup>
             </Col>
             <Col md={4} className="tw-p-0 sm:tw-px-4">
-              <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
+              <div className=" tw-text-lg lg:tw-text-2xl sm:tw-flex tw-hidden tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                 Order Summary
               </div>
-              <div className="tw-border-none tw-shadow tw-rounded mb-3 tw-py-5">
-                <ListGroup variant="flush">
-                  <ListGroup.Item className="tw-border-none">
-                    <Row>
-                      <Col>Total</Col>
-                      <Col className="tw-text-right">${order.itemsPrice}</Col>
-                    </Row>
-                  </ListGroup.Item>
-                  <EuiShowFor sizes={["xs", "s", "m"]}>
-                    <EuiHorizontalRule margin="s" />
-                  </EuiShowFor>
-                  <ListGroup.Item className="tw-border-none">
-                    <Row>
-                      <Col>Shipping</Col>
-                      <Col className="tw-text-right">
-                        + ${order.shippingPrice}.00
-                      </Col>
-                    </Row>
-                  </ListGroup.Item>
+              <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
+                <div variant="flush" lines="none">
+                  <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
+                    <div className="tw-flex  tw-items-baseline">
+                      <div className="tw-font-semibold tw-text-md tw-mr-1">
+                        Subtotal
+                      </div>
+                      <span className="tw-text-gray-900 tw-text-md tw-tracking-wide tw-font-semibold">
+                        {" "}
+                        (
+                        {order.orderItems.reduce(
+                          (acc, item) => acc + item.qty,
+                          0
+                        )}{" "}
+                        item
+                        {order.length === 1 ? "" : "s"})
+                      </span>
+                    </div>
 
-                  <ListGroup.Item className="tw-border-none">
-                    <Row>
-                      <Col>Tax</Col>
-                      <Col className="tw-text-right">+ ${order.taxPrice}</Col>
+                    <div className="tw-font-semibold tw-text-md tw-tracking-wide">
+                      ${order.itemsPrice}
+                    </div>
+                  </div>
+
+                  <EuiHorizontalRule margin="s" />
+
+                  <div className="tw-border-none tw-tracking-wide">
+                    <Row className=" tw-pb-3">
+                      <Col className="tw-text-sm">Est. tax & fees</Col>
+                      <Col className="tw-text-right tw-text-sm">$0.00</Col>
                     </Row>
-                  </ListGroup.Item>
-                  <EuiShowFor sizes={["xs", "s", "m"]}>
-                    <EuiHorizontalRule margin="s" />
-                  </EuiShowFor>
-                  <ListGroup.Item className="tw-border-none">
-                    <Row>
-                      <Col className="">
-                        <div className="tw-font-semibold tw-text-gray-800">
-                          Sub total
-                        </div>
-                      </Col>
-                      <Col className="tw-text-right">
-                        <div className="tw-font-semibold tw-text-gray-800">
-                          ${order.totalPrice}
-                        </div>
+                  </div>
+                  <div className="tw-border-none ">
+                    <Row className="">
+                      <Col className="tw-text-sm">Delivery fee</Col>
+                      <Col className="tw-text-right tw-text-sm tw-tracking-wide">
+                        ${order.shippingPrice}
                       </Col>
                     </Row>
-                  </ListGroup.Item>
+                  </div>
+                  <EuiHorizontalRule margin="s" />
+
+                  <div lines="none" className="tw-border-none tw-mb-4 ">
+                    <Row>
+                      <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
+                        Order total
+                      </Col>
+                      <Col className="tw-text-right tw-font-bold tw-text-sm tw-tracking-wide tw-text-gray-900">
+                        ${order.totalPrice}
+                      </Col>
+                    </Row>
+                  </div>
+
                   <EuiShowFor sizes={["xs", "s", "m"]}>
                     <EuiHorizontalRule margin="s" />
                   </EuiShowFor>
                   {order.isPaid && (
-                    <ListGroup.Item>
-                      <EuiButton
-                        fullWidth
-                        color="none"
-                        className="tw-mt-3 tw-bg-gray-300 tw-text-gray-800 "
-                        size="m"
-                        fill
-                        onClick={() => history.push("/")}
-                      >
-                        Continue Shopping
-                      </EuiButton>
-                    </ListGroup.Item>
+                    <EuiButton
+                      fullWidth
+                      color="none"
+                      className="tw-mt-3 tw-bg-gray-300 tw-text-gray-800 "
+                      size="m"
+                      fill
+                      onClick={() => history.push("/")}
+                    >
+                      Continue Shopping
+                    </EuiButton>
                   )}
                   {!order.isPaid && (
-                    <ListGroup.Item>
+                    <div>
                       {loadingPay && <Loader />}
                       {!sdkReady ? (
                         <Loader />
@@ -359,11 +367,18 @@ const OrderScreen = ({ match, history }) => {
                           onSuccess={successPaymentHandler}
                         />
                       )}
-                    </ListGroup.Item>
+                    </div>
                   )}
                   {loadingDeliver && <Loader />}
-                </ListGroup>
+
+                  <p class="tw-justify-end tw-flex mb-3 sm:tw-px-4 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                    Taxes (if shown) are estimates. The seller, and not
+                    Cropswap, is solely responsible for collecting all
+                    applicable taxes.
+                  </p>
+                </div>
               </div>
+
               {userInfo &&
                 userInfo.isAdmin &&
                 order.isPaid &&
@@ -392,7 +407,6 @@ const OrderScreen = ({ match, history }) => {
           </Row>
         </Container>
       </div>
-      <SubFooter />
     </>
   );
 };

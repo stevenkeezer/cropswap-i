@@ -61,7 +61,7 @@ const PaymentScreen = ({ history }) => {
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center  tw-text-gray-800 tw-mt-4  sm:tw-mt-8 tw-mx-auto">
+        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-mb-4 tw-text-gray-800 tw-mt-4  sm:tw-mt-8 tw-mx-auto">
           <Col lg={8} className="tw-p-0">
             <div
               className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4 tw-max-w-screen-lg tw-text-gray-800 tw-font-semibold sm:tw-font-medium tw-mx-auto "
@@ -73,7 +73,7 @@ const PaymentScreen = ({ history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-mt-3 tw-px-4">
+            <div className="tw-mt-3 tw-px-4 t">
               <EuiRadioGroup
                 options={[
                   {
@@ -191,15 +191,20 @@ const PaymentScreen = ({ history }) => {
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div
-              className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4 tw-max-w-screen-lg tw-text-gray-800 tw-font-semibold sm:tw-font-medium tw-mx-auto "
-              style={{ fontWeight: "500" }}
-            >
-              Your Order
-            </div>
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
+
+            <div className="tw-px-4">
+              <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                Your items
+              </div>
+            </div>
+
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+
             <div className=" tw-text-2xl tw-px-4 sm:tw-px-0 tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
@@ -245,18 +250,79 @@ const PaymentScreen = ({ history }) => {
                   </>
                 ))}
             </div>
-            <div className=" tw-px-4 sm:tw-px-0 ">
+            <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
+              <div variant="flush" lines="none">
+                <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
+                  <div className="tw-flex  tw-items-baseline">
+                    <div className="tw-font-semibold tw-text-md tw-mr-1">
+                      Subtotal
+                    </div>
+                    <span className="tw-text-gray-900 tw-text-md tw-tracking-wide tw-font-semibold">
+                      {" "}
+                      ({cartItems.reduce((acc, item) => acc + item.qty, 0)} item
+                      {cartItems.length === 1 ? "" : "s"})
+                    </span>
+                  </div>
+
+                  <div className="tw-font-semibold tw-text-md tw-tracking-wide">
+                    $
+                    {cartItems
+                      .reduce((acc, item) => acc + item.qty * item.price, 0)
+                      .toFixed(2)}
+                  </div>
+                </div>
+
+                <EuiHorizontalRule margin="s" />
+
+                <div className="tw-border-none tw-tracking-wide">
+                  <Row className=" tw-pb-3">
+                    <Col className="tw-text-sm">Est. tax & fees</Col>
+                    <Col className="tw-text-right tw-text-sm">$0.00</Col>
+                  </Row>
+                </div>
+                <div className="tw-border-none ">
+                  <Row className="">
+                    <Col className="tw-text-sm">Delivery fee</Col>
+                    <Col className="tw-text-right tw-text-sm tw-tracking-wide">
+                      FREE
+                    </Col>
+                  </Row>
+                </div>
+                <EuiHorizontalRule margin="s" />
+
+                <div lines="none" className="tw-border-none ">
+                  <Row>
+                    <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
+                      Order total
+                    </Col>
+                    <Col className="tw-text-right tw-font-bold tw-text-sm tw-tracking-wide tw-text-gray-900">
+                      $
+                      {cartItems
+                        .reduce((acc, item) => acc + item.qty * item.price, 0)
+                        .toFixed(2)}
+                    </Col>
+                  </Row>
+                </div>
+                <EuiHorizontalRule margin="s" />
+              </div>
+            </div>
+
+            <div className=" tw-px-4 sm:tw-px-0 tw-tracking-wide">
               <EuiButton
                 fullWidth
                 color="secondary"
-                className="tw-mt-3"
+                className="tw-mt-3 tw-font-semibold"
                 size="m"
                 fill
                 disabled={cartItems.length === 0}
                 onClick={submitHandler}
               >
-                Continue
+                Order summary
               </EuiButton>
+              <p class="tw-justify-end  mb-3 tw-text-xs tw-py-3 tw-text-center tw-tracking-wide  tw-text-gray-800 tw-leading-normal">
+                You will have a chance to review and modify this order before
+                its final.
+              </p>
             </div>
           </Col>
         </Row>

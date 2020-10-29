@@ -5,6 +5,8 @@ import {
   EuiCard,
   EuiFlexItem,
   EuiIcon,
+  EuiFormControlLayout,
+  EuiText,
   EuiFlexGrid,
   EuiFieldText,
   EuiHorizontalRule,
@@ -63,7 +65,7 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 sm:tw-bg-gray-100 tw-min-h-screen">
+        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 tw-mb-20 sm:tw-mb-0 sm:tw-bg-gray-100 tw-min-h-screen">
           <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-1 ">
             <div className="tw-p-0  lg:tw-pt-8 tw-pt-16  tw-tracking-wide lg:tw-pt-1 tw-px-4 tw-text-gray-900 sm:tw-text-2xl tw-text-xl tw-font-semibold ">
               Your delivery order
@@ -113,22 +115,12 @@ const CartScreen = ({ match, location, history }) => {
                     Your cart is empty <Link to="/">Go Back</Link>
                   </Message>
                 ) : (
-                  <EuiFlexGrid gutterSize="s">
+                  <EuiFlexGrid>
                     {cartItems.map((item) => (
                       <EuiFlexItem className="tw-flex tw-flex-grow">
                         <EuiCard
                           layout="horizontal"
-                          className="tw-border-none tw-shadow"
-                          icon={
-                            <img
-                              onClick={() =>
-                                history.push(`/product/${item.product}`)
-                              }
-                              className="lg:tw-h-32 lg:tw-w-32 tw-hidden lg:tw-flex  tw-object-cover lg:tw-rounded tw-cursor-pointer tw-relative"
-                              alt={item.name}
-                              src={item.image}
-                            />
-                          }
+                          className="tw-border-none tw-shadow-md sm:tw-shadow"
                           iconSize="sm"
                           titleSize="xs"
                           title={
@@ -154,41 +146,60 @@ const CartScreen = ({ match, location, history }) => {
                           }
                         >
                           <>
-                            <div className="tw-flex  tw-items-baseline   tw-justify-between">
-                              <div className="tw-gap-4 tw-flex">
+                            <div className="tw-flex  tw-items-baseline tw-w-full  tw-justify-between">
+                              <div className="tw-gap-4 tw-flex tw-w-full ">
                                 <img
                                   onClick={() =>
                                     history.push(`/product/${item.product}`)
                                   }
-                                  className="lg:tw-h-32 lg:tw-w-32   lg:tw-hidden tw-w-16 tw-h-16  tw-object-cover lg:tw-rounded tw-cursor-pointer "
+                                  className="lg:tw-h-24 lg:tw-w-24 tw-w-16 tw-h-16  tw-object-cover  tw-cursor-pointer "
                                   alt={item.name}
                                   src={item.image}
                                 />
-                                <select
-                                  className="tw-cursor-pointer tw-bg-gray-200  tw-px-4  tw-mr-auto tw-mt-auto  tw-rounded-lg  tw-h-8  tw-w-24"
-                                  as="select"
-                                  value={item.qty}
-                                  onChange={(e) =>
-                                    dispatch(
-                                      addToCart(
-                                        item.product,
-                                        Number(e.target.value)
-                                      )
-                                    )
-                                  }
-                                >
-                                  {[...Array(item.countInStock).keys()].map(
-                                    (x) => (
-                                      <option key={x + 1} value={x + 1}>
-                                        {x + 1}
-                                      </option>
-                                    )
-                                  )}
-                                </select>
-                              </div>
 
-                              <div className="tw-font-gray-600 text-right tw-font-medium tw-w-56 tw-text-sm">
-                                ${item.price}
+                                <div className="tw-flex tw-mt-auto  tw-w-full tw-items-baseline tw-justify-between">
+                                  <div>
+                                    <EuiFormControlLayout
+                                      append={
+                                        <EuiText size="xs">
+                                          <strong>+</strong>
+                                        </EuiText>
+                                      }
+                                      prepend={
+                                        <EuiText size="xs">
+                                          <strong>-</strong>
+                                        </EuiText>
+                                      }
+                                    >
+                                      <select
+                                        className="euiFieldSelect tw-px-4  euiFieldNumber--inGroup "
+                                        as="select"
+                                        value={item.qty}
+                                        onChange={(e) =>
+                                          dispatch(
+                                            addToCart(
+                                              item.product,
+                                              Number(e.target.value)
+                                            )
+                                          )
+                                        }
+                                      >
+                                        {[
+                                          ...Array(item.countInStock).keys(),
+                                        ].map((x) => (
+                                          <option key={x + 1} value={x + 1}>
+                                            {x + 1}
+                                          </option>
+                                        ))}
+                                      </select>
+                                    </EuiFormControlLayout>
+                                  </div>
+                                  <div className=" tw-ml-auto tw-mt-auto">
+                                    <div className="tw-font-gray-600 text-right tw-font-medium tw-tracking-wide tw-text-sm">
+                                      ${item.price}
+                                    </div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </>
@@ -198,19 +209,19 @@ const CartScreen = ({ match, location, history }) => {
                   </EuiFlexGrid>
                 )}
               </div>
-              <div className="lg:tw-w-1/3">
+              <div className="xl:tw-w-1/3">
                 {/* <IonText>
               ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
             </IonText> */}
 
-                <div className="w-full tw-border-none tw-shadow tw-rounded card ">
+                <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
                   <div variant="flush" lines="none">
-                    <div className="tw-pb-0 tw-pt-6 tw-mb-3 tw-p-4 tw-flex tw-justify-between tw-items-baseline">
+                    <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
                       <div className="tw-flex  tw-items-baseline">
                         <div className="tw-font-semibold tw-text-md tw-mr-1">
                           Subtotal
                         </div>
-                        <span className="tw-text-gray-900 tw-text-md  tw-font-semibold">
+                        <span className="tw-text-gray-900 tw-text-md tw-tracking-wide tw-font-semibold">
                           {" "}
                           ({cartItems.reduce(
                             (acc, item) => acc + item.qty,
@@ -220,35 +231,38 @@ const CartScreen = ({ match, location, history }) => {
                         </span>
                       </div>
 
-                      <div className="tw-font-semibold tw-text-md">
+                      <div className="tw-font-semibold tw-text-md tw-tracking-wide">
                         $
                         {cartItems
                           .reduce((acc, item) => acc + item.qty * item.price, 0)
                           .toFixed(2)}
                       </div>
                     </div>
+
                     <EuiHorizontalRule margin="s" />
 
                     <div className="tw-border-none tw-tracking-wide">
-                      <Row className="tw-px-4 tw-pb-3">
+                      <Row className=" tw-pb-3">
                         <Col className="tw-text-sm">Est. tax & fees</Col>
                         <Col className="tw-text-right tw-text-sm">$0.00</Col>
                       </Row>
                     </div>
                     <div className="tw-border-none ">
-                      <Row className="tw-px-4">
+                      <Row className="">
                         <Col className="tw-text-sm">Delivery fee</Col>
-                        <Col className="tw-text-right tw-text-sm">$0.00</Col>
+                        <Col className="tw-text-right tw-text-sm tw-tracking-wide">
+                          FREE
+                        </Col>
                       </Row>
                     </div>
                     <EuiHorizontalRule margin="s" />
 
-                    <div lines="none" className="tw-border-none tw-px-4">
+                    <div lines="none" className="tw-border-none ">
                       <Row>
                         <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
                           Order total
                         </Col>
-                        <Col className="tw-text-right tw-font-bold tw-text-sm tw-text-gray-900">
+                        <Col className="tw-text-right tw-font-bold tw-text-sm tw-tracking-wide tw-text-gray-900">
                           $
                           {cartItems
                             .reduce(
@@ -268,6 +282,7 @@ const CartScreen = ({ match, location, history }) => {
                     </p>
                   </div>
                 </div>
+
                 <EuiShowFor sizes={["xl"]}>
                   <EuiButton
                     fullWidth

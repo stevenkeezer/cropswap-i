@@ -38,18 +38,30 @@ ion-item {
 .euiNotificationBadge {
   border: 0.25px solid white !important;
   border-radius: 4px;
-  font-size: 12px;
-  font-weight: 500;
+  font-size: 12px !important;
+  font-weight: 800;
   line-height: 18px !important;
   /* height: 18px !important; */
+  justify-content: center !important;
+  align-items: center !important;
   min-width: 18px !important;
   min-height: 18px !important;
-  vertical-align: middle;
-  text-align: center;
-  transition: all 150ms ease-in;
-  cursor: default;
-  background: #dd0a73;
-  color: #fff;
+}
+
+@media only screen and (max-width: 574px) {
+  .euiHeaderSectionItem,
+  .euiHeaderSectionItem__button {
+    min-width: 40px !important;
+  }
+  .euiNotificationBadge {
+    top: 8% !important;
+    right: 0 !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
+    /* height: 16px !important; */
+    min-width: 18px !important;
+    min-height: 17px !important;
+  }
 }
 
 @media only screen and (max-width: 574px) {
@@ -61,15 +73,6 @@ ion-item {
     border-radius: 8px;
     color: white !important;
     overflow: hidden;
-  }
-  .euiNotificationBadge {
-    top: 8% !important;
-    right: 0 !important;
-    font-size: 10px !important;
-    line-height: 16px !important;
-    /* height: 16px !important; */
-    min-width: 16px !important;
-    min-height: 16px !important;
   }
 }
 
@@ -155,10 +158,6 @@ ion-item {
   margin: 0 auto;
 }
 
-.euiCard__top + .euiCard__content {
-  margin-top: 8px !important;
-}
-
 @media only screen and (max-width: 1436px) {
   .carousel-control-prev,
   .carousel-control-next {
@@ -233,6 +232,19 @@ ion-input {
   /* height: 30px; */
 }
 
+.euiFormControlLayout--group .euiText {
+  background-color: #ffffff !important;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.euiFieldNumber--inGroup {
+  background: #eeeeee !important;
+}
 .euiRadio .euiRadio__input + .euiRadio__circle {
   display: none !important;
 }
@@ -283,7 +295,7 @@ ion-input {
 .euiNotificationBadge {
   border-radius: 99999rem !important;
 
-  background: #e7664c !important;
+  background: rgb(227, 69, 42) !important;
 }
 
 #count-notify {
@@ -327,13 +339,20 @@ tbody tr:last-child td:last-child {
 @media (min-width: 765px) {
   .euiTableRowCell,
   .euiTableRowCellCheckbox {
-    vertical-align: middle;
     border-top: 1px solid #eeeeee !important;
     border-bottom: 1px solid #eeeeee !important;
-    /* font-weight: inherit; */
-    text-align: inherit;
-    color: #343741;
   }
+}
+
+.euiCheckbox .euiCheckbox__input:checked + .euiCheckbox__square {
+  border-width: 2px !important;
+  border-color: #319795 !important;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg class='tw-w-6 tw-h-6' fill='%23319795' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+.euiCheckbox .euiCheckbox__input + .euiCheckbox__square {
+  padding: 8px !important;
 }
 
 @media (min-width: 992px) {
@@ -363,14 +382,6 @@ tbody tr:last-child td:last-child {
   }
   .euiTable {
     background: none !important;
-  }
-
-  /* .flexCard {
-    max-width: 50% !important;
-  } */
-
-  .euiCard__top + .euiCard__content {
-    margin-top: 0px !important;
   }
 }
 

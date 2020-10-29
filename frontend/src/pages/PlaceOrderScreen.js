@@ -220,53 +220,53 @@ const PlaceOrderScreen = ({ history }) => {
                 <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
                   Order Summary
                 </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-pt-4 tw-px-4">
+                <Card className="tw-border-none tw-rounded tw-shadow-md sm:tw-shadoww tw-pt-4 tw-px-4">
                   <ListGroup variant="flush">
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4 tw-text-md">
                       <Row className="tw-items-baseline">
-                        <Col className="tw-p-0">Items</Col>
+                        <Col className="tw-p-0">Subtotal</Col>
                         <Col className="tw-text-right tw-p-0">
                           ${cart.itemsPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
                     <EuiShowFor sizes={["xs", "s", "m"]}>
                       <EuiHorizontalRule margin="s" />
                     </EuiShowFor>
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4 tw-text-sm">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0">Shipping</Col>
                         <Col className="tw-text-right tw-p-0">
-                          + ${cart.shippingPrice}
+                          ${cart.shippingPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
 
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4 tw-mt-3 tw-text-sm">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0">Tax</Col>
                         <Col className="tw-text-right tw-p-0">
-                          + ${cart.taxPrice}
+                          ${cart.taxPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
                     <EuiShowFor sizes={["xs", "s", "m"]}>
                       <EuiHorizontalRule margin="s" />
                     </EuiShowFor>
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4  tw-text-sm tw-pb-4">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0 tw-text-sm tw-font-semibold">
-                          Sub total
+                          Total price
                         </Col>
                         <Col className="tw-text-right tw-font-bold tw-p-0">
                           ${cart.totalPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
 
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4">
                       {error && <Message variant="danger">{error}</Message>}
-                    </ListGroup.Item>
+                    </div>
                   </ListGroup>
                 </Card>
                 <div className="tw-px-4 sm:tw-px-0 tw-text-lg lg:tw-text-2xl">
