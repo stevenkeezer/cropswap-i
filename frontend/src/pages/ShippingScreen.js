@@ -286,10 +286,10 @@ const ShippingScreen = ({ history }) => {
             <div className=" tw-text-2xl tw-font-medium  tw-px-4 tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
               {cartItems &&
                 cartItems.map((item) => (
-                  <div className="tw-bg-white tw-rounded tw-mb-1 tw-border card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 tw-p-2 ">
+                  <div className="tw-bg-white tw-rounded tw-mb-1 tw-border card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 ">
                     <div class="row tw-py-3 tw-px-4">
                       <div class=" tw-flex  tw-gap-2">
-                        <div class="tw-flex  tw-pl-2  tw-items-center">
+                        <div class="tw-flex  tw-pl-3  tw-items-center">
                           <img
                             className="tw-m-0 tw-object-cover tw-w-16 tw-h-16 "
                             allowFullScreen
@@ -299,15 +299,15 @@ const ShippingScreen = ({ history }) => {
                         </div>
                       </div>
                       <div className="tw-flex tw-flex-grow sm:tw-px-3 tw-px-2  tw-justify-between ">
-                        <div className="  tw-items-center">
+                        <div className="  tw-items-center tw-justify-around">
                           <Link to={`/product/${item.product}`}>
                             <div className="tw-text-sm tw-text-gray-800 tw-font-semibold tw-tracking-wide">
                               {item.name}
                             </div>
-                            <div class="tw-text-gray-800 tw-text-sm tw-mt-2">
+                            <div class="tw-text-gray-800 tw-text-sm tw-py-2">
                               Each
                             </div>
-                            <div class="tw-text-gray-800 tw-text-sm tw-tracking-wide tw-mt-2">
+                            <div class="tw-text-gray-800 tw-text-sm tw-tracking-wide ">
                               ${item.price}
                             </div>
                           </Link>
