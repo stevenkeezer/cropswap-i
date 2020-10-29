@@ -380,6 +380,14 @@ tbody tr:last-child td:last-child {
   justify-content: center !important;
 }
 
+.euiCard__content .euiCard__description {
+  margin-top: 0px !important;
+}
+
+.euiCard__top + .euiCard__content {
+  margin-top: 4px !important;
+}
+
 @media (max-width: 576px) {
   th:not(:last-child) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.08);

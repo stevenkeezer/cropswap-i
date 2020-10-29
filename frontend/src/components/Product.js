@@ -1,3 +1,4 @@
+import React, { useEffect } from "react";
 import {
   EuiCard,
   EuiFlexItem,
@@ -5,8 +6,8 @@ import {
   EuiLoadingContent,
   EuiSpacer,
 } from "@elastic/eui";
-import React from "react";
-import { useDispatch } from "react-redux";
+import Rating from "../components/Rating";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Product({ product, history }) {
   const dispatch = useDispatch();
@@ -15,7 +16,8 @@ export default function Product({ product, history }) {
     history.push(`/product/${id}`);
   };
 
-  console.log(product);
+  console.log(product, "ah");
+
   return (
     <>
       <EuiFlexItem
@@ -39,7 +41,10 @@ export default function Product({ product, history }) {
             className="tw-object-fit"
             title={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-lg tw-font-semibold tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs  tw-font-medium tw-tracking-wide">
+                  {product.category}
+                </div>
+                <div className="tw-cursor-pointer tw-text-gray-800  sm:tw-text-sm tw-font-semibold tw-tracking-wide">
                   {product.name}
                 </div>
               </EuiText>
@@ -49,6 +54,10 @@ export default function Product({ product, history }) {
                 <div className="tw-cursor-pointer tw-text-gray-800 tw-text-sm tw-font-medium tw-tracking-wide">
                   ${product.price}
                 </div>
+                <Rating
+                  value={product.rating}
+                  text={`${product.numReviews} `}
+                />
               </EuiText>
             }
           />
