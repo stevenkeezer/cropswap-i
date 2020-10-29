@@ -86,12 +86,13 @@ const ProductCarousel = () => {
                   </div>
                 </div>
               </div>
-              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-bottom-0 md:tw--mb-2 lg:tw--mb-2  xl:tw-mr-5 tw-visible lg:tw-visible">
+              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-bottom-0 tw--mb-1 md:tw--mb-2 lg:tw--mb-2  xl:tw-mr-5 tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
                   alt={product.name}
                   // fluid
-                  className="tw--mb-12 sm:tw--mb-16 md:tw--mb-20 lg:tw--mb-24 xl:tw--mb-24 "
+                  style={{ marginBottom: -27 }}
+                  className="  sm:tw--mb-16 md:tw--mb-20 lg:tw--mb-24 xl:tw--mb-24 "
                   // className=" tw-w-full xl:tw-pt-1 xl:tw-mt-10 lg:tw-mt-12 lg:tw-pt-10 tw-mt-16  sm:tw-mt-10 tw-pt-2   tw-ml-10 sm:tw-ml-0 tw-h-full"
                 />
               </div>
