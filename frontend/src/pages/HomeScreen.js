@@ -1,32 +1,15 @@
+// MOBX
+import { EuiFlexGroup, EuiShowFor } from "@elastic/eui";
 import {
   IonAlert,
-  IonCol,
   IonContent,
   IonIcon,
-  IonLoading,
   IonPage,
-  IonRow,
+  IonRefresher,
+  IonRefresherContent,
   IonText,
-  IonTitle,
 } from "@ionic/react";
-
-import { chevronBackOutline } from "ionicons/icons";
-// MOBX
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-  EuiFlexItem,
-  EuiFlexGrid,
-  EuiCard,
-  EuiProgress,
-  EuiFlexGroup,
-  EuiIcon,
-  EuiShowFor,
-} from "@elastic/eui";
-
+import { chevronBackOutline, chevronDown } from "ionicons/icons";
 import { observer } from "mobx-react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -36,16 +19,24 @@ import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
-import SearchEmpty from "../components/SearchEmpty";
+import CategorySlider from "../components/CategorySlider";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 import Meta from "../components/Meta";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
-import SubFooter from "../components/SubFooter";
-import Loader from "../components/Loader";
-import CategorySlider from "../components/CategorySlider";
+import SearchEmpty from "../components/SearchEmpty";
 
 const HomeScreen = ({ match }) => {
+  function doRefresh(event) {
+    console.log("Begin async operation");
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      event.detail.complete();
+    }, 2000);
+  }
+
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -76,6 +67,16 @@ const HomeScreen = ({ match }) => {
     <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4">
       <Meta />
       <IonContent>
+        <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+          <div className="tw-mt-4">
+            <IonRefresherContent
+              pullingIcon={chevronDown}
+              // pullingText="Pull to refresh"
+              refreshingSpinner="circles"
+              // refreshingText="Loading..."
+            ></IonRefresherContent>
+          </div>
+        </IonRefresher>
         {!keyword ? (
           <>
             {/* <Alert></Alert> */}
