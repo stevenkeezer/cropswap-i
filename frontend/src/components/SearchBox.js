@@ -160,7 +160,7 @@ export default ({ history }) => {
       />
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
-        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider    tw-leading-tight  tw-text-gray-700 tw-hidden"
+        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}

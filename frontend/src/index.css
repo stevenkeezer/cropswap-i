@@ -405,8 +405,8 @@ tbody tr:last-child td:last-child {
 
 @media (max-width: 767px) {
   .flexCard {
-    max-width: 50vw !important;
-    padding: 0.875vw;
+    max-width: 50% !important;
+    padding: 1vw;
   }
   .euiBottomBar.euiBottomBar--paddingMedium {
     padding-top: 5px !important;

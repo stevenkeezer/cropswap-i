@@ -21,7 +21,7 @@ export default function Product({ product, history }) {
   return (
     <>
       <EuiFlexItem
-        className="flexCard "
+        className="flexCard  "
         onClick={(e) => clickHandler(product._id)}
       >
         {product.image ? (
