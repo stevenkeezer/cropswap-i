@@ -22,6 +22,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
+import Alert from "../components/Alert";
 import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
 import Carousel from "../components/Carousel";
@@ -72,7 +73,14 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <EuiPage className=" tw-m-0 tw-p-0  tw-mt-24">
+      <div className="tw-mt-24 "></div>
+      <EuiShowFor sizes={["xs", "s", "m"]}>
+        <div className=" tw-pb-2 tw-pt-1">
+          <CategorySlider history={history} />
+        </div>
+      </EuiShowFor>
+      <Alert></Alert>
+      <EuiPage className=" tw-m-0 tw-p-0 ">
         <EuiPageBody restrictWidth="75rem">
           <EuiPageContent className="tw-bg-transparent tw-p-0 tw-shadow-none">
             <Meta />
@@ -89,10 +97,6 @@ const HomeScreen = ({ match }) => {
               </IonRefresher>
               {!keyword ? (
                 <>
-                  {/* <Alert></Alert> */}
-                  <EuiShowFor sizes={["xs", "s", "m"]}>
-                    <CategorySlider history={history} />
-                  </EuiShowFor>
                   <Carousel />
                   <Categories history={history} />
                 </>

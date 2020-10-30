@@ -197,11 +197,13 @@ b {
   .carousel {
     height: 385px;
   }
-  /* .flexCard {
-    max-width: 25% !important;
-  } */
 }
 
+@media only screen and (min-width: 1200px) {
+  .euiHeader {
+    justify-content: space-around !important;
+  }
+}
 .card {
   border-radius: 0.5rem;
 }
@@ -351,7 +353,7 @@ tbody tr:last-child td:last-child {
 @media (min-width: 992px) {
   .euiHeader {
     height: 6rem !important;
-    justify-content: space-around !important;
+    /* justify-content: space-around !important; */
   }
 }
 

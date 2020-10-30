@@ -8,7 +8,7 @@ function AlertDismissible() {
     return (
       <Alert
         variant="blue"
-        style={{ borderColor: "#2376d7", borderRadius: 0 }}
+        style={{ borderColor: "#2376d7", borderRadius: 0, margin: 0 }}
         onClose={() => setShow(false)}
         dismissible
       >
@@ -16,7 +16,7 @@ function AlertDismissible() {
         <Container>
           <div
             className="blue-alert tw-whitespace-no-wrap tw-truncate"
-            style={{ fontSize: ".875rem", margin: 1 }}
+            style={{ fontSize: ".875rem" }}
           >
             <span className="font-weight-bold whitespace-no-wrap">
               COVID-19 IMPACT
