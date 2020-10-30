@@ -80,9 +80,9 @@ const HomeScreen = ({ match }) => {
         </div>
       </EuiShowFor>
       <Alert></Alert>
-      <EuiPage className=" tw-m-0 tw-p-0 ">
+      <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
-          <EuiPageContent className="tw-bg-transparent tw-p-0  tw-shadow-none">
+          <EuiPageContent className="tw-bg-white tw-p-0  tw-shadow-none">
             <Meta />
             <div>
               <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
