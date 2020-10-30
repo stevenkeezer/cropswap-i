@@ -27,23 +27,6 @@ import store from "./store";
 import { set } from "mongoose";
 
 const PublicRoutes = ({ history }) => {
-  // const location = useLocation();
-  // const [value, setValue] = useState(0);
-  // const [max, setMax] = useState(null);
-
-  // React.useEffect(() => {
-  //   setValue(10);
-  //   setValue(20);
-
-  //   setTimeout(() => {
-  //     // setMax(100);
-  //     setValue(25);
-  //     setValue(50);
-  //     setValue(100);
-  //     setValue(null);
-  //   }, 450);
-  // }, [location]);
-
   return (
     <>
       <Router>

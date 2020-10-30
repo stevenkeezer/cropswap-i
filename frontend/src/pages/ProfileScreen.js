@@ -69,7 +69,7 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12 tw-pb-12  tw-min-h-screen">
+      <div className=" tw-bg-gray-100 tw-h-auto tw-mt-24  tw-pb-12 tw-antialiased tw-min-h-screen">
         <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
           {loading ? (
             <Loader />

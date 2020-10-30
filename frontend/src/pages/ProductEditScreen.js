@@ -93,7 +93,7 @@ const ProductEditScreen = ({ match, location, history }) => {
   return (
     <>
       <Link
-        className="tw-items-center tw-flex hover:tw-no-underline tw-max-w-screen-xl  tw-mx-auto tw-px-4 tw-mt-3 "
+        className="tw-items-center tw-flex tw-antialiased hover:tw-no-underline tw-max-w-screen-xl  tw-mx-auto tw-px-4 tw-mt-3 "
         to="/"
       >
         <IonIcon

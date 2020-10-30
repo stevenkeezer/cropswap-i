@@ -10,7 +10,6 @@ import {
   IonText,
 } from "@ionic/react";
 import { chevronBackOutline, chevronDown } from "ionicons/icons";
-import { observer } from "mobx-react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
@@ -64,16 +63,16 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4">
+    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4  ">
       <Meta />
       <IonContent>
         <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-          <div className="tw-mt-4">
+          <div className="tw-mt-3">
             <IonRefresherContent
               pullingIcon={chevronDown}
-              // pullingText="Pull to refresh"
+              pullingText="Pull to refresh"
               refreshingSpinner="circles"
-              // refreshingText="Loading..."
+              refreshingText="Loading..."
             ></IonRefresherContent>
           </div>
         </IonRefresher>
@@ -121,7 +120,7 @@ const HomeScreen = ({ match }) => {
           />
         ) : (
           <>
-            <div className=" tw-mb-3 tw-px-4  tw-items-center ">
+            <div className=" tw-mb-3 tw-px-4 sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
               {!keyword ? (
                 <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-4  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
                   <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
@@ -171,4 +170,4 @@ const HomeScreen = ({ match }) => {
   );
 };
 
-export default observer(HomeScreen);
+export default HomeScreen;

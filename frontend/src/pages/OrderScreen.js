@@ -112,7 +112,7 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div className=" tw-pt-8 sm:tw-bg-gray-100 tw-mt-24 tw-h-auto tw-min-h-screen">
+      <div className=" tw-pt-6 sm:tw-bg-gray-100 tw-mt-24 tw-antialiased tw-h-auto tw-min-h-screen">
         <Container>
           <Row className=" sm:tw-px-4">
             <Col md={8} className="tw-p-0 sm:tw-4">
@@ -126,7 +126,7 @@ const OrderScreen = ({ match, history }) => {
                   </div>
                 )}
 
-                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
+                <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                   Complete your order
                 </div>
                 <div className="tw-border-none tw-rounded   sm:tw-bg-white sm:tw-shadow tw-mb-3 tw-pb-6">
@@ -157,12 +157,7 @@ const OrderScreen = ({ match, history }) => {
                     <EuiShowFor sizes={["xs", "s", "m"]}>
                       <EuiHorizontalRule margin="s" />
                     </EuiShowFor>
-                    <div
-                      className="tw-text-teal-600 tw-px-4"
-                      href={`mailto:${order.user.email}`}
-                    >
-                      {order.user.email}
-                    </div>
+
                     <p className="tw-py-3 tw-pt-4 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
                       Shipping Address
                     </p>
@@ -225,9 +220,20 @@ const OrderScreen = ({ match, history }) => {
                   </ListGroup.Item>
                 </Card>
 
-                <div className="tw-text-lg  sm:tw-text-2xl  tw-px-4  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium  ">
-                  Order Items
+                <EuiShowFor sizes={["xs", "s", "m"]}>
+                  <EuiHorizontalRule margin="s" />
+                </EuiShowFor>
+
+                <div className="tw-px-4">
+                  <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                    Your items
+                  </div>
                 </div>
+
+                <EuiShowFor sizes={["xs", "s", "m"]}>
+                  <EuiHorizontalRule margin="s" />
+                </EuiShowFor>
+
                 <div className="tw-border-none tw-rounded tw-px-4 tw-mb-3 ">
                   <div className="tw-border-none sm:tw-bg-transparent">
                     {order.orderItems.length === 0 ? (
@@ -384,7 +390,7 @@ const OrderScreen = ({ match, history }) => {
                 order.isPaid &&
                 !order.isDelivered && (
                   <>
-                    <div className=" tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
+                    <div className="tw-px-4 tw-text-sm lg:tw-text-2xl  tw-pb-6 tw-mt-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
                       Complete Order
                     </div>
                     <ListGroup.Item>

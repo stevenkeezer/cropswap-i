@@ -56,7 +56,7 @@ export default function Product({ product, history }) {
                 </div>
                 <Rating
                   value={product.rating}
-                  text={`${product.numReviews} `}
+                  text={`${product.numReviews}`}
                 />
               </EuiText>
             }

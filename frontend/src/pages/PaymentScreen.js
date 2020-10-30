@@ -56,17 +56,14 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-screen  sm:tw-bg-gray-100 tw-mt-24  tw-pt-4">
+      <div className="tw-h-screen  sm:tw-bg-gray-100 tw-mt-24 tw-antialiased tw-pt-4">
         {/* <Container> */}
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
         <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-mb-4 tw-text-gray-800 tw-mt-4  sm:tw-mt-8 tw-mx-auto">
           <Col lg={8} className="tw-p-0">
-            <div
-              className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4 tw-max-w-screen-lg tw-text-gray-800 tw-font-semibold sm:tw-font-medium tw-mx-auto "
-              style={{ fontWeight: "500" }}
-            >
+            <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Select a Payment Method
             </div>
             <EuiShowFor sizes={["xs", "s", "m"]}>
@@ -254,7 +251,7 @@ const PaymentScreen = ({ history }) => {
               <div variant="flush" lines="none">
                 <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
                   <div className="tw-flex  tw-items-baseline">
-                    <div className="tw-font-semibold tw-text-md tw-mr-1">
+                    <div className="tw-font-semibold tw-text-md tw-mr-1 tw-text-gray-900">
                       Subtotal
                     </div>
                     <span className="tw-text-gray-900 tw-text-md tw-tracking-wide tw-font-semibold">
@@ -264,7 +261,7 @@ const PaymentScreen = ({ history }) => {
                     </span>
                   </div>
 
-                  <div className="tw-font-semibold tw-text-md tw-tracking-wide">
+                  <div className="tw-font-semibold tw-text-md tw-tracking-wide tw-text-gray-900">
                     $
                     {cartItems
                       .reduce((acc, item) => acc + item.qty * item.price, 0)
@@ -304,6 +301,10 @@ const PaymentScreen = ({ history }) => {
                   </Row>
                 </div>
                 <EuiHorizontalRule margin="s" />
+                <p class="tw-justify-end  tw-py-2 tw-text-xs tw-text-center tw-tracking-wide  tw-text-gray-800 tw-leading-normal">
+                  You will have an opportunity to review and modify this order
+                  before its final.
+                </p>
               </div>
             </div>
 
@@ -319,10 +320,6 @@ const PaymentScreen = ({ history }) => {
               >
                 Order summary
               </EuiButton>
-              <p class="tw-justify-end  mb-3 tw-text-xs tw-py-3 tw-text-center tw-tracking-wide  tw-text-gray-800 tw-leading-normal">
-                You will have a chance to review and modify this order before
-                its final.
-              </p>
             </div>
           </Col>
         </Row>

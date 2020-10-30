@@ -81,7 +81,7 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen sm:tw-bg-gray-100 tw-mt-24  tw-pb-4 tw-pt-4">
+      <div className="tw-h-auto tw-min-h-screen sm:tw-bg-gray-100 tw-mt-24 tw-antialiased  tw-pb-4 tw-pt-4">
         <div>
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
@@ -90,7 +90,7 @@ const PlaceOrderScreen = ({ history }) => {
             <Row>
               <Col lg={8}>
                 <ListGroup variant="flush">
-                  <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
+                  <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                     Shipping Information
                   </div>
                   <EuiShowFor sizes={["xs", "s", "m"]}>
@@ -133,9 +133,19 @@ const PlaceOrderScreen = ({ history }) => {
                       />
                     </ListGroup.Item>
                   </div>
-                  <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
-                    Payment Method
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-px-4">
+                    <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                      Payment method
+                    </div>
                   </div>
+
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
                   <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
                     <ListGroup.Item className="tw-border-none ">
                       {cart.paymentMethod ? (
@@ -157,9 +167,19 @@ const PlaceOrderScreen = ({ history }) => {
                     </ListGroup.Item>
                   </Card>
 
-                  <div className="tw-p-0 tw-text-lg tw-px-4 sm:tw-px-0  lg:tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 lg:tw-pt-6 tw-pb-6">
-                    Order Items
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-px-4">
+                    <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                      Your items
+                    </div>
                   </div>
+
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
 
                   <div className="tw-border-none tw-rounded s:tw-shadow tw-mb-3">
                     <div className="tw-border-none">
@@ -217,9 +237,6 @@ const PlaceOrderScreen = ({ history }) => {
                 </ListGroup>
               </Col>
               <Col lg={4}>
-                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
-                  Order Summary
-                </div>
                 <Card className="tw-border-none tw-rounded tw-shadow-md sm:tw-shadoww tw-pt-4 tw-px-4">
                   <ListGroup variant="flush">
                     <div className="tw-border-none tw-px-4 tw-text-md">
@@ -230,7 +247,7 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
                       </Row>
                     </div>
-                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
                       <EuiHorizontalRule margin="s" />
                     </EuiShowFor>
                     <div className="tw-border-none tw-px-4 tw-text-sm">
@@ -250,7 +267,7 @@ const PlaceOrderScreen = ({ history }) => {
                         </Col>
                       </Row>
                     </div>
-                    <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
                       <EuiHorizontalRule margin="s" />
                     </EuiShowFor>
                     <div className="tw-border-none tw-px-4  tw-text-sm tw-pb-4">

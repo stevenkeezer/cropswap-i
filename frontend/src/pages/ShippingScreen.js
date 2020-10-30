@@ -52,15 +52,15 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="sm:tw-bg-gray-100 tw-mt-24 tw-min-h-screen tw-pb-12 tw-pt-4">
+      <div className="sm:tw-bg-gray-100 tw-mt-24 tw-min-h-screen tw-pb-12 tw-pt-4 tw-antialiased">
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 />
         </div>
 
-        <div className=" tw-max-w-screen-xl sm:tw-px-4 tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 tw-pt-4 lg:tw-flex-row  tw-gap-12">
+        <div className=" tw-max-w-screen-xl sm:tw-px-4 tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 tw-pt-4 lg:tw-flex-row">
           <div className="lg:tw-w-3/5 tw-w-full">
             <div className=" tw-text-xl  sm:tw-pt-4 tw-pb-3 tw-max-w-screen-lg ">
-              <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4 tw-max-w-screen-lg tw-text-gray-800 tw-font-semibold sm:tw-font-medium tw-mx-auto ">
+              <div className="tw-p-0  tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                 Confirm delivery details
               </div>
               <EuiShowFor sizes={["xs", "s", "m"]}>
@@ -86,12 +86,16 @@ const ShippingScreen = ({ history }) => {
               <EuiShowFor sizes={["xs", "s", "m"]}>
                 <EuiHorizontalRule margin="s" />
               </EuiShowFor>
+
+              <div className="tw-px-4">
+                <div className=" tw-text-sm tw-mt-8 lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                  Your items
+                </div>
+              </div>
+
               <EuiShowFor sizes={["xs", "s", "m"]}>
                 <EuiHorizontalRule margin="s" />
               </EuiShowFor>
-              <div className="tw-text-sm sm:tw-text-2xl tw-tracking-wide  tw-px-4 sm:tw-pb-6 tw-py-3 tw-mt-4 sm:tw-mt-12 tw-px-0 tw-mt-0 tw-text-gray-800 lg:tw-font-medium tw-mx-auto ">
-                Delivery address
-              </div>{" "}
               <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-p-4 tw-py-4  sm:tw-rounded">
                 <EuiAccordion
                   id="accordionExtraWithRightArrow"
@@ -194,7 +198,7 @@ const ShippingScreen = ({ history }) => {
               </div>
             </div>
           </div>
-          <div className="lg:tw-w-2/5 tw-w-full">
+          <div className="lg:tw-w-2/5 tw-mt-5 lg:tw-mt-0 tw-w-full">
             <div className="w-full tw-px-4 tw-border-none sm:tw-mx-4 tw-shadow-md sm:tw-shadow tw-rounded card ">
               <div variant="flush" lines="none">
                 <div className="tw-pb-0 tw-pt-6 tw-mb-3   tw-flex tw-justify-between tw-items-baseline">
@@ -274,11 +278,19 @@ const ShippingScreen = ({ history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-px-4 ">
-              <div className=" tw-text-sm sm:tw-text-2xl sm:tw-font-medium lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
+
+            <div className="tw-px-4">
+              <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
             </div>
+
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHorizontalRule margin="s" />
+            </EuiShowFor>
 
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />

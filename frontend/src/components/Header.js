@@ -100,14 +100,19 @@ export default ({ theme }) => {
           aria-label="Apps menu with 1 new app"
           onClick={onMenuButtonClick}
         >
-          <svg
-            class="tw-w-6 tw-h-6 tw-text-gray-800 tw-mx-auto"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
-          </svg>
+          <EuiShowFor sizes={["xs", "s"]}>
+            <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
+          </EuiShowFor>
+          <EuiShowFor sizes={["m", "l", "xl"]}>
+            <svg
+              class="tw-w-6 tw-h-6 tw-text-gray-800 tw-mx-auto"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
+            </svg>
+          </EuiShowFor>
         </EuiHeaderSectionItemButton>
       </EuiToolTip>
     );
@@ -118,7 +123,7 @@ export default ({ theme }) => {
         // ownFocus
         button={button}
         isOpen={isOpen}
-        anchorPosition="downRight"
+        anchorPosition="downCenter"
         closePopover={closeMenu}
       >
         <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
@@ -162,6 +167,29 @@ export default ({ theme }) => {
             <EuiIcon type="devToolsApp" size="l" />
           </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
+            label="Users List"
+            onClick={(e) => {
+              history.push("/admin/userlist");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="usersRolesApp" size="l" />
+          </EuiKeyPadMenuItem>
+          <EuiKeyPadMenuItem
+            label="Orders List"
+            onClick={(e) => {
+              history.push("/admin/orderlist");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="usersRolesApp" size="l" />
+          </EuiKeyPadMenuItem>
+          <a href="https://github.com/stevenkeezer/cropswap-i" target="_blank">
+            <EuiKeyPadMenuItem label="Github">
+              <EuiIcon type="logoGithub" size="l" />
+            </EuiKeyPadMenuItem>
+          </a>
+          <EuiKeyPadMenuItem
             label="Profile"
             onClick={(e) => {
               history.push("/profile");
@@ -170,12 +198,6 @@ export default ({ theme }) => {
           >
             <EuiIcon type="usersRolesApp" size="l" />
           </EuiKeyPadMenuItem>
-
-          <a href="https://github.com/stevenkeezer/cropswap-i" target="_blank">
-            <EuiKeyPadMenuItem label="Github">
-              <EuiIcon type="logoGithub" size="l" />
-            </EuiKeyPadMenuItem>
-          </a>
         </EuiKeyPadMenu>
       </EuiPopover>
     );
@@ -215,7 +237,19 @@ export default ({ theme }) => {
           aria-label="Account menu"
           onClick={onMenuButtonClick}
         >
-          <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
+          {/* <EuiIcon type="user" size="l" style={{ padding: "3px" }} /> */}
+          <svg
+            class="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
+              clip-rule="evenodd"
+            ></path>
+          </svg>
         </EuiHeaderSectionItemButton>
       </EuiToolTip>
     );
@@ -484,7 +518,7 @@ export default ({ theme }) => {
           <EuiShowFor sizes={["l", "xl"]}>
             <EuiHeader
               onProgress
-              className=" tw-mx-auto sm:px-0  tw-px-4 xl:tw-px-32 tw-h-36"
+              className=" tw-mx-auto sm:px-0  tw-px-4 xl:tw-px-32 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
               borderBottom="none"
               style={{
                 borderBottom: "1px solid white",
@@ -576,7 +610,7 @@ export default ({ theme }) => {
               menu
             >
               <EuiHeaderSectionItem className="tw-px-1" border="right">
-                <HeaderUserMenu history={history} />
+                <HeaderAppMenu history={history} />
               </EuiHeaderSectionItem>
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
               <EuiHeaderSectionItem
@@ -632,16 +666,18 @@ export default ({ theme }) => {
                 </EuiShowFor>
               </EuiHeaderSectionItem>
             </EuiHeader>
-            <EuiHeader
-              theme="light"
-              style={{ height: 57, boxShadow: "none" }}
-              className="tw-border-gray-300 tw-border-opacity-75"
-              position={"fixed"}
-            >
-              <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">
-                {search}
-              </div>
-            </EuiHeader>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <EuiHeader
+                theme="light"
+                style={{ height: 57, boxShadow: "none" }}
+                className="tw-border-gray-300 tw-border-opacity-75"
+                position={"fixed"}
+              >
+                <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">
+                  {search}
+                </div>
+              </EuiHeader>
+            </EuiShowFor>
           </EuiShowFor>
         </>
       )}

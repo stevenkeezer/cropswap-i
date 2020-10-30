@@ -25,7 +25,6 @@ export default function CheckoutSteps({ step1, step2, step3, step4 }) {
     },
     {
       title: "Place Order",
-      isSelected: step3,
       isComplete: step4,
       onClick: () => {
         history.push("/payment");

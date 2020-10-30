@@ -81,20 +81,19 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <div className="tw-bg-gray-100 tw-h-auto ">
-        <div className="  lg:tw-mt-24 tw-mt-16 tw-px-4  tw-pt-4 tw-max-w-screen-xl tw-mx-auto">
+      <div className="tw-bg-gray-100 tw-h-auto tw-antialiased ">
+        <div className=" tw-mt-24 tw-px-4  tw-pt-5 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
           >
             <IonIcon
               icon={chevronBackOutline}
-              className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+              className="tw-text-sm tw-text-gray-700 tw-h-4 tw-w-4  tw-mr-1 "
               size="small"
-              style={{ marginBottom: -3 }}
             ></IonIcon>
             <IonText
-              className="tw-text-md hover:tw-text-teal-600 "
+              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800 d"
               color="light"
             >
               Back to search
@@ -113,85 +112,98 @@ const ProductScreen = ({ history, match }) => {
                 </Col>
 
                 <Col md={3}>
-                  <div className="tw-text-xl  tw-font-medium tw-text-gray-900">
+                  <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
+                    {product.category}
+                  </div>
+                  <div className="tw-text-2xl  tw-font-medium tw-text-gray-900">
                     {product.name}
                   </div>
 
-                  <ListGroup
-                    variant="flush"
-                    className="tw-border-none tw-shadow tw-mt-2"
-                  >
-                    <ListGroup.Item>
+                  <div variant="flush" className="tw-border-none tw-mt-2">
+                    <div>
                       <Rating
                         value={product.rating}
                         text={`${product.numReviews} reviews`}
                       />
-                    </ListGroup.Item>
-                    <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                    <Card className="tw-border-none tw-shadow tw-mt-1">
-                      <ListGroup variant="flush">
-                        <ListGroup.Item>
+                    </div>
+                    <div className="tw-py-6">
+                      <span className="tw-font-bold tw-text-gray-900 tw-text-2xl tw-tracking-wide">
+                        ${product.price}{" "}
+                      </span>
+                      <span className="tw-text-sm tw-text-gray-800">each</span>
+                    </div>
+                    <div className="tw-border-none  tw-mt-1">
+                      <div variant="flush">
+                        <div>
                           <Row>
-                            <Col>Price:</Col>
                             <Col>
-                              <strong>${product.price}</strong>
+                              {product.countInStock > 0 && "Out Of Stock"}
                             </Col>
                           </Row>
-                        </ListGroup.Item>
-
-                        <ListGroup.Item>
-                          <Row>
-                            <Col>Status:</Col>
-                            <Col>
-                              {product.countInStock > 0
-                                ? "In Stock"
-                                : "Out Of Stock"}
-                            </Col>
-                          </Row>
-                        </ListGroup.Item>
+                        </div>
 
                         {product.countInStock > 0 && (
-                          <ListGroup.Item>
+                          <div>
                             <Row>
-                              <Col>Qty</Col>
-                              <Col>
-                                <Form.Control
-                                  as="select"
-                                  value={qty}
-                                  onChange={(e) => setQty(e.target.value)}
-                                >
-                                  {[...Array(product.countInStock).keys()].map(
-                                    (x) => (
-                                      <option key={x + 1} value={x + 1}>
-                                        {x + 1}
-                                      </option>
-                                    )
-                                  )}
-                                </Form.Control>
-                              </Col>
+                              <Col>Quantity</Col>
+
+                              <Form.Control
+                                as="select"
+                                value={qty}
+                                onChange={(e) => setQty(e.target.value)}
+                              >
+                                {[...Array(product.countInStock).keys()].map(
+                                  (x) => (
+                                    <option key={x + 1} value={x + 1}>
+                                      {x + 1}
+                                    </option>
+                                  )
+                                )}
+                              </Form.Control>
                             </Row>
-                          </ListGroup.Item>
+                          </div>
                         )}
-                      </ListGroup>
-                    </Card>
-                  </ListGroup>
-                  <EuiButton
-                    fullWidth
-                    color="secondary"
-                    className="tw-mt-3"
-                    size="m"
-                    fill
-                    disabled={product.countInStock === 0}
-                    onClick={addToCartHandler}
-                  >
-                    Add To Cart
-                  </EuiButton>
+                      </div>
+                    </div>
+                  </div>
+                  {product.countInStock > 0 ? (
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-mt-3 tw-rounded-full"
+                      size="m"
+                      fill
+                      onClick={addToCartHandler}
+                    >
+                      Add To Cart
+                    </EuiButton>
+                  ) : (
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-mt-3 tw-rounded-full"
+                      size="m"
+                      fill
+                      disabled
+                      onClick={addToCartHandler}
+                    >
+                      Add To Cart
+                    </EuiButton>
+                  )}
                 </Col>
               </Row>
 
+              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-font-semibold">
+                Product Description
+              </div>
+              <div className="tw-leading-6 tw-text-md">
+                {product ? product.description : <div>No description</div>}
+              </div>
               <Row>
                 <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
-                  <h2 className="tw-py-4">Customer Reviews</h2>
+                  <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-font-semibold">
+                    Customer Reviews
+                  </div>
                   {product &&
                     product.reviews &&
                     product.reviews.length === 0 && (

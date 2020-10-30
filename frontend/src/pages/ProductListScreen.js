@@ -80,7 +80,7 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <>
-      <div className="tw-bg-gray-100  tw-mt-20 tw-h-auto tw-min-h-screen">
+      <div className="tw-bg-gray-100 tw-antialiased tw-mt-20 tw-h-auto tw-min-h-screen">
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
           <div className="tw-flex tw-pt-8 tw-justify-between tw-items-center">
             <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">

@@ -118,7 +118,7 @@ export default ({ history }) => {
 
   return (
     // <form onSubmit={submitHandler}>
-    <div className="xl:tw-pt-1 tw-ml-auto">
+    <div className="xl:tw-pt-1 tw-ml-auto tw-antialiased">
       <EuiSelectableTemplateSitewide
         isLoading={isLoading}
         onChange={onChange}
@@ -160,7 +160,7 @@ export default ({ history }) => {
       />
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
-        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider   tw-hidden"
+        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider    tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}

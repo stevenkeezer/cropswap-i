@@ -19,6 +19,24 @@ ion-item {
   --inner-padding-start: 0;
   --inner-padding-top: 0;
 }
+
+figure {
+  margin: 0em 0px !important;
+}
+
+b {
+  background: #ffffff !important;
+}
+
+.euiStepHorizontal,
+.euiStepHorizontal-isSelected:focus {
+  outline: none !important;
+}
+
+.euiCard--hasChildren .euiCard__description {
+  margin-bottom: 4px !important;
+}
+
 .euiPanel {
   border: none !important;
 }
@@ -48,6 +66,10 @@ ion-item {
 
   min-width: 18px !important;
   min-height: 18px !important;
+}
+
+.euiFormControlLayoutCustomIcon__icon {
+  color: rgb(0, 0, 0, 0.5) !important;
 }
 
 @media only screen and (max-width: 574px) {

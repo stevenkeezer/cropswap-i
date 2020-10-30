@@ -25,7 +25,7 @@ const ProductCarousel = () => {
     <>
       <Carousel
         pause="false"
-        className="tw-mt-3  lg:tw-mt-0"
+        className="tw-mt-3 tw-antialiased  lg:tw-mt-0"
         fade
         // interval={5000}
         style={{
