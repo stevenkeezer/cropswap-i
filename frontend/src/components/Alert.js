@@ -8,13 +8,13 @@ function AlertDismissible() {
   if (show) {
     return (
       <EuiCallOut
-        className="tw-bg-blue-700  tw-text-white tw-w-full"
+        className="tw-bg-blue-700 tw-m-0 tw-p-0 tw-px-4 tw-py-3 tw-border-none tw-text-white tw-w-full"
         // iconType={<div className="tw-text-white">X</div>}
-        size="s"
+        size="l"
       >
-        <div className="tw-text-white tw-flex tw-max-w-screen-xl tw-my-1 tw-mx-auto tw-justify-between  tw-px-2 sm:tw-px-4 tw-w-full">
-          <div className="tw-truncate">
-            <span className="font-weight-bold whitespace-no-wrap ">
+        <div className="tw-text-white tw-flex tw-max-w-screen-xl tw-my-1 tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
+          <div className="">
+            <span className="font-weight-bold whitespace-no-wrap tw-text-sm  ">
               COVID-19 IMPACT{" "}
             </span>
             Learn more about how the Coronavirus is impacting farming
@@ -22,7 +22,7 @@ function AlertDismissible() {
           </div>
           <div onClick={() => setShow(!show)} className="tw-text-white">
             <svg
-              class="tw-w-4 tw-h-4 "
+              class="tw-w-4 tw-h-4  tw-my-auto"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

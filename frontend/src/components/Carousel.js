@@ -65,10 +65,10 @@ const ProductCarousel = () => {
                   </svg>
                 </div>
                 <div className="tw-pb-6 lg:tw-w-1/2 tw-mr-auto tw-flex tw-items-center tw-w-full sm:tw-pt-6 lg:tw-pt-0">
-                  <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-6 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
+                  <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-6 tw-ml-0 sm:tw-ml-6 tw-ml-2 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-xs sm:tw-mb-3 tw-mt-4 tw-font-bold tw-text-white`}
+                      className={` tw-text-xs sm:tw-mb-3 tw-mt-5 tw-font-bold tw-text-white`}
                     >
                       Promo Code OCT20
                     </div>

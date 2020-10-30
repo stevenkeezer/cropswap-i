@@ -406,11 +406,22 @@ tbody tr:last-child td:last-child {
 @media (max-width: 767px) {
   .flexCard {
     max-width: 50% !important;
-    padding: 1vw;
+    padding: 0.5rem;
+  }
+  .euiFlexGroup--responsive {
+    margin-left: 0.55rem !important;
+    margin-right: 0.55rem !important;
   }
   .euiBottomBar.euiBottomBar--paddingMedium {
     padding-top: 5px !important;
     padding-bottom: 0px !important;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .euiFlexGroup--responsive {
+    margin-left: 0.8rem !important;
+    margin-right: 0.8rem !important;
   }
 }
 
