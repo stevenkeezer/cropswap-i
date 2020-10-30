@@ -279,6 +279,12 @@ select {
   }
 }
 
+@media (max-width: 400px) {
+  .hero-img {
+    margin-right: 15vw;
+  }
+}
+
 .euiNotificationBadge {
   border-radius: 99999rem !important;
 

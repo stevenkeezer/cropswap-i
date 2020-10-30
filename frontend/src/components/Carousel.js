@@ -49,7 +49,7 @@ const ProductCarousel = () => {
               to={`/product/${product._id}`}
               className="tw-flex tw-justify-between tw-w-full hover:tw-no-underline"
             >
-              <div className=" tw-flex tw-justify-between tw-w-full tw-px-8 sm:tw-px-8 lg:tw-mx-8 tw-my-6 tw-pb-3 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
+              <div className=" tw-flex tw-justify-between tw-w-full tw-px-4 sm:tw-px-8 lg:tw-mx-8 tw-mb-8 tw-mt-2 tw-pb-6 lg:tw-h-64 tw-h-46 lg:tw-mb-12">
                 <div class="tw-absolute tw-top-0 tw-right-0 ">
                   <svg
                     class="tw-block tw-ml-auto tw-h-auto sm:tw-w-2/5 tw-w-1/4 tw-rotate-180 tw-p-5  tw-transform"
@@ -68,13 +68,13 @@ const ProductCarousel = () => {
                   <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-6 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-xs tw-mb-3 tw-mt-2 tw-font-bold tw-text-white`}
+                      className={` tw-text-xs tw-mb-2 sm:tw-mb-3 tw-mt-2 tw-font-bold tw-text-white`}
                     >
                       Promo Code OCT20
                     </div>
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={`xs:tw-text-xl sm:tw-text-2xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
+                      className={`tw-text-2xl sm:tw-text-3xl lg:tw-text-4xl tw-font-bold tw-text-white  `}
                     >
                       {product.name}
                     </div>
@@ -86,14 +86,13 @@ const ProductCarousel = () => {
                   </div>
                 </div>
               </div>
-              <div className="tw-w-3/6 tw-absolute tw-right-0 tw-bottom-0 tw--mb-1 md:tw--mb-2 lg:tw--mb-2  xl:tw-mr-5 tw-visible lg:tw-visible">
+              <div className="tw-w-3/6 hero-img tw-absolute tw-right-0 tw-bottom-0 xs:tw-mr-0   tw--mb-1 md:tw--mb-2 lg:tw--mb-2  tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
                   alt={product.name}
                   // fluid
-                  style={{ marginBottom: -27 }}
-                  className="  sm:tw--mb-16 md:tw--mb-20 lg:tw--mb-24 xl:tw--mb-24 "
-                  // className=" tw-w-full xl:tw-pt-1 xl:tw-mt-10 lg:tw-mt-12 lg:tw-pt-10 tw-mt-16  sm:tw-mt-10 tw-pt-2   tw-ml-10 sm:tw-ml-0 tw-h-full"
+                  style={{ minWidth: "250px" }}
+                  className=" tw--mb-10  tw-mr-5 sm:tw--mb-16 md:tw--mb-20 tw-mt-auto lg:tw--mb-24 xl:tw--mb-24 "
                 />
               </div>
             </Link>
