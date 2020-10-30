@@ -8,6 +8,7 @@ import { Switch, useLocation } from "react-router-dom";
 import { IonReactRouter } from "@ionic/react-router";
 import { observer } from "mobx-react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import CartScreen from "./pages/CartScreen";
 import HomeScreen from "./pages/HomeScreen";
 import LoginScreen from "./pages/LoginScreen";
@@ -32,7 +33,7 @@ const PublicRoutes = ({ history }) => {
       <Router>
         <Header></Header>
         {/* <IonRouterOutlet> */}
-        <IonContent>
+        <IonContent className="tw-h-screen">
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />

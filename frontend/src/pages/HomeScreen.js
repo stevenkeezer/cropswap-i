@@ -1,5 +1,13 @@
 // MOBX
-import { EuiFlexGroup, EuiShowFor } from "@elastic/eui";
+import {
+  EuiFlexGroup,
+  EuiShowFor,
+  EuiPage,
+  EuiFlexGrid,
+  EuiPageBody,
+  EuiPageContent,
+  EuiFlexItem,
+} from "@elastic/eui";
 import {
   IonAlert,
   IonContent,
@@ -63,110 +71,112 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4  ">
-      <Meta />
-      <IonContent>
-        <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-          <div className="tw-mt-3">
-            <IonRefresherContent
-              pullingIcon={chevronDown}
-              pullingText="Pull to refresh"
-              refreshingSpinner="circles"
-              refreshingText="Loading..."
-            ></IonRefresherContent>
-          </div>
-        </IonRefresher>
-        {!keyword ? (
-          <>
-            {/* <Alert></Alert> */}
-            <EuiShowFor sizes={["xs", "s", "m"]}>
-              <CategorySlider history={history} />
-            </EuiShowFor>
-            <Carousel />
-            <Categories history={history} />
-          </>
-        ) : (
-          <div className=" tw-max-w-screen-xl tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
-            <Link
-              className="tw-items-center tw-flex hover:tw-no-underline "
-              to="/"
-            >
-              <IonIcon
-                icon={chevronBackOutline}
-                className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
-                size="small"
-                style={{ marginBottom: -3 }}
-              ></IonIcon>
-              <IonText
-                className="tw-text-md hover:tw-text-teal-600 "
-                color="light"
-              >
-                Back to search
-              </IonText>
-            </Link>
-          </div>
-        )}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <IonAlert
-            isOpen={error}
-            // onDidDismiss={() => setShowAlert1(false)}
-            cssClass="my-custom-class"
-            header={"Alert"}
-            subHeader={"Subtitle"}
-            message={"This is an alert message."}
-            buttons={["OK"]}
-          />
-        ) : (
-          <>
-            <div className=" tw-mb-3 tw-px-4 sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
+    <>
+      <EuiPage className=" tw-m-0 tw-p-0  tw-mt-24">
+        <EuiPageBody restrictWidth="75rem">
+          <EuiPageContent className="tw-bg-transparent tw-p-0 tw-shadow-none">
+            <Meta />
+            <div>
+              <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+                <div className="tw-mt-3">
+                  <IonRefresherContent
+                    pullingIcon={chevronDown}
+                    pullingText="Pull to refresh"
+                    refreshingSpinner="circles"
+                    refreshingText="Loading..."
+                  ></IonRefresherContent>
+                </div>
+              </IonRefresher>
               {!keyword ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-4  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
-                  <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
-                    Featured brands
-                  </div>
-                  <div className="tw-justify-end">
-                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
-                      View all
-                    </IonText>
-                  </div>
-                </div>
-              ) : products.length !== 0 ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
-                  Search results
-                </div>
+                <>
+                  {/* <Alert></Alert> */}
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <CategorySlider history={history} />
+                  </EuiShowFor>
+                  <Carousel />
+                  <Categories history={history} />
+                </>
               ) : (
-                <SearchEmpty history={history} />
+                <div className="  tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
+                  <Link
+                    className="tw-items-center tw-flex hover:tw-no-underline "
+                    to="/"
+                  >
+                    <IonIcon
+                      icon={chevronBackOutline}
+                      className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+                      size="small"
+                      style={{ marginBottom: -3 }}
+                    ></IonIcon>
+                    <IonText
+                      className="tw-text-md hover:tw-text-teal-600 "
+                      color="light"
+                    >
+                      Back to search
+                    </IonText>
+                  </Link>
+                </div>
+              )}
+              {loading ? (
+                <Loader />
+              ) : error ? (
+                <IonAlert
+                  isOpen={error}
+                  // onDidDismiss={() => setShowAlert1(false)}
+                  cssClass="my-custom-class"
+                  header={"Alert"}
+                  subHeader={"Subtitle"}
+                  message={"This is an alert message."}
+                  buttons={["OK"]}
+                />
+              ) : (
+                <>
+                  <div className=" tw-mb-3 tw-px-4 sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
+                    {!keyword ? (
+                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4 md:tw-pt-4  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
+                        <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
+                          Featured brands
+                        </div>
+                        <div className="tw-justify-end">
+                          <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
+                            View all
+                          </IonText>
+                        </div>
+                      </div>
+                    ) : products.length !== 0 ? (
+                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
+                        Search results
+                      </div>
+                    ) : (
+                      <SearchEmpty history={history} />
+                    )}
+                  </div>
+
+                  <EuiFlexGroup wrap columns={4} gutterSize="s">
+                    {products.map((product) => (
+                      <Product product={product} history={history} />
+                    ))}
+                  </EuiFlexGroup>
+
+                  <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
+                    <Paginate
+                      pages={pages && pages}
+                      page={page && page}
+                      keyword={keyword ? keyword : ""}
+                    />
+                  </div>
+
+                  {/* <HomeHero /> */}
+                  {/* <Regions /> */}
+                </>
               )}
             </div>
+          </EuiPageContent>
+        </EuiPageBody>
+      </EuiPage>
 
-            <EuiFlexGroup
-              wrap
-              gutterSize="l"
-              className="tw-max-w-screen-xl tw-mx-auto tw-px-3 sm:tw-px-4 md:tw-px-1"
-            >
-              {products.map((product) => (
-                <Product product={product} history={history} />
-              ))}
-            </EuiFlexGroup>
-
-            <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
-              <Paginate
-                pages={pages && pages}
-                page={page && page}
-                keyword={keyword ? keyword : ""}
-              />
-            </div>
-
-            {/* <HomeHero /> */}
-            {/* <Regions /> */}
-
-            {!keyword && <Footer history={history} />}
-          </>
-        )}
-      </IonContent>
-    </IonPage>
+      {!keyword && <Footer history={history} />}
+    </>
   );
 };
 

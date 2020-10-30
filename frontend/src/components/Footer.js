@@ -14,7 +14,6 @@ const Footer = ({ history }) => (
         // gridTemplateColumns: "3fr 2fr",
         columnGap: "1rem",
       }}
-      className=""
     >
       <HomeHero></HomeHero>
       <div
