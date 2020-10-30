@@ -77,9 +77,9 @@ export default function Rating({ value, text, color }) {
           </span>
         </EuiShowFor>
       </div>
-      <div className="tw-flex   tw-items-baseline tw-text-sm">
+      <div className="tw-flex   tw-items-baseline tw-text-xs sm:tw-text-sm">
         {value}
-        <span className="tw-text-sm tw-text-gray-800 tw-pl-2">
+        <span className=" tw-text-xs sm:tw-text-sm tw-text-gray-800 tw-pl-2">
           ({text && text})
         </span>
       </div>

@@ -12,7 +12,7 @@ function AlertDismissible() {
         // iconType={<div className="tw-text-white">X</div>}
         size="l"
       >
-        <div className="tw-text-white tw-flex tw-max-w-screen-xl tw-my-1 tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
+        <div className="tw-text-white tw-flex tw-max-w-screen-xl  tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
           <div className="">
             <span className="font-weight-bold whitespace-no-wrap tw-text-sm  ">
               COVID-19 IMPACT{" "}
@@ -20,7 +20,10 @@ function AlertDismissible() {
             Learn more about how the Coronavirus is impacting farming
             communities here.
           </div>
-          <div onClick={() => setShow(!show)} className="tw-text-white">
+          <div
+            onClick={() => setShow(!show)}
+            className="tw-text-white tw-my-auto"
+          >
             <svg
               class="tw-w-4 tw-h-4  tw-my-auto"
               fill="currentColor"

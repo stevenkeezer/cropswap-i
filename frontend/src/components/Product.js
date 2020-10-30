@@ -44,14 +44,14 @@ export default function Product({ product, history }) {
                 <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs  tw-font-medium tw-tracking-wide">
                   {product.category}
                 </div>
-                <div className="tw-cursor-pointer tw-text-gray-800  sm:tw-text-sm tw-font-semibold tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-sm tw-font-semibold tw-tracking-wide">
                   {product.name}
                 </div>
               </EuiText>
             }
             description={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-sm tw-font-medium tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs sm:tw-text-sm tw-font-medium tw-tracking-wide">
                   ${product.price}
                 </div>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
