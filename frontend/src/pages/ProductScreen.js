@@ -127,7 +127,7 @@ const ProductScreen = ({ history, match }) => {
                       />
                     </div>
                     <div className="tw-py-6">
-                      <span className="tw-font-bold tw-text-gray-900 tw-text-2xl tw-tracking-wide">
+                      <span className="tw-font-bold tw-text-gray-900 tw-text-2xl">
                         ${product.price}{" "}
                       </span>
                       <span className="tw-text-sm tw-text-gray-800">each</span>

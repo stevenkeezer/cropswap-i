@@ -68,7 +68,7 @@ const ProductCarousel = () => {
                   <div className="tw-flex-col lg:tw-text-center tw-w-full lg:tw-mt-6 tw-ml-0 sm:tw-ml-6 lg:tw-mr-20">
                     <div
                       style={{ textShadow: "0 2px 4px rgba(0,0,0,0.10)" }}
-                      className={` tw-text-xs tw-mb-1 sm:tw-mb-3 tw-mt-3 tw-font-bold tw-text-white`}
+                      className={` tw-text-xs sm:tw-mb-3 tw-mt-4 tw-font-bold tw-text-white`}
                     >
                       Promo Code OCT20
                     </div>
@@ -79,7 +79,7 @@ const ProductCarousel = () => {
                       {product.name}
                     </div>
                     <div
-                      className={`tw-bg-white tw-font-bold tw-py-1 sm:tw-py-2  tw-w-24 lg:tw-mx-auto tw-mt-3 tw-text-center tw-px-3 tw-text-black tw-shadow tw-rounded-full tw-text-xs tw-bg-white `}
+                      className={`tw-bg-white tw-font-bold tw-py-1 sm:tw-py-2 tw-shadow-inner  tw-w-24 lg:tw-mx-auto tw-mt-3 tw-text-center tw-px-3 tw-text-black  tw-rounded-full tw-text-xs tw-bg-white `}
                     >
                       Learn more
                     </div>
