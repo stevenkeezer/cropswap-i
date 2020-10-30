@@ -100,10 +100,10 @@ export default ({ theme }) => {
           aria-label="Apps menu with 1 new app"
           onClick={onMenuButtonClick}
         >
-          <EuiShowFor sizes={["xs", "s"]}>
+          <EuiShowFor sizes={["xs", "s", "m"]}>
             <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
           </EuiShowFor>
-          <EuiShowFor sizes={["m", "l", "xl"]}>
+          <EuiShowFor sizes={[, "l", "xl"]}>
             <svg
               class="tw-w-6 tw-h-6 tw-text-gray-800 tw-mx-auto"
               fill="currentColor"
