@@ -7,7 +7,10 @@ import {
   EuiHeaderSectionItemButton,
   EuiIcon,
   EuiHeaderSection,
+  EuiPage,
+  EuiPageContent,
   EuiProgress,
+  EuiPageHeader,
   EuiHeaderLogo,
   EuiHeaderLink,
   EuiHeaderLinks,
@@ -516,91 +519,94 @@ export default ({ theme }) => {
       {fullScreen && (
         <>
           <EuiShowFor sizes={["l", "xl"]}>
-            <EuiHeader
-              onProgress
-              className=" tw-mx-auto sm:px-0  tw-px-4 xl:tw-px-32 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
-              borderBottom="none"
-              style={{
-                borderBottom: "1px solid white",
-                boxShadow: "none!important",
-              }}
-              // theme="light"
-              position="fixed"
-              sections={[
-                {
-                  items: [
-                    <EuiShowFor sizes={["m", "l", "xl"]}>
-                      <Logo history={history} />
-                    </EuiShowFor>,
+            <span style={{ backgroundColor: "red" }} className="tw-bg-red-300">
+              <EuiHeader
+                restrictWidth="75rem"
+                onProgress
+                className=" tw-mx-auto sm:px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+                borderBottom="none"
+                style={{
+                  borderBottom: "1px solid white",
+                  boxShadow: "none!important",
+                }}
+                // theme="light"
+                position="fixed"
+                sections={[
+                  {
+                    items: [
+                      <EuiShowFor sizes={["m", "l", "xl"]}>
+                        <Logo history={history} />
+                      </EuiShowFor>,
 
-                    // <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
-                    <div className="tw-ml-6 tw-w-full" grow>
-                      {search}
-                    </div>,
-                    // </EuiShowFor>,
-                  ],
-                  borders: "none",
-                },
+                      // <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
+                      <div className="tw-ml-6 tw-w-full" grow>
+                        {search}
+                      </div>,
+                      // </EuiShowFor>,
+                    ],
+                    borders: "none",
+                  },
 
-                {
-                  items: [
-                    // <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
-                    userInfo && userInfo.isAdmin && (
-                      <HeaderSpacesMenu history={history} />
-                    ),
-                    <EuiHeaderSectionItemButton
-                      aria-haspopup="true"
-                      aria-label="Apps menu with 1 new app"
-                      notification={cartItems.length}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        history.push("/cart");
-                      }}
-                    >
-                      <svg
-                        className="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                        xmlns="http://www.w3.org/2000/svg"
+                  {
+                    items: [
+                      // <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
+                      userInfo && userInfo.isAdmin && (
+                        <HeaderSpacesMenu history={history} />
+                      ),
+                      <EuiHeaderSectionItemButton
+                        aria-haspopup="true"
+                        aria-label="Apps menu with 1 new app"
+                        notification={cartItems.length}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          history.push("/cart");
+                        }}
                       >
-                        <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                      </svg>
-                    </EuiHeaderSectionItemButton>,
+                        <svg
+                          className="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                        </svg>
+                      </EuiHeaderSectionItemButton>,
 
-                    userInfo ? (
-                      <>
-                        <HeaderUserMenu history={history} />
-                        <HeaderAppMenu history={history} />
-                      </>
-                    ) : (
-                      <>
-                        <EuiLink
-                          className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
-                          onClick={(e) => {
-                            history.push("/login");
-                          }}
-                        >
-                          <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
-                            Log in
-                          </span>
-                        </EuiLink>
-                        <EuiLink
-                          className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
-                          onClick={(e) => {
-                            history.push("/register");
-                          }}
-                        >
-                          <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
-                            Sign Up
-                          </span>
-                        </EuiLink>
-                      </>
-                    ),
-                  ],
-                  borders: "none",
-                },
-              ]}
-            />
+                      userInfo ? (
+                        <>
+                          <HeaderUserMenu history={history} />
+                          <HeaderAppMenu history={history} />
+                        </>
+                      ) : (
+                        <>
+                          <EuiLink
+                            className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
+                            onClick={(e) => {
+                              history.push("/login");
+                            }}
+                          >
+                            <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
+                              Log in
+                            </span>
+                          </EuiLink>
+                          <EuiLink
+                            className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
+                            onClick={(e) => {
+                              history.push("/register");
+                            }}
+                          >
+                            <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                              Sign Up
+                            </span>
+                          </EuiLink>
+                        </>
+                      ),
+                    ],
+                    borders: "none",
+                  },
+                ]}
+              />
+            </span>
           </EuiShowFor>
           <EuiShowFor sizes={["xs", "s", "m"]}>
             <EuiHeader

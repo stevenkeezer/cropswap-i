@@ -351,6 +351,7 @@ tbody tr:last-child td:last-child {
 @media (min-width: 992px) {
   .euiHeader {
     height: 6rem !important;
+    justify-content: space-around !important;
   }
 }
 
