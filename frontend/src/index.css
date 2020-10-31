@@ -53,23 +53,6 @@ b {
   /* background: gray !important; */
 }
 
-.euiNotificationBadge {
-  border: 0.25px solid white !important;
-  border-radius: 4px;
-
-  font-size: 12px !important;
-  font-weight: 800;
-  line-height: 1.333rem !important;
-  /* height: 1.333rem !important; */
-  justify-content: center !important;
-  align-items: center !important;
-  line-height: 20px !important;
-  left: 31px !important;
-  top: 1px !important;
-  min-width: 1.333rem !important;
-  min-height: 1.333rem !important;
-}
-
 .euiFormControlLayoutCustomIcon__icon {
   color: rgb(0, 0, 0, 0.5) !important;
 }
@@ -398,6 +381,49 @@ tbody tr:last-child td:last-child {
   }
   .euiTable {
     background: none !important;
+  }
+  .euiNotificationBadge {
+    border: 0.25px solid white !important;
+    border-radius: 4px;
+    line-height: 18px !important;
+    /* height: 10px !important; */
+    /* min-width: 10px !important; */
+
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    font-size: 11px !important;
+    font-weight: 800;
+    /* line-height: 1.333rem !important; */
+    /* height: 1.333rem !important; */
+    justify-content: center !important;
+    align-items: center !important;
+    left: 20px !important;
+    top: 2px !important;
+    min-width: 1.333rem !important;
+    /* min-height: 1.333rem !important; */
+  }
+}
+
+@media (min-width: 576px) {
+  .euiNotificationBadge {
+    border: 0.25px solid white !important;
+    border-radius: 4px;
+    line-height: 18px !important;
+    height: 20px !important;
+    /* min-width: 10px !important; */
+
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+    font-size: 12px !important;
+    font-weight: 800;
+    /* line-height: 1.333rem !important; */
+    /* height: 1.333rem !important; */
+    justify-content: center !important;
+    align-items: center !important;
+    left: 28px !important;
+    top: 2px !important;
+    min-width: 1.333rem !important;
+    /* min-height: 1.333rem !important; */
   }
 }
 
