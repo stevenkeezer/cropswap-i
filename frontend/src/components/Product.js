@@ -43,7 +43,7 @@ export default function Product({ product, history, scrollPosition }) {
                 effect="blur"
                 alt={product.image}
                 scrollPosition={scrollPosition}
-                height={200}
+                height="50%"
                 src={product.image}
               />
             }
