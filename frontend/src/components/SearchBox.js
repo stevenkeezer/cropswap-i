@@ -225,13 +225,17 @@ export default ({ history }) => {
  */
 const searchData: EuiSelectableTemplateSitewideOption[] = [
   {
-    label: "Welcome dashboards",
+    label: "Iceberg Lettuce",
+    url: "/profile",
+    // onClick: () => {
+    //   history.push("/product/5f9cffa1ef6e637afe66b681");
+    // },
     avatar: {
       name: "Default Space",
     },
     meta: [
       {
-        text: "Dashboard",
+        text: "Iceberg Lettuce",
         type: "application",
         highlightSearchString: true,
       },

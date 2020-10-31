@@ -6,10 +6,13 @@ import {
   EuiLoadingContent,
   EuiSpacer,
 } from "@elastic/eui";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
+
 import Rating from "../components/Rating";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Product({ product, history }) {
+export default function Product({ product, history, scrollPosition }) {
   const dispatch = useDispatch();
 
   const clickHandler = (id) => {
@@ -30,10 +33,18 @@ export default function Product({ product, history }) {
             textAlign="left"
             rounded="false"
             image={
-              <img
-                className=" tw-w-auto tw-object-cover tw-cursor-pointer"
+              // <img
+              //   className=" tw-w-auto tw-object-cover tw-cursor-pointer"
+              //   src={product.image}
+              //   style={{ borderRadius: "0px!important" }}
+              // />
+
+              <LazyLoadImage
+                effect="blur"
+                alt={product.image}
+                scrollPosition={scrollPosition}
+                height={200}
                 src={product.image}
-                style={{ borderRadius: "0px!important" }}
               />
             }
             grow={false}

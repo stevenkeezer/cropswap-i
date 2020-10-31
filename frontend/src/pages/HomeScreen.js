@@ -17,6 +17,11 @@ import {
   IonRefresherContent,
   IonText,
 } from "@ionic/react";
+import {
+  LazyLoadComponent,
+  trackWindowScroll,
+} from "react-lazy-load-image-component";
+
 import { chevronBackOutline, chevronDown } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -79,7 +84,7 @@ const HomeScreen = ({ match }) => {
           <CategorySlider history={history} />
         </div>
       </EuiShowFor>
-      <Alert></Alert>
+      {!keyword && <Alert />}
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
           <EuiPageContent className="tw-bg-white tw-p-0  tw-shadow-none">
@@ -162,7 +167,7 @@ const HomeScreen = ({ match }) => {
                     ))}
                   </EuiFlexGroup>
 
-                  <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
+                  <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justiy-center">
                     <Paginate
                       pages={pages && pages}
                       page={page && page}
@@ -184,4 +189,4 @@ const HomeScreen = ({ match }) => {
   );
 };
 
-export default HomeScreen;
+export default trackWindowScroll(HomeScreen);

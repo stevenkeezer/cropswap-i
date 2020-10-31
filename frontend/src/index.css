@@ -59,13 +59,15 @@ b {
 
   font-size: 12px !important;
   font-weight: 800;
-  line-height: 18px !important;
-  /* height: 18px !important; */
+  line-height: 1.333rem !important;
+  /* height: 1.333rem !important; */
   justify-content: center !important;
   align-items: center !important;
-
-  min-width: 18px !important;
-  min-height: 18px !important;
+  line-height: 20px !important;
+  left: 31px !important;
+  top: 1px !important;
+  min-width: 1.333rem !important;
+  min-height: 1.333rem !important;
 }
 
 .euiFormControlLayoutCustomIcon__icon {
@@ -77,26 +79,22 @@ b {
   .euiHeaderSectionItem__button {
     min-width: 40px !important;
   }
-  .euiNotificationBadge {
-    top: 8% !important;
-    right: 0 !important;
-    font-size: 11px !important;
-    line-height: 17px !important;
-    /* height: 16px !important; */
-    min-width: 18px !important;
-    min-height: 17px !important;
-  }
 }
 
 @media only screen and (max-width: 574px) {
   .euiHeaderSectionItemButton__notification--badge {
     width: initial !important;
     height: initial !important;
+    /* left: 22px; */
 
     /* min-width: 0; */
     border-radius: 8px;
     color: white !important;
     overflow: hidden;
+  }
+  .euiNotificationBadge {
+    left: 22px !important;
+    top: 1px !important;
   }
 }
 

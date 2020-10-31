@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import UserOrderTable from "../components/UserOrderTable";
+import OrdersEmpty from "../components/OrdersEmpty";
 import ElasticCondensed from "../components/ElasticCondensed";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import { listMyOrders } from "../actions/orderActions";
@@ -108,6 +109,8 @@ const ProfileScreen = ({ location, history }) => {
                     <Loader />
                   ) : errorOrders ? (
                     <Message variant="danger">{errorOrders}</Message>
+                  ) : orders.length === 0 ? (
+                    <OrdersEmpty />
                   ) : (
                     <div className="md:tw-shadow  sm:tw-rounded-lg tw-px-2 md:tw-bg-white">
                       <UserOrderTable orders={orders} history={history} />
