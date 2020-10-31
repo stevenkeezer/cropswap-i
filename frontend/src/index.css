@@ -389,17 +389,17 @@ tbody tr:last-child td:last-child {
     /* height: 10px !important; */
     /* min-width: 10px !important; */
 
-    padding-left: 2px !important;
-    padding-right: 2px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
     font-size: 11px !important;
     font-weight: 800;
     /* line-height: 1.333rem !important; */
     /* height: 1.333rem !important; */
     justify-content: center !important;
     align-items: center !important;
-    left: 20px !important;
+    left: 22px !important;
     top: 2px !important;
-    min-width: 1.333rem !important;
+    min-width: 1.25rem !important;
     /* min-height: 1.333rem !important; */
   }
 }
@@ -408,14 +408,14 @@ tbody tr:last-child td:last-child {
   .euiNotificationBadge {
     border: 0.25px solid white !important;
     border-radius: 4px;
-    line-height: 18px !important;
-    height: 20px !important;
+    line-height: 20px !important;
+    height: 21px !important;
     /* min-width: 10px !important; */
 
     padding-left: 1px !important;
     padding-right: 1px !important;
-    font-size: 12px !important;
-    font-weight: 800;
+    font-size: 11px !important;
+    font-weight: 900;
     /* line-height: 1.333rem !important; */
     /* height: 1.333rem !important; */
     justify-content: center !important;
