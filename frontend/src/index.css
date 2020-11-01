@@ -62,21 +62,6 @@ b {
   /* background: gray !important; */
 }
 
-.euiNotificationBadge {
-  border: 0.25px solid white !important;
-  border-radius: 4px;
-
-  font-size: 12px !important;
-  font-weight: 800;
-  line-height: 18px !important;
-  /* height: 18px !important; */
-  justify-content: center !important;
-  align-items: center !important;
-
-  min-width: 18px !important;
-  min-height: 18px !important;
-}
-
 .euiFormControlLayoutCustomIcon__icon {
   color: rgb(0, 0, 0, 0.5) !important;
 }
@@ -93,7 +78,19 @@ b {
     line-height: 17px !important;
     /* height: 16px !important; */
     min-width: 18px !important;
-    min-height: 17px !important;
+    min-height: 18px !important;
+  }
+}
+
+@media only screen and (min-width: 574px) {
+  .euiNotificationBadge {
+    top: 8% !important;
+    right: 0 !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
+    /* height: 16px !important; */
+    min-width: 18px !important;
+    min-height: 18px !important;
   }
 }
 
