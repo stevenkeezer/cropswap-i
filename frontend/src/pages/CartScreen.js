@@ -8,6 +8,7 @@ import {
 } from "@elastic/eui";
 import { IonIcon } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
+import LazyImage from "../components/LazyImage";
 import NumericInput from "react-numeric-input";
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
@@ -56,38 +57,37 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div className=" tw-h-auto  lg:tw-mt-24 tw-mt-12 tw-mb-20 sm:tw-mb-0 sm:tw-bg-gray-100 tw-min-h-screen  tw-text-gray-900 tw-antialiased tw-leading-tight">
-          <div className="tw-max-w-screen-xl  tw-mx-auto tw-pt-2 ">
-            <div className="tw-p-0  lg:tw-pt-6 tw-pt-16 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
+        <div className=" tw-h-auto  tw-mb-20 sm:tw-mb-0 sm:tw-bg-gray-100 tw-min-h-screen  tw-text-gray-900 tw-antialiased tw-leading-tight">
+          <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-2 ">
+            <div className="tw-p-0 tw-px-4 lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
-            <EuiShowFor sizes={["xs", "s", "m"]}>
-              <EuiHorizontalRule margin="s" />
-            </EuiShowFor>
 
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
-            <div className="tw-px-4 sm:tw-pb-0 ">
-              <div
-                onClick={() => history.push("/")}
-                className="sm:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
-              >
-                Continue shopping{" "}
-                <svg
-                  class="tw-w-5 tw-h-5 tw-text-gray-700"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <div className="tw-px-4 sm:tw-pb-0 ">
+                <div
+                  onClick={() => history.push("/")}
+                  className="sm:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
                 >
-                  <path
-                    fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
+                  Continue shopping{" "}
+                  <svg
+                    class="tw-w-5 tw-h-5 tw-text-gray-700"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </div>
               </div>
-            </div>
+            </EuiShowFor>
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
@@ -144,13 +144,14 @@ const CartScreen = ({ match, location, history }) => {
                             <>
                               <div className="tw-flex  tw-items-baseline tw-w-full  tw-justify-between">
                                 <div className="tw-gap-4 tw-flex tw-w-full ">
-                                  <img
+                                  <LazyImage
                                     onClick={() =>
                                       history.push(`/product/${item.product}`)
                                     }
                                     className="tw-w-20 tw-h-20  tw-object-cover  tw-cursor-pointer "
                                     alt={item.name}
                                     src={item.image}
+                                    height={80}
                                   />
 
                                   <div className="tw-flex tw-mt-auto  tw-w-full tw-items-baseline tw-justify-between">
@@ -164,8 +165,9 @@ const CartScreen = ({ match, location, history }) => {
                                       <div className="tw-flex tw-w-32 tw-h-8">
                                         <NumericInput
                                           mobile
-                                          className="tw-w-32 tw-h-8 tw-bg-gray-200 tw-text-sm tw-border-none tw-bg-opacity-75"
+                                          className="numericInput tw-w-32 tw-h-8 tw-bg-gray-200 tw-text-sm tw-border-none tw-bg-opacity-75"
                                           min={1}
+                                          onKeyDown={(e) => e.preventDefault()}
                                           max={item.countInStock}
                                           value={item.qty}
                                           onChange={(e) =>
@@ -190,9 +192,6 @@ const CartScreen = ({ match, location, history }) => {
                 )}
               </div>
               <div className="xl:tw-w-1/2">
-                {/* <IonText>
-              ({cartItems.reduce((acc, item) => acc + item.qty, 0)}) items
-            </IonText> */}
                 <EuiShowFor sizes={["xs", "s", "m"]}>
                   <EuiHorizontalRule margin="s" />
                 </EuiShowFor>

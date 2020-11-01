@@ -37,6 +37,15 @@ b {
   margin-bottom: 4px !important;
 }
 
+.numericInput {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+
+.numericInput:focus {
+  outline: none;
+}
+
 .euiPanel {
   border: none !important;
 }
@@ -101,7 +110,7 @@ b {
 }
 
 .euiHeaderSection--left:last-child {
-  height: 55px !important;
+  height: 65px !important;
 }
 
 :root {
@@ -421,12 +430,13 @@ tbody tr:last-child td:last-child {
     padding-bottom: 0px !important;
   }
 }
+.page-item.active .page-link {
+  background-color: gray;
+  border-color: gray;
+}
 
-@media only screen and (min-width: 768px) {
-  .euiFlexGroup--responsive {
-    margin-left: 0.8rem !important;
-    margin-right: 0.8rem !important;
-  }
+.page-link {
+  color: black;
 }
 
 @media only screen and (max-width: 574px) {

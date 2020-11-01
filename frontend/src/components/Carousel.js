@@ -25,14 +25,14 @@ const ProductCarousel = () => {
     <>
       <Carousel
         pause="false"
-        className=" tw-antialiased  lg:tw-mt-0"
+        className=" tw-antialiased  lg:tw-mt-0 "
         fade
         // interval={5000}
-        style={{
-          maxWidth: "75rem",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
+        // style={{
+        //   maxWidth: "75rem",
+        //   marginLeft: "auto",
+        //   marginRight: "auto",
+        // }}
       >
         {products.map((product, index) => (
           <Carousel.Item
@@ -89,7 +89,6 @@ const ProductCarousel = () => {
               <div className="tw-w-3/6 hero-img tw-absolute tw-right-0 tw-bottom-0 xs:tw-mr-0   tw--mb-1 md:tw--mb-2 lg:tw--mb-2  tw-visible lg:tw-visible">
                 <img
                   src="/farmers.svg"
-                  alt={product.name}
                   // fluid
                   style={{ minWidth: "250px" }}
                   className=" tw--mb-10  tw-mr-5 sm:tw--mb-16 md:tw--mb-20 tw-mt-auto lg:tw--mb-24 xl:tw--mb-24 "

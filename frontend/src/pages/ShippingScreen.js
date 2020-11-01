@@ -52,7 +52,7 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="sm:tw-bg-gray-100 tw-mt-24 tw-min-h-screen tw-pb-12 tw-pt-4 tw-antialiased">
+      <div className="sm:tw-bg-gray-100 tw-min-h-screen tw-pb-12 tw-pt-2 tw-antialiased">
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 />
         </div>
@@ -100,6 +100,7 @@ const ShippingScreen = ({ history }) => {
                 <EuiAccordion
                   id="accordionExtraWithRightArrow"
                   arrowDisplay="none"
+                  initialIsOpen={address === "" && true}
                   buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
                   buttonContentClassName="tw-flex tw-w-full tw-mb-2 tw-justify-between"
                   buttonContent={

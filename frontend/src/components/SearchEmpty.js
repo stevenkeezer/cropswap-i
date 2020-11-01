@@ -7,7 +7,7 @@ const SearchEmpty = ({ history }) => (
   <>
     <EuiEmptyPrompt
       iconType={"/cartEmpty.svg"}
-      title={<h2>No search results were found.</h2>}
+      title={<h4>No search results were found.</h4>}
       actions={
         <EuiButton onClick={() => history.push("/")} color="secondary" fill>
           Go back

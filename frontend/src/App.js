@@ -20,6 +20,7 @@ import ProductEditScreen from "./pages/ProductEditScreen";
 import ProductListScreen from "./pages/ProductListScreen";
 import ProductScreen from "./pages/ProductScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import SellingScreen from "./pages/SellingScreen";
 import RegisterScreen from "./pages/RegisterScreen";
 import ShippingScreen from "./pages/ShippingScreen";
 import UserEditScreen from "./pages/UserEditScreen";
@@ -33,10 +34,11 @@ const PublicRoutes = ({ history }) => {
       <Router>
         <Header></Header>
         {/* <IonRouterOutlet> */}
-        <IonContent className="tw-h-screen">
+        <IonContent className="">
           <Route path="/order/:id" component={OrderScreen} />
           <Route path="/shipping" component={ShippingScreen} />
           <Route path="/payment" component={PaymentScreen} />
+          <Route path="/selling" component={SellingScreen} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/login" component={LoginScreen} />
           <Route path="/product/:id" component={ProductScreen} />

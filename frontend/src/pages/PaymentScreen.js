@@ -56,21 +56,21 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-screen  sm:tw-bg-gray-100 tw-mt-24 tw-antialiased tw-pt-4">
+      <div className="tw-h-screen  sm:tw-bg-gray-100  tw-antialiased tw-pt-2">
         {/* <Container> */}
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-mb-4 tw-text-gray-800 tw-mt-4  sm:tw-mt-8 tw-mx-auto">
+        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-mb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
           <Col lg={8} className="tw-p-0">
             <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
-              Select a Payment Method
+              Select payment method
             </div>
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-mt-3 tw-px-4 t">
+            <div className="tw-mt-3 tw-px-4 sm:tw-px-0 lg:tw-px-4">
               <EuiRadioGroup
                 options={[
                   {
@@ -79,7 +79,7 @@ const PaymentScreen = ({ history }) => {
                       <div
                         class={`card card-body ${
                           radioIdSelected === 0 && "tw-border-blue-500"
-                        } d-flex tw-rounded  flex-row justify-content-center align-items-center tw-h-32 tw-w-48`}
+                        } d-flex tw-rounded  flex-row justify-content-center align-items-center tw-h-20 tw-w-32 lg:tw-h-32 lg:tw-w-48`}
                       >
                         <div>
                           <img
@@ -99,7 +99,7 @@ const PaymentScreen = ({ history }) => {
                       <div
                         class={`card card-body 
                         ${radioIdSelected === 1 && "tw-border-blue-500"}
-                        d-flex tw-rounded  flex-row justify-content-center align-items-center tw-h-32 tw-w-48`}
+                        d-flex tw-rounded  flex-row justify-content-center align-items-center tw-h-20 tw-w-32 lg:tw-h-32 lg:tw-w-48`}
                       >
                         <div>
                           <span className="tw-font-semibold  tw-flex tw-items-center tw-py-1 tw-gap-2">
@@ -116,7 +116,7 @@ const PaymentScreen = ({ history }) => {
                       <div
                         class={`card card-body 
                         ${radioIdSelected === 2 && "tw-border-blue-500"}
-                        d-flex tw-rounded  flex-row justify-content-center align-items-center  tw-h-32 tw-w-48`}
+                        d-flex tw-rounded  flex-row justify-content-center align-items-center  tw-h-20 tw-w-32 lg:tw-h-32 lg:tw-w-48`}
                       >
                         <div>
                           <svg

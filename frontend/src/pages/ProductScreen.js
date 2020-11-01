@@ -5,6 +5,7 @@ import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import SubFooter from "../components/SubFooter";
+import LazyImage from "../components/LazyImage";
 // import Meta from "../components/Meta";
 import {
   createProductReview,
@@ -75,14 +76,10 @@ const ProductScreen = ({ history, match }) => {
     );
   };
 
-  const items = [
-    { src: "http://placekitten.com/g/200/300", text: "a picture of a cat" },
-  ];
-
   return (
     <>
       <div className="tw-bg-gray-100 tw-h-auto tw-antialiased ">
-        <div className=" tw-mt-24 tw-px-4  tw-pt-5 tw-max-w-screen-xl tw-mx-auto">
+        <div className=" tw-px-4  tw-pt-5 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
@@ -108,7 +105,12 @@ const ProductScreen = ({ history, match }) => {
               <Meta title={product.name} />
               <Row className="justify-content-center mt-4">
                 <Col md={6} size={12} className="tw-mb-8">
-                  <ElasticImage image={product.image} name={product.name} />
+                  <LazyImage
+                    src={product.image}
+                    placeholder={product.image}
+                    height={500}
+                  />
+                  {/* <ElasticImage image={product.image} name={product.name} /> */}
                 </Col>
 
                 <Col md={3}>

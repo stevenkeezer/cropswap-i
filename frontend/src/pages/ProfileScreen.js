@@ -9,6 +9,7 @@ import UserOrderTable from "../components/UserOrderTable";
 import OrdersEmpty from "../components/OrdersEmpty";
 import ElasticCondensed from "../components/ElasticCondensed";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
+import Toolbar from "../components/Toolbar";
 import { listMyOrders } from "../actions/orderActions";
 import SubFooter from "../components/SubFooter";
 import {
@@ -70,7 +71,7 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <div className=" tw-bg-gray-100 tw-h-auto tw-mt-24  tw-pb-12 tw-antialiased tw-min-h-screen">
+      <div className=" tw-bg-gray-100 tw-h-auto tw-pb-12 tw-antialiased tw-min-h-screen">
         <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
           {loading ? (
             <Loader />
@@ -88,29 +89,33 @@ const ProfileScreen = ({ location, history }) => {
                   ) : error ? (
                     <Message variant="danger">{error}</Message>
                   ) : (
-                    <ElasticCondensed
-                      name={name}
-                      email={email}
-                      password={password}
-                      confirmPassword={confirmPassword}
-                      setName={setName}
-                      setEmail={setEmail}
-                      setPassword={setPassword}
-                      setConfirmPassword={setConfirmPassword}
-                      submitHandler={submitHandler}
-                    />
+                    <>
+                      <Toolbar history={history} />
+                      <ElasticCondensed
+                        name={name}
+                        email={email}
+                        password={password}
+                        confirmPassword={confirmPassword}
+                        setName={setName}
+                        setEmail={setEmail}
+                        setPassword={setPassword}
+                        setConfirmPassword={setConfirmPassword}
+                        submitHandler={submitHandler}
+                      />
+                    </>
                   )}
                 </Col>
                 <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
                   <div className=" tw-text-2xl  tw-pb-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
                     My Orders
                   </div>
+
                   {loadingOrders ? (
                     <Loader />
                   ) : errorOrders ? (
                     <Message variant="danger">{errorOrders}</Message>
                   ) : orders.length === 0 ? (
-                    <OrdersEmpty />
+                    <OrdersEmpty history={history} />
                   ) : (
                     <div className="md:tw-shadow  sm:tw-rounded-lg tw-px-2 md:tw-bg-white">
                       <UserOrderTable orders={orders} history={history} />

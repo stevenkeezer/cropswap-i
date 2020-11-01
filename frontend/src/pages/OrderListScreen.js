@@ -31,7 +31,7 @@ const OrderListScreen = ({ history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <div className="tw-bg-gray-100 tw-antialiased  lg:tw-mt-24 tw-mt-24 tw-pb-12 tw-h-auto">
+          <div className="tw-bg-gray-100 tw-antialiased tw-h-screen  lg:tw-mt-24 tw-mt-24 tw-pb-12 tw-h-auto">
             <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-mt-4 t">
               <div className="tw-text-gray-800 tw-text-2xl tw-py-4 tw-font-medium tw-pt-8 ">
                 Orders

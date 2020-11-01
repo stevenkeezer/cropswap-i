@@ -17,10 +17,6 @@ import {
   IonRefresherContent,
   IonText,
 } from "@ionic/react";
-import {
-  LazyLoadComponent,
-  trackWindowScroll,
-} from "react-lazy-load-image-component";
 
 import { chevronBackOutline, chevronDown } from "ionicons/icons";
 import React, { useEffect } from "react";
@@ -78,13 +74,12 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
-      <div className="tw-mt-24 "></div>
-      <EuiShowFor sizes={["xs", "s", "m"]}>
-        <div className=" tw-pb-2 tw-pt-1">
+      <div className="">
+        <EuiShowFor sizes={["xs", "s", "m", "l"]}>
           <CategorySlider history={history} />
-        </div>
-      </EuiShowFor>
-      {!keyword && <Alert />}
+        </EuiShowFor>
+        {!keyword && <Alert />}
+      </div>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
           <EuiPageContent className="tw-bg-white tw-p-0  tw-shadow-none">
@@ -103,27 +98,29 @@ const HomeScreen = ({ match }) => {
               {!keyword ? (
                 <>
                   <Carousel />
-                  <Categories history={history} />
+                  {!loading && <Categories history={history} />}
                 </>
               ) : (
                 <div className="  tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
-                  <Link
-                    className="tw-items-center tw-flex hover:tw-no-underline "
-                    to="/"
-                  >
-                    <IonIcon
-                      icon={chevronBackOutline}
-                      className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
-                      size="small"
-                      style={{ marginBottom: -3 }}
-                    ></IonIcon>
-                    <IonText
-                      className="tw-text-md hover:tw-text-teal-600 "
-                      color="light"
+                  {!keyword && !loading && (
+                    <Link
+                      className="tw-items-center tw-flex hover:tw-no-underline "
+                      to="/"
                     >
-                      Back to search
-                    </IonText>
-                  </Link>
+                      <IonIcon
+                        icon={chevronBackOutline}
+                        className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+                        size="small"
+                        style={{ marginBottom: -3 }}
+                      ></IonIcon>
+                      <IonText
+                        className="tw-text-md hover:tw-text-teal-600 "
+                        color="light"
+                      >
+                        Back to search
+                      </IonText>
+                    </Link>
+                  )}
                 </div>
               )}
               {loading ? (
@@ -153,7 +150,7 @@ const HomeScreen = ({ match }) => {
                         </div>
                       </div>
                     ) : products.length !== 0 ? (
-                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
+                      <div className="tw-p-0  tw-mx-auto tw-px-4  tw-mt-10 tw-justify-between tw-text-xl tw-font-medium tw-flex tw-pb-3 ">
                         Search results
                       </div>
                     ) : (
@@ -161,7 +158,12 @@ const HomeScreen = ({ match }) => {
                     )}
                   </div>
 
-                  <EuiFlexGroup wrap columns={4} gutterSize="s">
+                  <EuiFlexGroup
+                    wrap
+                    columns={4}
+                    gutterSize="s"
+                    className="md:tw-px-4"
+                  >
                     {products.map((product) => (
                       <Product product={product} history={history} />
                     ))}
@@ -184,9 +186,9 @@ const HomeScreen = ({ match }) => {
         </EuiPageBody>
       </EuiPage>
 
-      {!keyword && <Footer history={history} />}
+      {!keyword && !loading && <Footer history={history} />}
     </>
   );
 };
 
-export default trackWindowScroll(HomeScreen);
+export default HomeScreen;

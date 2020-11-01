@@ -139,7 +139,6 @@ export default ({ theme }) => {
           >
             <EuiIcon type={"discoverApp"} size="l" />
           </EuiKeyPadMenuItem>
-
           <EuiKeyPadMenuItem
             label="Orders"
             onClick={(e) => {
@@ -149,7 +148,6 @@ export default ({ theme }) => {
           >
             <EuiIcon type="dashboardApp" size="l" />
           </EuiKeyPadMenuItem>
-
           <EuiKeyPadMenuItem
             label="Cart"
             onClick={(e) => {
@@ -159,48 +157,47 @@ export default ({ theme }) => {
           >
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
+          {userInfo && userInfo.isAdmin && (
+            <>
+              <EuiKeyPadMenuItem
+                label="Product List"
+                onClick={(e) => {
+                  history.push("/admin/productlist");
+                  closeMenu();
+                }}
+              >
+                <EuiIcon type="devToolsApp" size="l" />
+              </EuiKeyPadMenuItem>
+            </>
+          )}
 
-          <EuiKeyPadMenuItem
-            label="Product List"
-            onClick={(e) => {
-              history.push("/admin/productlist");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="devToolsApp" size="l" />
-          </EuiKeyPadMenuItem>
-          <EuiKeyPadMenuItem
-            label="Users List"
-            onClick={(e) => {
-              history.push("/admin/userlist");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="usersRolesApp" size="l" />
-          </EuiKeyPadMenuItem>
-          <EuiKeyPadMenuItem
-            label="Orders List"
-            onClick={(e) => {
-              history.push("/admin/orderlist");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="usersRolesApp" size="l" />
-          </EuiKeyPadMenuItem>
-          <a href="https://github.com/stevenkeezer/cropswap-i" target="_blank">
-            <EuiKeyPadMenuItem label="Github">
-              <EuiIcon type="logoGithub" size="l" />
-            </EuiKeyPadMenuItem>
-          </a>
-          <EuiKeyPadMenuItem
-            label="Profile"
-            onClick={(e) => {
-              history.push("/profile");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="usersRolesApp" size="l" />
-          </EuiKeyPadMenuItem>
+          {userInfo && userInfo.isAdmin && (
+            <>
+              <EuiKeyPadMenuItem
+                label="Users List"
+                onClick={(e) => {
+                  history.push("/admin/userlist");
+                  closeMenu();
+                }}
+              >
+                <EuiIcon type="usersRolesApp" size="l" />
+              </EuiKeyPadMenuItem>
+            </>
+          )}
+
+          {userInfo && userInfo.isAdmin && (
+            <>
+              <EuiKeyPadMenuItem
+                label="Orders List"
+                onClick={(e) => {
+                  history.push("/admin/orderlist");
+                  closeMenu();
+                }}
+              >
+                <EuiIcon type="usersRolesApp" size="l" />
+              </EuiKeyPadMenuItem>
+            </>
+          )}
         </EuiKeyPadMenu>
       </EuiPopover>
     );
@@ -519,18 +516,18 @@ export default ({ theme }) => {
       {fullScreen && (
         <>
           <EuiShowFor sizes={["l", "xl"]}>
-            <span style={{ backgroundColor: "red" }} className="tw-bg-red-300">
+            <span>
               <EuiHeader
                 restrictWidth="75rem"
                 onProgress
-                className=" tw-mx-auto sm:px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+                position="static"
+                className=" tw-mx-auto sm:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
                 borderBottom="none"
                 style={{
                   borderBottom: "1px solid white",
                   boxShadow: "none!important",
                 }}
                 // theme="light"
-                position="fixed"
                 sections={[
                   {
                     items: [
@@ -574,7 +571,7 @@ export default ({ theme }) => {
 
                       userInfo ? (
                         <>
-                          <HeaderUserMenu history={history} />
+                          {/* <HeaderUserMenu history={history} /> */}
                           <HeaderAppMenu history={history} />
                         </>
                       ) : (
@@ -676,8 +673,8 @@ export default ({ theme }) => {
               <EuiHeader
                 theme="light"
                 style={{ height: 57, boxShadow: "none" }}
-                className="tw-border-gray-300 tw-border-opacity-75"
-                position={"fixed"}
+                className="tw-border-gray-300 tw-mt-12 tw-border-opacity-75"
+                position="static"
               >
                 <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">
                   {search}

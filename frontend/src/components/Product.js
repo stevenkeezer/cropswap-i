@@ -5,12 +5,11 @@ import {
   EuiText,
   EuiLoadingContent,
   EuiSpacer,
+  EuiShowFor,
 } from "@elastic/eui";
-import { LazyLoadImage } from "react-lazy-load-image-component";
-import "react-lazy-load-image-component/src/effects/blur.css";
-
 import Rating from "../components/Rating";
 import { useDispatch, useSelector } from "react-redux";
+import LazyImage from "./LazyImage";
 
 export default function Product({ product, history, scrollPosition }) {
   const dispatch = useDispatch();
@@ -19,7 +18,7 @@ export default function Product({ product, history, scrollPosition }) {
     history.push(`/product/${id}`);
   };
 
-  console.log(product, "ah");
+  console.log(product.image.preSrc, "ah");
 
   return (
     <>
@@ -33,18 +32,10 @@ export default function Product({ product, history, scrollPosition }) {
             textAlign="left"
             rounded="false"
             image={
-              // <img
-              //   className=" tw-w-auto tw-object-cover tw-cursor-pointer"
-              //   src={product.image}
-              //   style={{ borderRadius: "0px!important" }}
-              // />
-
-              <LazyLoadImage
-                effect="blur"
-                alt={product.image}
-                scrollPosition={scrollPosition}
-                height="50%"
+              <LazyImage
                 src={product.image}
+                placeholder={product.image}
+                height={200}
               />
             }
             grow={false}
@@ -72,6 +63,10 @@ export default function Product({ product, history, scrollPosition }) {
         ) : (
           <EuiLoadingContent lines={3} />
         )}
+        <EuiShowFor sizes={["m", "l", "xl"]}>
+          <EuiSpacer />
+        </EuiShowFor>
+        <EuiSpacer />
       </EuiFlexItem>
     </>
   );
