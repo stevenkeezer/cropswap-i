@@ -170,21 +170,11 @@ b {
 
 @media (min-width: 576px) {
   .euiHeader {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr) !important;
-    /* grid-template-rows: 2.125rem 1.875rem; */
-    grid-template-areas:
-      "logo actions"
-      "logo nav" !important;
+    grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr);
     max-width: 95rem !important;
-    margin: 0px auto !important;
   }
 }
 
-.euiHeader {
-  box-shadow: none !important;
-}
 @media only screen and (min-width: 600px) {
   .card-head,
   .card-cont {
