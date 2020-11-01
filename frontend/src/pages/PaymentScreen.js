@@ -56,12 +56,12 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-screen  sm:tw-bg-gray-100  tw-antialiased tw-pt-2">
+      <div className="tw-h-auto  sm:tw-bg-gray-100  tw-antialiased tw-pt-2">
         {/* <Container> */}
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-mb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
+        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
           <Col lg={8} className="tw-p-0">
             <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Select payment method

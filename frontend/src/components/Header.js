@@ -84,10 +84,15 @@ export default ({ theme }) => {
     const popoverId = idGenerator("popover");
     const keypadId = idGenerator("keypad");
 
+    const dispatch = useDispatch();
+
     const [isOpen, setIsOpen] = useState(false);
 
     const onMenuButtonClick = () => {
       setIsOpen(!isOpen);
+    };
+    const logoutHandler = () => {
+      dispatch(logout());
     };
 
     const closeMenu = () => {
@@ -170,7 +175,6 @@ export default ({ theme }) => {
               </EuiKeyPadMenuItem>
             </>
           )}
-
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -184,7 +188,6 @@ export default ({ theme }) => {
               </EuiKeyPadMenuItem>
             </>
           )}
-
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -198,6 +201,16 @@ export default ({ theme }) => {
               </EuiKeyPadMenuItem>
             </>
           )}
+
+          <EuiKeyPadMenuItem
+            label="Logout"
+            onClick={(e) => {
+              logoutHandler();
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="usersRolesApp" size="l" />
+          </EuiKeyPadMenuItem>
         </EuiKeyPadMenu>
       </EuiPopover>
     );
