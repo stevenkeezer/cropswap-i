@@ -18,6 +18,8 @@ export default ({ history }) => {
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [searchRef, setSearchRef] = useState("");
+  const [isOpen, setIsOpen] = useState(null);
+
   const searchValueExists = searchValue && searchValue.length;
 
   const productList = useSelector((state) => state.productList);
@@ -31,6 +33,219 @@ export default ({ history }) => {
       history.push("/");
     }
   };
+
+  const searchData: EuiSelectableTemplateSitewideOption[] = [
+    {
+      label: "Iceberg Lettuce",
+      url: "/profile",
+      onClick: () => {
+        history.push("/product/5f9cffa1ef6e637afe66b681");
+        setIsOpen(false);
+      },
+      avatar: {
+        name: "Default Space",
+      },
+      meta: [
+        {
+          text: "Iceberg Lettuce",
+          type: "application",
+          highlightSearchString: true,
+        },
+      ],
+      url: "welcome-dashboards",
+    },
+    {
+      label:
+        "[Flights] Flight Count and Average Ticket Price over the course of several years maybe even decades",
+      avatar: {
+        name: "Default Space",
+      },
+      meta: [
+        {
+          text: "Visualization",
+          type: "application",
+        },
+      ],
+    },
+    {
+      label: "[Flights] Global Flight Dashboard",
+      avatar: {
+        name: "Hello World",
+      },
+      meta: [
+        {
+          text: "Dashboard",
+          type: "application",
+          highlightSearchString: true,
+        },
+      ],
+    },
+    {
+      label: "[Logs] Host, Visits and Bytes Table",
+      meta: [
+        {
+          text: "TSVB visualization",
+          type: "application",
+        },
+      ],
+    },
+    {
+      label: "[Flights] Flight Log",
+      avatar: {
+        name: "Hello World",
+      },
+      meta: [
+        {
+          text: "Discover",
+          type: "application",
+        },
+      ],
+    },
+    {
+      label: "Dashboards",
+      url: "dashboards",
+      icon: {
+        type: "logoKibana",
+      },
+    },
+    {
+      label:
+        "Generate HAR Archive of Network Timings/Details for Kibana requests",
+      meta: [
+        {
+          text: "Article",
+          type: "article",
+        },
+        {
+          text:
+            "https://discuss.elastic.co/t/generate-har-archive-of-network-timings",
+          highlightSearchString: true,
+        },
+      ],
+    },
+    {
+      label: "[Logs] Web Traffic",
+      url: "dashboard-logs-web-traffic",
+      meta: [
+        {
+          text: "Dashboard",
+          type: "application",
+          highlightSearchString: true,
+        },
+      ],
+    },
+    {
+      label: "Databoard analytics",
+      title: "Databoard analytics; Dashboard; Deployment: Flights Data",
+      meta: [
+        {
+          text: "Dashboard",
+          type: "application",
+        },
+        {
+          text: "Flights Data",
+          type: "deployment",
+        },
+      ],
+    },
+    {
+      label: "Primary logs",
+      avatar: {
+        name: "Another",
+      },
+      meta: [
+        {
+          text: "Flights Data",
+          type: "deployment",
+        },
+      ],
+    },
+    {
+      label: "SIEM",
+      icon: {
+        type: "logoSecurity",
+      },
+      meta: [
+        {
+          text: "personal-databoard",
+          type: "deployment",
+        },
+      ],
+    },
+    {
+      label: "Dev tools",
+      url: "dev-tools-console",
+      meta: [
+        {
+          text: "Management application",
+          type: "application",
+        },
+      ],
+    },
+    {
+      label: "Billing",
+      icon: {
+        type: "user",
+      },
+      meta: [
+        {
+          text: "Account",
+          type: "platform",
+        },
+      ],
+    },
+    {
+      label: "Maps",
+      url: "maps",
+      icon: { type: "logoKibana" },
+      meta: [
+        {
+          text: "Analyze application",
+          type: "application",
+        },
+      ],
+      space: "Hello World",
+    },
+    {
+      label: "Kibana monitoring with MB",
+      searchableLabel: "Kibana monitoring with MB; Case no. 00508173",
+      meta: [
+        {
+          text: "Case",
+          type: "case",
+        },
+        {
+          text: "00508173",
+        },
+      ],
+    },
+    {
+      label: "My support tickets",
+      icon: {
+        type: "help",
+      },
+      meta: [
+        {
+          text: "Support",
+          type: "platform",
+        },
+      ],
+    },
+    {
+      label: "Totally custom",
+      searchableLabel: "Totally custom with pink metadata",
+      icon: {
+        type: "alert",
+        color: "accent",
+      },
+      meta: [
+        {
+          text: "I have a custom type",
+          type: "PINK",
+        },
+      ],
+    },
+  ];
 
   /**
    * Timeout to simulate loading (only on key command+k)
@@ -120,6 +335,7 @@ export default ({ history }) => {
     // <form onSubmit={submitHandler}>
     <div className="xl:tw-pt-1 tw-ml-auto tw-antialiased">
       <EuiSelectableTemplateSitewide
+        onClick={() => setIsOpen(!isOpen)}
         isLoading={isLoading}
         onChange={onChange}
         onSubmit={submitHandler}
@@ -136,6 +352,7 @@ export default ({ history }) => {
         }}
         popoverProps={{
           className: "customPopoverClass",
+          isOpen: isOpen,
         }}
         popoverButtonBreakpoints={["xs", "s"]}
         popoverFooter={
@@ -223,214 +440,3 @@ export default ({ history }) => {
 /**
  * The options object
  */
-const searchData: EuiSelectableTemplateSitewideOption[] = [
-  {
-    label: "Iceberg Lettuce",
-    url: "/profile",
-    // onClick: () => {
-    //   history.push("/product/5f9cffa1ef6e637afe66b681");
-    // },
-    avatar: {
-      name: "Default Space",
-    },
-    meta: [
-      {
-        text: "Iceberg Lettuce",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-    url: "welcome-dashboards",
-  },
-  {
-    label:
-      "[Flights] Flight Count and Average Ticket Price over the course of several years maybe even decades",
-    avatar: {
-      name: "Default Space",
-    },
-    meta: [
-      {
-        text: "Visualization",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "[Flights] Global Flight Dashboard",
-    avatar: {
-      name: "Hello World",
-    },
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "[Logs] Host, Visits and Bytes Table",
-    meta: [
-      {
-        text: "TSVB visualization",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "[Flights] Flight Log",
-    avatar: {
-      name: "Hello World",
-    },
-    meta: [
-      {
-        text: "Discover",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "Dashboards",
-    url: "dashboards",
-    icon: {
-      type: "logoKibana",
-    },
-  },
-  {
-    label:
-      "Generate HAR Archive of Network Timings/Details for Kibana requests",
-    meta: [
-      {
-        text: "Article",
-        type: "article",
-      },
-      {
-        text:
-          "https://discuss.elastic.co/t/generate-har-archive-of-network-timings",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "[Logs] Web Traffic",
-    url: "dashboard-logs-web-traffic",
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "Databoard analytics",
-    title: "Databoard analytics; Dashboard; Deployment: Flights Data",
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-      },
-      {
-        text: "Flights Data",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "Primary logs",
-    avatar: {
-      name: "Another",
-    },
-    meta: [
-      {
-        text: "Flights Data",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "SIEM",
-    icon: {
-      type: "logoSecurity",
-    },
-    meta: [
-      {
-        text: "personal-databoard",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "Dev tools",
-    url: "dev-tools-console",
-    meta: [
-      {
-        text: "Management application",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "Billing",
-    icon: {
-      type: "user",
-    },
-    meta: [
-      {
-        text: "Account",
-        type: "platform",
-      },
-    ],
-  },
-  {
-    label: "Maps",
-    url: "maps",
-    icon: { type: "logoKibana" },
-    meta: [
-      {
-        text: "Analyze application",
-        type: "application",
-      },
-    ],
-    space: "Hello World",
-  },
-  {
-    label: "Kibana monitoring with MB",
-    searchableLabel: "Kibana monitoring with MB; Case no. 00508173",
-    meta: [
-      {
-        text: "Case",
-        type: "case",
-      },
-      {
-        text: "00508173",
-      },
-    ],
-  },
-  {
-    label: "My support tickets",
-    icon: {
-      type: "help",
-    },
-    meta: [
-      {
-        text: "Support",
-        type: "platform",
-      },
-    ],
-  },
-  {
-    label: "Totally custom",
-    searchableLabel: "Totally custom with pink metadata",
-    icon: {
-      type: "alert",
-      color: "accent",
-    },
-    meta: [
-      {
-        text: "I have a custom type",
-        type: "PINK",
-      },
-    ],
-  },
-];
