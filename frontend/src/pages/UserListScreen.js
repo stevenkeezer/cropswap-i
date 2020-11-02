@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, listUsers } from "../actions/userActions";
 import UsersTable from "../components/UsersTable";
-import SubFooter from "../components/SubFooter";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();

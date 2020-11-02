@@ -113,7 +113,6 @@ const ProductScreen = ({ history, match }) => {
                     placeholder={product.image}
                     height={500}
                   />
-                  {/* <ElasticImage image={product.image} name={product.name} /> */}
                 </Col>
 
                 <Col md={3}>

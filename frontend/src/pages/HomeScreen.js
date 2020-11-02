@@ -1,31 +1,26 @@
 // MOBX
 import {
   EuiFlexGroup,
-  EuiShowFor,
   EuiPage,
-  EuiFlexGrid,
   EuiPageBody,
   EuiPageContent,
-  EuiFlexItem,
+  EuiShowFor,
 } from "@elastic/eui";
 import {
   IonAlert,
-  IonContent,
   IonIcon,
-  IonPage,
   IonRefresher,
   IonRefresherContent,
   IonText,
 } from "@ionic/react";
-
 import { chevronBackOutline, chevronDown } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
-import Alert from "../components/Alert";
 import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
+import Alert from "../components/Alert";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
 import CategorySlider from "../components/CategorySlider";

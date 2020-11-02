@@ -1,34 +1,16 @@
 import {
-  IonButton,
-  IonCheckbox,
-  IonItem,
-  IonLabel,
-  IonList,
-  IonTitle,
-} from "@ionic/react";
-import {
-  EuiFieldText,
-  EuiFlexGroup,
-  EuiRadio,
+  EuiButton,
+  EuiHorizontalRule,
+  EuiImage,
   EuiRadioGroup,
   EuiShowFor,
-  EuiHorizontalRule,
-  EuiFlexItem,
-  EuiCheckbox,
-  EuiButton,
-  EuiSpacer,
-  EuiFormRow,
-  EuiNotificationBadge,
-  EuiImage,
 } from "@elastic/eui";
 import React, { useState } from "react";
-import { Col, Container, Image, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { savePaymentMethod } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
-import SubFooter from "../components/SubFooter";
-import { htmlIdGenerator } from "@elastic/eui/lib/services";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);

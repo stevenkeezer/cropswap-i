@@ -30,14 +30,6 @@ export default function CheckoutSteps({ step1, step2, step3, step4 }) {
         history.push("/payment");
       },
     },
-    // {
-    //   title: "Place Order",
-    //   isSelected: step4,
-    //   // isComplete: step4,
-    //   onClick: () => {
-    //     history.push("/placeorder");
-    //   },
-    // },
   ];
   return <EuiStepsHorizontal steps={horizontalSteps} />;
 }

@@ -4,29 +4,20 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeader,
+  EuiHeaderSectionItem,
   EuiHeaderSectionItemButton,
   EuiIcon,
-  EuiHeaderSection,
-  EuiPage,
-  EuiPageContent,
-  EuiProgress,
-  EuiPageHeader,
-  EuiHeaderLogo,
-  EuiHeaderLink,
-  EuiHeaderLinks,
   EuiKeyPadMenu,
   EuiKeyPadMenuItem,
   EuiLink,
   EuiPopover,
-  EuiToolTip,
   EuiPopoverFooter,
-  EuiFacetButton,
   EuiPopoverTitle,
   EuiSelectable,
   EuiShowFor,
   EuiSpacer,
   EuiText,
-  EuiHeaderSectionItem,
+  EuiToolTip,
 } from "@elastic/eui";
 import "@elastic/eui/dist/eui_theme_light.css";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
@@ -34,9 +25,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Route } from "react-router-dom";
-import { IonIcon } from "@ionic/react";
-import { cart } from "ionicons/icons";
-
 import { logout } from "../actions/userActions";
 import SearchBox from "../components/SearchBox";
 import Logo from "./Logo";

@@ -1,10 +1,8 @@
 import {
   EuiAccordion,
   EuiButton,
-  EuiButtonIcon,
   EuiCheckbox,
   EuiFieldText,
-  EuiText,
   EuiFlexGroup,
   EuiFlexItem,
   EuiFormRow,
@@ -14,12 +12,11 @@ import {
   EuiTextArea,
 } from "@elastic/eui";
 import React, { useState } from "react";
+import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Col, Form, ListGroup, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
-import SubFooter from "../components/SubFooter";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);

@@ -1,28 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import { IonTitle } from "@ionic/react";
-
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import UserOrderTable from "../components/UserOrderTable";
-import OrdersEmpty from "../components/OrdersEmpty";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
-import Toolbar from "../components/Toolbar";
-import { listMyOrders } from "../actions/orderActions";
-import SubFooter from "../components/SubFooter";
 import {
   EuiPage,
   EuiPageBody,
-  EuiPageContent,
   EuiPageContentBody,
-  EuiPageContentHeader,
-  EuiPageContentHeaderSection,
   EuiPageHeader,
   EuiPageHeaderSection,
   EuiPageSideBar,
   EuiTitle,
 } from "@elastic/eui";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listMyOrders } from "../actions/orderActions";
+import { getUserDetails, updateUserProfile } from "../actions/userActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import OrdersEmpty from "../components/OrdersEmpty";
+import Toolbar from "../components/Toolbar";
+import UserOrderTable from "../components/UserOrderTable";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -75,7 +68,6 @@ const ProfileScreen = ({ location, history }) => {
           <EuiPageSideBar>
             <Toolbar history={history} profile />
           </EuiPageSideBar>
-          {/* The EUI docs site  already has a wrapping <main> tag, so we've changed this example to a <div> for accessibility. You likely don't need to copy the `component` prop for your own usage. */}
           <EuiPageBody component="div">
             <EuiPageHeader>
               <EuiPageHeaderSection>
@@ -86,12 +78,7 @@ const ProfileScreen = ({ location, history }) => {
                 </EuiTitle>
               </EuiPageHeaderSection>
             </EuiPageHeader>
-            {/* <EuiPageContent
-              paddingSize="none"
-              panelPaddingSize="none"
-              grow={false}
-              hasShadow={false}
-            > */}
+
             <EuiPageContentBody>
               {loading ? (
                 <Loader />
@@ -129,7 +116,6 @@ const ProfileScreen = ({ location, history }) => {
                 </div>
               )}
             </EuiPageContentBody>
-            {/* </EuiPageContent> */}
           </EuiPageBody>
         </EuiPage>
       </div>

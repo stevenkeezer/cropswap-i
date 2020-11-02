@@ -1,13 +1,6 @@
-import { IonButton } from "@ionic/react";
+import { EuiButton } from "@elastic/eui";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-} from "@elastic/eui";
 import {
   createProduct,
   deleteProduct,
@@ -18,7 +11,6 @@ import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductTable from "../components/ProductTable";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
-import SubFooter from "../components/SubFooter";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;

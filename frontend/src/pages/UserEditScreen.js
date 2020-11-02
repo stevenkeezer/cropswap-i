@@ -61,7 +61,6 @@ const UserEditScreen = ({ match, location, history }) => {
         {errorUpdate && <div>{errorUpdate}</div>}
 
         <IonText color="danger" padding style={{ fontWeight: "500" }}>
-          {/* {initializationError && initializationError.message} */}
           Edit user
         </IonText>
 
@@ -80,7 +79,6 @@ const UserEditScreen = ({ match, location, history }) => {
                 }}
                 name="name"
                 placeholder={name}
-                // value="test@test.com"
               />
             </IonItem>
             <IonItem>
@@ -92,7 +90,6 @@ const UserEditScreen = ({ match, location, history }) => {
                 }}
                 placeholder={email}
                 name="email"
-                // value="test@test.com"
               />
             </IonItem>
             <IonItem>
@@ -102,7 +99,6 @@ const UserEditScreen = ({ match, location, history }) => {
                 onIonChange={(e) => {
                   setIsAdmin(e.detail.checked);
                 }}
-                // IonLabel="Is Admin"
                 checked={isAdmin}
               />
             </IonItem>
@@ -118,13 +114,6 @@ const UserEditScreen = ({ match, location, history }) => {
                 Update{" "}
               </IonButton>
             </div>
-            {/* <IonToast
-          color="danger"
-          isOpen={errorInfo.showErrorToast}
-          onDidDismiss={() => setErrorInfo({ showErrorToast: false })}
-          message={errorInfo.errMsg}
-          duration={2000}
-        /> */}
           </>
         )}
       </div>

@@ -1,19 +1,14 @@
-import React, { useState } from "react";
 import {
+  IonButton,
+  IonContent,
+  IonInput,
   IonItem,
   IonLabel,
-  IonButton,
-  IonInput,
-  IonToast,
   IonPage,
-  IonHeader,
-  IonToolbar,
-  IonContent,
-  IonButtons,
-  IonBackButton,
+  IonToast,
 } from "@ionic/react";
-
 import { MobXProviderContext, observer } from "mobx-react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 
 const RegistrationPage = () => {

@@ -1,11 +1,8 @@
 import {
   EuiBadge,
-  EuiButtonIcon,
-  EuiIcon,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
-  EuiButton,
   EuiSelectableTemplateSitewide,
   EuiSelectableTemplateSitewideOption,
   EuiText,

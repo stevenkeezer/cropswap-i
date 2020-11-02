@@ -1,20 +1,15 @@
-import React, { useState } from "react";
-import {
-  personCircleSharp,
-  personCircleOutline,
-  storefrontSharp,
-} from "ionicons/icons";
-
-import { IonItem, IonIcon, IonButton } from "@ionic/react";
 import {
   EuiButton,
   EuiContextMenu,
   EuiFormRow,
   EuiIcon,
   EuiPopover,
-  EuiSwitch,
   EuiSpacer,
+  EuiSwitch,
 } from "@elastic/eui";
+import { IonButton, IonIcon } from "@ionic/react";
+import { personCircleSharp } from "ionicons/icons";
+import React, { useState } from "react";
 
 const ContextMenu = ({ userInfo, history, logoutHandler }) => {
   const [isPopoverOpen, setPopover] = useState(false);

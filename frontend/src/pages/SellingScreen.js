@@ -1,29 +1,29 @@
-import React, { useState } from "react";
 import {
+  EuiDragDropContext,
+  euiDragDropMove,
+  euiDragDropReorder,
+  EuiDraggable,
+  EuiDroppable,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiIcon,
   EuiPage,
   EuiPageBody,
   EuiPageContent,
   EuiPageContentBody,
   EuiPageContentHeader,
-  EuiPageSideBar,
+  EuiPageContentHeaderSection,
   EuiPageHeader,
   EuiPageHeaderSection,
-  EuiPageContentHeaderSection,
-  EuiDragDropContext,
-  EuiFlexGroup,
-  EuiFlexItem,
-  EuiDraggable,
-  EuiDroppable,
-  EuiIcon,
+  EuiPageSideBar,
   EuiPanel,
-  euiDragDropMove,
-  euiDragDropReorder,
   EuiTitle,
 } from "@elastic/eui";
-import { useHistory } from "react-router-dom";
-
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import Toolbar from "../components/Toolbar";
+
 const makeId = htmlIdGenerator();
 
 const makeList = (number, start = 1) =>

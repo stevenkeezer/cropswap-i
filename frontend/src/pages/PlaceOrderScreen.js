@@ -1,30 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import {
-  EuiCard,
-  EuiCheckableCard,
   EuiButton,
+  EuiCheckableCard,
+  EuiHorizontalRule,
   EuiImage,
   EuiShowFor,
-  EuiHorizontalRule,
 } from "@elastic/eui";
-import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  Container,
-} from "react-bootstrap";
-import { IonPage, IonContent, IonButton, IonTitle } from "@ionic/react";
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { createOrder } from "../actions/orderActions";
-import { ORDER_CREATE_RESET } from "../constants/orderConstants";
-import SubFooter from "../components/SubFooter";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import React, { useEffect, useState } from "react";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { createOrder } from "../actions/orderActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import Message from "../components/Message";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 
 const PlaceOrderScreen = ({ history }) => {
   const [checkbox, setCheckbox] = useState(false);

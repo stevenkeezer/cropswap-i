@@ -1,25 +1,18 @@
-import React from "react";
-
 import {
   EuiAccordion,
-  EuiText,
-  EuiTextColor,
-  EuiForm,
-  EuiFormRow,
-  EuiFieldText,
+  EuiButtonIcon,
   EuiFieldPassword,
-  EuiIcon,
-  EuiTextArea,
-  EuiSpacer,
   EuiFlexGroup,
   EuiFlexItem,
-  EuiTitle,
-  EuiButtonIcon,
+  EuiForm,
+  EuiFormRow,
+  EuiSpacer,
+  EuiText,
 } from "@elastic/eui";
+import React from "react";
 
 const repeatableForm = (
   <EuiForm>
-    {/* <EuiFlexGroup> */}
     <EuiFlexItem>
       <EuiFormRow label="Password">
         <EuiFieldPassword icon="lock" />
@@ -34,7 +27,6 @@ const repeatableForm = (
         <EuiFieldPassword icon="lock" />
       </EuiFormRow>
     </EuiFlexItem>
-    {/* </EuiFlexGroup> */}
   </EuiForm>
 );
 
