@@ -172,7 +172,6 @@ b {
 @media (min-width: 576px) {
   .euiHeader {
     grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr);
-    max-width: 95rem !important;
   }
 }
 
