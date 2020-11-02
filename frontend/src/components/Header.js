@@ -636,7 +636,7 @@ export default ({ theme }) => {
               position={"fixed"}
               menu
             >
-              <EuiHeaderSectionItem className="tw-px-1" border="right">
+              <EuiHeaderSectionItem border="right">
                 <HeaderAppMenu history={history} />
                 {!userInfo && (
                   <>
@@ -646,7 +646,7 @@ export default ({ theme }) => {
                         history.push("/login");
                       }}
                     >
-                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-4 tw-text-gray-700  ">
+                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-2 tw-text-gray-700  ">
                         Log in
                       </span>
                     </EuiLink>
@@ -657,7 +657,7 @@ export default ({ theme }) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
                         Sign Up
                       </span>
                     </EuiLink>
@@ -676,22 +676,22 @@ export default ({ theme }) => {
                 ></EuiIcon>
               </EuiHeaderSectionItem>
 
-              <EuiHeaderSectionItem className="tw-mx-1">
+              <EuiHeaderSectionItem>
                 {!userInfo && (
                   <>
                     <EuiHeaderSectionItemButton
-                      className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
+                      className="tw-no-underline tw-pr-2 ad focus:tw-bg-white focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/login");
                       }}
                     >
-                      <span className="tw-py-1 sm:tw-px-2 tw-font-bold tw-text-xs  tw-text-gray-700  ">
+                      <span className="tw-py-1 sm:tw-px-2 tw-font-bold tw-text-xs tw-whitespace-no-wrap tw-text-gray-700  ">
                         Log in
                       </span>
                     </EuiHeaderSectionItemButton>
 
                     <EuiHeaderSectionItemButton
-                      className="tw-no-underline tw-ml-2 focus:tw-bg-white focus:tw-outline-none"
+                      className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/register");
                       }}
