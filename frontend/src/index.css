@@ -28,6 +28,11 @@ b {
   background: #ffffff !important;
 }
 
+.euiAccordion__padding--l {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
 .euiStepHorizontal,
 .euiStepHorizontal-isSelected:focus {
   outline: none !important;
@@ -232,6 +237,16 @@ ion-input {
   /* width: 41%; */
   /* max-width: 50vw; */
   /* height: 30px; */
+}
+
+.euiFieldText:focus {
+  background-image: linear-gradient(
+    to top,
+    #319795,
+    #319795 2px,
+    transparent 2px,
+    transparent 100%
+  ) !important;
 }
 
 .euiFormControlLayout--group .euiText {

@@ -16,6 +16,7 @@ import OrderListScreen from "./pages/OrderListScreen";
 import OrderScreen from "./pages/OrderScreen";
 import PaymentScreen from "./pages/PaymentScreen";
 import PlaceOrderScreen from "./pages/PlaceOrderScreen";
+import SettingsScreen from "./pages/SettingsScreen";
 import ProductEditScreen from "./pages/ProductEditScreen";
 import ProductListScreen from "./pages/ProductListScreen";
 import ProductScreen from "./pages/ProductScreen";
@@ -41,6 +42,7 @@ const PublicRoutes = ({ history }) => {
           <Route path="/selling" component={SellingScreen} />
           <Route path="/placeorder" component={PlaceOrderScreen} />
           <Route path="/login" component={LoginScreen} />
+          <Route path="/settings" component={SettingsScreen} />
           <Route path="/product/:id" component={ProductScreen} />
           <Route path="/register" component={RegisterScreen} exact={true} />
           <Route path="/profile" component={ProfileScreen} />

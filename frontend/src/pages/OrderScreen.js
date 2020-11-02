@@ -112,7 +112,10 @@ const OrderScreen = ({ match, history }) => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div className=" tw-pt-6 sm:tw-bg-gray-100 tw-mt-24 tw-antialiased tw-h-auto tw-min-h-screen">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className=" tw-pt-6 tw-antialiased tw-h-auto tw-min-h-screen"
+      >
         <Container>
           <Row className=" sm:tw-px-4">
             <Col md={8} className="tw-p-0 sm:tw-4">

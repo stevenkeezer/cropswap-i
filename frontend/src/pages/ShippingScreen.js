@@ -52,7 +52,10 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="sm:tw-bg-gray-100 tw-min-h-screen tw-pb-12 tw-pt-2 tw-antialiased">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className=" tw-min-h-screen tw-pb-12 tw-pt-2 tw-antialiased"
+      >
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 />
         </div>

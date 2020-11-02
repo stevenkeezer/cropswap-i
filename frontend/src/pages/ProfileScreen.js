@@ -7,7 +7,6 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import UserOrderTable from "../components/UserOrderTable";
 import OrdersEmpty from "../components/OrdersEmpty";
-import ElasticCondensed from "../components/ElasticCondensed";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import Toolbar from "../components/Toolbar";
 import { listMyOrders } from "../actions/orderActions";
@@ -71,63 +70,69 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <div className=" tw-bg-gray-100 tw-h-auto tw-pb-12 tw-antialiased tw-min-h-screen">
-        <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
-          {loading ? (
-            <Loader />
-          ) : (
-            <div>
-              <Row className="tw-pt-8">
-                <Col md={3}>
-                  {message && <Message variant="danger">{message}</Message>}
-                  {}
-                  {success && (
-                    <Message variant="success">Profile Updated</Message>
-                  )}
-                  {loading ? (
-                    <Loader />
-                  ) : error ? (
-                    <Message variant="danger">{error}</Message>
-                  ) : (
-                    <>
-                      <Toolbar history={history} />
-                      <ElasticCondensed
-                        name={name}
-                        email={email}
-                        password={password}
-                        confirmPassword={confirmPassword}
-                        setName={setName}
-                        setEmail={setEmail}
-                        setPassword={setPassword}
-                        setConfirmPassword={setConfirmPassword}
-                        submitHandler={submitHandler}
-                      />
-                    </>
-                  )}
-                </Col>
-                <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
-                  <div className=" tw-text-2xl  tw-pb-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
-                    My Orders
+      <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
+        <EuiPage restrictWidth="75rem" className="">
+          <EuiPageSideBar>
+            <Toolbar history={history} profile />
+          </EuiPageSideBar>
+          {/* The EUI docs site  already has a wrapping <main> tag, so we've changed this example to a <div> for accessibility. You likely don't need to copy the `component` prop for your own usage. */}
+          <EuiPageBody component="div">
+            <EuiPageHeader>
+              <EuiPageHeaderSection>
+                <EuiTitle size="l">
+                  <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-2xl tw-font-semibold ">
+                    Orders
                   </div>
-
-                  {loadingOrders ? (
-                    <Loader />
-                  ) : errorOrders ? (
-                    <Message variant="danger">{errorOrders}</Message>
-                  ) : orders.length === 0 ? (
-                    <OrdersEmpty history={history} />
-                  ) : (
-                    <div className="md:tw-shadow  sm:tw-rounded-lg tw-px-2 md:tw-bg-white">
-                      <UserOrderTable orders={orders} history={history} />
+                </EuiTitle>
+              </EuiPageHeaderSection>
+            </EuiPageHeader>
+            {/* <EuiPageContent
+              paddingSize="none"
+              panelPaddingSize="none"
+              grow={false}
+              hasShadow={false}
+            > */}
+            <EuiPageContentBody>
+              {loading ? (
+                <Loader />
+              ) : (
+                <div>
+                  <div className="">
+                    <div>
+                      {message && <Message variant="danger">{message}</Message>}
+                      {}
+                      {success && (
+                        <Message variant="success">Profile Updated</Message>
+                      )}
+                      {loading ? (
+                        <Loader />
+                      ) : error ? (
+                        <Message variant="danger">{error}</Message>
+                      ) : (
+                        <></>
+                      )}
                     </div>
-                  )}
-                </Col>
-              </Row>
-            </div>
-          )}
-        </div>
+                    <div className="tw-p-0 tw-m-0 ">
+                      {loadingOrders ? (
+                        <Loader />
+                      ) : errorOrders ? (
+                        <Message variant="danger">{errorOrders}</Message>
+                      ) : orders.length === 0 ? (
+                        <OrdersEmpty history={history} />
+                      ) : (
+                        <div className="md:tw-bg-white sm:tw-p-2 md:tw-rounded md:tw-shadow ">
+                          <UserOrderTable orders={orders} history={history} />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </EuiPageContentBody>
+            {/* </EuiPageContent> */}
+          </EuiPageBody>
+        </EuiPage>
       </div>
-      <SubFooter />
     </>
   );
 };

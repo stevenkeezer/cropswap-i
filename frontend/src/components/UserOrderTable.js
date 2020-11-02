@@ -1,63 +1,12 @@
 import React, { useState, Fragment } from "react";
 import { EuiImage, EuiNotificationBadge } from "@elastic/eui";
+import LazyImage from "./LazyImage";
 
 const UserOrderTable = ({ orders, deleteHandler, history }) => {
   return (
     <>
       <div class="euiBasicTable ">
         <div>
-          <div class="euiTableHeaderMobile">
-            <div class="euiFlexGroup euiFlexGroup--gutterLarge euiFlexGroup--alignItemsBaseline euiFlexGroup--justifyContentSpaceBetween euiFlexGroup--directionRow">
-              <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                <div class="euiCheckbox">
-                  <input
-                    class="euiCheckbox__input"
-                    type="checkbox"
-                    id="_selection_column-checkbox_i4ba6f501-13ea-11eb-a273-5b026e5e2741"
-                    aria-label="Select all rows"
-                  />
-                  <div class="euiCheckbox__square"></div>
-                  <label
-                    class="euiCheckbox__label"
-                    for="_selection_column-checkbox_i4ba6f501-13ea-11eb-a273-5b026e5e2741"
-                  >
-                    Select all rows
-                  </label>
-                </div>
-              </div>
-              <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                <div class="euiTableSortMobile">
-                  <div class="euiPopover euiPopover--anchorDownRight">
-                    <div class="euiPopover__anchor">
-                      <button
-                        class="euiButtonEmpty euiButtonEmpty--primary euiButtonEmpty--xSmall euiButtonEmpty--flushRight"
-                        type="button"
-                      >
-                        <span class="euiButtonContent euiButtonContent--iconRight euiButtonEmpty__content">
-                          <svg
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            xmlns="http://www.w3.org/2000/svg"
-                            class="euiIcon euiIcon--medium euiButtonContent__icon"
-                            focusable="false"
-                            role="img"
-                            aria-hidden="true"
-                          >
-                            <path
-                              fill-rule="non-zero"
-                              d="M13.069 5.157L8.384 9.768a.546.546 0 01-.768 0L2.93 5.158a.552.552 0 00-.771 0 .53.53 0 000 .759l4.684 4.61c.641.631 1.672.63 2.312 0l4.684-4.61a.53.53 0 000-.76.552.552 0 00-.771 0z"
-                            ></path>
-                          </svg>
-                          <span class="euiButtonEmpty__text">Sorting</span>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <table
             tabindex="-1"
             class="euiTable euiTable--responsive"
@@ -171,44 +120,20 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
                         <span class="euiTableCellContent__text">
                           <div class="tw-flex tw-items-center">
-                            <EuiImage
-                              size="m"
-                              className="tw-m-0"
-                              hasShadow
-                              allowFullScreen
+                            <LazyImage
+                              src={order.orderItems[0].image}
                               alt={order.title}
-                              url={order.orderItems[0].image}
+                              height={100}
                             />
-
-                            {order.orderItems.length > 1 && (
-                              <div
-                                class={` w-text-xs lg:tw-flex  tw-hidden  tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
-                              >
-                                +{order.orderItems.length - 1}
-                              </div>
-                            )}
                           </div>
                         </span>
                       </div>
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
-                        <EuiImage
-                          // size="l"
-                          className="tw-m-0 tw-p-2 tw-pl-0"
-                          hasShadow
-                          allowFullScreen
-                          // caption="Click me"
+                        <LazyImage
+                          src={order.orderItems[0].image}
                           alt={order.title}
-                          url={order.orderItems[0].image}
-                        />
-                        {order.orderItems.length > 1 && (
-                          <div
-                            class={` w-text-xs lg:tw-flex  tw-hidden  tw-font-black tw-absolute tw-ml-24 tw-mt-16`}
-                          >
-                            <EuiNotificationBadge>
-                              +{order.orderItems.length - 1}
-                            </EuiNotificationBadge>
-                          </div>
-                        )}
+                          height={100}
+                        ></LazyImage>
                       </div>
                     </td>
 

@@ -56,7 +56,10 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto  sm:tw-bg-gray-100  tw-antialiased tw-pt-2">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className="tw-h-auto    tw-antialiased tw-pt-2"
+      >
         {/* <Container> */}
         <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
           <CheckoutSteps step1 step2 step3 />

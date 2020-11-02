@@ -162,6 +162,15 @@ export default ({ theme }) => {
           >
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
+          <EuiKeyPadMenuItem
+            label="Settings"
+            onClick={(e) => {
+              history.push("/settings");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="gear" size="l" />
+          </EuiKeyPadMenuItem>
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -682,7 +691,7 @@ export default ({ theme }) => {
                 </EuiShowFor>
               </EuiHeaderSectionItem>
             </EuiHeader>
-            <EuiShowFor sizes={["xs", "s", "m"]}>
+            <EuiShowFor sizes={["xs", "s", "m", "l"]}>
               <EuiHeader
                 theme="light"
                 style={{ height: 57, boxShadow: "none" }}

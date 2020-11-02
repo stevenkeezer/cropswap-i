@@ -387,19 +387,19 @@ export default ({ history }) => {
         </span>
 
         <span
-          onClick={(e) => searchHandler("tomatoes")}
+          onClick={(e) => searchHandler("tomatoe")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Tomatoes
         </span>
         <span
-          onClick={(e) => searchHandler("vegetables")}
+          onClick={(e) => searchHandler("vegetable")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Vegetables
         </span>
         <span
-          onClick={(e) => searchHandler("fruits")}
+          onClick={(e) => searchHandler("fruit")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Fruits

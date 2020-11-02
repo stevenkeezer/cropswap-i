@@ -81,7 +81,10 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen sm:tw-bg-gray-100 tw-antialiased  tw-pb-4 tw-pt-2">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className="tw-h-auto tw-min-h-screen tw-antialiased  tw-pb-4 tw-pt-2"
+      >
         <div>
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
