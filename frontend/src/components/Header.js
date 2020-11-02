@@ -543,13 +543,11 @@ export default ({ theme }) => {
           <EuiShowFor sizes={["l", "xl"]}>
             <span>
               <EuiHeader
-                restrictWidth="75rem"
                 onProgress
                 position="static"
                 className=" tw-mx-auto sm:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
                 borderBottom="none"
                 style={{
-                  borderBottom: "1px solid white",
                   boxShadow: "none!important",
                 }}
                 // theme="light"
