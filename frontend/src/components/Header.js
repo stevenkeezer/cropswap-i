@@ -125,6 +125,7 @@ export default ({ theme }) => {
         <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
           <EuiKeyPadMenuItem
             label="Discover"
+            isSelected
             onClick={(e) => {
               history.push("/");
               closeMenu();
@@ -150,15 +151,7 @@ export default ({ theme }) => {
           >
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
-          <EuiKeyPadMenuItem
-            label="Settings"
-            onClick={(e) => {
-              history.push("/settings");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="gear" size="l" />
-          </EuiKeyPadMenuItem>
+
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -198,7 +191,15 @@ export default ({ theme }) => {
               </EuiKeyPadMenuItem>
             </>
           )}
-
+          <EuiKeyPadMenuItem
+            label="Settings"
+            onClick={(e) => {
+              history.push("/settings");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="gear" size="l" />
+          </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Logout"
             onClick={(e) => {
@@ -512,6 +513,20 @@ export default ({ theme }) => {
       render={({ history }) => <SearchBox history={history} fullWidth />}
     />
   );
+  const logoutHandler = () => {
+    dispatch(logout());
+  };
+  const dispatch = useDispatch();
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onMenuButtonClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -624,7 +639,33 @@ export default ({ theme }) => {
             >
               <EuiHeaderSectionItem className="tw-px-1" border="right">
                 <HeaderAppMenu history={history} />
+                {!userInfo && (
+                  <>
+                    <EuiLink
+                      className="tw-no-underline tw-invisible focus:tw-bg-white focus:tw-outline-none"
+                      onClick={(e) => {
+                        history.push("/login");
+                      }}
+                    >
+                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-4 tw-text-gray-700  ">
+                        Log in
+                      </span>
+                    </EuiLink>
+
+                    <EuiLink
+                      className="tw-no-underline tw-invisible focus:tw-bg-white focus:tw-outline-none"
+                      onClick={(e) => {
+                        history.push("/register");
+                      }}
+                    >
+                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                        Sign Up
+                      </span>
+                    </EuiLink>
+                  </>
+                )}
               </EuiHeaderSectionItem>
+
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
               <EuiHeaderSectionItem
                 onClick={() => history.push("/")}
@@ -637,6 +678,31 @@ export default ({ theme }) => {
               </EuiHeaderSectionItem>
 
               <EuiHeaderSectionItem className="tw-mx-1">
+                {!userInfo && (
+                  <>
+                    <EuiLink
+                      className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
+                      onClick={(e) => {
+                        history.push("/login");
+                      }}
+                    >
+                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-4 tw-text-gray-700  ">
+                        Log in
+                      </span>
+                    </EuiLink>
+
+                    <EuiLink
+                      className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
+                      onClick={(e) => {
+                        history.push("/register");
+                      }}
+                    >
+                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                        Sign Up
+                      </span>
+                    </EuiLink>
+                  </>
+                )}
                 <EuiShowFor sizes={["s", "m", "l", "xl"]}>
                   <EuiHeaderSectionItemButton
                     aria-haspopup="true"
@@ -657,6 +723,7 @@ export default ({ theme }) => {
                     </svg>
                   </EuiHeaderSectionItemButton>
                 </EuiShowFor>
+
                 <EuiShowFor sizes={["xs"]}>
                   <EuiHeaderSectionItemButton
                     aria-haspopup="true"

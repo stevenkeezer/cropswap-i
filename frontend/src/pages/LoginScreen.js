@@ -52,12 +52,9 @@ const LoginScreen = ({ location, history }) => {
         <Loader />
       ) : (
         <>
-          <EuiPage className="tw-h-screen">
+          <EuiPage className="tw-h-screen tw-pt-16">
             <EuiPageBody component="div">
-              <EuiPageContent
-                verticalPosition="center"
-                horizontalPosition="center"
-              >
+              <EuiPageContent horizontalPosition="center">
                 <EuiPageContentHeader>
                   <EuiPageContentHeaderSection
                     verticalPosition="center"
@@ -92,7 +89,7 @@ const LoginScreen = ({ location, history }) => {
                   </EuiPageContentHeaderSection>
                 </EuiPageContentHeader>
                 <EuiPageContentBody>
-                  <div class="tw-w-full tw-">
+                  <div class="tw-w-full ">
                     <EuiForm>
                       <EuiFormRow fullWidth label="">
                         <div class="tw-w-full md:tw-w-full  tw-mb-6">

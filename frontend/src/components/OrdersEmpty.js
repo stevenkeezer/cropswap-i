@@ -10,7 +10,7 @@ const OrdersEmpty = ({ history }) => (
       title={<h2>No orders yet.</h2>}
       actions={
         <EuiButton onClick={() => history.push("/")} color="secondary" fill>
-          Go back
+          Back to home
         </EuiButton>
       }
     />
