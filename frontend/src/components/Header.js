@@ -543,6 +543,7 @@ export default ({ theme }) => {
           <EuiShowFor sizes={["l", "xl"]}>
             <span>
               <EuiHeader
+                restrictWidth="75rem"
                 onProgress
                 position="static"
                 className=" tw-mx-auto sm:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
@@ -678,27 +679,27 @@ export default ({ theme }) => {
               <EuiHeaderSectionItem className="tw-mx-1">
                 {!userInfo && (
                   <>
-                    <EuiLink
+                    <EuiHeaderSectionItemButton
                       className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/login");
                       }}
                     >
-                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-4 tw-text-gray-700  ">
+                      <span className="tw-py-1 sm:tw-px-2 tw-font-bold tw-text-xs  tw-text-gray-700  ">
                         Log in
                       </span>
-                    </EuiLink>
+                    </EuiHeaderSectionItemButton>
 
-                    <EuiLink
-                      className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
+                    <EuiHeaderSectionItemButton
+                      className="tw-no-underline tw-ml-2 focus:tw-bg-white focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                      <span className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
                         Sign Up
                       </span>
-                    </EuiLink>
+                    </EuiHeaderSectionItemButton>
                   </>
                 )}
                 <EuiShowFor sizes={["s", "m", "l", "xl"]}>
