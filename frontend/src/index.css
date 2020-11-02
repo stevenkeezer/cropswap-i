@@ -55,9 +55,9 @@ b {
   border: none !important;
 }
 
-/* .euiHeaderSectionItem:after {
+.euiHeaderSectionItem:after {
   background: transparent !important;
-} */
+}
 .euiHeaderSectionItem__button {
   outline: none !important;
   outline-color: #cbd5e0 !important;

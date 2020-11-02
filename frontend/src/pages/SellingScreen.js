@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   EuiDragDropContext,
   euiDragDropMove,
@@ -20,7 +21,7 @@ import {
   EuiTitle,
 } from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
-import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Toolbar from "../components/Toolbar";
 
@@ -34,8 +35,18 @@ const makeList = (number, start = 1) =>
     };
   });
 
+const list = [
+  {
+    content: `Item 324`,
+    id: makeId(),
+  },
+];
+
 const InitialIsOpen = () => {
-  const [list1, setList1] = useState(makeList(3));
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products, page, pages } = productList;
+
+  const [list1, setList1] = useState(makeList(3, 4));
   const [list2, setList2] = useState(makeList(3, 4));
   const history = useHistory();
 
@@ -69,6 +80,7 @@ const InitialIsOpen = () => {
       }
     }
   };
+
   return (
     <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
       <EuiPage restrictWidth="75rem">
@@ -108,8 +120,8 @@ const InitialIsOpen = () => {
                       withPanel
                       grow={false}
                     >
-                      {list1.length > 0 ? (
-                        list1.map(({ content, id }, idx) => (
+                      {list.length > 0 ? (
+                        list.map(({ content, id }, idx) => (
                           <EuiDraggable
                             spacing="m"
                             key={id}
