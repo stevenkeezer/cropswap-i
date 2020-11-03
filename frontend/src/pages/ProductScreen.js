@@ -82,7 +82,7 @@ const ProductScreen = ({ history, match }) => {
         style={{ backgroundColor: "#fafbfd" }}
         className=" tw-h-auto tw-antialiased "
       >
-        <div className=" tw-px-4  tw-pt-5 tw-max-w-screen-xl tw-mx-auto">
+        <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
@@ -106,7 +106,7 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product.name} />
-              <Row className="justify-content-center mt-4">
+              <Row className="justify-content-center mt-3">
                 <Col md={6} size={12} className="tw-mb-8">
                   <LazyImage
                     src={product.image}

@@ -23,25 +23,27 @@ const ProductCarousel = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div class="  tw-px-0 tw-pt-3 tw-pb-0">
+      <div class="  tw-px-0 sm:tw-pt-3 tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
           <div class="tw-w-full md:tw-w-1/2 tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
-            {/* {products &&
-              products.map((product) => {
-                return <div>{product.name}</div>;
-              })} */}
-            <div class=" tw-bg-gray-300 tw-h-full tw-w-full sm:tw-rounded">
-              <a
-                href="#"
-                class="tw-block tw-rounded-lg tw-relative tw-p-5 tw-transform tw-transition-all tw-duration-300 tw-scale-100 hover:tw-scale-95"
+            <div class=" tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded">
+              <div
                 style={{
-                  background:
-                    "url(https://images.unsplash.com/photo-1484876065684-b683cf17d276?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80) center; background-size: cover",
+                  backgroundSize: "355px",
                 }}
+                class="tw-block tw-rounded-lg tw-relative tw-transform tw-transition-all tw-duration-300 tw-scale-100"
               >
-                <div class="tw-h-24 lg:tw-h-48"></div>
+                <img
+                  class="tw-absolute tw-h-full tw-w-full tw-object-cover"
+                  src={products.length > 1 && products[1].image}
+                  alt=""
+                />
+                <div class="tw-h-24 lg:tw-h-64"></div>
+
                 <h2 class="tw-text-white tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
-                  Tasnim Lacey New Album Out&nbsp;Now
+                  {products && (
+                    <div>{products.length > 1 && products[1].name}</div>
+                  )}
                 </h2>
                 <div class="tw-flex tw-w-full tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
                   <div class="tw-flex-1 tw-flex tw-items-center">
@@ -59,7 +61,7 @@ const ProductCarousel = () => {
                     <i class="mdi mdi-thumb-up"></i> 18
                   </div>
                 </div>
-              </a>
+              </div>
             </div>
           </div>
           {/* </div> */}
@@ -79,14 +81,53 @@ const ProductCarousel = () => {
               </div>
               <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-px-2">
                 <div
-                  class="tw-block tw-w-full tw-h-full tw-bg-gray-500 sm:tw-rounded tw-bg-no-repeat tw-bg-center tw-bg-cover"
+                  class="tw-block tw-w-full tw-h-full tw-bg-gray-300 sm:tw-rounded tw-bg-no-repeat tw-bg-center tw-bg-cover"
                   href="#"
                   title="Link"
-                  style={{
-                    backgroundImage:
-                      "url(https://via.placeholder.com/800x600/EDF2F7/E2E8F0/&amp;text=Image)",
-                  }}
-                ></div>
+                  // style={{
+                  //   backgroundImage:
+                  //     "url(https://via.placeholder.com/800x600/EDF2F7/E2E8F0/&amp;text=Image)",
+                  // }}
+                >
+                  {/* <img
+                    className="tw-absolute tw-object-cover tw-h-32"
+                    src={products.length > 1 && products[1].image}
+                  ></img> */}
+
+                  <div class="tw-relative tw-h-full">
+                    <div class="tw-relative lg:tw-flex tw-h-full tw-rounded tw-bg-gray-100 tw-overflow-hidden">
+                      <div class="lg:tw-w-5/12 tw-h-full tw-relative tw-flex tw-items-center tw-justify-center">
+                        <img
+                          class="tw-absolute tw-h-full tw-w-full tw-object-cover"
+                          src={products.length > 1 && products[0].image}
+                          alt=""
+                        />
+                        <div class="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-opacity-25"></div>
+                      </div>
+                      <div class="tw-relative lg:tw-w-7/12 tw-bg-gray-100">
+                        <svg
+                          class="tw-absolute tw-h-full tw-text-gray-100 tw-w-24 tw--ml-12"
+                          fill="currentColor"
+                          viewBox="0 0 100 100"
+                          preserveAspectRatio="none"
+                        >
+                          <polygon points="50,0 100,0 50,100 0,100" />
+                        </svg>
+                        <div class="tw-relative tw-py-12 lg:tw-py-4  tw-px-8 lg:tw-px-16 tw-text-gray-700 tw-leading-relaxed">
+                          <p class="tw-mt-2">
+                            <a
+                              href="#"
+                              class="tw-font-medium tw-text-teal-600 hover:tw-text-teal-900"
+                            >
+                              {products.length > 1 && products[0].name}
+                            </a>
+                            <p>${products.length > 1 && products[0].price} </p>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

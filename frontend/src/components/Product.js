@@ -54,18 +54,19 @@ export default function Product({ product, history, scrollPosition }) {
             className="tw-object-fit"
             title={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs  tw-font-medium tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs tw-tracking-wide">
                   {product.category}
                 </div>
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-sm tw-font-semibold tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-font-semibold tw-tracking-wide">
                   {product.name}
                 </div>
               </EuiText>
             }
             description={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs sm:tw-text-sm tw-font-medium tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-sm tw-font-medium tw-tracking-wide">
                   ${product.price}
+                  <span className="tw-text-gray-700"> each</span>
                 </div>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
               </EuiText>

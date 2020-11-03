@@ -9,10 +9,11 @@ import {
   EuiText,
 } from "@elastic/eui";
 import LazyImage from "./LazyImage";
+import Loader from "../components/Loader";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default ({ history }) => {
+export default ({ history, products }) => {
   const [keyword, setKeyword] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setLoading] = useState(false);
@@ -20,9 +21,6 @@ export default ({ history }) => {
   const [isOpen, setIsOpen] = useState(null);
 
   const searchValueExists = searchValue && searchValue.length;
-
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -33,9 +31,8 @@ export default ({ history }) => {
     }
   };
 
-  const searchData: EuiSelectableTemplateSitewideOption[] =
-    products &&
-    products.map((product) => {
+  const searchData: EuiSelectableTemplateSitewideOption[] = products.map(
+    (product) => {
       return {
         label: product.name,
         url: "/profile",
@@ -51,7 +48,8 @@ export default ({ history }) => {
           },
         ],
       };
-    });
+    }
+  );
 
   /**
    * Timeout to simulate loading (only on key command+k)

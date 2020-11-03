@@ -104,8 +104,6 @@ const ProfileScreen = ({ location, history }) => {
                         <Loader />
                       ) : errorOrders ? (
                         <Message variant="danger">{errorOrders}</Message>
-                      ) : orders.length === 0 ? (
-                        <OrdersEmpty history={history} />
                       ) : (
                         <div className="md:tw-bg-white sm:tw-p-2 md:tw-rounded md:tw-shadow ">
                           <UserOrderTable orders={orders} history={history} />

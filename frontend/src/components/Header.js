@@ -123,7 +123,7 @@ export default ({ theme }) => {
         closePopover={closeMenu}
       >
         <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
-          <EuiKeyPadMenuItem
+          {/* <EuiKeyPadMenuItem
             label="Discover"
             isSelected
             onClick={(e) => {
@@ -132,7 +132,7 @@ export default ({ theme }) => {
             }}
           >
             <EuiIcon type={"discoverApp"} size="l" />
-          </EuiKeyPadMenuItem>
+          </EuiKeyPadMenuItem> */}
           <EuiKeyPadMenuItem
             label="Orders"
             onClick={(e) => {
@@ -505,12 +505,16 @@ export default ({ theme }) => {
     );
   };
 
+  const productList = useSelector((state) => state.productList);
+  const { loading, error, products, page, pages } = productList;
   /**
    * Sitewide search
    */
   const search = (
     <Route
-      render={({ history }) => <SearchBox history={history} fullWidth />}
+      render={({ history }) => (
+        <SearchBox history={history} products={products} fullWidth />
+      )}
     />
   );
   const logoutHandler = () => {

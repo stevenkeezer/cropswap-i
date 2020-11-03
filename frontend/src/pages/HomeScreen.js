@@ -87,9 +87,9 @@ const HomeScreen = ({ match }) => {
       </IonRefresher>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
-          <Carousel />
+          {!keyword && <Carousel />}
 
-          <EuiPageContent className="tw-bg-white tw-p-0  tw-shadow-none">
+          <EuiPageContent className="tw-bg-white tw-p-2  tw-shadow-none">
             <Meta />
             <div>
               {!keyword ? (
@@ -133,7 +133,7 @@ const HomeScreen = ({ match }) => {
                 <>
                   <div className=" tw-mb-4  sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
                     {!keyword ? (
-                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4 md:tw-pt-4 tw-px-4  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
+                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4 md:tw-pt-4 tw-px-2  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
                         <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
                           Featured brands
                         </div>
