@@ -144,7 +144,7 @@ export default function AccountSettings() {
                             value={email}
                             aria-label="Use aria labels when no actual label is in use"
                           />
-                          <button class="tw-px-3 tw-py-3 tw-bg-gray-700 tw-mt-5 tw-text-white tw-rounded-lg">
+                          <button class="tw-px-3 tw-py-3 tw-bg-gray-700 tw-mt-5 tw-text-white tw-rounded">
                             Change your password
                           </button>
                         </div>

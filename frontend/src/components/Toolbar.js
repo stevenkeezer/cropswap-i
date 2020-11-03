@@ -67,8 +67,6 @@ export default ({ history, settings, profile, selling }) => {
           ],
         },
       ]}
-      style={{ width: 192 }}
     />
   );
 };
-

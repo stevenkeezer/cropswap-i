@@ -5,6 +5,7 @@ import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import SelectCategory from "../components/SelectCategory";
 import { listProductDetails, updateProduct } from "../actions/productActions";
 import { PRODUCT_UPDATE_RESET } from "../constants/productConstants";
 
@@ -115,10 +116,7 @@ const ProductEditScreen = ({ match, location, history }) => {
         <div>{error}</div>
       ) : (
         <>
-          <EuiFlexGroup
-            justifyContent="center"
-            className="lg:tw-mt-24 tw-mt-12"
-          >
+          <EuiFlexGroup justifyContent="center" className="">
             <EuiFlexItem grow={false}>
               <div class="euiForm">
                 <div role="group" class="euiDescribedFormGroup">
@@ -284,6 +282,7 @@ const ProductEditScreen = ({ match, location, history }) => {
                           class="euiFormRow"
                           id="i657d1813-13fe-11eb-b1f4-f78d59463eb1-row"
                         >
+                          <SelectCategory />
                           <div class="euiFormRow__labelWrapper">
                             <label
                               class="euiFormLabel euiFormRow__label"

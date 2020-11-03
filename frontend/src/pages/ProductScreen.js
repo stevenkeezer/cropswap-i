@@ -112,6 +112,8 @@ const ProductScreen = ({ history, match }) => {
                     src={product.image}
                     placeholder={product.image}
                     height={500}
+                    shadow
+                    border
                   />
                 </Col>
 

@@ -35,18 +35,12 @@ const makeList = (number, start = 1) =>
     };
   });
 
-const list = [
-  {
-    content: `Item 324`,
-    id: makeId(),
-  },
-];
-
 const InitialIsOpen = () => {
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const cart = useSelector((state) => state.cart);
+  const { cartItems, loading } = cart;
 
   const [list1, setList1] = useState(makeList(3, 4));
+
   const [list2, setList2] = useState(makeList(3, 4));
   const history = useHistory();
 
@@ -80,6 +74,16 @@ const InitialIsOpen = () => {
       }
     }
   };
+
+  useEffect(() => {
+    const items = cartItems.map((item) => {
+      return {
+        content: item.name,
+        id: makeId(),
+      };
+    });
+    setList1(items);
+  }, []);
 
   return (
     <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
@@ -120,8 +124,8 @@ const InitialIsOpen = () => {
                       withPanel
                       grow={false}
                     >
-                      {list.length > 0 ? (
-                        list.map(({ content, id }, idx) => (
+                      {list1.length > 0 ? (
+                        list1.map(({ content, id }, idx) => (
                           <EuiDraggable
                             spacing="m"
                             key={id}

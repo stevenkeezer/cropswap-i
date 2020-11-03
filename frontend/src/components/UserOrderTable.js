@@ -115,7 +115,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
             <tbody>
               {orders &&
                 orders.map((order) => (
-                  <tr class="euiTableRow euiTableRow-isSelectable euiTableRow-hasActions">
+                  <tr class="euiTableRow euiTableRow-isSelectable euiTableRow-hasActions tw-pl-2">
                     <td class="euiTableRowCell euiTableRowCell--enlargeForMobile euiTableRowCell--isMobileFullWidth">
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
                         <span class="euiTableCellContent__text">
@@ -123,7 +123,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                             <LazyImage
                               src={order.orderItems[0].image}
                               alt={order.title}
-                              height={100}
+                              height={75}
                             />
                           </div>
                         </span>
@@ -132,7 +132,7 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
                         <LazyImage
                           src={order.orderItems[0].image}
                           alt={order.title}
-                          height={100}
+                          height={75}
                         ></LazyImage>
                       </div>
                     </td>
