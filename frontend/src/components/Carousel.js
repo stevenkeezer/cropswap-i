@@ -23,17 +23,76 @@ const ProductCarousel = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <Carousel
-        pause="false"
-        className=" tw-antialiased  lg:tw-mt-0 "
-        fade
-        // interval={5000}
-        // style={{
-        //   maxWidth: "75rem",
-        //   marginLeft: "auto",
-        //   marginRight: "auto",
-        // }}
-      >
+      <div class="  tw-px-0 tw-pt-3 tw-pb-0">
+        <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
+          <div class="tw-w-full md:tw-w-1/2 tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
+            {/* {products &&
+              products.map((product) => {
+                return <div>{product.name}</div>;
+              })} */}
+            <div class=" tw-bg-gray-300 tw-h-full tw-w-full sm:tw-rounded">
+              <a
+                href="#"
+                class="tw-block tw-rounded-lg tw-relative tw-p-5 tw-transform tw-transition-all tw-duration-300 tw-scale-100 hover:tw-scale-95"
+                style={{
+                  background:
+                    "url(https://images.unsplash.com/photo-1484876065684-b683cf17d276?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80) center; background-size: cover",
+                }}
+              >
+                <div class="tw-h-24 lg:tw-h-48"></div>
+                <h2 class="tw-text-white tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
+                  Tasnim Lacey New Album Out&nbsp;Now
+                </h2>
+                <div class="tw-flex tw-w-full tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
+                  <div class="tw-flex-1 tw-flex tw-items-center">
+                    <div
+                      class="tw-rounded-full tw-w-8 tw-h-8 tw-mr-3"
+                      style={{
+                        background:
+                          "url(https://randomuser.me/api/portraits/women/74.jpg)",
+                        backgroundSize: "cover",
+                      }}
+                    ></div>
+                    <div>Gwen Thomson</div>
+                  </div>
+                  <div>
+                    <i class="mdi mdi-thumb-up"></i> 18
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          {/* </div> */}
+          <div class="tw-w-full md:tw-w-1/2 tw-mb-4 tw-px-2">
+            <div class="tw-flex tw-flex-col sm:tw-flex-row md:tw-flex-col tw--mx-2">
+              <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-mb-4 sm:tw-mb-0 md:tw-mb-4 tw-px-2">
+                <a
+                  class="tw-block tw-w-full tw-h-full sm:tw-rounded tw-bg-orange-300  tw-bg-no-repeat"
+                  href="#"
+                  title="Link"
+                  style={{
+                    backgroundSize: "355px",
+                    backgroundPosition: "top right",
+                    backgroundImage: "url('/farmers.svg')",
+                  }}
+                ></a>
+              </div>
+              <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-px-2">
+                <div
+                  class="tw-block tw-w-full tw-h-full tw-bg-gray-500 sm:tw-rounded tw-bg-no-repeat tw-bg-center tw-bg-cover"
+                  href="#"
+                  title="Link"
+                  style={{
+                    backgroundImage:
+                      "url(https://via.placeholder.com/800x600/EDF2F7/E2E8F0/&amp;text=Image)",
+                  }}
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <Carousel pause="false" className="tw-antialiased lg:tw-mt-0" fade>
         {products.map((product, index) => (
           <Carousel.Item
             key={product._id}
@@ -98,6 +157,7 @@ const ProductCarousel = () => {
           </Carousel.Item>
         ))}
       </Carousel>
+   */}
     </>
   );
 };

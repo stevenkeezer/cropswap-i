@@ -5,6 +5,8 @@ import {
   EuiPageBody,
   EuiPageContent,
   EuiShowFor,
+  EuiPageHeader,
+  EuiPageContentHeader,
 } from "@elastic/eui";
 import {
   IonAlert,
@@ -75,26 +77,23 @@ const HomeScreen = ({ match }) => {
         </EuiShowFor>
         {!keyword && <Alert />}
       </div>
+      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+        <IonRefresherContent
+          pullingIcon={chevronDown}
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Loading..."
+        ></IonRefresherContent>
+      </IonRefresher>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
+          <Carousel />
+
           <EuiPageContent className="tw-bg-white tw-p-0  tw-shadow-none">
             <Meta />
             <div>
-              <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-                <div className="tw-mt-3">
-                  <IonRefresherContent
-                    pullingIcon={chevronDown}
-                    pullingText="Pull to refresh"
-                    refreshingSpinner="circles"
-                    refreshingText="Loading..."
-                  ></IonRefresherContent>
-                </div>
-              </IonRefresher>
               {!keyword ? (
-                <>
-                  <Carousel />
-                  {!loading && <Categories history={history} />}
-                </>
+                <>{!loading && <Categories history={history} />}</>
               ) : (
                 <div className="  tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
                   {!keyword && !loading && (

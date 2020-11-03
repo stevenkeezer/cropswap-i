@@ -437,10 +437,7 @@ tbody tr:last-child td:last-child {
     max-width: 50% !important;
     padding: 0.5rem;
   }
-  .euiFlexGroup--responsive {
-    margin-left: 0.55rem !important;
-    margin-right: 0.55rem !important;
-  }
+
   .euiBottomBar.euiBottomBar--paddingMedium {
     padding-top: 5px !important;
     padding-bottom: 0px !important;

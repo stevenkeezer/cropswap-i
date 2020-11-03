@@ -196,11 +196,11 @@ const CartScreen = ({ match, location, history }) => {
               </div>
               <div className="xl:tw-w-1/2">
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="none" />
                 </EuiShowFor>
                 <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
                   <div variant="flush" lines="none">
-                    <div className="tw-pb-0 sm:tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
+                    <div className="tw-pb-0 tw-mb-3 tw-pt-4 tw-flex tw-justify-between tw-items-baseline">
                       <div className="tw-flex  tw-items-baseline">
                         <div className="tw-font-semibold tw-text-md tw-mr-1">
                           Subtotal

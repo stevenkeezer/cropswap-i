@@ -33,8 +33,9 @@ export default ({ history }) => {
     }
   };
 
-  const searchData: EuiSelectableTemplateSitewideOption[] = products.map(
-    (product) => {
+  const searchData: EuiSelectableTemplateSitewideOption[] =
+    products &&
+    products.map((product) => {
       return {
         label: product.name,
         url: "/profile",
@@ -50,8 +51,7 @@ export default ({ history }) => {
           },
         ],
       };
-    }
-  );
+    });
 
   /**
    * Timeout to simulate loading (only on key command+k)
