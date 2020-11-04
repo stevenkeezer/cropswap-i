@@ -72,7 +72,7 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       <div className="">
-        <EuiShowFor sizes={["xs", "s", "m", "l"]}>
+        <EuiShowFor sizes={["xs", "s", "m"]}>
           <CategorySlider history={history} />
         </EuiShowFor>
         {!keyword && <Alert />}

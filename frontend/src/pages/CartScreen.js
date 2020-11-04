@@ -286,7 +286,7 @@ const CartScreen = ({ match, location, history }) => {
                     <EuiButton
                       fullWidth
                       color="secondary"
-                      className="tw-mt-3 tw-font-semibold "
+                      className="tw-mt-3 md:tw-mt-0 tw-font-semibold "
                       size="m"
                       fill
                       disabled={cartItems.length === 0}
