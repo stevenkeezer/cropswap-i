@@ -173,7 +173,7 @@ export default ({ history, products }) => {
       />
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
-        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
+        className="tw-gap-4 tw-text-sm  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}
@@ -222,7 +222,7 @@ export default ({ history, products }) => {
           size="small"
           className="tw-bg-teal-500 tw-font-medium tw-tracking-wider hover:tw-bg-teal-500
             tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
-            tw-text-xs tw-cursor-pointer"
+            tw-text-sm tw-cursor-pointer"
         >
           <span onClick={(e) => history.push("/cart")}>Order online</span>
         </div>
