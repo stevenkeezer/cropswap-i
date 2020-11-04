@@ -550,7 +550,7 @@ export default ({ theme }) => {
                 restrictWidth="75rem"
                 onProgress
                 position="static"
-                className=" tw-mx-auto sm:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+                className=" tw-mx-auto sm:tw-px-10 lg:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
                 borderBottom="none"
                 style={{
                   boxShadow: "none!important",
@@ -637,6 +637,7 @@ export default ({ theme }) => {
             <EuiHeader
               theme="light"
               style={{ border: "none" }}
+              className="tw-px-1"
               position={"fixed"}
               menu
             >

@@ -31,25 +31,23 @@ export default ({ history, products }) => {
     }
   };
 
-  const searchData = products.map(
-    (product) => {
-      return {
-        label: product.name,
-        url: "/profile",
-        prepend: <LazyImage height={50} src={product.image} />,
-        onClick: () => {
-          history.push(`/product/${product._id}`);
-          setIsOpen(false);
+  const searchData = products.map((product) => {
+    return {
+      label: product.name,
+      url: "/profile",
+      prepend: <LazyImage height={50} src={product.image} />,
+      onClick: () => {
+        history.push(`/product/${product._id}`);
+        setIsOpen(false);
+      },
+      meta: [
+        {
+          text: product.name,
+          highlightSearchString: true,
         },
-        meta: [
-          {
-            text: product.name,
-            highlightSearchString: true,
-          },
-        ],
-      };
-    }
-  );
+      ],
+    };
+  });
 
   /**
    * Timeout to simulate loading (only on key command+k)
@@ -69,13 +67,11 @@ export default ({ history, products }) => {
    */
 
   const recents = searchData.slice(0, 5);
-  const recentsWithIcon = recents.map(
-    (recent) => {
-      return {
-        ...recent,
-      };
-    }
-  );
+  const recentsWithIcon = recents.map((recent) => {
+    return {
+      ...recent,
+    };
+  });
 
   /**
    * Hook up the keyboard shortcut for command+k to initiate focus into search input

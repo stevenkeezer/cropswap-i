@@ -151,19 +151,15 @@ const HomeScreen = ({ match }) => {
                       <SearchEmpty history={history} />
                     )}
                   </div>
-
-                  <EuiFlexGroup
-                    wrap
-                    columns={4}
-                    gutterSize="s"
-                    className="md:tw-px-4"
-                  >
-                    {products &&
-                      products.length &&
-                      products.map((product) => (
-                        <Product product={product} history={history} />
-                      ))}
-                  </EuiFlexGroup>
+                  <div className="md:tw-px-2 lg:tw-px-3 xl:tw-px-4">
+                    <EuiFlexGroup wrap columns={4} gutterSize="s">
+                      {products &&
+                        products.length &&
+                        products.map((product) => (
+                          <Product product={product} history={history} />
+                        ))}
+                    </EuiFlexGroup>
+                  </div>
 
                   <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justiy-center">
                     <Paginate

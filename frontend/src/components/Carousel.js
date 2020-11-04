@@ -23,7 +23,7 @@ const ProductCarousel = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div class="  tw-px-0 sm:tw-pt-3 tw-pb-0">
+      <div class="  sm:tw-px-4 sm:tw-pt-3 tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
           <div class="tw-w-full md:tw-w-1/2 tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
             <div class="tw-relative tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded">
