@@ -89,7 +89,7 @@ const ShippingScreen = ({ history }) => {
 
               <div className="tw-px-4">
                 <div className=" tw-text-sm tw-mt-8 lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
-                  Your items
+                  Your address
                 </div>
               </div>
 

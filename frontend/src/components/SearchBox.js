@@ -31,7 +31,7 @@ export default ({ history, products }) => {
     }
   };
 
-  const searchData: EuiSelectableTemplateSitewideOption[] = products.map(
+  const searchData = products.map(
     (product) => {
       return {
         label: product.name,
@@ -69,7 +69,7 @@ export default ({ history, products }) => {
    */
 
   const recents = searchData.slice(0, 5);
-  const recentsWithIcon: EuiSelectableTemplateSitewideOption[] = recents.map(
+  const recentsWithIcon = recents.map(
     (recent) => {
       return {
         ...recent,
@@ -124,7 +124,7 @@ export default ({ history, products }) => {
   /**
    * Do something with the selection based on the found option with `checked: on`
    */
-  const onChange = (updatedOptions: EuiSelectableTemplateSitewideOption[]) => {
+  const onChange = (updatedOptions) => {
     const clickedItem = updatedOptions.find(
       (option) => option.checked === "on"
     );

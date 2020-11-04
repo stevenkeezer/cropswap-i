@@ -26,21 +26,16 @@ const ProductCarousel = () => {
       <div class="  tw-px-0 sm:tw-pt-3 tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
           <div class="tw-w-full md:tw-w-1/2 tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
-            <div class=" tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded">
-              <div
-                style={{
-                  backgroundSize: "355px",
-                }}
-                class="tw-block tw-rounded-lg tw-relative tw-transform tw-transition-all tw-duration-300 tw-scale-100"
-              >
-                <img
-                  class="tw-absolute tw-h-full tw-w-full tw-object-cover"
-                  src={products.length > 1 && products[1].image}
-                  alt=""
-                />
-                <div class="tw-h-24 lg:tw-h-64"></div>
+            <div class="tw-relative tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded">
+              <img
+                class="tw-absolute tw-h-full sm:tw-rounded tw-w-full tw-object-cover"
+                src={products.length > 1 && products[1].image}
+                alt=""
+              />
+              <div class="tw-block sm:tw-rounded tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
+                {/* <div class="tw-h-24 lg:tw-h-48"></div> */}
 
-                <h2 class="tw-text-white tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
+                <h2 class="tw-text-white tw tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
                   {products && (
                     <div>{products.length > 1 && products[1].name}</div>
                   )}
@@ -95,7 +90,7 @@ const ProductCarousel = () => {
                   ></img> */}
 
                   <div class="tw-relative tw-h-full">
-                    <div class="tw-relative lg:tw-flex tw-h-full tw-rounded tw-bg-gray-100 tw-overflow-hidden">
+                    <div class="tw-relative lg:tw-flex tw-h-full sm:tw-rounded tw-bg-gray-100 tw-overflow-hidden">
                       <div class="lg:tw-w-5/12 tw-h-full tw-relative tw-flex tw-items-center tw-justify-center">
                         <img
                           class="tw-absolute tw-h-full tw-w-full tw-object-cover"

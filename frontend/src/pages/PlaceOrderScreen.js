@@ -3,6 +3,14 @@ import {
   EuiCheckableCard,
   EuiHorizontalRule,
   EuiImage,
+  EuiAccordion,
+  EuiFlexItem,
+  EuiFormRow,
+  EuiSpacer,
+  EuiTextArea,
+  EuiFieldText,
+  EuiCheckbox,
+  EuiFlexGroup,
   EuiShowFor,
 } from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
@@ -89,41 +97,122 @@ const PlaceOrderScreen = ({ history }) => {
                     <EuiHorizontalRule margin="s" />
                   </EuiShowFor>
 
-                  <div className="tw-border-none tw-rounded tw-shadow tw-bg-white tw-py-2 tw-mb-3">
-                    <div className="tw-text-gray-800  tw-text-sm sm:tw-text-lg sm:tw-font-semibold tw-px-4 tw-py-3">
-                      Delivery address
-                    </div>
-                    <ListGroup.Item className="tw-border-none tw-py-4">
-                      <EuiCheckableCard
-                        className="sm:tw-w-1/2"
-                        id={htmlIdGenerator()()}
-                        label={
-                          <>
-                            <div className="tw-flex tw-gap-8 tw-py-2">
-                              <div className="tw-flex-col">
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.address}
-                                </div>
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.city},{" "}
-                                  {cart.shippingAddress.postalCode}
-                                </div>
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.country}
+                  <div className="tw-border-none tw-py-2 tw-mb-3">
+                    <div className="tw-border-none tw-py-4">
+                      <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-p-4 tw-py-4  sm:tw-rounded">
+                        <EuiAccordion
+                          id="accordionExtraWithRightArrow"
+                          arrowDisplay="none"
+                          initialIsOpen={
+                            cart.shippingAddress.address === "" && true
+                          }
+                          buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
+                          buttonContentClassName="tw-flex tw-w-full tw-mb-2 tw-justify-between"
+                          buttonContent={
+                            <>
+                              <div className="tw-flex tw-items-center tw-w-11/12  tw-justify-between">
+                                <div className="tw-flex tw-w-full tw-items-center">
+                                  <svg
+                                    class="tw-w-5 tw-h-5 tw-text-gray-800 tw-mr-3 "
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                      clip-rule="evenodd"
+                                    ></path>
+                                  </svg>
+                                  <div className="tw-truncate tw-text-sm tw-text-gray-800 tw-w-11/12">
+                                    {cart.shippingAddress.address},{" "}
+                                    {cart.shippingAddress.city},{" "}
+                                    {cart.shippingAddress.country},{" "}
+                                    {cart.shippingAddress.postalCode}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          </>
-                        }
-                        checkableType="checkbox"
-                        value="checkbox1"
-                        checked={checkbox}
-                        onChange={() => {
-                          checkHandler();
-                          setCheckbox(!checkbox);
-                        }}
-                      />
-                    </ListGroup.Item>
+                              <div className="tw-text-xs sm:tw-text-sm tw-right-auto tw-text-teal-600 tw-font-medium">
+                                Edit
+                              </div>
+                            </>
+                          }
+                          paddingSize="l"
+                        >
+                          <EuiFlexItem>
+                            <EuiFormRow
+                              fullWidth
+                              helpText="No shipping available right now this app is still in development!"
+                              label="Address"
+                            >
+                              <EuiFieldText
+                                placeholder="Address"
+                                className="tw-mb-3"
+                                fullWidth
+                                value={cart.shippingAddress.address}
+                                // onChange={(e) => setAddress(e.target.value)}
+                              />
+                            </EuiFormRow>
+                          </EuiFlexItem>
+                          <EuiSpacer />
+
+                          <EuiFlexGroup>
+                            <EuiFlexItem>
+                              <EuiFormRow fullWidth label="City">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.city}
+                                  // onChange={(e) => setCity(e.target.value)}
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+
+                            <EuiFlexItem>
+                              <EuiFormRow fullWidth label="Country">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.country}
+                                  // onChange={(e) => setCountry(e.target.value)}
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+                            <EuiFlexItem grow={false}>
+                              <EuiFormRow fullWidth label="Postal Code">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.postalCode}
+                                  // onChange={(e) =>
+                                  //   setPostalCode(e.target.value)
+                                  // }
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+                          </EuiFlexGroup>
+                        </EuiAccordion>
+
+                        <EuiTextArea
+                          fullWidth
+                          className="tw-rounded"
+                          placeholder="Special delivery instructions (e.g. Apt. number, gate code, ect.)"
+                          aria-label="Use aria labels when no actual label is in use"
+                          // value={value}
+                          // onChange={(e) => onChange(e)}
+                        />
+                        <div className="tw-pt-3 tw-flex tw-items-baseline ">
+                          <div>
+                            <EuiCheckbox checked />
+                          </div>
+                          <div className="tw-pl-5 tw-text-sm  tw-text-gray-800 tw-tracking-wide">
+                            Set as default home address
+                          </div>
+                        </div>
+                      </div>
+
+                      {() => {
+                        checkHandler();
+                        setCheckbox(!checkbox);
+                      }}
+                    </div>
                   </div>
                   <EuiShowFor sizes={["xs", "s", "m"]}>
                     <EuiHorizontalRule margin="s" />

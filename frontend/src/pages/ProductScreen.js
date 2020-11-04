@@ -47,19 +47,19 @@ const ProductScreen = ({ history, match }) => {
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
     success: successProductReview,
+    loading: loadingProductReview,
     error: errorProductReview,
   } = productReviewCreate;
 
   useEffect(() => {
-    dispatch({ type: PRODUCT_DETAILS_RESET });
-
     if (successProductReview) {
-      alert("Review Submitted!");
       setRating(0);
       setComment("");
+    }
+    if (!product._id || product._id !== match.params.id) {
+      dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
-    dispatch(listProductDetails(match.params.id));
   }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
@@ -105,12 +105,12 @@ const ProductScreen = ({ history, match }) => {
             <Message variant="danger">{error}</Message>
           ) : (
             <>
-              <Meta title={product.name} />
+              <Meta title={product && product.name} />
               <Row className="justify-content-center mt-3">
                 <Col md={6} size={12} className="tw-mb-8">
                   <LazyImage
-                    src={product.image}
-                    placeholder={product.image}
+                    src={product && product.image}
+                    placeholder={product && product.image}
                     height={500}
                     shadow
                     border
@@ -119,22 +119,22 @@ const ProductScreen = ({ history, match }) => {
 
                 <Col md={3}>
                   <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
-                    {product.category}
+                    {product && product.category}
                   </div>
                   <div className="tw-text-2xl  tw-font-medium tw-text-gray-900">
-                    {product.name}
+                    {product && product.name}
                   </div>
 
                   <div variant="flush" className="tw-border-none tw-mt-2">
                     <div>
                       <Rating
-                        value={product.rating}
-                        text={`${product.numReviews} reviews`}
+                        value={product && product.rating}
+                        text={`${product && product.numReviews} reviews`}
                       />
                     </div>
                     <div className="tw-py-6">
                       <span className="tw-font-bold tw-text-gray-900 tw-text-2xl">
-                        ${product.price}{" "}
+                        ${product && product.price}{" "}
                       </span>
                       <span className="tw-text-sm tw-text-gray-800">each</span>
                     </div>
@@ -143,12 +143,14 @@ const ProductScreen = ({ history, match }) => {
                         <div>
                           <Row>
                             <Col>
-                              {product.countInStock > 0 && "Out Of Stock"}
+                              {product &&
+                                product.countInStock === 0 &&
+                                "Out Of Stock"}
                             </Col>
                           </Row>
                         </div>
 
-                        {product.countInStock > 0 && (
+                        {product && product.countInStock > 0 && (
                           <div>
                             <Row>
                               <Col>Quantity</Col>
@@ -158,13 +160,15 @@ const ProductScreen = ({ history, match }) => {
                                 value={qty}
                                 onChange={(e) => setQty(e.target.value)}
                               >
-                                {[...Array(product.countInStock).keys()].map(
-                                  (x) => (
-                                    <option key={x + 1} value={x + 1}>
-                                      {x + 1}
-                                    </option>
-                                  )
-                                )}
+                                {[
+                                  ...Array(
+                                    product && product.countInStock
+                                  ).keys(),
+                                ].map((x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                ))}
                               </Form.Control>
                             </Row>
                           </div>
@@ -172,7 +176,7 @@ const ProductScreen = ({ history, match }) => {
                       </div>
                     </div>
                   </div>
-                  {product.countInStock > 0 ? (
+                  {product && product.countInStock > 0 ? (
                     <EuiButton
                       fullWidth
                       color="secondary"
@@ -199,11 +203,15 @@ const ProductScreen = ({ history, match }) => {
                 </Col>
               </Row>
 
-              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-font-semibold">
+              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
                 Product Description
               </div>
-              <div className="tw-leading-6 tw-text-md">
-                {product ? product.description : <div>No description</div>}
+              <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
+                {product ? (
+                  product && product.description
+                ) : (
+                  <div>No description</div>
+                )}
               </div>
               <Row>
                 <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
@@ -220,6 +228,12 @@ const ProductScreen = ({ history, match }) => {
 
                     <ListGroup.Item>
                       <h2>Write a Customer Review</h2>
+                      {successProductReview && (
+                        <Message variant="success">
+                          Review submitted successfully
+                        </Message>
+                      )}
+                      {loadingProductReview && <Loader />}
                       {errorProductReview && (
                         <Message variant="danger">{errorProductReview}</Message>
                       )}
@@ -249,7 +263,11 @@ const ProductScreen = ({ history, match }) => {
                               onChange={(e) => setComment(e.target.value)}
                             ></Form.Control>
                           </Form.Group>
-                          <Button type="submit" variant="primary">
+                          <Button
+                            type="submit"
+                            variant="primary"
+                            disabled={loadingProductReview}
+                          >
                             Submit
                           </Button>
                         </Form>
