@@ -154,7 +154,7 @@ const HomeScreen = ({ match }) => {
                   <div className="md:tw-px-2 lg:tw-px-3 xl:tw-px-4">
                     <EuiFlexGroup wrap columns={4} gutterSize="s">
                       {products &&
-                        products.length &&
+                        products.length !== 0 &&
                         products.map((product) => (
                           <Product product={product} history={history} />
                         ))}

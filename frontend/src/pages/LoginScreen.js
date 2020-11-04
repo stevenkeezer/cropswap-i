@@ -52,11 +52,11 @@ const LoginScreen = ({ location, history }) => {
         <Loader />
       ) : (
         <>
-          <EuiPage className="tw-h-screen tw-mt-12">
+          <EuiPage className="tw-h-screen">
             <EuiPageBody component="div">
-              <EuiPageContent horizontalPosition="center">
+              <EuiPageContent horizontalPosition="center" className="tw-mt-10">
                 <EuiPageContentBody>
-                  <div class="tw-w-full ">
+                  <div class="tw-w-full  ">
                     <EuiForm>
                       <EuiFormRow fullWidth label="">
                         <div class="tw-w-full md:tw-w-full  tw-mb-6">
@@ -110,14 +110,6 @@ const LoginScreen = ({ location, history }) => {
                             Remember Me
                           </span>
                         </label>
-                        <div class="tw-w-1/2 tw-text-right">
-                          <a
-                            href="#"
-                            class="tw-text-blue-500 tw-text-sm tw-tracking-tight"
-                          >
-                            Forget your password?
-                          </a>
-                        </div>
                       </div>
                       <div class="tw-w-full md:tw-w-full tw-mb-6">
                         <EuiButton fullWidth onClick={submitHandler}>
