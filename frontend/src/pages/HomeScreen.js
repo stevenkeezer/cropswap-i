@@ -163,6 +163,7 @@ const HomeScreen = ({ match }) => {
 
                   <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justiy-center">
                     <Paginate
+                      history={history}
                       pages={pages && pages}
                       page={page && page}
                       keyword={keyword ? keyword : ""}

@@ -1,33 +1,23 @@
-import { IonButton, IonIcon, IonText, IonTitle } from "@ionic/react";
+import { EuiButton, EuiTextArea } from "@elastic/eui";
+import { IonIcon, IonText } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SubFooter from "../components/SubFooter";
-import LazyImage from "../components/LazyImage";
 // import Meta from "../components/Meta";
 import {
   createProductReview,
   listProductDetails,
 } from "../actions/productActions";
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-} from "@elastic/eui";
 import ElasticComment from "../components/ElasticComment";
-import ElasticImage from "../components/ElasticImage";
+import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
 import Rating from "../components/Rating";
-import {
-  PRODUCT_CREATE_REVIEW_RESET,
-  PRODUCT_DETAILS_RESET,
-} from "../constants/productConstants";
+import RatingSelect from "../components/RatingSelect";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -106,18 +96,18 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <Row className="justify-content-center mt-3">
-                <Col md={6} size={12} className="tw-mb-8">
+              <div className=" tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
+                <div className="tw-w-full lg:tw-w-3/5 tw-mb-8 tw-mx-auto">
                   <LazyImage
                     src={product && product.image}
                     placeholder={product && product.image}
-                    height={500}
+                    // height={350}
                     shadow
                     border
                   />
-                </Col>
+                </div>
 
-                <Col md={3}>
+                <div className="tw-w-full lg:tw-w-2/5">
                   <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
                     {product && product.category}
                   </div>
@@ -200,8 +190,8 @@ const ProductScreen = ({ history, match }) => {
                       Add To Cart
                     </EuiButton>
                   )}
-                </Col>
-              </Row>
+                </div>
+              </div>
 
               <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
                 Product Description
@@ -214,20 +204,9 @@ const ProductScreen = ({ history, match }) => {
                 )}
               </div>
               <Row>
-                <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
-                  <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-font-semibold">
-                    Customer Reviews
-                  </div>
-                  {product &&
-                    product.reviews &&
-                    product.reviews.length === 0 && (
-                      <Message>No Reviews</Message>
-                    )}
+                <div className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
                   <ListGroup variant="flush">
-                    <ElasticComment reviews={product.reviews}></ElasticComment>
-
                     <ListGroup.Item>
-                      <h2>Write a Customer Review</h2>
                       {successProductReview && (
                         <Message variant="success">
                           Review submitted successfully
@@ -238,39 +217,31 @@ const ProductScreen = ({ history, match }) => {
                         <Message variant="danger">{errorProductReview}</Message>
                       )}
                       {userInfo ? (
-                        <Form onSubmit={submitHandler}>
-                          <Form.Group controlId="rating">
-                            <Form.Label>Rating</Form.Label>
-                            <Form.Control
-                              as="select"
-                              value={rating}
-                              onChange={(e) => setRating(e.target.value)}
-                            >
-                              <option value="">Select...</option>
-                              <option value="1">1 - Poor</option>
-                              <option value="2">2 - Fair</option>
-                              <option value="3">3 - Good</option>
-                              <option value="4">4 - Very Good</option>
-                              <option value="5">5 - Excellent</option>
-                            </Form.Control>
-                          </Form.Group>
-                          <Form.Group controlId="comment">
-                            <Form.Label>Comment</Form.Label>
-                            <Form.Control
-                              as="textarea"
-                              row="3"
+                        <>
+                          <form onSubmit={submitHandler}>
+                            <RatingSelect
+                              controlId="rating"
+                              rating={rating}
+                              setRating={setRating}
+                            />
+
+                            <EuiTextArea
+                              fullWidth
+                              placeholder="Write a comment or review"
+                              aria-label="Use aria labels when no actual label is in use"
                               value={comment}
                               onChange={(e) => setComment(e.target.value)}
-                            ></Form.Control>
-                          </Form.Group>
-                          <Button
-                            type="submit"
-                            variant="primary"
-                            disabled={loadingProductReview}
-                          >
-                            Submit
-                          </Button>
-                        </Form>
+                            />
+
+                            <button
+                              type="submit"
+                              className="tw-py-3 tw-mt-3 tw-px-3 tw-border tw-border-gray-300 tw-bg-gray-400 tw-rounded tw-text-900 "
+                              disabled={loadingProductReview}
+                            >
+                              Submit
+                            </button>
+                          </form>
+                        </>
                       ) : (
                         <Message>
                           Please <Link to="/login">sign in</Link> to write a
@@ -279,7 +250,16 @@ const ProductScreen = ({ history, match }) => {
                       )}
                     </ListGroup.Item>
                   </ListGroup>
-                </Col>
+                  <div className="tw-py-3 tw-pt-5 tw-mb-3 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
+                    Customer Reviews
+                  </div>
+                  {product &&
+                    product.reviews &&
+                    product.reviews.length === 0 && (
+                      <Message>No Reviews</Message>
+                    )}
+                  <ElasticComment reviews={product.reviews}></ElasticComment>
+                </div>
               </Row>
             </>
           )}

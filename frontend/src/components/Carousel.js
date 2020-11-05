@@ -33,24 +33,17 @@ const ProductCarousel = () => {
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class=" sm:tw-rounded tw-absolute tw-transform tw-px-4 tw-bg-ingigo-500 tw-bg-opacity-50 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
+              <div class=" sm:tw-rounded tw-px-12 tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
                 <div class="tw-h-32 md:tw-h-48"></div>
 
-                <h2 class="tw-text-white tw tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
+                <h2 class="tw-text-white tw tw-text-2xl tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
                   {products && (
                     <div>{products.length > 1 && products[1].name}</div>
                   )}
                 </h2>
-                <div class="tw-flex tw-w-full tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
+                <div class="tw-flex tw-w-full  tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
                   <div class="tw-flex-1 tw-flex tw-items-center">
-                    <div
-                      class="tw-rounded-full tw-w-10 tw-h-10 tw-mr-3 tw-items-center tw-justify-center tw-flex tw-bg-gray-300 tw-text-black"
-                      // style={{
-                      //   background:
-                      //     "url(https://randomuser.me/api/portraits/women/74.jpg)",
-                      //   backgroundSize: "cover",
-                      // }}
-                    >
+                    <div class="tw-rounded-full tw-w-10 tw-h-10 tw-mr-3 tw-items-center tw-justify-center tw-flex tw-bg-gray-300 tw-text-black">
                       ${products.length > 1 && products[1].price}
                     </div>
                     <div>
@@ -109,7 +102,7 @@ const ProductCarousel = () => {
                       </div>
                       <div class="tw-relative lg:tw-w-7/12 tw-bg-gray-100">
                         <svg
-                          class="tw-absolute tw-h-full tw-text-gray-100 tw-w-24 tw--ml-12"
+                          class="tw-absolute tw-h-full tw-text-gray-100  tw-w-24 tw--ml-12"
                           fill="currentColor"
                           viewBox="0 0 100 100"
                           preserveAspectRatio="none"
@@ -121,11 +114,16 @@ const ProductCarousel = () => {
                           <p class="tw-mt-2">
                             <a
                               href="#"
-                              class="tw-font-medium tw-text-teal-600 hover:tw-text-teal-900"
+                              class="tw-font-medium tw-text-gray-900 tw-w-full tw-pb-3 tw-text-xl tw-flex hover:tw-text-teal-900"
                             >
                               {products.length > 1 && products[0].name}
+                              <div className="tw-px-2">
+                                ${products.length > 1 && products[0].price}{" "}
+                              </div>
                             </a>
-                            <p>${products.length > 1 && products[0].price} </p>
+                            <div className="tw-bg-teal-500 tw-text-teal-100 tw-px-2 tw-py-1 tw-text-center  tw-font-medium tw-rounded-full">
+                              See more
+                            </div>
                           </p>
                         </div>
                       </div>

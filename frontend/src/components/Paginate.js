@@ -1,28 +1,33 @@
+import { EuiFlexGroup, EuiFlexItem, EuiPagination } from "@elastic/eui";
 import React from "react";
-import { Pagination } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 
-const Paginate = ({ pages, page, isAdmin = false, keyword = "" }) => {
+export default function Paginate({
+  pages,
+  page,
+  isAdmin = false,
+  keyword = "",
+  history,
+}) {
   return (
     pages > 1 && (
-      <Pagination>
-        {[...Array(pages).keys()].map((x) => (
-          <LinkContainer
-            key={x + 1}
-            to={
-              !isAdmin
-                ? keyword
-                  ? `/search/${keyword}/page/${x + 1}`
-                  : `/page/${x + 1}`
-                : `/admin/productlist/${x + 1}`
+      <EuiFlexGroup justifyContent="spaceAround">
+        <EuiFlexItem grow={false}>
+          <EuiPagination
+            aria-label="Centered pagination example"
+            pageCount={pages}
+            activePage={page - 1}
+            onPageClick={(activePage) =>
+              history.push(
+                !isAdmin
+                  ? keyword
+                    ? `/search/${keyword}/page/${activePage + 1}`
+                    : `/page/${activePage + 1}`
+                  : `/admin/productlist/${activePage + 1}`
+              )
             }
-          >
-            <Pagination.Item active={x + 1 === page}>{x + 1}</Pagination.Item>
-          </LinkContainer>
-        ))}
-      </Pagination>
+          />
+        </EuiFlexItem>
+      </EuiFlexGroup>
     )
   );
-};
-
-export default Paginate;
+}

@@ -114,6 +114,7 @@ const ProductListScreen = ({ history, match }) => {
               <Paginate
                 pages={pages && pages}
                 page={page && page}
+                history={history}
                 isAdmin={true}
               />
             </>
