@@ -26,8 +26,8 @@ const ProductCarousel = () => {
     <>
       <div class="  sm:tw-px-4 xl:tw-px-0  sm:tw-pt-3 tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
-          <div class="tw-w-full md:tw-w-1/2 tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
-            <div class="tw-relative tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded">
+          <div class="tw-w-full md:tw-w-1/2  tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
+            <div class="tw-relative tw-bg-gray-100 tw-h-full  tw-w-full sm:tw-rounded">
               <img
                 class="tw-absolute tw-h-full sm:tw-rounded tw-w-full tw-object-cover"
                 src={products.length > 1 && products[1].image}
@@ -36,12 +36,12 @@ const ProductCarousel = () => {
               <div class=" sm:tw-rounded tw-px-12 tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
                 <div class="tw-h-32 md:tw-h-48"></div>
 
-                <h2 class="tw-text-white tw tw-text-2xl tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
+                <h2 class="tw-text-white  tw-text-2xl tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
                   {products && (
                     <div>{products.length > 1 && products[1].name}</div>
                   )}
                 </h2>
-                <div class="tw-flex tw-w-full  tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
+                <div class="tw-flex tw-w-full tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
                   <div class="tw-flex-1 tw-flex tw-items-center">
                     <div class="tw-rounded-full tw-w-10 tw-h-10 tw-mr-3 tw-items-center tw-justify-center tw-flex tw-bg-gray-300 tw-text-black">
                       ${products.length > 1 && products[1].price}

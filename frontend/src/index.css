@@ -117,6 +117,7 @@ b {
     font-size: 11px !important;
     line-height: 17px !important;
     /* height: 16px !important; */
+
     min-width: 18px !important;
     min-height: 18px !important;
   }
@@ -346,7 +347,7 @@ select {
 
 .euiNotificationBadge {
   border-radius: 99999rem !important;
-
+  font-weight: bold !important;
   background: rgb(227, 69, 42) !important;
 }
 

@@ -101,7 +101,7 @@ export default ({ theme }) => {
           </EuiShowFor>
           <EuiShowFor sizes={[, "l", "xl"]}>
             <svg
-              class="tw-w-6 tw-h-6 tw-text-gray-800 tw-mx-auto"
+              class="tw-w-5 tw-h-5 tw-text-gray-800 tw-mx-auto"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +250,7 @@ export default ({ theme }) => {
         >
           {/* <EuiIcon type="user" size="l" style={{ padding: "3px" }} /> */}
           <svg
-            class="tw-w-6 tw-h-6 tw-mx-auto  tw-text-gray-800"
+            class="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
@@ -442,7 +442,7 @@ export default ({ theme }) => {
           onClick={onMenuButtonClick}
         >
           <svg
-            class="tw-w-6 tw-h-6 tw-mx-auto tw-text-gray-800"
+            class="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
             fill="currentColor"
             viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg"
