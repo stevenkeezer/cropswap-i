@@ -73,6 +73,7 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "2.0.1"
+    "@capacitor/cli": "2.0.1",
+    "@fullhuman/postcss-purgecss": "^3.0.0"
   }
 }
