@@ -41,17 +41,14 @@ b {
 }
 
 .sky {
-  background-color: #fbd38d;
+  background-color: #ccccff;
   margin: 0;
-  animation: sky 2s linear;
+  animation: sky 2s 0.2s forwards;
 }
 
 @keyframes sky {
   0% {
     background-color: #ccccff;
-  }
-  20% {
-    background-color: #fbd38d;
   }
   65% {
     background-color: #fbd38d;
