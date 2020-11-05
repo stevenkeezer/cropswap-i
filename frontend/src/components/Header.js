@@ -579,7 +579,7 @@ export default ({ theme }) => {
                       userInfo && userInfo.isAdmin && (
                         <HeaderSpacesMenu history={history} />
                       ),
-                      <EuiToolTip position="bottom" delay="long" content="Cpuart">
+                      <EuiToolTip position="bottom" delay="long" content="Cart">
                         <EuiHeaderSectionItemButton
                           // aria-controls={keypadId}
                           aria-expanded={isOpen}
