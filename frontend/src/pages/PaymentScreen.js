@@ -1,15 +1,14 @@
 import {
   EuiButton,
   EuiHorizontalRule,
-  EuiImage,
   EuiRadioGroup,
   EuiShowFor,
 } from "@elastic/eui";
 import React, { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { savePaymentMethod } from "../actions/cartActions";
+import CartItem from "../components/CartItem";
 import CheckoutSteps from "../components/CheckoutSteps";
 
 const PaymentScreen = ({ history }) => {
@@ -40,14 +39,13 @@ const PaymentScreen = ({ history }) => {
     <>
       <div
         style={{ backgroundColor: "#fafbfd" }}
-        className="tw-h-auto    tw-antialiased tw-pt-2"
+        className="tw-h-screen    tw-antialiased tw-pt-2"
       >
-        {/* <Container> */}
-        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
+        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
           <CheckoutSteps step1 step2 step3 />
         </div>
-        <Row className=" tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
-          <Col lg={8} className="tw-p-0">
+        <div className="tw-flex tw-flex-col lg:tw-flex-row tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
+          <div className="tw-col-8 tw-p-0">
             <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Select payment method
             </div>
@@ -167,9 +165,9 @@ const PaymentScreen = ({ history }) => {
                 // }}
               ></EuiRadioGroup>
             </div>
-          </Col>
+          </div>
 
-          <Col lg={4} className="tw-p-0">
+          <div className="tw-p-0 tw-col-4">
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
@@ -188,49 +186,7 @@ const PaymentScreen = ({ history }) => {
             </EuiShowFor>
 
             <div className=" tw-text-2xl tw-px-4 sm:tw-px-0 tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
-              {cartItems &&
-                cartItems.map((item) => (
-                  <>
-                    <div className="tw-bg-white tw-rounded mb-3 tw-border card tw-border-gray-400 sm:tw-border-none sm:tw-shadow tw-border-opacity-75 tw-p-2 ">
-                      <div class="row ">
-                        <div class=" tw-flex tw-gap-3">
-                          <div class="tw-flex tw-ml-5 tw-my-2 tw-items-center">
-                            <EuiImage
-                              // size="l"
-                              className="tw-m-0  tw-object-cover"
-                              hasShadow
-                              allowFullScreen
-                              // caption="Click me"
-                              src={item.image}
-                              alt={item.name}
-                              style={{ maxWidth: "100px", maxHeight: "75px" }}
-                            />
-                            {/* {item.qty > 1 && ( */}
-
-                            {/* )} */}
-                          </div>
-                        </div>
-                        <div className="tw-flex tw-flex-grow tw-px-5 tw-justify-between ">
-                          <div className="tw-items-center">
-                            <Link to={`/product/${item.product}`}>
-                              <div className="tw-text-sm tw-text-gray-800 tw-mt-2">
-                                {item.name}
-                              </div>
-                              <div class="tw-text-gray-700 tw-text-sm tw-mt-3 tw-font-medium">
-                                ${item.price}
-                              </div>
-                            </Link>
-                          </div>
-                          <div
-                            class={` tw-text-sm  tw-font-semibold tw-mt-auto tw-py-1 tw-align-baseline `}
-                          >
-                            x{item.qty}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                ))}
+              {cartItems && cartItems.map((item) => <CartItem item={item} />)}
             </div>
             <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
               <div variant="flush" lines="none">
@@ -306,9 +262,8 @@ const PaymentScreen = ({ history }) => {
                 Order summary
               </EuiButton>
             </div>
-          </Col>
-        </Row>
-        {/* </Container> */}
+          </div>
+        </div>
       </div>
     </>
   );

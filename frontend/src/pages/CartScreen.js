@@ -8,22 +8,18 @@ import {
 } from "@elastic/eui";
 import { IonIcon } from "@ionic/react";
 import { trashOutline } from "ionicons/icons";
-import LazyImage from "../components/LazyImage";
-import NumericInput from "react-numeric-input";
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
+import NumericInput from "react-numeric-input";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../actions/cartActions";
 import CheckoutBottomBar from "../components/CheckoutBottomBar";
+import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 
 const CartScreen = ({ match, location, history }) => {
   const [value, setValue] = useState("");
-  const [isCompressed, setCompressed] = useState(false);
-  const [isDisabled, setDisabled] = useState(false);
-  const [isReadOnly, setReadOnly] = useState(false);
 
   const productId = match.params.id;
 
@@ -116,7 +112,6 @@ const CartScreen = ({ match, location, history }) => {
                     {cartItems &&
                       cartItems.map((item) => (
                         <EuiFlexItem>
-                          {console.log(item)}
                           <EuiCard
                             layout="horizontal"
                             className="tw-border-none tw-shadow-md tw-rounded sm:tw-shadow"
@@ -199,7 +194,7 @@ const CartScreen = ({ match, location, history }) => {
                 <EuiShowFor sizes={["xs", "s", "m"]}>
                   <EuiHorizontalRule margin="none" />
                 </EuiShowFor>
-                <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
+                <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded tw-bg-white ">
                   <div variant="flush" lines="none">
                     <div className="tw-pb-0 tw-mb-3 tw-pt-4 tw-flex tw-justify-between tw-items-baseline">
                       <div className="tw-flex  tw-items-baseline">
@@ -227,27 +222,27 @@ const CartScreen = ({ match, location, history }) => {
                     <EuiHorizontalRule margin="s" />
 
                     <div className="tw-border-none tw-tracking-wide">
-                      <Row className=" tw-pb-3">
-                        <Col className="tw-text-sm">Est. tax & fees</Col>
-                        <Col className="tw-text-right tw-text-sm">$0.00</Col>
-                      </Row>
+                      <div className="tw-flex tw-pb-3 tw-justify-between">
+                        <div className="tw-text-sm">Est. tax & fees</div>
+                        <div className="tw-text-right tw-text-sm">$0.00</div>
+                      </div>
                     </div>
                     <div className="tw-border-none ">
-                      <Row className="">
-                        <Col className="tw-text-sm">Delivery fee</Col>
-                        <Col className="tw-text-right tw-text-sm tw-tracking-wide">
+                      <div className="tw-flex tw-justify-between">
+                        <div className="tw-text-sm">Delivery fee</div>
+                        <div className="tw-text-right tw-text-sm tw-tracking-wide">
                           FREE
-                        </Col>
-                      </Row>
+                        </div>
+                      </div>
                     </div>
                     <EuiHorizontalRule margin="s" />
 
                     <div lines="none" className="tw-border-none ">
-                      <Row>
-                        <Col className="tw-font-bold tw-text-sm tw-text-gray-900">
+                      <div className="tw-flex  tw-justify-between">
+                        <div className="tw-font-bold tw-text-sm tw-text-gray-900">
                           Order total
-                        </Col>
-                        <Col className="tw-text-right tw-font-bold tw-text-sm tw-tracking-wide tw-text-gray-900">
+                        </div>
+                        <div className="tw-text-right tw-font-bold tw-text-sm tw-tracking-wide tw-text-gray-900">
                           $
                           {cartItems
                             .reduce(
@@ -255,12 +250,12 @@ const CartScreen = ({ match, location, history }) => {
                               0
                             )
                             .toFixed(2)}
-                        </Col>
-                      </Row>
+                        </div>
+                      </div>
                     </div>
                     <EuiHorizontalRule margin="s" />
 
-                    <p class="tw-justify-end tw-flex mb-3 sm:tw-px-4 tw-px-5 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                    <p class="tw-justify-end tw-flex  tw-text-xs tw-pt-2  tw-pb-4 tw-px-1 tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal ">
                       Taxes (if shown) are estimates. The seller, and not
                       Cropswap, is solely responsible for collecting all
                       applicable taxes.
