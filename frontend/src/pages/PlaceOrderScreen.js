@@ -227,8 +227,8 @@ const PlaceOrderScreen = ({ history }) => {
                   <EuiShowFor sizes={["xs", "s", "m"]}>
                     <EuiHorizontalRule margin="s" />
                   </EuiShowFor>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
-                    <ListGroup.Item className="tw-border-none ">
+                  <div className="tw-border-none tw-rounded tw-shadow sm:tw-mx-4 tw-px-4 tw-bg-white tw-py-4 tw-mb-3">
+                    <div className="tw-border-none ">
                       {cart.paymentMethod ? (
                         <div className="tw-font-semibold tw-bg-gray-100 tw-64 tw-shadow-inner tw-rounded-lg tw-px-3 tw-flex tw-items-center tw-gap-2 tw-py-3">
                           <img
@@ -245,8 +245,8 @@ const PlaceOrderScreen = ({ history }) => {
                       ) : (
                         <div>No payment method selected</div>
                       )}
-                    </ListGroup.Item>
-                  </Card>
+                    </div>
+                  </div>
 
                   <EuiShowFor sizes={["xs", "s", "m"]}>
                     <EuiHorizontalRule margin="s" />
@@ -262,7 +262,7 @@ const PlaceOrderScreen = ({ history }) => {
                     <EuiHorizontalRule margin="s" />
                   </EuiShowFor>
 
-                  <div className="tw-border-none tw-rounded s:tw-shadow tw-mb-3">
+                  <div className="tw-border-none tw-rounded s:tw-shadow sm:tw-mx-4 tw-mb-3">
                     <div className="tw-border-none">
                       {cart.cartItems.length === 0 ? (
                         <Message>Your cart is empty</Message>

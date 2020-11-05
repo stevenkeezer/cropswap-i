@@ -129,10 +129,10 @@ const OrderScreen = ({ match, history }) => {
                   </div>
                 )}
 
-                <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
-                  Complete your order
+                <div className="tw-p-0  lg:tw-pt-0 tw-pb-4  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
+                  Review your order
                 </div>
-                <div className="tw-border-none tw-rounded   sm:tw-bg-white sm:tw-shadow tw-mb-3 tw-pb-6">
+                <div className="tw-border-none tw-rounded   sm:tw-bg-white sm:tw-shadow tw-mb-3 sm:tw-mx-4 tw-pb-6">
                   <div className="tw-border-none">
                     <p className="tw-py-3 tw-pt-3 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
                       Personal Details
@@ -192,10 +192,10 @@ const OrderScreen = ({ match, history }) => {
                   </div>
                 </div>
 
-                <div className=" tw-text-lg lg:tw-text-2xl  tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
+                <div className="tw-p-0  lg:tw-pt-0 tw-pb-4  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                   Payment Information
                 </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 tw-mb-3 ">
+                <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 sm:tw-mx-4 tw-mb-3 ">
                   <ListGroup.Item className="tw-border-none tw-pb-6">
                     <p>
                       {order.paymentMethod && (
@@ -294,10 +294,7 @@ const OrderScreen = ({ match, history }) => {
               </ListGroup>
             </Col>
             <Col md={4} className="tw-p-0 sm:tw-px-4">
-              <div className=" tw-text-lg lg:tw-text-2xl sm:tw-flex tw-hidden tw-pb-4 tw-px-4  tw-text-gray-800 tw-font-semibold sm:tw-font-medium t ">
-                Order Summary
-              </div>
-              <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
+              <div className="w-full tw-px-4 tw-border-none tw-mt-10 tw-shadow-md sm:tw-shadow tw-rounded card ">
                 <div variant="flush" lines="none">
                   <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">
                     <div className="tw-flex  tw-items-baseline">

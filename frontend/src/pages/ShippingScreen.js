@@ -100,7 +100,7 @@ const ShippingScreen = ({ history }) => {
                 <EuiAccordion
                   id="accordionExtraWithRightArrow"
                   arrowDisplay="none"
-                  initialIsOpen={address === "" && true}
+                  initialIsOpen={address === "" ? true : false}
                   buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
                   buttonContentClassName="tw-flex tw-w-full tw-mb-2 tw-justify-between"
                   buttonContent={

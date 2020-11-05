@@ -177,7 +177,7 @@ const PaymentScreen = ({ history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-px-4">
+            <div className="tw-px-4 sm:tw-px-0">
               <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
