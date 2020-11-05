@@ -70,7 +70,7 @@ const ProductScreen = ({ history, match }) => {
     <>
       <div
         style={{ backgroundColor: "#fafbfd" }}
-        className=" tw-h-auto tw-antialiased "
+        className=" tw-h-screen tw-antialiased "
       >
         <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
           <Link
