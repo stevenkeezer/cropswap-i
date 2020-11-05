@@ -510,6 +510,7 @@ export default ({ theme }) => {
   /**
    * Sitewide search
    */
+
   const search = (
     <Route
       render={({ history }) => (
@@ -565,7 +566,7 @@ export default ({ theme }) => {
 
                       // <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
                       <div className="tw-ml-6 tw-w-full" grow>
-                        {search}
+                        {products && search}
                       </div>,
                       // </EuiShowFor>,
                     ],
@@ -758,7 +759,7 @@ export default ({ theme }) => {
                 position="static"
               >
                 <div className="tw-w-full tw-items-center tw-px-4 tw-max-h-10 tw-mt-1 tw-mb-2">
-                  {search}
+                  {products && search}
                 </div>
               </EuiHeader>
             </EuiShowFor>

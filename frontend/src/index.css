@@ -28,6 +28,45 @@ b {
   background: #ffffff !important;
 }
 
+.sun {
+  background-color: #ff8c1a;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 8%;
+  top: 100%;
+  box-shadow: 0px 0px 20px 5px #ff8c1a;
+  animation: sunset 3s forwards;
+}
+
+.sky {
+  background-color: #fbd38d;
+  margin: 0;
+  animation: sky 2s linear;
+}
+
+@keyframes sky {
+  0% {
+    background-color: #ccccff;
+  }
+  50% {
+    background-color: #fbd38d;
+  }
+  75% {
+    background-color: #fbd38d;
+  }
+  100% {
+    background-color: #fbd38d;
+  }
+}
+
+@keyframes sunset {
+  100% {
+    transform: translateY(-135px);
+  }
+}
+
 .euiAccordion__padding--l {
   padding-left: 0px !important;
   padding-right: 0px !important;

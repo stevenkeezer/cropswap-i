@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
 import { IonImg } from "@ionic/react";
+import Rating from "./Rating";
 
 const ProductCarousel = () => {
   const dispatch = useDispatch();
@@ -32,8 +33,8 @@ const ProductCarousel = () => {
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class="tw-block sm:tw-rounded tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
-                {/* <div class="tw-h-24 lg:tw-h-48"></div> */}
+              <div class=" sm:tw-rounded tw-absolute tw-transform tw-px-4 tw-bg-ingigo-500 tw-bg-opacity-50 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
+                <div class="tw-h-32 md:tw-h-48"></div>
 
                 <h2 class="tw-text-white tw tw-text-2xl tw-font-bold tw-leading-tight tw-mb-3 tw-pr-5">
                   {products && (
@@ -43,18 +44,23 @@ const ProductCarousel = () => {
                 <div class="tw-flex tw-w-full tw-items-center tw-text-sm tw-text-gray-300 tw-font-medium">
                   <div class="tw-flex-1 tw-flex tw-items-center">
                     <div
-                      class="tw-rounded-full tw-w-8 tw-h-8 tw-mr-3"
-                      style={{
-                        background:
-                          "url(https://randomuser.me/api/portraits/women/74.jpg)",
-                        backgroundSize: "cover",
-                      }}
-                    ></div>
-                    <div>Gwen Thomson</div>
+                      class="tw-rounded-full tw-w-10 tw-h-10 tw-mr-3 tw-items-center tw-justify-center tw-flex tw-bg-gray-300 tw-text-black"
+                      // style={{
+                      //   background:
+                      //     "url(https://randomuser.me/api/portraits/women/74.jpg)",
+                      //   backgroundSize: "cover",
+                      // }}
+                    >
+                      ${products.length > 1 && products[1].price}
+                    </div>
+                    <div>
+                      <Rating
+                        value={products.length > 1 && products[1].rating}
+                      ></Rating>
+                      <div>{products.length > 1 && products[1].category}</div>
+                    </div>
                   </div>
-                  <div>
-                    <i class="mdi mdi-thumb-up"></i> 18
-                  </div>
+                  <div>{/* <i class="mdi mdi-thumb-up"></i> 18 */}</div>
                 </div>
               </div>
             </div>
@@ -64,7 +70,7 @@ const ProductCarousel = () => {
             <div class="tw-flex tw-flex-col sm:tw-flex-row md:tw-flex-col tw--mx-2">
               <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-mb-4 sm:tw-mb-0 md:tw-mb-4 tw-px-2">
                 <a
-                  class="tw-block tw-w-full tw-h-full sm:tw-rounded tw-bg-orange-300  tw-bg-no-repeat"
+                  class="tw-block tw-w-full sky tw-h-full tw-overflow-y-hidden sm:tw-rounded tw-relative  tw-bg-no-repeat"
                   href="#"
                   title="Link"
                   style={{
@@ -72,7 +78,9 @@ const ProductCarousel = () => {
                     backgroundPosition: "top right",
                     backgroundImage: "url('/farmers.svg')",
                   }}
-                ></a>
+                >
+                  <div className="sun"></div>
+                </a>
               </div>
               <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-px-2">
                 <div
@@ -108,6 +116,7 @@ const ProductCarousel = () => {
                         >
                           <polygon points="50,0 100,0 50,100 0,100" />
                         </svg>
+
                         <div class="tw-relative tw-py-12 lg:tw-py-4  tw-px-8 lg:tw-px-16 tw-text-gray-700 tw-leading-relaxed">
                           <p class="tw-mt-2">
                             <a

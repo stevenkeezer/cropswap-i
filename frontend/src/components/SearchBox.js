@@ -13,7 +13,7 @@ import Loader from "../components/Loader";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default ({ history, products }) => {
+export default ({ history, products, loading }) => {
   const [keyword, setKeyword] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setLoading] = useState(false);
