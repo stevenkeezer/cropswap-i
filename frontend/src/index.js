@@ -4,15 +4,12 @@ import { Provider } from "react-redux";
 import store from "./store";
 import { IonReactRouter } from "@ionic/react-router";
 
-import "./bootstrap.min.css";
 import "./my_colors.scss";
 
 import "./index.css";
 import "./output.css";
 import App from "./App";
 import { defineCustomElements } from "@ionic/pwa-elements/loader";
-
-import { Provider as MobProvider } from "mobx-react";
 
 import "@ionic/core/css/core.css";
 import "@ionic/core/css/ionic.bundle.css";

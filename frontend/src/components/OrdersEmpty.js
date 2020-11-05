@@ -3,19 +3,18 @@ import React, { Fragment } from "react";
 import { EuiEmptyPrompt, EuiButton } from "@elastic/eui";
 import SubFooter from "./SubFooter";
 
-const SearchEmpty = ({ history }) => (
+const OrdersEmpty = ({ history }) => (
   <>
-    <div className="tw-mt-4"></div>
     <EuiEmptyPrompt
       iconType={"/cartEmpty.svg"}
-      title={<h4>No search results were found.</h4>}
+      title={<h2>No orders yet.</h2>}
       actions={
         <EuiButton onClick={() => history.push("/")} color="secondary" fill>
-          Go back
+          Back to home
         </EuiButton>
       }
     />
   </>
 );
 
-export default SearchEmpty;
+export default OrdersEmpty;

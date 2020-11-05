@@ -1,51 +1,48 @@
-import {
-  IonAlert,
-  IonCol,
-  IonContent,
-  IonIcon,
-  IonLoading,
-  IonPage,
-  IonRow,
-  IonText,
-  IonTitle,
-} from "@ionic/react";
-
-import { chevronBackOutline } from "ionicons/icons";
 // MOBX
 import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-  EuiFlexItem,
-  EuiFlexGrid,
-  EuiCard,
-  EuiProgress,
   EuiFlexGroup,
-  EuiIcon,
+  EuiPage,
+  EuiPageBody,
+  EuiPageContent,
   EuiShowFor,
+  EuiPageHeader,
+  EuiPageContentHeader,
 } from "@elastic/eui";
-
-import { observer } from "mobx-react";
+import {
+  IonAlert,
+  IonIcon,
+  IonRefresher,
+  IonRefresherContent,
+  IonText,
+} from "@ionic/react";
+import { chevronBackOutline, chevronDown } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
+import Alert from "../components/Alert";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
-import SearchEmpty from "../components/SearchEmpty";
+import CategorySlider from "../components/CategorySlider";
 import Footer from "../components/Footer";
+import Loader from "../components/Loader";
 import Meta from "../components/Meta";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
-import SubFooter from "../components/SubFooter";
-import Loader from "../components/Loader";
-import CategorySlider from "../components/CategorySlider";
+import SearchEmpty from "../components/SearchEmpty";
 
 const HomeScreen = ({ match }) => {
+  function doRefresh(event) {
+    console.log("Begin async operation");
+
+    setTimeout(() => {
+      console.log("Async operation has ended");
+      event.detail.complete();
+    }, 2000);
+  }
+
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -73,101 +70,118 @@ const HomeScreen = ({ match }) => {
   const { userInfo } = userLogin;
 
   return (
-    <IonPage className="tw-mt-20 tw-pt-3 lg:tw-pt-4">
-      <Meta />
-      <IonContent>
-        {!keyword ? (
-          <>
-            {/* <Alert></Alert> */}
-            <EuiShowFor sizes={["xs", "s", "m"]}>
-              <CategorySlider />
-            </EuiShowFor>
-            <Carousel />
-            <Categories history={history} />
-          </>
-        ) : (
-          <div className=" tw-max-w-screen-xl tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
-            <Link
-              className="tw-items-center tw-flex hover:tw-no-underline "
-              to="/"
-            >
-              <IonIcon
-                icon={chevronBackOutline}
-                className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
-                size="small"
-                style={{ marginBottom: -3 }}
-              ></IonIcon>
-              <IonText
-                className="tw-text-md hover:tw-text-teal-600 "
-                color="light"
-              >
-                Back to search
-              </IonText>
-            </Link>
-          </div>
-        )}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <IonAlert
-            isOpen={error}
-            // onDidDismiss={() => setShowAlert1(false)}
-            cssClass="my-custom-class"
-            header={"Alert"}
-            subHeader={"Subtitle"}
-            message={"This is an alert message."}
-            buttons={["OK"]}
-          />
-        ) : (
-          <>
-            <div className=" tw-mb-3 tw-px-4 tw-pt-2 tw-items-center ">
+    <>
+      <div className="">
+        <EuiShowFor sizes={["xs", "s", "m"]}>
+          <CategorySlider history={history} />
+        </EuiShowFor>
+        {!keyword && <Alert />}
+      </div>
+      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
+        <IonRefresherContent
+          pullingIcon={chevronDown}
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Loading..."
+        ></IonRefresherContent>
+      </IonRefresher>
+      <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
+        <EuiPageBody restrictWidth="75rem">
+          {!keyword && <Carousel />}
+
+          <EuiPageContent className="tw-bg-white tw-p-2  tw-shadow-none">
+            <Meta />
+            <div>
               {!keyword ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4 md:tw-pt-8  tw-items-center tw-pt-12 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-4 ">
-                  <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
-                    Featured brands
-                  </div>
-                  <div className="tw-justify-end">
-                    <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
-                      View all
-                    </IonText>
-                  </div>
-                </div>
-              ) : products.length !== 0 ? (
-                <div className="tw-p-0 tw-max-w-screen-xl tw-mx-auto xl:tw-px-4  tw-mt-10 tw-justify-between tw-text-2xl tw-font-medium tw-flex tw-pb-3 ">
-                  Search results
-                </div>
+                <>{!loading && <Categories history={history} />}</>
               ) : (
-                <SearchEmpty history={history} />
+                <div className="  tw-mx-auto tw-px-2 tw-mt-8 lg:tw-mt-3">
+                  {!keyword && !loading && (
+                    <Link
+                      className="tw-items-center tw-flex hover:tw-no-underline "
+                      to="/"
+                    >
+                      <IonIcon
+                        icon={chevronBackOutline}
+                        className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+                        size="small"
+                        style={{ marginBottom: -3 }}
+                      ></IonIcon>
+                      <IonText
+                        className="tw-text-md hover:tw-text-teal-600 "
+                        color="light"
+                      >
+                        Back to search
+                      </IonText>
+                    </Link>
+                  )}
+                </div>
+              )}
+              {loading ? (
+                <Loader />
+              ) : error ? (
+                <IonAlert
+                  isOpen={error}
+                  // onDidDismiss={() => setShowAlert1(false)}
+                  cssClass="my-custom-class"
+                  header={"Alert"}
+                  subHeader={"Subtitle"}
+                  message={"This is an alert message."}
+                  buttons={["OK"]}
+                />
+              ) : (
+                <>
+                  <div className=" tw-mb-4  sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
+                    {!keyword ? (
+                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4 md:tw-pt-2 tw-px-2  tw-items-center  tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
+                        <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
+                          Featured brands
+                        </div>
+                        <div className="tw-justify-end">
+                          <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
+                            View all
+                          </IonText>
+                        </div>
+                      </div>
+                    ) : products.length !== 0 ? (
+                      <div className="tw-p-0  tw-mx-auto tw-px-4  tw-mt-10 tw-justify-between tw-text-xl tw-font-medium tw-flex tw-pb-3 ">
+                        Search results
+                      </div>
+                    ) : (
+                      <SearchEmpty history={history} />
+                    )}
+                  </div>
+                  <div className="md:tw-px-2 lg:tw-px-3 xl:tw-px-4">
+                    <EuiFlexGroup wrap columns={4} gutterSize="s">
+                      {products &&
+                        products.length !== 0 &&
+                        products.map((product) => (
+                          <Product product={product} history={history} />
+                        ))}
+                    </EuiFlexGroup>
+                  </div>
+
+                  <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justiy-center">
+                    <Paginate
+                      history={history}
+                      pages={pages && pages}
+                      page={page && page}
+                      keyword={keyword ? keyword : ""}
+                    />
+                  </div>
+
+                  {/* <HomeHero /> */}
+                  {/* <Regions /> */}
+                </>
               )}
             </div>
+          </EuiPageContent>
+        </EuiPageBody>
+      </EuiPage>
 
-            <EuiFlexGroup
-              wrap
-              gutterSize="l"
-              className="tw-max-w-screen-xl tw-mx-auto tw-px-3 sm:tw-px-4 md:tw-px-1"
-            >
-              {products.map((product) => (
-                <Product product={product} history={history} />
-              ))}
-            </EuiFlexGroup>
-
-            <div className="tw-mx-auto tw-flex tw-pt-8 tw-justiy-center">
-              <Paginate
-                pages={pages && pages}
-                page={page && page}
-                keyword={keyword ? keyword : ""}
-              />
-            </div>
-
-            {/* <HomeHero /> */}
-            {/* <Regions /> */}
-
-            {!keyword && <Footer history={history} />}
-          </>
-        )}
-      </IonContent>
-    </IonPage>
+      {!keyword && !loading && <Footer history={history} />}
+    </>
   );
 };
 
-export default observer(HomeScreen);
+export default HomeScreen;

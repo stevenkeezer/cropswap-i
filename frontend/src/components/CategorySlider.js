@@ -1,63 +1,63 @@
 import React from "react";
 
-export default function CategorySlider() {
+export default function CategorySlider({ history }) {
   return (
     <div
       style={{ color: "rgb(74, 74, 74) !important", paddingBottom: "1px" }}
-      className=" tw-text-xs category-slider  tw-px-4   tw-items-center tw-overflow-x-scroll  tw-flex tw-tracking-wide  tw-mt-6 tw-pt-1"
+      className=" tw-text-xs category-slider  tw-px-2 tw-my-3 tw-items-center tw-overflow-x-scroll tw-font-semibold tw-flex tw-tracking-wider tw-text-gray-900 tw-text-opacity-75 tw-antialiased tw-leading-wide"
     >
       <div
-        // onClick={(e) => searchHandler("seasonal")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/seasonal")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Seasonal
       </div>
 
       <div
-        // onClick={(e) => searchHandler("tomatoes")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/tomatoes")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Tomatoes
       </div>
       <div
-        // onClick={(e) => searchHandler("vegetables")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/apple")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
-        Vegetables
+        Apples
       </div>
       <div
-        // onClick={(e) => searchHandler("fruits")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/radishe")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
-        Fruits
+        Radishes
       </div>
       <div
-        // onClick={(e) => searchHandler("soil")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/soil")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Soil
       </div>
       <div
-        // onClick={(e) => searchHandler("squash")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/squash")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+      >
+        Lettuce
+      </div>
+      <div
+        onClick={(e) => history.push("/search/squash")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Squash
       </div>
       <div
-        // onClick={(e) => searchHandler("squash")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
-      >
-        Squash
-      </div>
-      <div
-        // onClick={(e) => searchHandler("squash")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/squash")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Deliveries
       </div>
       <div
-        // onClick={(e) => searchHandler("compost")}
-        className="hover:tw-text-teal-700 tw-px-2 tw-font-semibold tw-text-gray-700 tw-cursor-pointer"
+        onClick={(e) => history.push("/search/compost")}
+        className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
       >
         Compost
       </div>

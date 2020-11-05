@@ -1,23 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { EuiCard, EuiCheckableCard, EuiButton } from "@elastic/eui";
 import {
-  Button,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Card,
-  Container,
-} from "react-bootstrap";
-import { IonPage, IonContent, IonButton, IonTitle } from "@ionic/react";
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import CheckoutSteps from "../components/CheckoutSteps";
-import { createOrder } from "../actions/orderActions";
-import { ORDER_CREATE_RESET } from "../constants/orderConstants";
-import SubFooter from "../components/SubFooter";
+  EuiButton,
+  EuiCheckableCard,
+  EuiHorizontalRule,
+  EuiImage,
+  EuiAccordion,
+  EuiFlexItem,
+  EuiFormRow,
+  EuiSpacer,
+  EuiTextArea,
+  EuiFieldText,
+  EuiCheckbox,
+  EuiFlexGroup,
+  EuiShowFor,
+} from "@elastic/eui";
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
+import React, { useEffect, useState } from "react";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { createOrder } from "../actions/orderActions";
+import CheckoutSteps from "../components/CheckoutSteps";
+import CartItem from "../components/CartItem";
+import Message from "../components/Message";
+import { ORDER_CREATE_RESET } from "../constants/orderConstants";
 
 const PlaceOrderScreen = ({ history }) => {
   const [checkbox, setCheckbox] = useState(false);
@@ -74,62 +79,157 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen tw-bg-gray-100 lg:tw-mt-24  tw-mt-12 tw-pb-4 tw-pt-4">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className="tw-h-auto tw-min-h-screen tw-antialiased  tw-pb-4 tw-pt-2"
+      >
         <div>
           <div className="tw-max-w-screen-lg tw-mx-auto">
             <CheckoutSteps step1 step2 step3 step4 />
           </div>
-          <div className="tw-max-w-screen-xl tw-mt-8 tw-mx-auto tw-px-4">
-            <Row>
-              <Col md={8}>
+          <div className="tw-max-w-screen-xl  tw-mt-4 lg:tw-mt-8 tw-mx-auto sm:tw-px-8">
+            <div className="tw-flex tw-flex-col lg:tw-flex-row">
+              <div className=" tw-w-full xl:tw-w-2/3">
                 <ListGroup variant="flush">
-                  <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pb-6">
+                  <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                     Shipping Information
                   </div>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
-                    <div className="tw-text-gray-800 tw-font-semibold tw-px-4 tw-py-3">
-                      Your items will be shipped to the address listed
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-border-none tw-py-2 tw-mb-3">
+                    <div className="tw-border-none tw-py-4">
+                      <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-p-4 tw-py-4  sm:tw-rounded">
+                        <EuiAccordion
+                          id="accordionExtraWithRightArrow"
+                          arrowDisplay="none"
+                          initialIsOpen={
+                            cart.shippingAddress.address === "" && true
+                          }
+                          buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
+                          buttonContentClassName="tw-flex tw-w-full tw-mb-2 tw-justify-between"
+                          buttonContent={
+                            <>
+                              <div className="tw-flex tw-items-center tw-w-11/12  tw-justify-between">
+                                <div className="tw-flex tw-w-full tw-items-center">
+                                  <svg
+                                    class="tw-w-5 tw-h-5 tw-text-gray-800 tw-mr-3 "
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fill-rule="evenodd"
+                                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                                      clip-rule="evenodd"
+                                    ></path>
+                                  </svg>
+                                  <div className="tw-truncate tw-text-sm tw-text-gray-800 tw-w-11/12">
+                                    {cart.shippingAddress.address},{" "}
+                                    {cart.shippingAddress.city},{" "}
+                                    {cart.shippingAddress.country},{" "}
+                                    {cart.shippingAddress.postalCode}
+                                  </div>
+                                </div>
+                              </div>
+                              <div className="tw-text-xs sm:tw-text-sm tw-right-auto tw-text-teal-600 tw-font-medium">
+                                Edit
+                              </div>
+                            </>
+                          }
+                          paddingSize="l"
+                        >
+                          <EuiFlexItem>
+                            <EuiFormRow
+                              fullWidth
+                              helpText="No shipping available right now this app is still in development!"
+                              label="Address"
+                            >
+                              <EuiFieldText
+                                placeholder="Address"
+                                className="tw-mb-3"
+                                fullWidth
+                                value={cart.shippingAddress.address}
+                                // onChange={(e) => setAddress(e.target.value)}
+                              />
+                            </EuiFormRow>
+                          </EuiFlexItem>
+                          <EuiSpacer />
+
+                          <EuiFlexGroup>
+                            <EuiFlexItem>
+                              <EuiFormRow fullWidth label="City">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.city}
+                                  // onChange={(e) => setCity(e.target.value)}
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+
+                            <EuiFlexItem>
+                              <EuiFormRow fullWidth label="Country">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.country}
+                                  // onChange={(e) => setCountry(e.target.value)}
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+                            <EuiFlexItem grow={false}>
+                              <EuiFormRow fullWidth label="Postal Code">
+                                <EuiFieldText
+                                  fullWidth
+                                  value={cart.shippingAddress.postalCode}
+                                  // onChange={(e) =>
+                                  //   setPostalCode(e.target.value)
+                                  // }
+                                />
+                              </EuiFormRow>
+                            </EuiFlexItem>
+                          </EuiFlexGroup>
+                        </EuiAccordion>
+
+                        <EuiTextArea
+                          fullWidth
+                          className="tw-rounded"
+                          placeholder="Special delivery instructions (e.g. Apt. number, gate code, ect.)"
+                          aria-label="Use aria labels when no actual label is in use"
+                          // value={value}
+                          // onChange={(e) => onChange(e)}
+                        />
+                        <div className="tw-pt-3 tw-flex tw-items-baseline ">
+                          <div>
+                            <EuiCheckbox checked />
+                          </div>
+                          <div className="tw-pl-5 tw-text-sm  tw-text-gray-800 tw-tracking-wide">
+                            Set as default home address
+                          </div>
+                        </div>
+                      </div>
+
+                      {() => {
+                        checkHandler();
+                        setCheckbox(!checkbox);
+                      }}
                     </div>
-                    <ListGroup.Item className="tw-border-none tw-py-4">
-                      <EuiCheckableCard
-                        className="sm:tw-w-1/2"
-                        id={htmlIdGenerator()()}
-                        label={
-                          <>
-                            <div className="tw-flex tw-gap-8 tw-py-2">
-                              <div className="tw-font-semibold tw-text-gray-800 tw-pb-0 tw-text-sm">
-                                Address:
-                              </div>
-                              <div className="tw-flex-col">
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.address}
-                                </div>
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.city},{" "}
-                                  {cart.shippingAddress.postalCode}
-                                </div>
-                                <div className="tw-text-gray-600 tw-text-sm  tw-font-medium">
-                                  {cart.shippingAddress.country}
-                                </div>
-                              </div>
-                            </div>
-                          </>
-                        }
-                        checkableType="checkbox"
-                        value="checkbox1"
-                        checked={checkbox}
-                        onChange={() => {
-                          checkHandler();
-                          setCheckbox(!checkbox);
-                        }}
-                      />
-                    </ListGroup.Item>
-                  </Card>
-                  <div className=" tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 tw-pb-6">
-                    Payment Method
                   </div>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-py-2 tw-mb-3">
-                    <ListGroup.Item className="tw-border-none ">
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-px-4">
+                    <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                      Payment method
+                    </div>
+                  </div>
+
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+                  <div className="tw-border-none tw-rounded tw-shadow sm:tw-mx-4 tw-px-4 tw-bg-white tw-py-4 tw-mb-3">
+                    <div className="tw-border-none ">
                       {cart.paymentMethod ? (
                         <div className="tw-font-semibold tw-bg-gray-100 tw-64 tw-shadow-inner tw-rounded-lg tw-px-3 tw-flex tw-items-center tw-gap-2 tw-py-3">
                           <img
@@ -146,114 +246,108 @@ const PlaceOrderScreen = ({ history }) => {
                       ) : (
                         <div>No payment method selected</div>
                       )}
-                    </ListGroup.Item>
-                  </Card>
-
-                  <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pt-6 lg:tw-pt-6 tw-pb-6">
-                    Order Items
+                    </div>
                   </div>
-                  <Card className="tw-border-none tw-rounded tw-shadow tw-mb-3">
-                    <ListGroup.Item className="tw-border-none">
+
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-px-4">
+                    <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                      Your items
+                    </div>
+                  </div>
+
+                  <EuiShowFor sizes={["xs", "s", "m"]}>
+                    <EuiHorizontalRule margin="s" />
+                  </EuiShowFor>
+
+                  <div className="tw-border-none tw-rounded s:tw-shadow sm:tw-mx-4 tw-mb-3">
+                    <div className="tw-border-none">
                       {cart.cartItems.length === 0 ? (
                         <Message>Your cart is empty</Message>
                       ) : (
-                        <ListGroup variant="flush">
+                        <div variant="flush" className="tw-px-4 sm:tw-px-0">
                           {cart.cartItems.map((item, index) => (
-                            <ListGroup.Item
-                              key={index}
-                              className="tw-border-none"
-                            >
-                              <Row>
-                                <Col md={1}>
-                                  <Image
-                                    src={item.image}
-                                    alt={item.name}
-                                    fluid
-                                    rounded
-                                  />
-                                </Col>
-                                <Col>
-                                  <Link to={`/product/${item.product}`}>
-                                    {item.name}
-                                  </Link>
-                                </Col>
-                                <Col md={4}>
-                                  {item.qty} x ${item.price} = $
-                                  {item.qty * item.price}
-                                </Col>
-                              </Row>
-                            </ListGroup.Item>
+                            <CartItem item={item} />
                           ))}
-                        </ListGroup>
+                        </div>
                       )}
-                    </ListGroup.Item>
-                  </Card>
+                    </div>
+                  </div>
                 </ListGroup>
-              </Col>
-              <Col md={4}>
-                <div className="tw-p-0 tw-text-2xl tw-font-medium tw-text-gray-800 tw-pb-6 sm:tw-pt-0 tw-pt-6">
-                  Order Summary
-                </div>
-                <Card className="tw-border-none tw-rounded tw-shadow tw-pt-4 tw-px-2">
+              </div>
+              <div className=" tw-w-full lg:tw-w-1/3 ">
+                <Card className="tw-border-none tw-rounded tw-shadow-md sm:tw-shadoww tw-pt-4 tw-px-4">
                   <ListGroup variant="flush">
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4 tw-text-md">
                       <Row className="tw-items-baseline">
-                        <Col className="tw-p-0">Items</Col>
+                        <Col className="tw-p-0">Subtotal</Col>
                         <Col className="tw-text-right tw-p-0">
                           ${cart.itemsPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="tw-border-none">
+                    </div>
+                    <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
+                    <div className="tw-border-none tw-px-4 tw-text-sm">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0">Shipping</Col>
                         <Col className="tw-text-right tw-p-0">
-                          + ${cart.shippingPrice}
+                          ${cart.shippingPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
 
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4 tw-mt-3 tw-text-sm">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0">Tax</Col>
                         <Col className="tw-text-right tw-p-0">
-                          + ${cart.taxPrice}
+                          ${cart.taxPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item className="tw-border-none">
+                    </div>
+                    <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
+                      <EuiHorizontalRule margin="s" />
+                    </EuiShowFor>
+                    <div className="tw-border-none tw-px-4  tw-text-sm tw-pb-4">
                       <Row className="tw-items-baseline">
                         <Col className="tw-p-0 tw-text-sm tw-font-semibold">
-                          Sub total
+                          Total price
                         </Col>
                         <Col className="tw-text-right tw-font-bold tw-p-0">
                           ${cart.totalPrice}
                         </Col>
                       </Row>
-                    </ListGroup.Item>
+                    </div>
 
-                    <ListGroup.Item className="tw-border-none">
+                    <div className="tw-border-none tw-px-4">
                       {error && <Message variant="danger">{error}</Message>}
-                    </ListGroup.Item>
+                    </div>
                   </ListGroup>
                 </Card>
-
-                <EuiButton
-                  fullWidth
-                  color="secondary"
-                  className="tw-mt-3"
-                  size="m"
-                  fill
-                  disabled={cart.cartItems === 0}
-                  onClick={placeOrderHandler}
-                >
-                  Continue
-                </EuiButton>
-                <p className="tw-text-xs tw-pt-2">
-                  *You can review this order before it's final
+                <div className="tw-px-4 sm:tw-px-0 tw-text-lg lg:tw-text-2xl">
+                  <EuiButton
+                    fullWidth
+                    color="secondary"
+                    className="tw-mt-3"
+                    size="m"
+                    fill
+                    disabled={cart.cartItems === 0}
+                    onClick={placeOrderHandler}
+                  >
+                    Place order
+                  </EuiButton>
+                </div>
+                <p class="tw-justify-end tw-flex mb-3 sm:tw-px-2 tw-px-4 tw-text-xs tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal tw-pt-3">
+                  I agree to the collection and sharing of my personal
+                  infomation to initiate my order, with and for fulfillment by,
+                  the chosen seller.
                 </p>
-              </Col>
-            </Row>
+              </div>
+            </div>
           </div>
         </div>
       </div>

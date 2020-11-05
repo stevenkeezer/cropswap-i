@@ -24,19 +24,10 @@ export default function CheckoutSteps({ step1, step2, step3, step4 }) {
       },
     },
     {
-      title: "Payment",
-      isSelected: step3,
+      title: "Place Order",
       isComplete: step4,
       onClick: () => {
         history.push("/payment");
-      },
-    },
-    {
-      title: "Place Order",
-      isSelected: step4,
-      // isComplete: step4,
-      onClick: () => {
-        history.push("/placeorder");
       },
     },
   ];

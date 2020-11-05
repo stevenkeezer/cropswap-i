@@ -1,8 +1,9 @@
 import React from "react";
 import { Alert } from "react-bootstrap";
+import { EuiCallOut, EuiLink } from "@elastic/eui";
 
 const Message = ({ variant, children }) => {
-  return <Alert variant={variant}>{children}</Alert>;
+  return <EuiCallOut title={children} color={variant}></EuiCallOut>;
 };
 
 Message.defaultProps = {

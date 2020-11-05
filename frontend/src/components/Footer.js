@@ -14,7 +14,6 @@ const Footer = ({ history }) => (
         // gridTemplateColumns: "3fr 2fr",
         columnGap: "1rem",
       }}
-      className=""
     >
       <HomeHero></HomeHero>
       <div
@@ -27,18 +26,21 @@ const Footer = ({ history }) => (
     </div>
     <footer class="tw-bg-white tw-text-gray-700 tw-pt-16 tw-pb-16 ">
       <div class="tw-mx-auto tw-px-1 tw-container tw-overflow-hidden tw-flex tw-flex-col lg:tw-flex-row tw-justify-between tw-max-w-screen-xl">
-        <a href="/" class="tw-block tw-mr-4 tw-w-1/3 hover:tw-no-underline">
-          <div className="tw-flex tw-px-2">
+        <div
+          href="/"
+          class="  tw-items-baseline tw-mr-4 tw-w-1/3 hover:tw-no-underline"
+        >
+          <div className="tw-flex tw-items-center tw-px-2">
             <Logo history={history} />
-            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-font-semibold  tw-ml-3">
+            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-mb-1 tw-font-semibold  tw-ml-3">
               cropswap
             </span>
           </div>
-          <div className="tw-text-gray-600 tw-tracking-wide tw-leading-6 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
+          <div className="tw-text-gray-600 tw-px-5 tw-tracking-wide tw-leading-6 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
             A community connecting farmers consumers, people, retailers, and
             brands since 2020.
           </div>
-        </a>
+        </div>
         <div class="tw-w-2/3 tw-block sm:tw-flex tw-text-sm tw-mt-6 lg:tw-mt-0">
           <ul class="tw-text-gray-700 tw-list-none tw-p-0  tw-flex tw-flex-col tw-text-left tw-w-full">
             <li class="tw-inline-block tw-py-2 tw-px-3 tw-text-gray-800 tw-capitalize tw-text-xl tw-font-semibold tw-tracking-wide">

@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUser, listUsers } from "../actions/userActions";
 import UsersTable from "../components/UsersTable";
-import SubFooter from "../components/SubFooter";
 
 const UserListScreen = ({ history }) => {
   const dispatch = useDispatch();
@@ -32,9 +31,12 @@ const UserListScreen = ({ history }) => {
 
   return (
     <>
-      <div className="tw-h-auto tw-min-h-screen">
-        <div className="tw-px-4 tw-bg-gray-100  lg:tw-mt-24 tw-mt-12 ">
-          <div className="tw-text-2xl  tw-max-w-screen-xl  tw-pt-8 tw-mx-auto tw-h-screen">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className="tw-h-auto tw-antialiased tw-min-h-screen"
+      >
+        <div className=" ">
+          <div className="tw-text-2xl tw-px-4 tw-max-w-screen-xl  tw-pt-8 tw-mx-auto tw-h-screen">
             <div className="tw-font-medium tw-text-gray-800">Users</div>
             <div className="tw-mt-6 sm:tw-shadow   tw-text-gray-800 ">
               <UsersTable users={users} deleteHandler={deleteHandler} />

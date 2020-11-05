@@ -19,6 +19,74 @@ ion-item {
   --inner-padding-start: 0;
   --inner-padding-top: 0;
 }
+
+figure {
+  margin: 0em 0px !important;
+}
+
+b {
+  background: #ffffff !important;
+}
+
+.sun {
+  background-color: #ff8c1a;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 8%;
+  top: 100%;
+  box-shadow: 0px 0px 20px 5px #ff8c1a;
+  animation: sunset 3s forwards;
+}
+
+.sky {
+  background-color: #ccccff;
+  margin: 0;
+  animation: sky 2s 0.2s forwards;
+}
+
+@keyframes sky {
+  0% {
+    background-color: #ccccff;
+  }
+  65% {
+    background-color: #fbd38d;
+  }
+  100% {
+    background-color: #fbd38d;
+  }
+}
+
+@keyframes sunset {
+  100% {
+    transform: translateY(-135px);
+  }
+}
+
+.euiAccordion__padding--l {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.euiStepHorizontal,
+.euiStepHorizontal-isSelected:focus {
+  outline: none !important;
+}
+
+.euiCard--hasChildren .euiCard__description {
+  margin-bottom: 4px !important;
+}
+
+.numericInput {
+  color: transparent;
+  text-shadow: 0 0 0 black;
+}
+
+.numericInput:focus {
+  outline: none;
+}
+
 .euiPanel {
   border: none !important;
 }
@@ -32,21 +100,55 @@ ion-item {
 }
 .euiHeaderSectionItem__button:focus {
   background: #f5f5f5 !important;
-  /* background: gray !important; */
 }
 
-.euiNotificationBadge {
-  border: 0.25px solid white !important;
+.euiFormControlLayoutCustomIcon__icon {
+  color: rgb(0, 0, 0, 0.5) !important;
 }
 
-/* .euiFieldSearch {
-  padding-left: 0.5rem !important;
-} */
+@media only screen and (max-width: 574px) {
+  .euiHeaderSectionItem,
+  .euiHeaderSectionItem__button {
+    min-width: 40px !important;
+  }
+  .euiNotificationBadge {
+    top: 8% !important;
+    right: 0 !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
+    /* height: 16px !important; */
 
-/* .euiHeaderSection, */
+    min-width: 18px !important;
+    min-height: 18px !important;
+  }
+}
+
+@media only screen and (min-width: 574px) {
+  .euiNotificationBadge {
+    top: 8% !important;
+    right: 0 !important;
+    font-size: 11px !important;
+    line-height: 17px !important;
+    /* height: 16px !important; */
+    min-width: 18px !important;
+    min-height: 18px !important;
+  }
+}
+
+@media only screen and (max-width: 574px) {
+  .euiHeaderSectionItemButton__notification--badge {
+    width: initial !important;
+    height: initial !important;
+
+    /* min-width: 0; */
+    border-radius: 8px;
+    color: white !important;
+    overflow: hidden;
+  }
+}
 
 .euiHeaderSection--left:last-child {
-  height: 55px !important;
+  height: 65px !important;
 }
 
 :root {
@@ -59,23 +161,6 @@ ion-item {
   --ion-color-dark: #4a4a4a;
   --ion-color-medium: #252935;
   --ion-color-light: rgb(0, 168, 163);
-}
-
-.numberCircle {
-  border-radius: 50%;
-  width: 18px;
-  height: 18px;
-  padding: 1px;
-  position: absolute;
-  right: 43px;
-  bottom: 15px;
-  background: #e53e3e;
-  border: 2px solid #e53e3e;
-  color: #fff;
-  text-align: center;
-
-  font: 11px Arial, sans-serif;
-  font-weight: bold;
 }
 
 #rounded {
@@ -110,25 +195,20 @@ ion-item {
   font-size: 2.25rem;
 }
 
-.carousel img {
-  /* height: 350px; */
-  /* padding-left: 55vw; */
-
-  /* object-fit: cover; */
-  /* margin-left: 60vw; */
-}
 .carousel a {
   margin: 0 auto;
-}
-
-.euiCard__top + .euiCard__content {
-  margin-top: 8px !important;
 }
 
 @media only screen and (max-width: 1436px) {
   .carousel-control-prev,
   .carousel-control-next {
     display: none;
+  }
+}
+
+@media (min-width: 576px) {
+  .euiHeader {
+    grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr);
   }
 }
 
@@ -139,13 +219,6 @@ ion-item {
     padding-right: 0;
   }
 }
-/* .euiHeaderSectionItem {
-  position: relative;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-align-items: start !important;
-  align-items: start !important;
-} */
 
 .pagination {
   margin-left: auto;
@@ -177,11 +250,13 @@ ion-item {
   .carousel {
     height: 385px;
   }
-  .flexCard {
-    max-width: 25% !important;
-  }
 }
 
+@media only screen and (min-width: 1200px) {
+  .euiHeader {
+    justify-content: space-around !important;
+  }
+}
 .card {
   border-radius: 0.5rem;
 }
@@ -191,12 +266,41 @@ ion-input {
   --background: #f5f5f5 !important;
   --padding-top: 0.75rem !important;
   --padding-bottom: 0.75rem !important;
-  /* margin-top: 0.725rem !important; */
   border-radius: 0.25rem;
-  /* height: 15%; */
-  /* width: 41%; */
-  /* max-width: 50vw; */
-  /* height: 30px; */
+}
+
+.euiFieldText:focus {
+  background-image: linear-gradient(
+    to top,
+    #319795,
+    #319795 2px,
+    transparent 2px,
+    transparent 100%
+  ) !important;
+}
+
+.euiFormControlLayout--group .euiText {
+  background-color: #ffffff !important;
+}
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+}
+
+.euiFieldNumber--inGroup {
+  background: #eeeeee !important;
+}
+.euiRadio .euiRadio__input + .euiRadio__circle {
+  display: none !important;
+}
+.euiRadio .euiRadio__input ~ .euiRadio__label {
+  padding-left: 0px !important;
+}
+
+.euiRadioGroup__item + .euiRadioGroup__item {
+  margin-top: 0px !important;
 }
 
 .ion-content {
@@ -227,14 +331,24 @@ ion-input {
   table {
     display: inline-table !important;
   }
-
+  .flexCard {
+    min-width: 200px;
+  }
   thead tr:not(:first-child) {
     display: none;
   }
 }
 
+@media (max-width: 400px) {
+  .hero-img {
+    margin-right: 15vw;
+  }
+}
+
 .euiNotificationBadge {
-  background: #e7664c !important;
+  border-radius: 99999rem !important;
+  font-weight: bold !important;
+  background: rgb(227, 69, 42) !important;
 }
 
 #count-notify {
@@ -278,19 +392,31 @@ tbody tr:last-child td:last-child {
 @media (min-width: 765px) {
   .euiTableRowCell,
   .euiTableRowCellCheckbox {
-    vertical-align: middle;
     border-top: 1px solid #eeeeee !important;
     border-bottom: 1px solid #eeeeee !important;
-    /* font-weight: inherit; */
-    text-align: inherit;
-    color: #343741;
   }
+}
+
+.euiCheckbox .euiCheckbox__input:checked + .euiCheckbox__square {
+  border-width: 2px !important;
+  border-color: #319795 !important;
+  background-color: #ffffff !important;
+  background-image: url("data:image/svg+xml,%3Csvg class='tw-w-6 tw-h-6' fill='%23319795' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'%3E%3C/path%3E%3C/svg%3E") !important;
+}
+
+.euiCheckbox .euiCheckbox__input + .euiCheckbox__square {
+  padding: 8px !important;
 }
 
 @media (min-width: 992px) {
   .euiHeader {
     height: 6rem !important;
+    /* justify-content: space-around !important; */
   }
+}
+
+.euiHeader {
+  box-shadow: none !important;
 }
 
 @media (max-width: 992px) {
@@ -308,6 +434,28 @@ tbody tr:last-child td:last-child {
   height: 300px !important;
 }
 
+.euiHeaderSectionItem {
+  justify-content: center !important;
+}
+
+.euiCard__content .euiCard__description {
+  margin-top: 0px !important;
+}
+
+.euiCard__top + .euiCard__content {
+  margin-top: 4px !important;
+}
+
+.euiFieldSearch:focus {
+  background-image: linear-gradient(
+    to top,
+    #319795,
+    #319795 2px,
+    transparent 2px,
+    transparent 100%
+  ) !important;
+}
+
 @media (max-width: 576px) {
   th:not(:last-child) {
     border-bottom: 2px solid rgba(0, 0, 0, 0.08);
@@ -315,26 +463,46 @@ tbody tr:last-child td:last-child {
   .euiTable {
     background: none !important;
   }
-  .flexCard {
-    padding: 4px;
-  }
-  .flexCard {
-    max-width: 50% !important;
-  }
+}
+
+.flexCard {
+  max-width: 50%;
 }
 
 @media (max-width: 767px) {
   .flexCard {
     max-width: 50% !important;
-    padding: 4px;
+    padding: 0.5rem;
+  }
+
+  .euiBottomBar.euiBottomBar--paddingMedium {
+    padding-top: 5px !important;
+    padding-bottom: 0px !important;
   }
 }
+.page-item.active .page-link {
+  background-color: gray;
+  border-color: gray;
+}
 
-@media (max-width: 499px) {
+.page-link {
+  color: black;
+}
+
+@media only screen and (max-width: 574px) {
+  .euiTable.euiTable--responsive .euiTableRow {
+    border: 1px solid #fff !important;
+  }
+}
+.euiTable.euiTable--responsive .euiTableRow:hover {
+  background-color: none;
+}
+
+/* @media (max-width: 499px) {
   .flexCard {
     max-width: 100% !important;
   }
-}
+} */
 
 td:not(:last-child) {
   border-bottom: 0;
@@ -469,6 +637,10 @@ label {
   font-size: 1rem;
 }
 
+.euiHorizontalRule {
+  background-color: #eeeeee !important;
+}
+
 .card-input-element + .card {
   height: calc(36px + 2 * 1rem);
   color: #495057;
@@ -511,6 +683,10 @@ label {
 /* {
   background-color: #38b2ac !important;
 } */
+
+.euiStepsHorizontal {
+  background: transparent !important;
+}
 
 .euiStepHorizontal-isComplete > .euiStepNumber {
   background-color: #38b2ac !important;

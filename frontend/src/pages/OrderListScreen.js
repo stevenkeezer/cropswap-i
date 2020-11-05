@@ -31,9 +31,12 @@ const OrderListScreen = ({ history }) => {
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <div className="tw-bg-gray-100  lg:tw-mt-24 tw-mt-12 tw-pb-12 tw-h-auto">
-            <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-mt-4 t">
-              <div className="tw-text-gray-800 tw-text-2xl tw-py-4 tw-font-medium tw-pt-8 ">
+          <div
+            style={{ backgroundColor: "#fafbfd" }}
+            className="tw-antialiased tw-h-screen tw-pb-12 tw-h-auto"
+          >
+            <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-pt-4 ">
+              <div className="tw-text-gray-800 tw-text-2xl tw-py-4 tw-font-medium tw-pt-4 ">
                 Orders
               </div>
               <div className="xl:tw-shadow xl:tw-rounded-lg tw-mt-2 ">

@@ -1,27 +1,26 @@
 import {
   EuiBadge,
-  EuiButtonIcon,
-  EuiIcon,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
-  EuiButton,
+  EuiAvatar,
   EuiSelectableTemplateSitewide,
   EuiSelectableTemplateSitewideOption,
   EuiText,
 } from "@elastic/eui";
+import LazyImage from "./LazyImage";
+import Loader from "../components/Loader";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-export default ({ history }) => {
+export default ({ history, products, loading }) => {
   const [keyword, setKeyword] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setLoading] = useState(false);
   const [searchRef, setSearchRef] = useState("");
-  const searchValueExists = searchValue && searchValue.length;
+  const [isOpen, setIsOpen] = useState(null);
 
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, page, pages } = productList;
+  const searchValueExists = searchValue && searchValue.length;
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -31,6 +30,24 @@ export default ({ history }) => {
       history.push("/");
     }
   };
+
+  const searchData = products.map((product) => {
+    return {
+      label: product.name,
+      url: "/profile",
+      prepend: <LazyImage height={50} src={product.image} />,
+      onClick: () => {
+        history.push(`/product/${product._id}`);
+        setIsOpen(false);
+      },
+      meta: [
+        {
+          text: product.name,
+          highlightSearchString: true,
+        },
+      ],
+    };
+  });
 
   /**
    * Timeout to simulate loading (only on key command+k)
@@ -50,17 +67,11 @@ export default ({ history }) => {
    */
 
   const recents = searchData.slice(0, 5);
-  const recentsWithIcon: EuiSelectableTemplateSitewideOption[] = recents.map(
-    (recent) => {
-      return {
-        ...recent,
-        icon: {
-          type: "clock",
-          color: "subdued",
-        },
-      };
-    }
-  );
+  const recentsWithIcon = recents.map((recent) => {
+    return {
+      ...recent,
+    };
+  });
 
   /**
    * Hook up the keyboard shortcut for command+k to initiate focus into search input
@@ -109,7 +120,7 @@ export default ({ history }) => {
   /**
    * Do something with the selection based on the found option with `checked: on`
    */
-  const onChange = (updatedOptions: EuiSelectableTemplateSitewideOption[]) => {
+  const onChange = (updatedOptions) => {
     const clickedItem = updatedOptions.find(
       (option) => option.checked === "on"
     );
@@ -118,8 +129,9 @@ export default ({ history }) => {
 
   return (
     // <form onSubmit={submitHandler}>
-    <div className="xl:tw-pt-1 tw-ml-auto">
+    <div className="xl:tw-pt-1 tw-ml-auto tw-antialiased">
       <EuiSelectableTemplateSitewide
+        // onClick={() => setIsOpen(!isOpen)}
         isLoading={isLoading}
         onChange={onChange}
         onSubmit={submitHandler}
@@ -136,6 +148,7 @@ export default ({ history }) => {
         }}
         popoverProps={{
           className: "customPopoverClass",
+          // isOpen: isOpen,
         }}
         popoverButtonBreakpoints={["xs", "s"]}
         popoverFooter={
@@ -160,7 +173,7 @@ export default ({ history }) => {
       />
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
-        className="tw-gap-4 tw-text-xs  tw-mt-2 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wider   tw-hidden"
+        className="tw-gap-4 tw-text-sm  tw-mt-1 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}
@@ -170,19 +183,19 @@ export default ({ history }) => {
         </span>
 
         <span
-          onClick={(e) => searchHandler("tomatoes")}
+          onClick={(e) => searchHandler("tomatoe")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Tomatoes
         </span>
         <span
-          onClick={(e) => searchHandler("vegetables")}
+          onClick={(e) => searchHandler("vegetable")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Vegetables
         </span>
         <span
-          onClick={(e) => searchHandler("fruits")}
+          onClick={(e) => searchHandler("fruit")}
           className="hover:tw-text-teal-700 tw-cursor-pointer"
         >
           Fruits
@@ -206,12 +219,14 @@ export default ({ history }) => {
           Compost
         </span>
         <div
-          size="small"
-          className="tw-bg-teal-500 tw-font-medium tw-tracking-wider hover:tw-bg-teal-500
-            tw-rounded-full tw-text-white tw-px-3 tw-shadow-none tw-py-1
-            tw-text-xs tw-cursor-pointer"
+          style={{ paddingTop: ".4rem", paddingBottom: ".4rem" }}
+          className="tw-bg-teal-500 tw-font-medium tw-tracking-normal hover:tw-bg-teal-500  tw-flex tw-items-center 
+            tw-rounded-full tw-text-teal-100 tw-px-3 tw-shadow-none
+            tw-text-sm tw-cursor-pointer"
         >
-          <span onClick={(e) => history.push("/cart")}>Order online</span>
+          <div onClick={(e) => history.push("/cart")} className="">
+            Order online
+          </div>
         </div>
       </div>
     </div>
@@ -223,210 +238,3 @@ export default ({ history }) => {
 /**
  * The options object
  */
-const searchData: EuiSelectableTemplateSitewideOption[] = [
-  {
-    label: "Welcome dashboards",
-    avatar: {
-      name: "Default Space",
-    },
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-    url: "welcome-dashboards",
-  },
-  {
-    label:
-      "[Flights] Flight Count and Average Ticket Price over the course of several years maybe even decades",
-    avatar: {
-      name: "Default Space",
-    },
-    meta: [
-      {
-        text: "Visualization",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "[Flights] Global Flight Dashboard",
-    avatar: {
-      name: "Hello World",
-    },
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "[Logs] Host, Visits and Bytes Table",
-    meta: [
-      {
-        text: "TSVB visualization",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "[Flights] Flight Log",
-    avatar: {
-      name: "Hello World",
-    },
-    meta: [
-      {
-        text: "Discover",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "Dashboards",
-    url: "dashboards",
-    icon: {
-      type: "logoKibana",
-    },
-  },
-  {
-    label:
-      "Generate HAR Archive of Network Timings/Details for Kibana requests",
-    meta: [
-      {
-        text: "Article",
-        type: "article",
-      },
-      {
-        text:
-          "https://discuss.elastic.co/t/generate-har-archive-of-network-timings",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "[Logs] Web Traffic",
-    url: "dashboard-logs-web-traffic",
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-        highlightSearchString: true,
-      },
-    ],
-  },
-  {
-    label: "Databoard analytics",
-    title: "Databoard analytics; Dashboard; Deployment: Flights Data",
-    meta: [
-      {
-        text: "Dashboard",
-        type: "application",
-      },
-      {
-        text: "Flights Data",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "Primary logs",
-    avatar: {
-      name: "Another",
-    },
-    meta: [
-      {
-        text: "Flights Data",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "SIEM",
-    icon: {
-      type: "logoSecurity",
-    },
-    meta: [
-      {
-        text: "personal-databoard",
-        type: "deployment",
-      },
-    ],
-  },
-  {
-    label: "Dev tools",
-    url: "dev-tools-console",
-    meta: [
-      {
-        text: "Management application",
-        type: "application",
-      },
-    ],
-  },
-  {
-    label: "Billing",
-    icon: {
-      type: "user",
-    },
-    meta: [
-      {
-        text: "Account",
-        type: "platform",
-      },
-    ],
-  },
-  {
-    label: "Maps",
-    url: "maps",
-    icon: { type: "logoKibana" },
-    meta: [
-      {
-        text: "Analyze application",
-        type: "application",
-      },
-    ],
-    space: "Hello World",
-  },
-  {
-    label: "Kibana monitoring with MB",
-    searchableLabel: "Kibana monitoring with MB; Case no. 00508173",
-    meta: [
-      {
-        text: "Case",
-        type: "case",
-      },
-      {
-        text: "00508173",
-      },
-    ],
-  },
-  {
-    label: "My support tickets",
-    icon: {
-      type: "help",
-    },
-    meta: [
-      {
-        text: "Support",
-        type: "platform",
-      },
-    ],
-  },
-  {
-    label: "Totally custom",
-    searchableLabel: "Totally custom with pink metadata",
-    icon: {
-      type: "alert",
-      color: "accent",
-    },
-    meta: [
-      {
-        text: "I have a custom type",
-        type: "PINK",
-      },
-    ],
-  },
-];

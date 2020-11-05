@@ -1,32 +1,23 @@
-import { IonButton, IonIcon, IonText, IonTitle } from "@ionic/react";
+import { EuiButton, EuiTextArea } from "@elastic/eui";
+import { IonIcon, IonText } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
-import { Button, Card, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SubFooter from "../components/SubFooter";
 // import Meta from "../components/Meta";
 import {
   createProductReview,
   listProductDetails,
 } from "../actions/productActions";
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-} from "@elastic/eui";
 import ElasticComment from "../components/ElasticComment";
-import ElasticImage from "../components/ElasticImage";
+import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
 import Rating from "../components/Rating";
-import {
-  PRODUCT_CREATE_REVIEW_RESET,
-  PRODUCT_DETAILS_RESET,
-} from "../constants/productConstants";
+import RatingSelect from "../components/RatingSelect";
+import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -46,19 +37,19 @@ const ProductScreen = ({ history, match }) => {
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
     success: successProductReview,
+    loading: loadingProductReview,
     error: errorProductReview,
   } = productReviewCreate;
 
   useEffect(() => {
-    dispatch({ type: PRODUCT_DETAILS_RESET });
-
     if (successProductReview) {
-      alert("Review Submitted!");
       setRating(0);
       setComment("");
+    }
+    if (!product._id || product._id !== match.params.id) {
+      dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
-    dispatch(listProductDetails(match.params.id));
   }, [dispatch, match, successProductReview]);
 
   const addToCartHandler = () => {
@@ -75,26 +66,24 @@ const ProductScreen = ({ history, match }) => {
     );
   };
 
-  const items = [
-    { src: "http://placekitten.com/g/200/300", text: "a picture of a cat" },
-  ];
-
   return (
     <>
-      <div className="tw-bg-gray-100 tw-h-auto ">
-        <div className="  lg:tw-mt-24 tw-mt-16 tw-px-4  tw-pt-4 tw-max-w-screen-xl tw-mx-auto">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className=" tw-h-auto tw-antialiased "
+      >
+        <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
             to="/"
           >
             <IonIcon
               icon={chevronBackOutline}
-              className="tw-text-sm tw-text-gray-600 tw-h-4 tw-w-4 tw-pb-1 tw-mr-1 "
+              className="tw-text-sm tw-text-gray-700 tw-h-4 tw-w-4  tw-mr-1 "
               size="small"
-              style={{ marginBottom: -3 }}
             ></IonIcon>
             <IonText
-              className="tw-text-md hover:tw-text-teal-600 "
+              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800 d"
               color="light"
             >
               Back to search
@@ -106,136 +95,153 @@ const ProductScreen = ({ history, match }) => {
             <Message variant="danger">{error}</Message>
           ) : (
             <>
-              <Meta title={product.name} />
-              <Row className="justify-content-center mt-4">
-                <Col md={6} size={12} className="tw-mb-8">
-                  <ElasticImage image={product.image} name={product.name} />
-                </Col>
+              <Meta title={product && product.name} />
+              <div className=" tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
+                <div className="tw-w-full lg:tw-w-3/5 tw-mb-8 tw-mx-auto">
+                  <LazyImage
+                    src={product && product.image}
+                    placeholder={product && product.image}
+                    // height={350}
+                    shadow
+                    border
+                  />
+                </div>
 
-                <Col md={3}>
-                  <div className="tw-text-xl  tw-font-medium tw-text-gray-900">
-                    {product.name}
+                <div className="tw-w-full lg:tw-w-2/5">
+                  <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
+                    {product && product.category}
+                  </div>
+                  <div className="tw-text-2xl  tw-font-medium tw-text-gray-900">
+                    {product && product.name}
                   </div>
 
-                  <ListGroup
-                    variant="flush"
-                    className="tw-border-none tw-shadow tw-mt-2"
-                  >
-                    <ListGroup.Item>
+                  <div variant="flush" className="tw-border-none tw-mt-2">
+                    <div>
                       <Rating
-                        value={product.rating}
-                        text={`${product.numReviews} reviews`}
+                        value={product && product.rating}
+                        text={`${product && product.numReviews} reviews`}
                       />
-                    </ListGroup.Item>
-                    <ListGroup.Item>Price: ${product.price}</ListGroup.Item>
-                    <Card className="tw-border-none tw-shadow tw-mt-1">
-                      <ListGroup variant="flush">
-                        <ListGroup.Item>
+                    </div>
+                    <div className="tw-py-6">
+                      <span className="tw-font-bold tw-text-gray-900 tw-text-2xl">
+                        ${product && product.price}{" "}
+                      </span>
+                      <span className="tw-text-sm tw-text-gray-800">each</span>
+                    </div>
+                    <div className="tw-border-none  tw-mt-1">
+                      <div variant="flush">
+                        <div>
                           <Row>
-                            <Col>Price:</Col>
                             <Col>
-                              <strong>${product.price}</strong>
+                              {product &&
+                                product.countInStock === 0 &&
+                                "Out Of Stock"}
                             </Col>
                           </Row>
-                        </ListGroup.Item>
+                        </div>
 
-                        <ListGroup.Item>
-                          <Row>
-                            <Col>Status:</Col>
-                            <Col>
-                              {product.countInStock > 0
-                                ? "In Stock"
-                                : "Out Of Stock"}
-                            </Col>
-                          </Row>
-                        </ListGroup.Item>
-
-                        {product.countInStock > 0 && (
-                          <ListGroup.Item>
+                        {product && product.countInStock > 0 && (
+                          <div>
                             <Row>
-                              <Col>Qty</Col>
-                              <Col>
-                                <Form.Control
-                                  as="select"
-                                  value={qty}
-                                  onChange={(e) => setQty(e.target.value)}
-                                >
-                                  {[...Array(product.countInStock).keys()].map(
-                                    (x) => (
-                                      <option key={x + 1} value={x + 1}>
-                                        {x + 1}
-                                      </option>
-                                    )
-                                  )}
-                                </Form.Control>
-                              </Col>
+                              <Col>Quantity</Col>
+
+                              <Form.Control
+                                as="select"
+                                value={qty}
+                                onChange={(e) => setQty(e.target.value)}
+                              >
+                                {[
+                                  ...Array(
+                                    product && product.countInStock
+                                  ).keys(),
+                                ].map((x) => (
+                                  <option key={x + 1} value={x + 1}>
+                                    {x + 1}
+                                  </option>
+                                ))}
+                              </Form.Control>
                             </Row>
-                          </ListGroup.Item>
+                          </div>
                         )}
+                      </div>
+                    </div>
+                  </div>
+                  {product && product.countInStock > 0 ? (
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-mt-3 tw-rounded-full"
+                      size="m"
+                      fill
+                      onClick={addToCartHandler}
+                    >
+                      Add To Cart
+                    </EuiButton>
+                  ) : (
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-mt-3 tw-rounded-full"
+                      size="m"
+                      fill
+                      disabled
+                      onClick={addToCartHandler}
+                    >
+                      Add To Cart
+                    </EuiButton>
+                  )}
+                </div>
+              </div>
 
-                        <EuiButton
-                          fullWidth
-                          color="secondary"
-                          className="tw-mt-3"
-                          size="m"
-                          fill
-                          disabled={product.countInStock === 0}
-                          onClick={addToCartHandler}
-                        >
-                          Add To Cart
-                        </EuiButton>
-                      </ListGroup>
-                    </Card>
-                  </ListGroup>
-                </Col>
-              </Row>
-
+              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
+                Product Description
+              </div>
+              <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
+                {product ? (
+                  product && product.description
+                ) : (
+                  <div>No description</div>
+                )}
+              </div>
               <Row>
-                <Col className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
-                  <h2 className="tw-py-4">Customer Reviews</h2>
-                  {product &&
-                    product.reviews &&
-                    product.reviews.length === 0 && (
-                      <Message>No Reviews</Message>
-                    )}
+                <div className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
                   <ListGroup variant="flush">
-                    <ElasticComment reviews={product.reviews}></ElasticComment>
-
                     <ListGroup.Item>
-                      <h2>Write a Customer Review</h2>
+                      {successProductReview && (
+                        <Message variant="success">
+                          Review submitted successfully
+                        </Message>
+                      )}
+                      {loadingProductReview && <Loader />}
                       {errorProductReview && (
                         <Message variant="danger">{errorProductReview}</Message>
                       )}
                       {userInfo ? (
-                        <Form onSubmit={submitHandler}>
-                          <Form.Group controlId="rating">
-                            <Form.Label>Rating</Form.Label>
-                            <Form.Control
-                              as="select"
-                              value={rating}
-                              onChange={(e) => setRating(e.target.value)}
-                            >
-                              <option value="">Select...</option>
-                              <option value="1">1 - Poor</option>
-                              <option value="2">2 - Fair</option>
-                              <option value="3">3 - Good</option>
-                              <option value="4">4 - Very Good</option>
-                              <option value="5">5 - Excellent</option>
-                            </Form.Control>
-                          </Form.Group>
-                          <Form.Group controlId="comment">
-                            <Form.Label>Comment</Form.Label>
-                            <Form.Control
-                              as="textarea"
-                              row="3"
+                        <>
+                          <form onSubmit={submitHandler}>
+                            <RatingSelect
+                              controlId="rating"
+                              rating={rating}
+                              setRating={setRating}
+                            />
+
+                            <EuiTextArea
+                              fullWidth
+                              placeholder="Write a comment or review"
+                              aria-label="Use aria labels when no actual label is in use"
                               value={comment}
                               onChange={(e) => setComment(e.target.value)}
-                            ></Form.Control>
-                          </Form.Group>
-                          <Button type="submit" variant="primary">
-                            Submit
-                          </Button>
-                        </Form>
+                            />
+
+                            <button
+                              type="submit"
+                              className="tw-py-3 tw-mt-3 tw-px-3 tw-border tw-border-gray-300 tw-bg-gray-400 tw-rounded tw-text-900 "
+                              disabled={loadingProductReview}
+                            >
+                              Submit
+                            </button>
+                          </form>
+                        </>
                       ) : (
                         <Message>
                           Please <Link to="/login">sign in</Link> to write a
@@ -244,7 +250,16 @@ const ProductScreen = ({ history, match }) => {
                       )}
                     </ListGroup.Item>
                   </ListGroup>
-                </Col>
+                  <div className="tw-py-3 tw-pt-5 tw-mb-3 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
+                    Customer Reviews
+                  </div>
+                  {product &&
+                    product.reviews &&
+                    product.reviews.length === 0 && (
+                      <Message>No Reviews</Message>
+                    )}
+                  <ElasticComment reviews={product.reviews}></ElasticComment>
+                </div>
               </Row>
             </>
           )}

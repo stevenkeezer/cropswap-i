@@ -1,27 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Row, Col, Container } from "react-bootstrap";
-import { IonTitle } from "@ionic/react";
-
-import { useDispatch, useSelector } from "react-redux";
-import Message from "../components/Message";
-import Loader from "../components/Loader";
-import UserOrderTable from "../components/UserOrderTable";
-import ElasticCondensed from "../components/ElasticCondensed";
-import { getUserDetails, updateUserProfile } from "../actions/userActions";
-import { listMyOrders } from "../actions/orderActions";
-import SubFooter from "../components/SubFooter";
 import {
   EuiPage,
   EuiPageBody,
-  EuiPageContent,
   EuiPageContentBody,
-  EuiPageContentHeader,
-  EuiPageContentHeaderSection,
   EuiPageHeader,
   EuiPageHeaderSection,
   EuiPageSideBar,
   EuiTitle,
 } from "@elastic/eui";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { listMyOrders } from "../actions/orderActions";
+import { getUserDetails, updateUserProfile } from "../actions/userActions";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
+import OrdersEmpty from "../components/OrdersEmpty";
+import Toolbar from "../components/Toolbar";
+import UserOrderTable from "../components/UserOrderTable";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
@@ -56,7 +50,7 @@ const ProfileScreen = ({ location, history }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, userInfo, user, orders]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -69,57 +63,60 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <div className=" tw-bg-gray-100 tw-h-auto lg:tw-mt-24 tw-mt-12 tw-pb-12  tw-min-h-screen">
-        <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4">
-          {loading ? (
-            <Loader />
-          ) : (
-            <div>
-              <Row className="tw-pt-8">
-                <Col md={3}>
-                  {message && <Message variant="danger">{message}</Message>}
-                  {}
-                  {success && (
-                    <Message variant="success">Profile Updated</Message>
-                  )}
-                  {loading ? (
-                    <Loader />
-                  ) : error ? (
-                    <Message variant="danger">{error}</Message>
-                  ) : (
-                    <ElasticCondensed
-                      name={name}
-                      email={email}
-                      password={password}
-                      confirmPassword={confirmPassword}
-                      setName={setName}
-                      setEmail={setEmail}
-                      setPassword={setPassword}
-                      setConfirmPassword={setConfirmPassword}
-                      submitHandler={submitHandler}
-                    />
-                  )}
-                </Col>
-                <Col className="tw-p-0 tw-m-0 tw-px-4" md={9}>
-                  <div className=" tw-text-2xl  tw-pb-8 tw-px-0 tw-mt-0 tw-text-gray-800 tw-font-medium tw-mx-auto ">
-                    My Orders
+      <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
+        <EuiPage restrictWidth="75rem" className="">
+          <EuiPageSideBar>
+            <Toolbar history={history} profile />
+          </EuiPageSideBar>
+          <EuiPageBody component="div">
+            <EuiPageHeader>
+              <EuiPageHeaderSection>
+                <EuiTitle size="l">
+                  <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-2xl tw-font-semibold ">
+                    Orders
                   </div>
-                  {loadingOrders ? (
-                    <Loader />
-                  ) : errorOrders ? (
-                    <Message variant="danger">{errorOrders}</Message>
-                  ) : (
-                    <div className="sm:tw-shadow  sm:tw-rounded-lg tw-px-2 tw-bg-white">
-                      <UserOrderTable orders={orders} history={history} />
+                </EuiTitle>
+              </EuiPageHeaderSection>
+            </EuiPageHeader>
+
+            <EuiPageContentBody>
+              {loading ? (
+                <Loader />
+              ) : (
+                <div>
+                  <div className="">
+                    <div>
+                      {message && <Message variant="danger">{message}</Message>}
+                      {}
+                      {success && (
+                        <Message variant="success">Profile Updated</Message>
+                      )}
+                      {loading ? (
+                        <Loader />
+                      ) : error ? (
+                        <Message variant="danger">{error}</Message>
+                      ) : (
+                        <></>
+                      )}
                     </div>
-                  )}
-                </Col>
-              </Row>
-            </div>
-          )}
-        </div>
+                    <div className="tw-p-0 tw-m-0 ">
+                      {loadingOrders ? (
+                        <Loader />
+                      ) : errorOrders ? (
+                        <Message variant="danger">{errorOrders}</Message>
+                      ) : (
+                        <div className="md:tw-bg-white sm:tw-p-2 md:tw-rounded md:tw-shadow ">
+                          <UserOrderTable orders={orders} history={history} />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </EuiPageContentBody>
+          </EuiPageBody>
+        </EuiPage>
       </div>
-      <SubFooter />
     </>
   );
 };

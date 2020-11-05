@@ -1,7 +1,5 @@
-import React from "react";
-import { Spinner } from "react-bootstrap";
 import { IonLoading } from "@ionic/react";
-import { EuiCard, EuiLoadingSpinner } from "@elastic/eui";
+import React from "react";
 
 const Loader = () => {
   return (

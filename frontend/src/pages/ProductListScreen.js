@@ -1,13 +1,6 @@
-import { IonButton } from "@ionic/react";
+import { EuiButton } from "@elastic/eui";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  EuiFormRow,
-  EuiPanel,
-  EuiFieldPassword,
-  EuiButton,
-  EuiFieldText,
-} from "@elastic/eui";
 import {
   createProduct,
   deleteProduct,
@@ -18,7 +11,6 @@ import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductTable from "../components/ProductTable";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
-import SubFooter from "../components/SubFooter";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -80,9 +72,12 @@ const ProductListScreen = ({ history, match }) => {
 
   return (
     <>
-      <div className="tw-bg-gray-100 lg:tw-mt-24 tw-mt-12 tw-h-auto tw-min-h-screen">
+      <div
+        style={{ backgroundColor: "#fafbfd" }}
+        className="tw-antialiased tw-h-auto tw-min-h-screen"
+      >
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
-          <div className="tw-flex tw-pt-8 tw-justify-between tw-items-center">
+          <div className="tw-flex tw-pt-4 tw-justify-between tw-items-center">
             <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">
               Products
             </div>
@@ -119,6 +114,7 @@ const ProductListScreen = ({ history, match }) => {
               <Paginate
                 pages={pages && pages}
                 page={page && page}
+                history={history}
                 isAdmin={true}
               />
             </>

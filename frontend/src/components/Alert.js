@@ -1,32 +1,44 @@
+// MOBX
+import { EuiCallOut } from "@elastic/eui";
 import React, { useState } from "react";
-import { Button, Alert, Container } from "react-bootstrap";
 
 function AlertDismissible() {
   const [show, setShow] = useState(true);
 
   if (show) {
     return (
-      <Alert
-        variant="blue"
-        style={{ borderColor: "#2376d7", borderRadius: 0 }}
-        onClose={() => setShow(false)}
-        dismissible
+      <EuiCallOut
+        className="tw-bg-blue-700 tw-m-0 tw-p-0 tw-px-4 tw-py-3 tw-border-none tw-text-white tw-w-full"
+        // iconType={<div className="tw-text-white">X</div>}
+        size="l"
       >
-        {/* <Alert.Heading>Oh snap! You got an error!</Alert.Heading> */}
-        <Container>
-          <div
-            className="blue-alert tw-whitespace-no-wrap tw-truncate"
-            style={{ fontSize: ".875rem", margin: 1 }}
-          >
-            <span className="font-weight-bold whitespace-no-wrap">
-              COVID-19 IMPACT
-            </span>{" "}
+        <div className="tw-text-white tw-flex tw-max-w-screen-xl  tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
+          <div className="">
+            <span className="font-weight-bold whitespace-no-wrap tw-text-sm  ">
+              COVID-19 IMPACT{" "}
+            </span>
             Learn more about how the Coronavirus is impacting farming
             communities here.
           </div>
-        </Container>
-        {/* <p>Change this and that and try again. Duis mollis, est non commodo</p> */}
-      </Alert>
+          <div
+            onClick={() => setShow(!show)}
+            className="tw-text-white tw-my-auto"
+          >
+            <svg
+              class="tw-w-4 tw-h-4  tw-my-auto"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </EuiCallOut>
     );
   }
   return "";
