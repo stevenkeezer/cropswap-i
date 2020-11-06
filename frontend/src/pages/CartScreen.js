@@ -55,9 +55,9 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <EuiPage paddingSize="none" className="tw-pb-20 sm:tw-px-0">
-          <div className=" tw-mx-auto tw-pt-2 ">
-            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
+        <EuiPage paddingSize="none" className="tw-pb-20 tw-px-0  sm:tw-px-0">
+          <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto  tw-w-full">
+            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
 
@@ -91,7 +91,7 @@ const CartScreen = ({ match, location, history }) => {
             </EuiShowFor>
 
             <div className=" ">
-              <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+              <div className="sm:tw-px-0 tw-px-4 tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
             </div>
@@ -99,7 +99,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-flex tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
+            <div className="tw-flex tw-gap-6  tw-justify-between  tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="tw-w-full">
                 {cartItems && cartItems.length === 0 ? (
                   <Message>
