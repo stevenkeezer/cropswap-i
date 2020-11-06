@@ -15,9 +15,13 @@ import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
+import ScrollToTop from "../components/ScrollToTop";
 import Rating from "../components/Rating";
 import RatingSelect from "../components/RatingSelect";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import {
+  PRODUCT_CREATE_REVIEW_RESET,
+  PRODUCT_DETAILS_RESET,
+} from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
@@ -42,6 +46,7 @@ const ProductScreen = ({ history, match }) => {
   } = productReviewCreate;
 
   useEffect(() => {
+    dispatch({ type: PRODUCT_DETAILS_RESET });
     if (successProductReview) {
       setRating(0);
       setComment("");
@@ -70,7 +75,7 @@ const ProductScreen = ({ history, match }) => {
     <>
       <div
         style={{ backgroundColor: "#fafbfd" }}
-        className=" tw-h-screen tw-antialiased "
+        className=" tw-h-auto tw-antialiased tw-min-h-screen "
       >
         <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
           <Link
@@ -258,7 +263,13 @@ const ProductScreen = ({ history, match }) => {
                     product.reviews.length === 0 && (
                       <Message>No Reviews</Message>
                     )}
-                  <ElasticComment reviews={product.reviews}></ElasticComment>
+                  {product &&
+                    product.reviews &&
+                    product.reviews.length === 0 && (
+                      <ElasticComment
+                        reviews={product.reviews}
+                      ></ElasticComment>
+                    )}
                 </div>
               </Row>
             </>

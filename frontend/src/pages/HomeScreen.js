@@ -89,7 +89,7 @@ const HomeScreen = ({ match }) => {
         <EuiPageBody restrictWidth="75rem">
           {!keyword && <Carousel />}
 
-          <EuiPageContent className="tw-bg-white tw-p-2  tw-shadow-none">
+          <div className="tw-bg-white tw-p-2  tw-shadow-none">
             <Meta />
             <div>
               {!keyword ? (
@@ -175,7 +175,7 @@ const HomeScreen = ({ match }) => {
                 </>
               )}
             </div>
-          </EuiPageContent>
+          </div>
         </EuiPageBody>
       </EuiPage>
 

@@ -56,7 +56,7 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <div
           style={{ backgroundColor: "#fafbfd" }}
-          className=" tw-h-auto  tw-mb-20 sm:tw-mb-0  tw-min-h-screen  tw-text-gray-900 tw-antialiased tw-leading-tight"
+          className="tw-antialiased tw-h-screen tw-pb-12 tw-h-auto"
         >
           <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-2 ">
             <div className="tw-p-0 tw-px-4 lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
