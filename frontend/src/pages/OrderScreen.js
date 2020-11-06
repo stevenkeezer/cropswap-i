@@ -100,7 +100,7 @@ const OrderScreen = ({ match, history }) => {
         style={{ backgroundColor: "#fafbfd" }}
         className=" tw-pt-6 tw-antialiased tw-h-auto tw-min-h-screen "
       >
-        <div className=" tw-flex tw-flex-col tw-mx-auto lg:tw-flex-row sm:tw-px-4 tw-max-w-screen-xl">
+        <div className=" tw-flex tw-flex-col tw-mx-auto lg:tw-flex-row  tw-max-w-screen-xl">
           <div className="tw-p-0 tw-w-2/3 sm:tw-4">
             <ListGroup variant="flush">
               {order.isPaid && (

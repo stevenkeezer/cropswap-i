@@ -55,8 +55,8 @@ const ShippingScreen = ({ history }) => {
         <CheckoutSteps step1 step2 />
       </div>
       <EuiPage className="tw-px-0 ">
-        <div className=" tw-max-w-screen-xl sm:tw-px-4 tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 tw-pt-4 lg:tw-flex-row">
-          <div className="lg:tw-w-3/5 tw-w-full">
+        <div className=" tw-max-w-screen-xl  tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 lg:tw-flex-row">
+          <div className=" tw-w-full">
             <div className=" tw-text-xl  sm:tw-pt-4 tw-pb-3 tw-max-w-screen-lg ">
               <div className="tw-p-0  tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                 Confirm delivery details

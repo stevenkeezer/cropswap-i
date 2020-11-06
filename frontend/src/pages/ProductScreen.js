@@ -46,12 +46,12 @@ const ProductScreen = ({ history, match }) => {
   } = productReviewCreate;
 
   useEffect(() => {
-    dispatch({ type: PRODUCT_DETAILS_RESET });
     if (successProductReview) {
       setRating(0);
       setComment("");
     }
-    if ((product && !product._id) || product._id !== match.params.id) {
+    if (!product._id || product._id !== match.params.id) {
+      dispatch({ type: PRODUCT_DETAILS_RESET });
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
@@ -73,15 +73,15 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <EuiPage className="tw-px-0 ">
-        <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
+      <EuiPage restrictWidth="75rem" className="tw-px-4 ">
+        <div className=" ">
           <Link
-            className="tw-items-center tw-flex hover:tw-no-underline  "
+            className="tw-items-center tw-px-0 tw-flex hover:tw-no-underline  "
             to="/"
           >
             <IonIcon
               icon={chevronBackOutline}
-              className="tw-text-sm tw-text-gray-700 tw-h-4 tw-w-4  tw-mr-1 "
+              className="tw-text-sm tw-text-gray-700 tw-h-5 tw-w-5  tw-mr-2 "
               size="small"
             ></IonIcon>
             <IonText
@@ -98,8 +98,8 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <div className=" tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
-                <div className="tw-w-full lg:tw-w-3/5 tw-mb-8 tw-mx-auto">
+              <div className="tw-pt-12  tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
+                <div className="tw-w-full  tw-mb-8 tw-mx-auto">
                   <LazyImage
                     src={product && product.image}
                     placeholder={product && product.image}
@@ -109,15 +109,15 @@ const ProductScreen = ({ history, match }) => {
                   />
                 </div>
 
-                <div className="tw-w-full lg:tw-w-2/5">
+                <div className="tw-w-full ">
                   <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
                     {product && product.category}
                   </div>
-                  <div className="tw-text-2xl  tw-font-medium tw-text-gray-900">
+                  <div className="tw-text-3xl  tw-font-semibold  tw-text-gray-900">
                     {product && product.name}
                   </div>
 
-                  <div variant="flush" className="tw-border-none tw-mt-2">
+                  <div variant="flush" className="tw-border-none tw-mt-3">
                     <div>
                       <Rating
                         value={product && product.rating}
@@ -196,7 +196,7 @@ const ProductScreen = ({ history, match }) => {
               </div>
 
               <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
-                Product Description
+                Product description
               </div>
               <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
                 {product ? (

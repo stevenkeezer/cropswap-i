@@ -57,7 +57,7 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <EuiPage paddingSize="none" className="tw-pb-20 tw-px-0  sm:tw-px-0">
           <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto  tw-w-full">
-            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
+            <div className="tw-p-0  lg:tw-pt-3 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
 

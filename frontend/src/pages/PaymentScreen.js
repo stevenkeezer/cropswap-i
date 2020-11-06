@@ -38,11 +38,11 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+      <div className="tw-max-w-screen-xl tw-text-gray-800 tw-mx-auto ">
         <CheckoutSteps step1 step2 step3 />
       </div>
       <EuiPage className="tw-px-0 ">
-        <div className="tw-flex tw-flex-col lg:tw-flex-row tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
+        <div className="tw-flex tw-flex-col lg:tw-flex-row tw-mx-auto tw-max-w-screen-xl  tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
           <div className="tw-col-8 tw-p-0">
             <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Select payment method
@@ -51,7 +51,7 @@ const PaymentScreen = ({ history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-mt-3 tw-px-4 sm:tw-px-0 lg:tw-px-4">
+            <div className="tw-mt-3 sm:tw-px-0 ">
               <EuiRadioGroup
                 options={[
                   {
@@ -183,7 +183,7 @@ const PaymentScreen = ({ history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className=" tw-text-2xl tw-px-4 sm:tw-px-0 tw-font-medium tw-mt-3 tw-pb-2 tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+            <div className=" tw-text-2xl tw-px-4 sm:tw-px-0 tw-font-medium tw-mt-3 tw-pb-2 tw-text-gray-800 tw-mx-auto ">
               {cartItems && cartItems.map((item) => <CartItem item={item} />)}
             </div>
             <div className="w-full tw-px-4 tw-border-none tw-shadow-md sm:tw-shadow tw-rounded card ">
