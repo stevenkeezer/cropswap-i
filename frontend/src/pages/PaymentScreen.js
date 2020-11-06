@@ -2,6 +2,7 @@ import {
   EuiButton,
   EuiHorizontalRule,
   EuiRadioGroup,
+  EuiPage,
   EuiShowFor,
 } from "@elastic/eui";
 import React, { useState } from "react";
@@ -37,13 +38,10 @@ const PaymentScreen = ({ history }) => {
   };
   return (
     <>
-      <div
-        style={{ backgroundColor: "#fafbfd" }}
-        className="tw-h-screen    tw-antialiased tw-pt-2"
-      >
-        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
-          <CheckoutSteps step1 step2 step3 />
-        </div>
+      <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto ">
+        <CheckoutSteps step1 step2 step3 />
+      </div>
+      <EuiPage className="tw-px-0 ">
         <div className="tw-flex tw-flex-col lg:tw-flex-row tw-mx-auto tw-max-w-screen-xl sm:tw-px-8 tw-justify-center tw-pb-4 tw-text-gray-800 tw-mt-4  lg:tw-mt-8 tw-mx-auto">
           <div className="tw-col-8 tw-p-0">
             <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
@@ -264,7 +262,7 @@ const PaymentScreen = ({ history }) => {
             </div>
           </div>
         </div>
-      </div>
+      </EuiPage>
     </>
   );
 };

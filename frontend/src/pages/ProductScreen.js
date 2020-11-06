@@ -1,4 +1,4 @@
-import { EuiButton, EuiTextArea } from "@elastic/eui";
+import { EuiButton, EuiTextArea, EuiPage } from "@elastic/eui";
 import { IonIcon, IonText } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
@@ -73,10 +73,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <div
-        style={{ backgroundColor: "#fafbfd" }}
-        className=" tw-h-auto tw-antialiased tw-min-h-screen "
-      >
+      <EuiPage className="tw-px-0 ">
         <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
           <Link
             className="tw-items-center tw-flex hover:tw-no-underline  "
@@ -275,7 +272,7 @@ const ProductScreen = ({ history, match }) => {
             </>
           )}
         </div>
-      </div>
+      </EuiPage>
     </>
   );
 };

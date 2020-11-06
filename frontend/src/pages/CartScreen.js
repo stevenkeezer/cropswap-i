@@ -4,6 +4,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiHorizontalRule,
+  EuiPage,
   EuiShowFor,
 } from "@elastic/eui";
 import { IonIcon } from "@ionic/react";
@@ -54,10 +55,7 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <div
-          style={{ backgroundColor: "#fafbfd" }}
-          className="tw-antialiased tw-h-screen tw-pb-12 tw-h-auto"
-        >
+        <EuiPage className="tw-pb-20 tw-px-0">
           <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-2 ">
             <div className="tw-p-0 tw-px-4 lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
@@ -294,7 +292,7 @@ const CartScreen = ({ match, location, history }) => {
               </div>
             </div>
           </div>
-        </div>
+        </EuiPage>
       )}
     </>
   );

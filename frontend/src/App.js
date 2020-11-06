@@ -36,41 +36,48 @@ const PublicRoutes = ({ history }) => {
       <Router>
         <Header></Header>
         {/* <IonRouterOutlet> */}
-
-        <IonContent>
-          <Route path="/order/:id" component={OrderScreen} />
-          <Route path="/shipping" component={ShippingScreen} />
-          <Route path="/payment" component={PaymentScreen} />
-          <Route path="/selling" component={SellingScreen} />
-          <Route path="/placeorder" component={PlaceOrderScreen} />
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/settings" component={SettingsScreen} />
-          <Route path="/product/:id" component={ProductScreen} />
-          <Route path="/register" component={RegisterScreen} exact={true} />
-          <Route path="/profile" component={ProfileScreen} />
-          <Route path="/cart/:id?" component={CartScreen} />
-          <Route path="/admin/userlist" component={UserListScreen} />
-          <Route path="/admin/user/:id/edit" component={UserEditScreen} />
-          <Route
-            path="/admin/productlist"
-            component={ProductListScreen}
-            exact
-          />
-          <Route
-            path="/admin/productlist/:pageNumber"
-            component={ProductListScreen}
-            exact
-          />
-          <Route path="/admin/product/:id/edit" component={ProductEditScreen} />
-          <Route path="/admin/orderlist" component={OrderListScreen} />
-          <Route path="/search/:keyword" component={HomeScreen} exact />
-          <Route path="/page/:pageNumber" component={HomeScreen} exact />
-          <Route
-            path="/search/:keyword/page/:pageNumber"
-            component={HomeScreen}
-            exact
-          />
-          <Route path="/" component={HomeScreen} exact />
+        <IonContent className="custom-ion-content">
+          <div
+            style={{ height: "calc(100% - 65px)vh" }}
+            className="tw-antialiased  tw-container"
+          >
+            <Route path="/order/:id" component={OrderScreen} />
+            <Route path="/shipping" component={ShippingScreen} />
+            <Route path="/payment" component={PaymentScreen} />
+            <Route path="/selling" component={SellingScreen} />
+            <Route path="/placeorder" component={PlaceOrderScreen} />
+            <Route path="/login" component={LoginScreen} />
+            <Route path="/settings" component={SettingsScreen} />
+            <Route path="/product/:id" component={ProductScreen} />
+            <Route path="/register" component={RegisterScreen} exact={true} />
+            <Route path="/profile" component={ProfileScreen} />
+            <Route path="/cart/:id?" component={CartScreen} />
+            <Route path="/admin/userlist" component={UserListScreen} />
+            <Route path="/admin/user/:id/edit" component={UserEditScreen} />
+            <Route
+              path="/admin/productlist"
+              component={ProductListScreen}
+              exact
+            />
+            <Route
+              path="/admin/productlist/:pageNumber"
+              component={ProductListScreen}
+              exact
+            />
+            <Route
+              path="/admin/product/:id/edit"
+              component={ProductEditScreen}
+            />
+            <Route path="/admin/orderlist" component={OrderListScreen} />
+            <Route path="/search/:keyword" component={HomeScreen} exact />
+            <Route path="/page/:pageNumber" component={HomeScreen} exact />
+            <Route
+              path="/search/:keyword/page/:pageNumber"
+              component={HomeScreen}
+              exact
+            />
+            <Route path="/" component={HomeScreen} exact />
+          </div>
         </IonContent>
 
         {/* </IonRouterOutlet> */}

@@ -8,6 +8,7 @@ import {
   EuiFormRow,
   EuiHorizontalRule,
   EuiShowFor,
+  EuiPage,
   EuiSpacer,
   EuiTextArea,
 } from "@elastic/eui";
@@ -50,14 +51,10 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
-      <div
-        style={{ backgroundColor: "#fafbfd" }}
-        className=" tw-min-h-screen tw-pb-12 tw-pt-2 tw-antialiased"
-      >
-        <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
-          <CheckoutSteps step1 step2 />
-        </div>
-
+      <div className="tw-max-w-screen-lg tw-text-gray-800 tw-mx-auto">
+        <CheckoutSteps step1 step2 />
+      </div>
+      <EuiPage className="tw-px-0 ">
         <div className=" tw-max-w-screen-xl sm:tw-px-4 tw-mx-auto tw-flex tw-flex-col sm:tw-mt-4 tw-pt-4 lg:tw-flex-row">
           <div className="lg:tw-w-3/5 tw-w-full">
             <div className=" tw-text-xl  sm:tw-pt-4 tw-pb-3 tw-max-w-screen-lg ">
@@ -294,7 +291,7 @@ const ShippingScreen = ({ history }) => {
             </div>
           </div>
         </div>
-      </div>
+      </EuiPage>
     </>
   );
 };
