@@ -55,9 +55,9 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <EuiPage className="tw-pb-20 tw-px-0">
-          <div className="tw-max-w-screen-xl tw-mx-auto tw-pt-2 ">
-            <div className="tw-p-0 tw-px-4 lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
+        <EuiPage paddingSize="none" className="tw-pb-20 sm:tw-px-0">
+          <div className=" tw-mx-auto tw-pt-2 ">
+            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
 
@@ -90,7 +90,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-px-4 ">
+            <div className=" ">
               <div className=" tw-text-sm lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                 Your items
               </div>
@@ -99,7 +99,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
 
-            <div className="tw-flex sm:tw-px-4 tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
+            <div className="tw-flex tw-gap-6  tw-justify-between tw-max-w-screen-xl tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="tw-w-full">
                 {cartItems && cartItems.length === 0 ? (
                   <Message>
@@ -140,18 +140,20 @@ const CartScreen = ({ match, location, history }) => {
                           >
                             <>
                               <div className="tw-flex  tw-items-baseline tw-w-full  tw-justify-between">
-                                <div className="tw-gap-4 tw-flex tw-w-full ">
+                                <div className="tw-flex tw-w-full ">
                                   <LazyImage
                                     onClick={() =>
                                       history.push(`/product/${item.product}`)
                                     }
-                                    className="tw-w-20 tw-h-20  tw-object-cover  tw-cursor-pointer "
+                                    placeholder={item.image}
+                                    className=" tw-cursor-pointer "
                                     alt={item.name}
+                                    width={75}
                                     src={item.image}
-                                    height={80}
+                                    height={75}
                                   />
 
-                                  <div className="tw-flex tw-mt-auto  tw-w-full tw-items-baseline tw-justify-between">
+                                  <div className="tw-flex tw-mt-auto  tw-ml-3  tw-w-full tw-items-baseline tw-justify-between">
                                     <div>
                                       <div className="tw-text-sm tw-text-gray-700">
                                         Each

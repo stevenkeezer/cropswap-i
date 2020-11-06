@@ -15,7 +15,7 @@ import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
-import ScrollToTop from "../components/ScrollToTop";
+
 import Rating from "../components/Rating";
 import RatingSelect from "../components/RatingSelect";
 import {
@@ -51,7 +51,7 @@ const ProductScreen = ({ history, match }) => {
       setRating(0);
       setComment("");
     }
-    if (!product._id || product._id !== match.params.id) {
+    if ((product && !product._id) || product._id !== match.params.id) {
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
