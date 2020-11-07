@@ -12,9 +12,18 @@ body {
   --background: none;
 }
 
+.euiComment .euiCommentTimeline {
+  display: none !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.euiCommentEvent--regular .euiCommentEvent__header {
+  background: none !important;
+  /* border-bottom: none !important; */
 }
 
 ion-item {

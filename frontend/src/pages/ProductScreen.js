@@ -1,11 +1,17 @@
-import { EuiButton, EuiTextArea, EuiPage } from "@elastic/eui";
+import {
+  EuiButton,
+  EuiHorizontalRule,
+  EuiPage,
+  EuiTextArea,
+} from "@elastic/eui";
 import { IonIcon, IonText } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Col, ListGroup, Row } from "react-bootstrap";
+import NumericInput from "react-numeric-input";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import Meta from "../components/Meta";
+
 import {
   createProductReview,
   listProductDetails,
@@ -15,9 +21,9 @@ import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
-
 import Rating from "../components/Rating";
 import RatingSelect from "../components/RatingSelect";
+import ReviewChart from "../components/ReviewChart";
 import {
   PRODUCT_CREATE_REVIEW_RESET,
   PRODUCT_DETAILS_RESET,
@@ -98,12 +104,11 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <div className="tw-pt-12  tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
+              <div className="tw-pt-12  tw-flex tw-flex-col md:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
                 <div className="tw-w-full  tw-mb-8 tw-mx-auto">
                   <LazyImage
                     src={product && product.image}
                     placeholder={product && product.image}
-                    // height={350}
                     shadow
                     border
                   />
@@ -121,7 +126,7 @@ const ProductScreen = ({ history, match }) => {
                     <div>
                       <Rating
                         value={product && product.rating}
-                        text={`${product && product.numReviews} reviews`}
+                        text={`${product && product.numReviews}`}
                       />
                     </div>
                     <div className="tw-py-6">
@@ -144,25 +149,18 @@ const ProductScreen = ({ history, match }) => {
 
                         {product && product.countInStock > 0 && (
                           <div>
-                            <Row>
-                              <Col>Quantity</Col>
-
-                              <Form.Control
-                                as="select"
-                                value={qty}
-                                onChange={(e) => setQty(e.target.value)}
-                              >
-                                {[
-                                  ...Array(
-                                    product && product.countInStock
-                                  ).keys(),
-                                ].map((x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                ))}
-                              </Form.Control>
-                            </Row>
+                            <div className="tw-font-semibold tw-text-sm tw-pb-3 tw-tracking-wide">
+                              Quantity
+                            </div>
+                            <NumericInput
+                              mobile
+                              className="numericInput tw-w-32 tw-h-8 tw-bg-gray-200 tw-text-sm tw-border-none tw-bg-opacity-75"
+                              min={1}
+                              onKeyDown={(e) => e.preventDefault()}
+                              max={product.countInStock}
+                              value={qty}
+                              onChange={(e) => setQty(e)}
+                            />
                           </div>
                         )}
                       </div>
@@ -170,41 +168,39 @@ const ProductScreen = ({ history, match }) => {
                   </div>
                   {product && product.countInStock > 0 ? (
                     <EuiButton
-                      fullWidth
                       color="secondary"
-                      className="tw-mt-3 tw-rounded-full"
+                      className="tw-mt-5 tw-w-48 tw-text-sm tw-font-semibold tw-rounded-full"
                       size="m"
                       fill
                       onClick={addToCartHandler}
                     >
-                      Add To Cart
+                      Add to cart
                     </EuiButton>
                   ) : (
                     <EuiButton
-                      fullWidth
                       color="secondary"
-                      className="tw-mt-3 tw-rounded-full"
+                      className="tw-mt-5 tw-w-48 tw-text-sm tw-font-semibold tw-rounded-full"
                       size="m"
                       fill
                       disabled
                       onClick={addToCartHandler}
                     >
-                      Add To Cart
+                      Add to cart
                     </EuiButton>
                   )}
+                  <div className="tw-py-3 tw-pt-10 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
+                    Product description
+                  </div>
+                  <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
+                    {product ? (
+                      product && product.description
+                    ) : (
+                      <div>No description</div>
+                    )}
+                  </div>
                 </div>
               </div>
 
-              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
-                Product description
-              </div>
-              <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
-                {product ? (
-                  product && product.description
-                ) : (
-                  <div>No description</div>
-                )}
-              </div>
               <Row>
                 <div className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
                   <ListGroup variant="flush">
@@ -252,27 +248,28 @@ const ProductScreen = ({ history, match }) => {
                       )}
                     </ListGroup.Item>
                   </ListGroup>
-                  <div className="tw-py-3 tw-pt-5 tw-mb-3 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
-                    Customer Reviews
-                  </div>
-                  {product &&
-                    product.reviews &&
-                    product.reviews.length === 0 && (
-                      <Message>No Reviews</Message>
-                    )}
-                  {product &&
-                    product.reviews &&
-                    product.reviews.length === 0 && (
-                      <ElasticComment
-                        reviews={product.reviews}
-                      ></ElasticComment>
-                    )}
                 </div>
               </Row>
             </>
           )}
         </div>
       </EuiPage>
+
+      <EuiHorizontalRule margin="m" className="tw-border-gray-400" />
+      <div className=" tw-text-sm tw-text-gray-900 tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-font-semibold">
+        Reviews
+      </div>
+      <EuiHorizontalRule margin="m" />
+
+      <div className="tw-max-w-screen-md tw-mx-auto">
+        <ReviewChart product={product} />
+        {product && product.reviews && product.reviews.length < 1 && (
+          <Message>No Reviews</Message>
+        )}
+        {product && product.reviews && product.reviews.length > 0 && (
+          <ElasticComment reviews={product.reviews}></ElasticComment>
+        )}
+      </div>
     </>
   );
 };
