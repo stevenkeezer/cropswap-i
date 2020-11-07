@@ -153,7 +153,7 @@ const CartScreen = ({ match, location, history }) => {
                                     height={75}
                                   />
 
-                                  <div className="tw-flex tw-mt-auto  tw-ml-3  tw-w-full tw-items-baseline tw-justify-between">
+                                  <div className="tw-flex tw-mt-auto  tw-pl-3  tw-w-full tw-items-baseline tw-justify-between">
                                     <div>
                                       <div className="tw-text-sm tw-text-gray-700">
                                         Each

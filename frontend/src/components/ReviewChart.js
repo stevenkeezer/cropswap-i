@@ -2,7 +2,23 @@ import React from "react";
 import Rating from "../components/Rating";
 
 export default function ReviewChart({ product }) {
-  console.log(product);
+  let ratingList = [];
+
+  const ratings = product && product.reviews;
+
+  if (ratings) {
+    ratingList = ratings.map((review) => review.rating);
+  }
+
+  const valueCounts =
+    ratingList &&
+    ratingList.reduce((counts, value) => {
+      const valueCount = counts[value] === undefined ? 0 : counts[value];
+
+      return { ...counts, ...{ [value]: valueCount + 1 } };
+    }, {});
+
+  console.log(valueCounts);
   return (
     <>
       <div class="  tw-my-8  tw-px-0 tw-py-4 tw-px-4 sm:tw-px-0  ">
@@ -55,11 +71,17 @@ export default function ReviewChart({ product }) {
               </div>
               <div class="tw-w-full">
                 <div class="tw-bg-gray-300 tw-w-full tw-rounded-lg tw-h-3">
-                  <div class=" tw-w-7/12 tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"></div>
+                  <div
+                    style={{
+                      width:
+                        ((valueCounts[5] || 0) / ratingList.length) * 100 + "%",
+                    }}
+                    class="tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"
+                  ></div>
                 </div>
               </div>
               <div class=" tw-text-gray-800 ">
-                <span class="tw-text-sm tw-px-3">25</span>
+                <span class="tw-text-sm tw-px-3">{valueCounts[5] || 0}</span>
               </div>
             </div>
 
@@ -71,11 +93,17 @@ export default function ReviewChart({ product }) {
               </div>
               <div class="tw-w-full">
                 <div class="tw-bg-gray-300 tw-w-full tw-rounded-lg tw-h-3">
-                  <div class="w-1/5 bg-green-500 tw-opacity-75 rounded-lg h-2"></div>
+                  <div
+                    style={{
+                      width:
+                        ((valueCounts[4] || 0) / ratingList.length) * 100 + "%",
+                    }}
+                    class=" tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"
+                  ></div>
                 </div>
               </div>
               <div class=" tw-text-gray-800 ">
-                <span class="tw-text-sm tw-px-3">1</span>
+                <span class="tw-text-sm tw-px-3">{valueCounts[4] || 0}</span>
               </div>
             </div>
 
@@ -87,11 +115,17 @@ export default function ReviewChart({ product }) {
               </div>
               <div class="tw-w-full">
                 <div class="tw-bg-gray-300 tw-w-full tw-rounded-lg tw-h-3">
-                  <div class=" tw-w-3/12 tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"></div>
+                  <div
+                    style={{
+                      width:
+                        ((valueCounts[3] || 0) / ratingList.length) * 100 + "%",
+                    }}
+                    class="  tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"
+                  ></div>
                 </div>
               </div>
               <div class=" tw-text-gray-800 ">
-                <span class="tw-text-sm tw-px-3">0</span>
+                <span class="tw-text-sm tw-px-3">{valueCounts[3] || 0}</span>
               </div>
             </div>
 
@@ -103,11 +137,17 @@ export default function ReviewChart({ product }) {
               </div>
               <div class="tw-w-full">
                 <div class="tw-bg-gray-300 tw-w-full tw-rounded-lg tw-h-3">
-                  <div class="  tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"></div>
+                  <div
+                    style={{
+                      width:
+                        ((valueCounts[2] || 0) / ratingList.length) * 100 + "%",
+                    }}
+                    class="  tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"
+                  ></div>
                 </div>
               </div>
               <div class=" tw-text-gray-800 ">
-                <span class="tw-text-sm tw-px-3">0</span>
+                <span class="tw-text-sm tw-px-3">{valueCounts[2] || 0}</span>
               </div>
             </div>
 
@@ -119,11 +159,17 @@ export default function ReviewChart({ product }) {
               </div>
               <div class="tw-w-full">
                 <div class="tw-bg-gray-300 tw-w-full tw-rounded-lg tw-h-3">
-                  <div class=" tw-w-2/12 tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"></div>
+                  <div
+                    style={{
+                      width:
+                        ((valueCounts[1] || 0) / ratingList.length) * 100 + "%",
+                    }}
+                    class="  tw-bg-green-500 tw-opacity-75 tw-rounded-lg tw-h-3"
+                  ></div>
                 </div>
               </div>
               <div class=" tw-text-gray-800 ">
-                <span class="tw-text-sm tw-px-3">0</span>
+                <span class="tw-text-sm tw-px-3">{valueCounts[1] || 0}</span>
               </div>
             </div>
           </div>
