@@ -80,7 +80,7 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <EuiPage className="tw-px-0 ">
+      <EuiPage className="tw-px-0  ">
         <div className="tw-max-w-screen-xl sm:tw-mx-auto sm:tw-px-4">
           <CheckoutSteps step1 step2 step3 step4 />
           <div className="tw-flex tw-flex-col lg:tw-flex-row">

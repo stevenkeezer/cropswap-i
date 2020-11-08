@@ -8,6 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:host {
+  background: transparent !important;
+}
+
 .custom-ion-content {
   --background: #ffffff !important;
 }
