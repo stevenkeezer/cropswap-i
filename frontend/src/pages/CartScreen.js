@@ -145,10 +145,9 @@ const CartScreen = ({ match, location, history }) => {
                                     onClick={() =>
                                       history.push(`/product/${item.product}`)
                                     }
-                                    placeholder={item.image}
+                                    placeholder="/images/shopping.svg"
                                     className=" tw-cursor-pointer "
                                     alt={item.name}
-                                    width={75}
                                     src={item.image}
                                     height={75}
                                   />
