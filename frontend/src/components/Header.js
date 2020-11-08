@@ -97,7 +97,11 @@ export default ({ theme }) => {
           onClick={onMenuButtonClick}
         >
           <EuiShowFor sizes={["xs", "s", "m"]}>
-            <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
+            <EuiIcon
+              type="menu"
+              size="xl"
+              style={{ paddingLeft: 7, paddingRight: 6, marginTop: -8 }}
+            />
           </EuiShowFor>
           <EuiShowFor sizes={[, "l", "xl"]}>
             <svg

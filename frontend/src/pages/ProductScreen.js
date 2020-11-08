@@ -3,6 +3,7 @@ import {
   EuiHorizontalRule,
   EuiPage,
   EuiTextArea,
+  EuiShowFor,
 } from "@elastic/eui";
 import { IonIcon, IonText } from "@ionic/react";
 import { chevronBackOutline } from "ionicons/icons";
@@ -79,7 +80,7 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <EuiPage restrictWidth="75rem" className="tw-px-4 ">
+      <EuiPage restrictWidth="75rem" className="tw-px-4 tw-bg-white">
         <div className=" ">
           <Link
             className="tw-items-center tw-px-0 tw-flex hover:tw-no-underline  "
@@ -87,11 +88,11 @@ const ProductScreen = ({ history, match }) => {
           >
             <IonIcon
               icon={chevronBackOutline}
-              className="tw-text-sm tw-text-gray-700 tw-h-5 tw-w-5  tw-mr-2 "
+              className="tw-text-sm tw-text-gray-700 tw-h-5 tw-w-5 tw--ml-1 tw-mr-2 "
               size="small"
             ></IonIcon>
             <IonText
-              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800 d"
+              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800"
               color="light"
             >
               Back to search
@@ -104,27 +105,38 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <div className=" tw-pt-1 sm:tw-pt-12  tw-flex tw-flex-col sm:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
-                <div className="sm:tw-min-w-3/5 sm:tw-w-3/5   tw-mb-8 tw-mx-auto">
-                  <LazyImage
-                    src={product && product.image}
-                    placeholder={product && product.image}
-                    shadow
-                    height={"auto"}
-                    border={false}
-                  />
+              <div className="sm:tw-pt-8 lg:tw-pt-16  tw-flex tw-flex-col sm:tw-flex-row tw-max-w-screen-lg tw-gap-4 tw-pt-5 tw-mx-auto tw-justify-center ">
+                <div className=" tw-w-full sm:tw-w-8/12  tw-mx-auto">
+                  <EuiShowFor sizes={["xs"]}>
+                    <LazyImage
+                      src={product && product.image}
+                      placeholder={product && product.image}
+                      shadow
+                      height={470}
+                      border={false}
+                    />
+                  </EuiShowFor>
+                  <EuiShowFor sizes={["s", "m", "l", "xl"]}>
+                    <LazyImage
+                      src={product && product.image}
+                      placeholder={product && product.image}
+                      shadow
+                      height={"auto"}
+                      border={false}
+                    />
+                  </EuiShowFor>
                 </div>
 
                 <div className="tw-w-full ">
-                  <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
+                  <div className="tw-text-xs  tw-font-base tw-pb-2  tw-mt-1 tw-tracking-wide tw-font-base tw-text-gray-600">
                     {product && product.category}
                   </div>
-                  <div className="tw-text-3xl  tw-font-semibold  tw-text-gray-900">
+                  <div className=" tw-text-2xl sm:tw-text-3xl tw-font-semibold  tw-text-gray-900">
                     {product && product.name}
                   </div>
 
                   <div variant="flush" className="tw-border-none tw-mt-3">
-                    <div>
+                    <div className="tw-hidden sm:tw-flex">
                       <Rating
                         value={product && product.rating}
                         text={`${product && product.numReviews}`}

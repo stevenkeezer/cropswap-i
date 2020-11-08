@@ -9,7 +9,7 @@ body {
 }
 
 .custom-ion-content {
-  --background: none;
+  --background: #ffffff !important;
 }
 
 .euiComment .euiCommentTimeline {

@@ -38,14 +38,7 @@ export default function Product({ product, history, scrollPosition }) {
                     placeholder={product.image}
                   />
                 </EuiShowFor>
-                <EuiShowFor sizes={["s", "m"]}>
-                  <LazyImage
-                    src={product.image}
-                    placeholder={product.image}
-                    height={200}
-                  />
-                </EuiShowFor>
-                <EuiShowFor sizes={["l", "xl"]}>
+                <EuiShowFor sizes={["s", "m", "l", "xl"]}>
                   <LazyImage
                     src={product.image}
                     placeholder={product.image}

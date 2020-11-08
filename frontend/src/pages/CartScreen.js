@@ -55,8 +55,11 @@ const CartScreen = ({ match, location, history }) => {
       {loading ? (
         <Loader />
       ) : (
-        <EuiPage paddingSize="none" className="tw-pb-20 tw-px-0  sm:tw-px-0">
-          <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto  tw-w-full">
+        <EuiPage
+          paddingSize="none"
+          className="lg:tw-pb-64 tw-pb-24 tw-px-0 sm:tw-px-0 tw-bg-white sm:tw-bg-gray-100 sm:tw-bg-opacity-50"
+        >
+          <div className="tw-max-w-screen-xl tw-h-full sm:tw-px-4 tw-px-0 tw-mx-auto  tw-w-full">
             <div className="tw-p-0  lg:tw-pt-3 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
               Your delivery order
             </div>
@@ -65,7 +68,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" />
             </EuiShowFor>
             <EuiShowFor sizes={["xs", "s", "m"]}>
-              <div className="tw-px-4 sm:tw-pb-0 ">
+              <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">
                 <div
                   onClick={() => history.push("/")}
                   className="sm:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
