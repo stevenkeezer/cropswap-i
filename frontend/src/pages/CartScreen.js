@@ -112,7 +112,7 @@ const CartScreen = ({ match, location, history }) => {
                         <EuiFlexItem>
                           <EuiCard
                             layout="horizontal"
-                            className="tw-border-none tw-shadow-md tw-rounded sm:tw-shadow"
+                            className="tw-border-none tw-rounded "
                             iconSize="sm"
                             grow
                             titleSize="xs"
