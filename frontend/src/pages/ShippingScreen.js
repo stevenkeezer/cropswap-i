@@ -52,7 +52,7 @@ const ShippingScreen = ({ history }) => {
   return (
     <>
       <EuiPage className="tw-px-0 tw-bg-white sm:tw-bg-gray-100 sm:tw-bg-opacity-50 ">
-        <div className=" tw-mx-auto sm:tw-px-4">
+        <div className=" sm:tw-mx-auto sm:tw-px-4">
           <CheckoutSteps step1 step2 />
           <div className=" tw-max-w-screen-xl  sm:tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row">
             <div className=" tw-w-full">
