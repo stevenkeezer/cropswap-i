@@ -100,8 +100,8 @@ const OrderScreen = ({ match, history }) => {
         style={{ backgroundColor: "#fafbfd" }}
         className=" tw-pt-6 tw-antialiased tw-h-auto tw-min-h-screen "
       >
-        <div className=" tw-flex tw-flex-col tw-mx-auto lg:tw-flex-row  tw-max-w-screen-xl">
-          <div className="tw-p-0 tw-w-2/3 sm:tw-4">
+        <div className=" tw-flex tw-flex-col sm:tw-mx-auto lg:tw-flex-row  tw-max-w-screen-xl">
+          <div className="tw-p-0 sm:tw-w-2/3 tw-w-full sm:tw-4">
             <ListGroup variant="flush">
               {order.isPaid && (
                 <div className="tw-flex tw-justify-between">
@@ -234,7 +234,7 @@ const OrderScreen = ({ match, history }) => {
               </div>
             </ListGroup>
           </div>
-          <div className="tw-1/3 tw-p-0 sm:tw-px-4">
+          <div className="tw-w-full sm:tw-1/3 tw-p-0 sm:tw-px-4">
             <div className="w-full tw-px-4 tw-border-none tw-mt-10 tw-shadow-md sm:tw-shadow tw-rounded card ">
               <div variant="flush" lines="none">
                 <div className="tw-pb-0 tw-pt-6 tw-mb-3  tw-flex tw-justify-between tw-items-baseline">

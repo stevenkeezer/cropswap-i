@@ -31,5 +31,5 @@ export default function CheckoutSteps({ step1, step2, step3, step4 }) {
       },
     },
   ];
-  return <EuiStepsHorizontal steps={horizontalSteps} />;
+  return <EuiStepsHorizontal steps={horizontalSteps} className="tw--mt-3 " />;
 }
