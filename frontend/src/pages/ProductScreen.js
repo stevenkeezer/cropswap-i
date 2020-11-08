@@ -104,13 +104,14 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <div className="tw-pt-12  tw-flex tw-flex-col md:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
-                <div className="tw-w-full  tw-mb-8 tw-mx-auto">
+              <div className="tw-pt-12  tw-flex tw-flex-col sm:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
+                <div className="sm:tw-min-w-3/5 sm:tw-w-3/5   tw-mb-8 tw-mx-auto">
                   <LazyImage
                     src={product && product.image}
                     placeholder={product && product.image}
                     shadow
-                    border
+                    height={"auto"}
+                    border={false}
                   />
                 </div>
 

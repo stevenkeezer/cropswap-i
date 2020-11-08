@@ -145,7 +145,7 @@ const CartScreen = ({ match, location, history }) => {
                                     onClick={() =>
                                       history.push(`/product/${item.product}`)
                                     }
-                                    placeholder="/images/shopping.svg"
+                                    placeholder={item.image}
                                     alt={item.name}
                                     src={item.image}
                                     shadow={false}

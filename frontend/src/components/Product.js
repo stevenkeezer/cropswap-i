@@ -18,8 +18,6 @@ export default function Product({ product, history, scrollPosition }) {
     history.push(`/product/${id}`);
   };
 
-  console.log(product.image.preSrc, "ah");
-
   return (
     <>
       <EuiFlexItem
@@ -36,11 +34,18 @@ export default function Product({ product, history, scrollPosition }) {
                 <EuiShowFor sizes={["xs"]}>
                   <LazyImage
                     src={product.image}
-                    height={150}
+                    height={"20vh"}
                     placeholder={product.image}
                   />
                 </EuiShowFor>
-                <EuiShowFor sizes={["s", "m", "l", "xl"]}>
+                <EuiShowFor sizes={["s", "m"]}>
+                  <LazyImage
+                    src={product.image}
+                    placeholder={product.image}
+                    height={200}
+                  />
+                </EuiShowFor>
+                <EuiShowFor sizes={["l", "xl"]}>
                   <LazyImage
                     src={product.image}
                     placeholder={product.image}
