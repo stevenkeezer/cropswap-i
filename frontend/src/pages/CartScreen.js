@@ -140,7 +140,7 @@ const CartScreen = ({ match, location, history }) => {
                           >
                             <>
                               <div className="tw-flex  tw-items-center tw-w-full  tw-justify-between">
-                                <div>
+                                <div className="tw-w-24">
                                   <LazyImage
                                     onClick={() =>
                                       history.push(`/product/${item.product}`)
@@ -148,12 +148,13 @@ const CartScreen = ({ match, location, history }) => {
                                     placeholder="/images/shopping.svg"
                                     alt={item.name}
                                     src={item.image}
+                                    shadow={false}
                                     height={75}
                                   />
                                 </div>
                                 <div className="tw-flex tw-w-full ">
                                   <div className="tw-flex tw-mt-auto tw-w-full tw-items-baseline tw-justify-between">
-                                    <div className="tw-ml-3">
+                                    <div className="tw-ml-3 lg:tw-ml-2">
                                       <div className="tw-text-sm tw-text-gray-700">
                                         Each
                                       </div>
