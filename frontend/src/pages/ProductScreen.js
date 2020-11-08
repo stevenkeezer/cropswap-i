@@ -267,22 +267,29 @@ const ProductScreen = ({ history, match }) => {
           )}
         </div>
       </EuiPage>
-
       <EuiHorizontalRule margin="m" className="tw-border-gray-400" />
-      <div className=" tw-text-sm tw-text-gray-900 tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-font-semibold">
-        Reviews
-      </div>
-      <EuiHorizontalRule margin="m" />
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <>
+          <div className=" tw-text-sm tw-text-gray-900 tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-font-semibold">
+            Reviews
+          </div>
+          <EuiHorizontalRule margin="m" />
 
-      <div className="tw-max-w-screen-md tw-mx-auto">
-        <ReviewChart product={product} />
-        {product && product.reviews && product.reviews.length < 1 && (
-          <Message>No Reviews</Message>
-        )}
-        {product && product.reviews && product.reviews.length > 0 && (
-          <ElasticComment reviews={product.reviews}></ElasticComment>
-        )}
-      </div>
+          <div className="tw-max-w-screen-md tw-mx-auto">
+            <ReviewChart product={product} />
+            {product && product.reviews && product.reviews.length < 1 && (
+              <Message>No Reviews</Message>
+            )}
+            {product && product.reviews && product.reviews.length > 0 && (
+              <ElasticComment reviews={product.reviews}></ElasticComment>
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 };

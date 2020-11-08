@@ -24,16 +24,17 @@ const ProductCarousel = () => {
     <Message variant="danger">{error}</Message>
   ) : (
     <>
-      <div class="  sm:tw-px-4 xl:tw-px-0  sm:tw-pt-3 tw-pb-0">
+      <div style={{ height: 10 }} className=" tw-hidden sm:tw-block"></div>
+      <div class="  sm:tw-px-4 xl:tw-px-0   tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
-          <div class="tw-w-full md:tw-w-1/2  tw-h-64 md:tw-h-auto tw-mb-4 tw-px-2">
-            <div class="tw-relative tw-bg-gray-100 tw-h-full  tw-w-full sm:tw-rounded">
+          <div class="tw-w-full md:tw-w-1/2  tw-hidden sm:tw-block tw-h-56 md:tw-h-auto tw-mb-4 tw-px-2">
+            <div class="tw-relative tw-bg-gray-100 tw-h-full  tw-w-full sm:tw-rounded-3xl">
               <img
-                class="tw-absolute tw-h-full sm:tw-rounded tw-w-full tw-object-cover"
+                class="tw-absolute tw-h-full sm:tw-rounded-3xl tw-w-full tw-object-cover"
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class=" sm:tw-rounded tw-px-12 tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
+              <div class=" sm:tw-rounded-3xl tw-px-12 tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
                 <div class="tw-h-32 md:tw-h-48"></div>
 
                 <h2 class="tw-text-white  tw-text-2xl tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
@@ -63,7 +64,7 @@ const ProductCarousel = () => {
             <div class="tw-flex tw-flex-col sm:tw-flex-row md:tw-flex-col tw--mx-2">
               <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-mb-4 sm:tw-mb-0 md:tw-mb-4 tw-px-2">
                 <a
-                  class="tw-block tw-w-full sky tw-h-full tw-overflow-y-hidden sm:tw-rounded tw-relative  tw-bg-no-repeat"
+                  class="tw-block tw-w-full sky tw-h-full tw-overflow-y-hidden sm:tw-rounded-3xl tw-relative  tw-bg-no-repeat"
                   href="#"
                   title="Link"
                   style={{
@@ -75,23 +76,14 @@ const ProductCarousel = () => {
                   <div className="sun"></div>
                 </a>
               </div>
-              <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-h-40 xl:tw-h-42 tw-px-2">
+              <div class="tw-w-full sm:tw-w-1/2 md:tw-w-full tw-hidden sm:tw-block tw-h-40 xl:tw-h-42 tw-px-2">
                 <div
-                  class="tw-block tw-w-full tw-h-full tw-bg-gray-300 sm:tw-rounded tw-bg-no-repeat tw-bg-center tw-bg-cover"
+                  class="tw-block tw-w-full tw-h-full tw-bg-gray-300 sm:tw-rounded-3xl tw-bg-no-repeat tw-bg-center tw-bg-cover"
                   href="#"
                   title="Link"
-                  // style={{
-                  //   backgroundImage:
-                  //     "url(https://via.placeholder.com/800x600/EDF2F7/E2E8F0/&amp;text=Image)",
-                  // }}
                 >
-                  {/* <img
-                    className="tw-absolute tw-object-cover tw-h-32"
-                    src={products.length > 1 && products[1].image}
-                  ></img> */}
-
                   <div class="tw-relative tw-h-full">
-                    <div class="tw-relative lg:tw-flex tw-h-full sm:tw-rounded tw-bg-gray-100 tw-overflow-hidden">
+                    <div class="tw-relative lg:tw-flex tw-h-full sm:tw-rounded-3xl tw-bg-gray-100 tw-overflow-hidden">
                       <div class="lg:tw-w-5/12 tw-h-full tw-relative tw-flex tw-items-center tw-justify-center">
                         <img
                           class="tw-absolute tw-h-full tw-w-full tw-object-cover"

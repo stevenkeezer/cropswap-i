@@ -8,13 +8,14 @@ function AlertDismissible() {
   if (show) {
     return (
       <EuiCallOut
-        className="tw-bg-blue-700 tw-m-0 tw-p-0 tw-px-4 tw-py-3 tw-border-none tw-text-white tw-w-full"
+        style={{ backgroundColor: "rgb(35, 118, 215)" }}
+        className=" tw-items-center  tw-m-0 tw-p-0 tw-px-4 tw-py-3 tw-border-none tw-text-white tw-w-full"
         // iconType={<div className="tw-text-white">X</div>}
         size="l"
       >
-        <div className="tw-text-white tw-flex tw-max-w-screen-xl  tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
+        <div className="tw-text-white tw-flex tw-max-w-screen-xl tw-items-center  tw-mx-auto tw-justify-between  lg:tw-px-4 tw-w-full">
           <div className="">
-            <span className="font-weight-bold whitespace-no-wrap tw-text-sm  ">
+            <span className="tw-font-bold tw-whitespace-no-wrap tw-text-sm  ">
               COVID-19 IMPACT{" "}
             </span>
             Learn more about how the Coronavirus is impacting farming

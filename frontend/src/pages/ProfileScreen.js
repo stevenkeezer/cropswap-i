@@ -63,8 +63,9 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
-        <EuiPage restrictWidth="75rem" className="">
+      <EuiPage className=" sm:tw-px-0  tw-min-h-screen lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
+        <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
+          {/* <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen"> */}
           <EuiPageSideBar>
             <Toolbar history={history} profile />
           </EuiPageSideBar>
@@ -115,8 +116,9 @@ const ProfileScreen = ({ location, history }) => {
               )}
             </EuiPageContentBody>
           </EuiPageBody>
-        </EuiPage>
-      </div>
+        </div>
+      </EuiPage>
+      {/* </div> */}
     </>
   );
 };

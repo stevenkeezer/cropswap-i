@@ -140,7 +140,7 @@ export default ({ history, products, loading }) => {
           placeholder: "Products, brands, farms and more",
           onKeyUpCapture: onKeyUpCapture,
           className:
-            "mainSearch tw-bg-gray-200 tw-rounded-md tw-border-none tw-shadow-inner",
+            "mainSearch tw-bg-gray-200 tw-rounded-md tw-font-sans tw-border-none tw-shadow-none tw-tracking-wide tw-placeholder-gray-500 tw-text-sm",
           inputRef: setSearchRef,
         }}
         listProps={{
