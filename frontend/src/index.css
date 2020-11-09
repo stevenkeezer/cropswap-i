@@ -237,7 +237,6 @@ b {
   .euiHeader {
     grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr) !important;
     margin: 0px auto !important;
-    max-width: 75rem !important;
   }
 }
 
