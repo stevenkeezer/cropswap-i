@@ -19,14 +19,15 @@ function AlertDismissible() {
               COVID-19 IMPACT{" "}
             </span>
             Learn more about how the Coronavirus is impacting farming
-            communities here.
+            communities <span className="tw-underline">here</span>.
           </div>
           <div
             onClick={() => setShow(!show)}
-            className="tw-text-white tw-my-auto"
+            style={{ paddingTop: 3, paddingBottom: 3 }}
+            className="tw-text-white  tw--mr-1 tw-my-auto"
           >
             <svg
-              class="tw-w-4 tw-h-4  tw-my-auto"
+              class="tw-w-5 tw-h-5 tw-my-auto"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

@@ -18,6 +18,9 @@ import CheckoutBottomBar from "../components/CheckoutBottomBar";
 import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const CartScreen = ({ match, location, history }) => {
   const [value, setValue] = useState("");
@@ -52,6 +55,17 @@ const CartScreen = ({ match, location, history }) => {
 
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
       {loading ? (
         <Loader />
       ) : (

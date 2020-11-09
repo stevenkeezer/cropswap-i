@@ -12,6 +12,9 @@ import { Col, ListGroup, Row } from "react-bootstrap";
 import NumericInput from "react-numeric-input";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 import {
   createProductReview,
@@ -80,6 +83,17 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
       <EuiPage restrictWidth="75rem" className="tw-px-4 tw-bg-white">
         <div className=" ">
           <Link

@@ -32,6 +32,9 @@ import Meta from "../components/Meta";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
 import SearchEmpty from "../components/SearchEmpty";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const HomeScreen = ({ match }) => {
   function doRefresh(event) {
@@ -71,6 +74,17 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
       <div className="">
         <EuiShowFor sizes={["xs", "s", "m"]}>
           <CategorySlider history={history} />
@@ -178,7 +192,6 @@ const HomeScreen = ({ match }) => {
           </div>
         </EuiPageBody>
       </EuiPage>
-
       {!keyword && !loading && <Footer history={history} />}
     </>
   );

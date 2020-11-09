@@ -698,12 +698,12 @@ export default ({ theme }) => {
 
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
               <EuiHeaderSectionItem
-                onClick={() => history.push("/")}
+                onClick={(e) => history.push("/")}
                 border="center"
               >
                 <EuiIcon
                   type="/images/shopping.svg"
-                  className="tw-bg-gray-300  tw-rounded-full tw-h-8 tw-p-1 tw-w-8"
+                  className="tw-bg-gray-300  tw-rounded-full  tw-h-8 tw-p-1 tw-w-8"
                 ></EuiIcon>
               </EuiHeaderSectionItem>
 
