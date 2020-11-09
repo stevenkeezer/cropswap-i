@@ -1,7 +1,7 @@
 import { EuiButton, EuiHorizontalRule, EuiShowFor } from "@elastic/eui";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, Col, Container, ListGroup, Row } from "react-bootstrap";
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
@@ -16,6 +16,9 @@ import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from "../constants/orderConstants";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -80,7 +83,6 @@ const OrderScreen = ({ match, history }) => {
   }, [dispatch, orderId, successPay, successDeliver, order]);
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
     dispatch(payOrder(orderId, paymentResult));
   };
 
@@ -91,7 +93,19 @@ const OrderScreen = ({ match, history }) => {
   console.log("order", order);
 
   return loading ? (
-    <Loader />
+    <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+          </Container>
+        )}
+      </NProgress>
+      <Loader />
+    </>
   ) : error ? (
     <Message variant="danger">{error}</Message>
   ) : (

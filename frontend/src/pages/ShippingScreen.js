@@ -19,6 +19,9 @@ import { Link } from "react-router-dom";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
 import CartItem from "../components/CartItem";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const ShippingScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
@@ -51,6 +54,17 @@ const ShippingScreen = ({ history }) => {
   };
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
       <EuiPage className="tw-px-0 tw-bg-white sm:tw-bg-gray-100 sm:tw-bg-opacity-50 ">
         <div className=" sm:tw-mx-auto sm:tw-px-4">
           <CheckoutSteps step1 step2 />

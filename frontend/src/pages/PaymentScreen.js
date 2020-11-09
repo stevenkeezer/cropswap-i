@@ -13,17 +13,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { savePaymentMethod } from "../actions/cartActions";
 import CartItem from "../components/CartItem";
 import CheckoutSteps from "../components/CheckoutSteps";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const PaymentScreen = ({ history }) => {
   const cart = useSelector((state) => state.cart);
 
   const [radioIdSelected, setRadioIdSelected] = useState(0);
+  // const [loading, setLoading] = useState(false);
 
   const onChange = (optionId) => {
     setRadioIdSelected(optionId);
   };
 
-  const { shippingAddress, cartItems } = cart;
+  const { shippingAddress, cartItems, loading } = cart;
 
   if (!shippingAddress) {
     history.push("/shipping");
@@ -36,10 +40,22 @@ const PaymentScreen = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePaymentMethod(paymentMethod));
+
     history.push("/placeorder");
   };
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
       <EuiPage className="tw-px-0 sm:tw-px-0 tw-bg-white tw-min-h-screen lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
         <div className=" sm:tw-mx-auto ">
           <CheckoutSteps step1 step2 step3 />

@@ -91,18 +91,12 @@ const HomeScreen = ({ match }) => {
         </EuiShowFor>
         {!keyword && <Alert />}
       </div>
-      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-        <IonRefresherContent
-          pullingIcon={chevronDown}
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Loading..."
-        ></IonRefresherContent>
-      </IonRefresher>
+
+      <div className="tw-max-w-screen-xl tw-mx-auto">
+        {!keyword && <Carousel />}
+      </div>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
-          {!keyword && <Carousel />}
-
           <div className="tw-bg-white tw-p-2  tw-shadow-none">
             <Meta />
             <div>
@@ -183,9 +177,6 @@ const HomeScreen = ({ match }) => {
                       keyword={keyword ? keyword : ""}
                     />
                   </div>
-
-                  {/* <HomeHero /> */}
-                  {/* <Regions /> */}
                 </>
               )}
             </div>
