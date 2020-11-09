@@ -68,7 +68,6 @@ const ProductCarousel = () => {
                   href="#"
                   title="Link"
                   style={{
-                    backgroundSize: "355px",
                     backgroundPosition: "top right",
                     backgroundImage: "url('/farmers.svg')",
                   }}

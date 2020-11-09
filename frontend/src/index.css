@@ -153,6 +153,9 @@ b {
     min-width: 18px !important;
     min-height: 18px !important;
   }
+  .sky {
+    background-size: 355px;
+  }
 }
 
 @media only screen and (max-width: 574px) {
@@ -238,6 +241,16 @@ b {
     padding-left: 0;
     padding-right: 0;
   }
+  .sun {
+    height: 35px;
+    width: 35px;
+    left: 4%;
+    top: 93%;
+  }
+  .sky {
+    background-size: 355px;
+    /* background-position: 100% -120% !important; */
+  }
 }
 
 .pagination {
@@ -275,6 +288,11 @@ b {
 @media only screen and (min-width: 1200px) {
   .euiHeader {
     justify-content: space-around !important;
+  }
+
+  .sun {
+    height: 50px;
+    width: 50px;
   }
 }
 .card {
@@ -442,6 +460,17 @@ tbody tr:last-child td:last-child {
 @media (max-width: 992px) {
   .carousel-indicators {
     bottom: -38px !important;
+  }
+  .sky {
+    background-size: 295px;
+    background-position: 100% -120% !important;
+  }
+
+  .sun {
+    height: 30px;
+    width: 30px;
+    left: 4%;
+    top: 93%;
   }
 }
 
