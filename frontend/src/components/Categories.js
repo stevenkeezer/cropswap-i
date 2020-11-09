@@ -3,7 +3,7 @@ import { EuiIcon, EuiKeyPadMenuItem } from "@elastic/eui";
 export default function Categories({ history }) {
   return (
     <>
-      <div className="tw-flex  tw-overflow-x-auto tw-hidden tw-justify-around lg:tw-flex tw-max-w-screen-xl tw-py-4 tw-px-4  tw-mx-auto">
+      <div className="tw-flex  tw-overflow-x-auto tw-hidden tw-justify-between lg:tw-flex tw-max-w-screen-xl tw-py-4 tw-px-4  tw-mx-auto">
         <EuiKeyPadMenuItem
           style={{
             transition: "border-color 150ms ease-in, box-shadow 150ms ease-in",
