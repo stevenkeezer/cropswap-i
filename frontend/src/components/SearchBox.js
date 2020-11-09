@@ -173,48 +173,48 @@ export default ({ history, products, loading }) => {
       />
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
-        className="tw-gap-4 tw-text-sm  tw-mt-1 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
+        className=" tw-text-sm  tw-mt-1 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Seasonal
         </span>
 
         <span
           onClick={(e) => searchHandler("tomatoe")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Tomatoes
         </span>
         <span
           onClick={(e) => searchHandler("vegetable")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Vegetables
         </span>
         <span
           onClick={(e) => searchHandler("fruit")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Fruits
         </span>
         <span
           onClick={(e) => searchHandler("soil")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Soil
         </span>
         <span
           onClick={(e) => searchHandler("squash")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Squash
         </span>
         <span
           onClick={(e) => searchHandler("compost")}
-          className="hover:tw-text-teal-700 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
         >
           Compost
         </span>

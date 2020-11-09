@@ -579,7 +579,7 @@ export default ({ theme }) => {
 
                       <EuiShowFor sizes={["l", "xl"]}>
                         <svg
-                          className="tw-w-5 tw-h-5 tw-px-8 tw-mx-auto tw-text-gray-800"
+                          className="tw-w-5 tw-h-5 tw-px-8 tw-invisible tw-mx-auto tw-text-gray-800"
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           xmlns="http://www.w3.org/2000/svg"
@@ -606,11 +606,12 @@ export default ({ theme }) => {
                           <EuiShowFor sizes={["xs", "s", "m"]}>
                             <EuiIcon
                               type="menu"
+                              className="tw-invisible"
                               size="l"
                               style={{ padding: "3px" }}
                             />
                           </EuiShowFor>
-                          <EuiShowFor sizes={[, "l", "xl"]}>
+                          <EuiShowFor sizes={["l", "xl"]}>
                             <svg
                               className="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
                               fill="currentColor"
@@ -640,16 +641,16 @@ export default ({ theme }) => {
                               Log in
                             </span>
                           </EuiLink>
-                          <EuiLink
+                          <EuiHeaderSectionItemButton
                             className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
                             onClick={(e) => {
                               history.push("/register");
                             }}
                           >
-                            <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                            <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs ">
                               Sign Up
-                            </span>
-                          </EuiLink>
+                            </button>
+                          </EuiHeaderSectionItemButton>
                         </>
                       ),
                     ],
@@ -688,7 +689,7 @@ export default ({ theme }) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
+                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py- tw-text-xs  ">
                         Sign Up
                       </span>
                     </EuiLink>
@@ -722,14 +723,14 @@ export default ({ theme }) => {
                     </EuiHeaderSectionItemButton>
 
                     <EuiHeaderSectionItemButton
-                      className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
+                      className="tw-no-underline  focus:tw-bg-white  focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                      <button className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
                         Sign Up
-                      </span>
+                      </button>
                     </EuiHeaderSectionItemButton>
                   </>
                 )}
@@ -765,7 +766,7 @@ export default ({ theme }) => {
                     }}
                   >
                     <svg
-                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-mr-4 tw-text-gray-800"
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
