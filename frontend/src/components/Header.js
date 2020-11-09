@@ -744,7 +744,7 @@ export default ({ theme }) => {
                     }}
                   >
                     <svg
-                      className="tw-w-4 tw-h-4 tw-mx-auto  tw-text-gray-800"
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
