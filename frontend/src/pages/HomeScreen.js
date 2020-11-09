@@ -86,10 +86,14 @@ const HomeScreen = ({ match }) => {
         )}
       </NProgress>
       <div className="">
-        <EuiShowFor sizes={["xs", "s", "m"]}>
-          <CategorySlider history={history} />
-        </EuiShowFor>
-        {!keyword && <Alert />}
+        {!keyword && (
+          <>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <CategorySlider history={history} />
+            </EuiShowFor>
+            <Alert />
+          </>
+        )}
       </div>
 
       <div className="tw-max-w-screen-xl tw-mx-auto">

@@ -5,7 +5,7 @@ import SubFooter from "./SubFooter";
 
 const SearchEmpty = ({ history }) => (
   <>
-    <div className="tw-mt-4"></div>
+    <div className="sm:tw-mt-4"></div>
     <EuiEmptyPrompt
       iconType={"/cartEmpty.svg"}
       title={<h4>No search results were found.</h4>}
