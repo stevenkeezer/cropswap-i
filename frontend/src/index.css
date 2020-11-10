@@ -551,8 +551,11 @@ td:not(:last-child) {
   border-bottom: 0;
 }
 
+.euiOverlayMask {
+  background: rgba(0, 0, 0, 0.5) !important;
+}
 .euiFieldSearch {
-  height: 35.5px !important;
+  height: 36.5px !important;
 }
 
 .category-slider::-webkit-scrollbar {

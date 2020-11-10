@@ -556,10 +556,15 @@ export default ({ theme }) => {
                 boxShadow: "none!important",
               }}
             >
-              <span className="tw-flex tw-justify-between tw-max-w-screen-xl lg:tw-px-4 xl:tw-px-10 tw-items-center tw-w-full tw-mx-auto">
+              <span
+                style={{ maxWidth: "75rem" }}
+                className="tw-flex tw-justify-between  lg:tw-px-4 xl:tw-px-8 tw-items-center tw-w-full tw-mx-auto"
+              >
                 <EuiHeaderSection>
                   <EuiShowFor sizes={["m", "l", "xl"]}>
-                    <Logo history={history} />
+                    <div className="tw-mt-4">
+                      <Logo history={history} />
+                    </div>
                   </EuiShowFor>
 
                   <div className="tw-ml-6 tw-w-full" grow>

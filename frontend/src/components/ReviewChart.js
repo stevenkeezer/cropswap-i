@@ -21,18 +21,15 @@ export default function ReviewChart({ product }) {
   console.log(valueCounts);
   return (
     <>
-      <div class="  tw-my-8  tw-px-0 tw-py-4 tw-px-4 sm:tw-px-0  ">
-        <h2 class="tw-text-gray-900 tw-font-semibold tw-pb-5 tw-mt-2">
-          Reviews
-        </h2>
+      <div class="  tw-my-8 tw-py-4 tw-px-4 ">
         <div class="tw-mb-1 tw-flex tw-tracking-wide tw-py-4">
           <div className="tw-items-center tw-justify-center tw-flex">
             <svg
               ariaHidden="true"
-              width="120"
-              height="120"
+              // width="120"
+              // height="120"
               viewBox="0 0 120 120"
-              class="tw-relative"
+              className="tw-relative tw-w-24 tw-h-24 sm:tw-w-32 sm:tw-h-32 sm:tw-p-1"
             >
               <circle
                 cx="60"
@@ -62,7 +59,7 @@ export default function ReviewChart({ product }) {
               {/* <Rating value={product && product.rating} /> */}
             </div>
           </div>
-          <div class="tw-border-b tw-w-full tw-ml-2 tw--mx-8 tw-px-8 tw-pb-3">
+          <div class="tw-border-b tw-w-full tw-ml-2 tw--mx-8 tw-px-3 tw-pb-3">
             <div class="tw-flex tw-items-center tw-mt-2">
               <div class="  tw-text-teal-700  tw-font-medium tw-opacity-75 tw-tracking-tighter">
                 <span className="tw-whitespace-no-wrap tw-text-sm tw-mr-4 ">

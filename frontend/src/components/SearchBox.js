@@ -171,13 +171,14 @@ export default ({ history, products, loading }) => {
           </EuiText>
         }
       />
+      <div style={{ height: 1.85 }}></div>
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
         className=" tw-text-sm  tw-mt-1 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
         <span
           onClick={(e) => searchHandler("seasonal")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className="hover:tw-text-teal-700 tw-pr-2 tw-cursor-pointer"
         >
           Seasonal
         </span>
@@ -219,9 +220,9 @@ export default ({ history, products, loading }) => {
           Compost
         </span>
         <div
-          style={{ paddingTop: ".4rem", paddingBottom: ".4rem" }}
-          className="tw-bg-teal-500 tw-font-medium tw-tracking-normal hover:tw-bg-teal-500  tw-flex tw-items-center 
-            tw-rounded-full tw-text-teal-100 tw-px-3 tw-shadow-none
+          style={{ paddingTop: ".35rem", paddingBottom: ".37rem" }}
+          className="tw-bg-teal-600 tw-font-medium tw-tracking-normal hover:tw-bg-teal-500  tw-flex tw-items-center 
+            tw-rounded-full tw-text-teal-100 tw-px-3 tw-ml-1 tw-shadow-none
             tw-text-sm tw-cursor-pointer"
         >
           <div onClick={(e) => history.push("/cart")} className="">
