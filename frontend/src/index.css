@@ -233,11 +233,10 @@ b {
   }
 }
 
-@media (min-width: 1024px) {
-  .euiHeader {
-    grid-template-columns: minmax(0px, 1fr) minmax(0px, 10fr) !important;
-    margin: 0px auto !important;
-  }
+@media (min-width: 1200px) {
+  /* .euiHeader {
+    max-width: 75rem !important;
+  } */
 }
 
 @media only screen and (min-width: 600px) {
