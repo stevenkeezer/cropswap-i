@@ -233,12 +233,6 @@ b {
   }
 }
 
-@media (min-width: 1200px) {
-  /* .euiHeader {
-    max-width: 75rem !important;
-  } */
-}
-
 @media only screen and (min-width: 600px) {
   .card-head,
   .card-cont {
@@ -290,10 +284,6 @@ b {
 }
 
 @media only screen and (min-width: 1200px) {
-  .euiHeader {
-    justify-content: space-around !important;
-  }
-
   .sun {
     height: 50px;
     width: 50px;

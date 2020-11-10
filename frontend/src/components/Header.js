@@ -4,6 +4,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeader,
+  EuiHeaderSection,
   EuiHeaderSectionItem,
   EuiHeaderSectionItemButton,
   EuiIcon,
@@ -546,38 +547,32 @@ export default ({ theme }) => {
       {fullScreen && (
         <>
           <EuiShowFor sizes={["l", "xl"]}>
-            <span>
-              <EuiHeader
-                style={{ maxWidth: "75rem" }}
-                onProgress
-                position="static"
-                className=" tw-mx-auto xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
-                borderBottom="none"
-                style={{
-                  boxShadow: "none!important",
-                }}
-                // theme="light"
-                sections={[
-                  {
-                    items: [
-                      <EuiShowFor sizes={["m", "l", "xl"]}>
-                        <Logo history={history} />
-                      </EuiShowFor>,
+            <EuiHeader
+              onProgress
+              position="static"
+              className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+              borderBottom="none"
+              style={{
+                boxShadow: "none!important",
+              }}
+            >
+              <span className="tw-flex tw-justify-between tw-max-w-screen-xl lg:tw-px-4 xl:tw-px-10 tw-items-center tw-w-full tw-mx-auto">
+                <EuiHeaderSection>
+                  <EuiShowFor sizes={["m", "l", "xl"]}>
+                    <Logo history={history} />
+                  </EuiShowFor>
 
-                      // <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
-                      <div className="tw-ml-6 tw-w-full" grow>
-                        {products && search}
-                      </div>,
-                      // </EuiShowFor>,
-                    ],
-                    borders: "none",
-                  },
+                  <div className="tw-ml-6 tw-w-full" grow>
+                    {products && search}
+                  </div>
+                </EuiHeaderSection>
 
+                <EuiHeaderSection>
                   {
-                    items: [
-                      userInfo && userInfo.isAdmin && (
-                        <HeaderSpacesMenu history={history} />
-                      ),
+                    (userInfo && userInfo.isAdmin && (
+                      <HeaderSpacesMenu history={history} />
+                    ),
+                    (
                       <EuiToolTip position="bottom" delay="long" content="Cart">
                         <EuiHeaderSectionItemButton
                           aria-expanded={isOpen}
@@ -609,43 +604,41 @@ export default ({ theme }) => {
                             </svg>
                           </EuiShowFor>
                         </EuiHeaderSectionItemButton>
-                      </EuiToolTip>,
-
-                      userInfo ? (
-                        <>
-                          {/* <HeaderUserMenu history={history} /> */}
-                          <HeaderAppMenu history={history} />
-                        </>
-                      ) : (
-                        <>
-                          <EuiLink
-                            className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
-                            onClick={(e) => {
-                              history.push("/login");
-                            }}
-                          >
-                            <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
-                              Log in
-                            </span>
-                          </EuiLink>
-                          <EuiHeaderSectionItemButton
-                            className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
-                            onClick={(e) => {
-                              history.push("/register");
-                            }}
-                          >
-                            <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs ">
-                              Sign Up
-                            </button>
-                          </EuiHeaderSectionItemButton>
-                        </>
-                      ),
-                    ],
-                    borders: "none",
-                  },
-                ]}
-              />
-            </span>
+                      </EuiToolTip>
+                    ))
+                  }
+                  {userInfo ? (
+                    <>
+                      {/* <HeaderUserMenu history={history} /> */}
+                      <HeaderAppMenu history={history} />
+                    </>
+                  ) : (
+                    <>
+                      <EuiLink
+                        className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
+                        onClick={(e) => {
+                          history.push("/login");
+                        }}
+                      >
+                        <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
+                          Log in
+                        </span>
+                      </EuiLink>
+                      <EuiHeaderSectionItemButton
+                        className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
+                        onClick={(e) => {
+                          history.push("/register");
+                        }}
+                      >
+                        <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs ">
+                          Sign Up
+                        </button>
+                      </EuiHeaderSectionItemButton>
+                    </>
+                  )}
+                </EuiHeaderSection>
+              </span>
+            </EuiHeader>
           </EuiShowFor>
           <EuiShowFor sizes={["xs", "s", "m"]}>
             <EuiHeader
