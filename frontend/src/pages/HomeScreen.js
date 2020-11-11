@@ -75,13 +75,17 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       <NProgress isAnimating={loading}>
-        {({ animationDuration, isFinished, progress }) => (
+        {({ animationDuration, isFinished, progress, minimum }) => (
           <Container
             animationDuration={animationDuration}
+            minimum={0.1}
             isFinished={isFinished}
           >
-            <Bar animationDuration={animationDuration} progress={progress} />
-            {/* <Spinner /> */}
+            <Bar
+              animationDuration={animationDuration}
+              minimum={0.1}
+              progress={progress}
+            />
           </Container>
         )}
       </NProgress>
@@ -156,7 +160,7 @@ const HomeScreen = ({ match }) => {
                         </div>
                       </div>
                     ) : products.length !== 0 ? (
-                      <div className="tw-max-w-screen-xl tw--mt-6 lg:tw-mt-0 tw-px-0 lg:tw-px-2 md:tw-px-0 tw-justify-between tw-text-xl tw-font-semibold tw-flex tw-pb-3 ">
+                      <div className="tw-max-w-screen-xl tw--mt-6 lg:tw-mt-0 tw-px-0 sm:tw-px-2  md:tw-px-0 tw-justify-between tw-text-xl tw-font-semibold tw-flex tw-pb-3 ">
                         Search results
                       </div>
                     ) : (

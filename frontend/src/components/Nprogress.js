@@ -12,7 +12,7 @@ const Progress = ({ isAnimating }) => {
 
   return (
     <div animationDuration={animationDuration} isFinished={isFinished}>
-      {/* <div animationDuration={animationDuration} progress={progress} /> */}
+      <div animationDuration={animationDuration} progress={progress} />
       <Loader />
     </div>
   );

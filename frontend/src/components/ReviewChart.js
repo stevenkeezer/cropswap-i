@@ -18,16 +18,13 @@ export default function ReviewChart({ product }) {
       return { ...counts, ...{ [value]: valueCount + 1 } };
     }, {});
 
-  console.log(valueCounts);
   return (
     <>
-      <div class="  tw-my-8 tw-py-4 tw-px-4 ">
-        <div class="tw-mb-1 tw-flex tw-tracking-wide tw-py-4">
+      <div class=" ">
+        <div class="tw-mb-1 tw-flex tw-tracking-wide tw-py-2 tw-px-2">
           <div className="tw-items-center tw-justify-center tw-flex">
             <svg
               ariaHidden="true"
-              // width="120"
-              // height="120"
               viewBox="0 0 120 120"
               className="tw-relative tw-w-24 tw-h-24 sm:tw-w-32 sm:tw-h-32 sm:tw-p-1"
             >
@@ -55,7 +52,9 @@ export default function ReviewChart({ product }) {
               ></circle>
             </svg>
             <div className="tw-absolute">
-              <span className=" tw-text-3xl">{product && product.rating}</span>
+              <span className="tw-text-gray-700 tw-text-3xl">
+                {product && product.rating}
+              </span>
               {/* <Rating value={product && product.rating} /> */}
             </div>
           </div>

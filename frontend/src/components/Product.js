@@ -38,7 +38,7 @@ export default function Product({ product, history, scrollPosition }) {
                     placeholder={product.image}
                   />
                 </EuiShowFor>
-               
+
                 <EuiShowFor sizes={["s", "m", "l", "xl"]}>
                   <LazyImage
                     src={product.image}
@@ -53,7 +53,7 @@ export default function Product({ product, history, scrollPosition }) {
             className="tw-object-fit"
             title={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-xs tw-tracking-wide">
+                <div className="tw-cursor-pointer sm:tw-mt-1 tw-text-gray-800 tw-text-xs tw-tracking-wide">
                   {product.category}
                 </div>
                 <div className="tw-cursor-pointer tw-text-gray-800  tw-font-semibold tw-tracking-wide">
@@ -63,11 +63,13 @@ export default function Product({ product, history, scrollPosition }) {
             }
             description={
               <EuiText>
-                <div className="tw-cursor-pointer tw-text-gray-800 tw-text-sm tw-font-medium tw-tracking-wide">
-                  ${product.price}
-                  <span className="tw-text-gray-700"> each</span>
-                </div>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md   tw-font-bold tw-tracking-wider">
+                  ${product.price}
+                  <div className=" tw-text-xs tw-text-gray-800  tw-text-opacity-75 tw-font-medium tw-tracking-normal">
+                    Each
+                  </div>
+                </div>
               </EuiText>
             }
           />

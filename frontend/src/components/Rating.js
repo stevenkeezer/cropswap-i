@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import { EuiShowFor } from "@elastic/eui";
 export default function Rating({ value, text, color }) {
   return (
-    <div className="rating tw-flex tw-items-center ">
-      <div className=" tw-mr-1">
+    <div className="tw-flex tw-items-center ">
+      <div className="tw-flex  tw-mr-1 ">
         <EuiShowFor sizes={["xs", "sm"]}>
           <svg
             class="tw-w-4 tw-h-4 tw-text-orange-500"
@@ -19,57 +19,51 @@ export default function Rating({ value, text, color }) {
         </EuiShowFor>
 
         <EuiShowFor sizes={["m", "l", "xl"]}>
-          <span>
-            <IonIcon
-              style={{ color }}
-              icon={
-                value >= 1 ? star : value >= 0.5 ? starHalfOutline : starOutline
-              }
-              slot="start"
-            />
-          </span>
-          <span>
-            <IonIcon
-              style={{ color }}
-              icon={
-                value >= 2 ? star : value >= 1.5 ? starHalfOutline : starOutline
-              }
-              slot="start"
-            />
-          </span>
-          <span>
-            <IonIcon
-              style={{ color }}
-              icon={
-                value >= 3 ? star : value >= 2.5 ? starHalfOutline : starOutline
-              }
-              slot="start"
-            />
-          </span>
-          <span>
-            <IonIcon
-              style={{ color }}
-              icon={
-                value >= 4 ? star : value >= 3.5 ? starHalfOutline : starOutline
-              }
-              slot="start"
-            />
-          </span>
-          <span>
-            <IonIcon
-              style={{ color }}
-              icon={
-                value >= 5 ? star : value >= 4.5 ? starHalfOutline : starOutline
-              }
-              slot="start"
-            />
-          </span>
+          <IonIcon
+            style={{ color }}
+            icon={
+              value >= 1 ? star : value >= 0.5 ? starHalfOutline : starOutline
+            }
+            slot="start"
+          />
+
+          <IonIcon
+            style={{ color }}
+            icon={
+              value >= 2 ? star : value >= 1.5 ? starHalfOutline : starOutline
+            }
+            slot="start"
+          />
+
+          <IonIcon
+            style={{ color }}
+            icon={
+              value >= 3 ? star : value >= 2.5 ? starHalfOutline : starOutline
+            }
+            slot="start"
+          />
+
+          <IonIcon
+            style={{ color }}
+            icon={
+              value >= 4 ? star : value >= 3.5 ? starHalfOutline : starOutline
+            }
+            slot="start"
+          />
+
+          <IonIcon
+            style={{ color }}
+            icon={
+              value >= 5 ? star : value >= 4.5 ? starHalfOutline : starOutline
+            }
+            slot="start"
+          />
         </EuiShowFor>
       </div>
-      <div className="tw-flex   tw-items-baseline tw-text-xs sm:tw-text-sm">
+      <div className="tw-flex tw-pl-1 tw-text-gray-700  tw-text-xs ">
         {value}
-        <span className=" tw-text-xs sm:tw-text-sm tw-text-gray-800 tw-pl-2">
-          ({text && text})
+        <span className=" tw-text-xs  tw-text-gray-700 tw-font-normal tw-tracking-wide tw-pl-1">
+          {text && <span>({text})</span>}
         </span>
       </div>
     </div>

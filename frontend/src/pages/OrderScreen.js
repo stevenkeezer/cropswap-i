@@ -131,7 +131,7 @@ const OrderScreen = ({ match, history }) => {
               </div>
               <div className="tw-border-none tw-rounded   sm:tw-bg-white sm:tw-shadow tw-mb-3 sm:tw-mx-4 tw-pb-6">
                 <div className="tw-border-none">
-                  <p className="tw-py-3 tw-pt-3 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
+                  <p className="tw-py-1  tw-pt-3 tw-font-semibold tw-px-4 tw-text-gray-800 tw-text-sm">
                     Personal Details
                   </p>
                   <EuiShowFor sizes={["xs", "s", "m"]}>
@@ -192,7 +192,7 @@ const OrderScreen = ({ match, history }) => {
               <div className="tw-p-0  lg:tw-pt-0 tw-pb-4  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
                 Payment Information
               </div>
-              <Card className="tw-border-none tw-rounded tw-shadow tw-pb-3 sm:tw-mx-4 tw-mb-3 ">
+              <div className="tw-border-none tw-rounded tw-shadow tw-pb-3 sm:tw-mx-4 tw-px-4 tw-mb-3 ">
                 <ListGroup.Item className="tw-border-none tw-pb-6">
                   <p>
                     {order.paymentMethod && (
@@ -216,7 +216,7 @@ const OrderScreen = ({ match, history }) => {
                     <Message variant="danger">Not Paid</Message>
                   )}
                 </ListGroup.Item>
-              </Card>
+              </div>
 
               <EuiShowFor sizes={["xs", "s", "m"]}>
                 <EuiHorizontalRule margin="s" />

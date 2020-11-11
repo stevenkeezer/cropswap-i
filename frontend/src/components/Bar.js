@@ -17,7 +17,7 @@ const Bar = ({ progress, animationDuration }) => (
   >
     <div
       style={{
-        boxShadow: "0 0 10px #319795, 0 0 5px #319795",
+        // boxShadow: "0 0 10px #319795, 0 0 5px #319795",
         display: "block",
         height: "100%",
         opacity: 1,

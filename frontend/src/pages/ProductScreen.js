@@ -1,6 +1,7 @@
 import {
   EuiButton,
   EuiHorizontalRule,
+  EuiFlexGroup,
   EuiPage,
   EuiShowFor,
 } from "@elastic/eui";
@@ -24,8 +25,11 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
 import Rating from "../components/Rating";
+import Product from "../components/Product";
 import ReviewChart from "../components/ReviewChart";
 import ReviewModal from "../components/ReviewModal";
+import { listProducts } from "../actions/productActions.js";
+import ReviewTab from "../components/ReviewTab";
 import {
   PRODUCT_CREATE_REVIEW_RESET,
   PRODUCT_DETAILS_RESET,
@@ -35,8 +39,10 @@ const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const [showAdminPopover, setShowAdminPopover] = useState(false);
-  const [showPopover, setShowPopover] = useState(false);
+
+  const keyword = match.params.keyword;
+
+  const pageNumber = match.params.pageNumber || 1;
 
   const dispatch = useDispatch();
 
@@ -45,6 +51,15 @@ const ProductScreen = ({ history, match }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const productList = useSelector((state) => state.productList);
+  const {
+    loading: loadingProducts,
+    error: errorProducts,
+    products,
+    page,
+    pages,
+  } = productList;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
@@ -60,10 +75,12 @@ const ProductScreen = ({ history, match }) => {
     }
     if (!product._id || product._id !== match.params.id) {
       dispatch({ type: PRODUCT_DETAILS_RESET });
+      dispatch(listProducts(keyword, pageNumber));
+
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
-  }, [dispatch, match, successProductReview]);
+  }, [dispatch, match, successProductReview, keyword, pageNumber]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
@@ -246,83 +263,64 @@ const ProductScreen = ({ history, match }) => {
                   </div>
                 </div>
               </div>
-
-              <Row>
-                {/* <div className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
-                  <ListGroup variant="flush">
-                    <ListGroup.Item>
-                      {successProductReview && (
-                        <Message variant="success">
-                          Review submitted successfully
-                        </Message>
-                      )}
-                      {loadingProductReview && <Loader />}
-                      {errorProductReview && (
-                        <Message variant="danger">{errorProductReview}</Message>
-                      )}
-                      {userInfo ? (
-                        <>
-                          <form onSubmit={submitHandler}>
-                            <RatingSelect
-                              controlId="rating"
-                              rating={rating}
-                              setRating={setRating}
-                            />
-
-                            <EuiTextArea
-                              fullWidth
-                              placeholder="Write a comment or review"
-                              aria-label="Use aria labels when no actual label is in use"
-                              value={comment}
-                              onChange={(e) => setComment(e.target.value)}
-                            />
-
-                            <button
-                              type="submit"
-                              className="tw-py-3 tw-mt-3 tw-px-3 tw-border tw-border-gray-300 tw-bg-gray-400 tw-rounded tw-text-900 "
-                              disabled={loadingProductReview}
-                            >
-                              Submit
-                            </button>
-                          </form>
-                        </>
-                      ) : (
-                        <Message>
-                          Please <Link to="/login">sign in</Link> to write a
-                          review{" "}
-                        </Message>
-                      )}
-                    </ListGroup.Item>
-                  </ListGroup>
-                </div> */}
-              </Row>
             </>
           )}
         </div>
       </EuiPage>
-      <EuiHorizontalRule margin="m" className="tw-border-gray-400" />
       {loading ? (
         <Loader />
       ) : error ? (
         <Message variant="danger">{error}</Message>
       ) : (
         <>
-          <div className=" tw-text-sm tw-text-gray-900 tw-max-w-screen-xl tw-px-4 tw-mx-auto tw-font-semibold">
-            Reviews
+          <div className="tw-px-4 tw-max-w-screen-xl tw-text-xl tw-pt-10 tw-mx-auto tw-font-semibold tw-text-gray-900 tw-pb-3">
+            Related products
           </div>
+          <div className="tw-py-3  md:tw-px-4 tw-px-2 tw-max-w-screen-xl tw-mx-auto ">
+            <EuiFlexGroup wrap columns={4} gutterSize="m">
+              {products &&
+                products.length !== 0 &&
+                products
+                  .slice(0, 5)
+                  .map((product) => (
+                    <Product product={product} history={history} />
+                  ))}
+            </EuiFlexGroup>
+          </div>
+          <EuiHorizontalRule margin="none" />
+          <ReviewTab />
 
-          <EuiHorizontalRule margin="m" />
+          <EuiHorizontalRule margin="none" />
 
-          <div className="tw-max-w-screen-md tw-mx-auto">
+          <div
+            style={{ maxWidth: 792 }}
+            className=" tw-mx-auto tw-mt-8 tw-px-4 lg:tw-px-0 tw-mb-12"
+          >
             <div className="tw-flex tw-justify-between">
               <h2 class="tw-text-gray-900 tw-font-semibold tw-pb-5 tw-mt-2">
                 Reviews
               </h2>
-              <ReviewModal />
+              <ReviewModal
+                submitHandler={submitHandler}
+                successProductReview={successProductReview}
+                loadingProductReview={loadingProductReview}
+                errorProductReview={errorProductReview}
+                userInfo={userInfo}
+                comment={comment}
+                setComment={setComment}
+                setRating={setRating}
+                rating={rating}
+              />
             </div>
-            <ReviewChart product={product} />
-            {product && product.reviews && product.reviews.length < 1 && (
-              <Message>No Reviews</Message>
+            {product && product.reviews && product.reviews.length < 1 ? (
+              <>
+                <Message>No Reviews</Message>
+              </>
+            ) : (
+              <>
+                <ReviewChart product={product} />
+                <div className="tw-h-12"></div>
+              </>
             )}
             {product && product.reviews && product.reviews.length > 0 && (
               <ElasticComment reviews={product.reviews}></ElasticComment>

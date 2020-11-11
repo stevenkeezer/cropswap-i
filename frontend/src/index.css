@@ -20,6 +20,10 @@ body {
   display: none !important;
 }
 
+.euiTab.euiTab-isSelected::after {
+  background-color: rgb(0, 168, 163) !important;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
@@ -27,7 +31,10 @@ code {
 
 .euiCommentEvent--regular .euiCommentEvent__header {
   background: none !important;
-  /* border-bottom: none !important; */
+}
+
+.euiCommentEvent--regular {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.14) !important;
 }
 
 ion-item {
@@ -43,6 +50,12 @@ figure {
 
 b {
   background: #ffffff !important;
+}
+
+.euiTab {
+  font-size: 0.875rem !important;
+  color: rgb(37, 41, 53) !important;
+  font-weight: 600 !important;
 }
 
 .sun {
@@ -324,7 +337,7 @@ select {
 .euiFieldNumber--inGroup {
   background: #eeeeee !important;
 }
-.euiRadio .euiRadio__input + .euiRadio__circle {
+/* .euiRadio .euiRadio__input + .euiRadio__circle {
   display: none !important;
 }
 .euiRadio .euiRadio__input ~ .euiRadio__label {
@@ -333,7 +346,7 @@ select {
 
 .euiRadioGroup__item + .euiRadioGroup__item {
   margin-top: 0px !important;
-}
+} */
 
 .ion-content {
   max-width: 75rem;
@@ -562,6 +575,9 @@ td:not(:last-child) {
   display: none;
 }
 
+.euiTabs:not(.euiTabs--condensed)::before {
+  background-color: #ffffff !important;
+}
 /**
  * carousel control style
  */
@@ -683,8 +699,12 @@ label {
   font-size: 1rem;
 }
 
-.euiHorizontalRule {
-  background-color: #eeeeee !important;
+.euiCommentEvent--regular {
+  border: none !important;
+}
+
+.euiCommentEvent__header {
+  border-bottom: 1px solid #e0e0e0 !important;
 }
 
 .card-input-element + .card {
