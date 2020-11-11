@@ -118,10 +118,10 @@ const ShippingScreen = ({ history }) => {
                         arrowDisplay="none"
                         paddingSize="none"
                         initialIsOpen={
-                          address === "" ||
-                          city === "" ||
-                          country === "" ||
-                          postalCode === ""
+                          address.length === 0 ||
+                          city.length === 0 ||
+                          country.length === 0 ||
+                          postalCode.length === 0
                         }
                         className="tw-py-2"
                         buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
