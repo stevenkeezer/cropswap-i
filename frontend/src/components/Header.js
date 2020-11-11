@@ -135,7 +135,7 @@ export default ({ theme }) => {
             <EuiIcon type={"discoverApp"} size="l" />
           </EuiKeyPadMenuItem> */}
           <EuiKeyPadMenuItem
-            label="Orders"
+            label="My cropswap"
             onClick={(e) => {
               history.push("/profile");
               closeMenu();
@@ -152,7 +152,6 @@ export default ({ theme }) => {
           >
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
-
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -192,15 +191,6 @@ export default ({ theme }) => {
               </EuiKeyPadMenuItem>
             </>
           )}
-          <EuiKeyPadMenuItem
-            label="Settings"
-            onClick={(e) => {
-              history.push("/settings");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="gear" size="l" />
-          </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Logout"
             onClick={(e) => {
