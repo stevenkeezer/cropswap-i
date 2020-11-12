@@ -176,13 +176,13 @@ const HomeScreen = ({ match }) => {
                         ))}
                     </EuiFlexGroup>
                   </div>
+
                   <Paginate
                     history={history}
                     pages={pages && pages}
                     page={page && page}
                     keyword={keyword ? keyword : ""}
                   />
-
                   {/* <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justify-center"> */}
                   {/* </div> */}
                 </>

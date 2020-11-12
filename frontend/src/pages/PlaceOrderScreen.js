@@ -5,6 +5,7 @@ import {
   EuiImage,
   EuiPage,
   EuiAccordion,
+  EuiPageBody,
   EuiFlexItem,
   EuiFormRow,
   EuiSpacer,
@@ -17,6 +18,7 @@ import {
 import { htmlIdGenerator } from "@elastic/eui/lib/services";
 import React, { useEffect, useState } from "react";
 import { Card, Col, ListGroup, Row } from "react-bootstrap";
+
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions";
@@ -80,21 +82,21 @@ const PlaceOrderScreen = ({ history }) => {
   };
   return (
     <>
-      <EuiPage className="tw-px-0  ">
-        <div className="tw-max-w-screen-xl sm:tw-mx-auto sm:tw-px-4">
+      <EuiPage className="tw-px-0 tw-bg-white lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
+        <div className=" tw-mx-auto tw-w-full lg:tw-px-4">
           <CheckoutSteps step1 step2 step3 step4 />
-          <div className="tw-flex tw-flex-col lg:tw-flex-row">
+          <EuiPageBody className="tw-flex tw-flex-col xl:tw-max-w-screen-xl tw-gap-2 tw-mx-auto lg:tw-flex-row">
             <div className=" tw-w-full xl:tw-w-2/3">
               <ListGroup variant="flush">
-                <div className="tw-p-0  lg:tw-pt-0 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
-                  Shipping Information
+                <div className=" tw-text-sm  tw-px-4 tw-pt-4 tw-w-full tw-tracking-wide tw-text-gray-700">
+                  Delivery address
                 </div>
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                 </EuiShowFor>
 
                 <div className="tw-border-none tw-py-2 tw-mb-3">
-                  <div className="tw-border-none tw-py-4">
+                  <div className="tw-border-none tw-py-1">
                     <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-p-4 tw-py-4  sm:tw-rounded">
                       <EuiAccordion
                         id="accordionExtraWithRightArrow"
@@ -211,7 +213,7 @@ const PlaceOrderScreen = ({ history }) => {
                   </div>
                 </div>
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                 </EuiShowFor>
 
                 <div className="tw-px-4">
@@ -221,7 +223,7 @@ const PlaceOrderScreen = ({ history }) => {
                 </div>
 
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                 </EuiShowFor>
                 <div className="tw-border-none tw-rounded tw-shadow sm:tw-mx-4 tw-px-4 tw-bg-white tw-py-4 tw-mb-3">
                   <div className="tw-border-none ">
@@ -239,13 +241,20 @@ const PlaceOrderScreen = ({ history }) => {
                         </span>
                       </div>
                     ) : (
-                      <div>No payment method selected</div>
+                      <Message
+                        variant="danger"
+                        className="tw-text-red-600 tw-font-bold"
+                      >
+                        <button onClick={(e) => history.push("/payment")}>
+                          Select a payment method
+                        </button>
+                      </Message>
                     )}
                   </div>
                 </div>
 
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                 </EuiShowFor>
 
                 <div className="tw-px-4">
@@ -255,7 +264,7 @@ const PlaceOrderScreen = ({ history }) => {
                 </div>
 
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="s" />
+                  <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                 </EuiShowFor>
 
                 <div className="tw-border-none tw-rounded s:tw-shadow sm:tw-mx-4 tw-mb-3">
@@ -273,49 +282,49 @@ const PlaceOrderScreen = ({ history }) => {
                 </div>
               </ListGroup>
             </div>
-            <div className=" tw-w-full lg:tw-w-1/3 ">
-              <Card className="tw-border-none tw-rounded tw-shadow-md sm:tw-shadoww tw-pt-4 tw-px-4">
+            <div className=" tw-w-full lg:tw-w-1/3 tw-mt-10 ">
+              <Card className="tw-border-none tw-rounded tw-bg-white tw-shadow-md sm:tw-shadow tw-pt-4 tw-px-4">
                 <ListGroup variant="flush">
                   <div className="tw-border-none tw-px-4 tw-text-md">
-                    <Row className="tw-items-baseline">
+                    <div className="tw-items-center tw-flex tw-justify-between">
                       <Col className="tw-p-0">Subtotal</Col>
                       <Col className="tw-text-right tw-p-0">
                         ${cart.itemsPrice}
                       </Col>
-                    </Row>
+                    </div>
                   </div>
                   <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
-                    <EuiHorizontalRule margin="s" />
+                    <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                   </EuiShowFor>
                   <div className="tw-border-none tw-px-4 tw-text-sm">
-                    <Row className="tw-items-baseline">
+                    <div className="tw-items-baseline tw-flex tw-justify-between">
                       <Col className="tw-p-0">Shipping</Col>
                       <Col className="tw-text-right tw-p-0">
                         ${cart.shippingPrice}
                       </Col>
-                    </Row>
+                    </div>
                   </div>
 
                   <div className="tw-border-none tw-px-4 tw-mt-3 tw-text-sm">
-                    <Row className="tw-items-baseline">
+                    <div className="tw-items-baseline tw-flex tw-justify-between">
                       <Col className="tw-p-0">Tax</Col>
                       <Col className="tw-text-right tw-p-0">
                         ${cart.taxPrice}
                       </Col>
-                    </Row>
+                    </div>
                   </div>
                   <EuiShowFor sizes={["xs", "s", "m", "l", "xl"]}>
-                    <EuiHorizontalRule margin="s" />
+                    <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                   </EuiShowFor>
                   <div className="tw-border-none tw-px-4  tw-text-sm tw-pb-4">
-                    <Row className="tw-items-baseline">
+                    <div className="tw-items-baseline tw-flex tw-justify-between">
                       <Col className="tw-p-0 tw-text-sm tw-font-semibold">
                         Total price
                       </Col>
                       <Col className="tw-text-right tw-font-bold tw-p-0">
                         ${cart.totalPrice}
                       </Col>
-                    </Row>
+                    </div>
                   </div>
 
                   <div className="tw-border-none tw-px-4">
@@ -323,14 +332,14 @@ const PlaceOrderScreen = ({ history }) => {
                   </div>
                 </ListGroup>
               </Card>
-              <div className="tw-px-4 sm:tw-px-0 tw-text-lg lg:tw-text-2xl">
+              <div className="tw-px-4 sm:tw-px-0 tw-text-lg  lg:tw-text-2xl">
                 <EuiButton
                   fullWidth
                   color="secondary"
                   className="tw-mt-3"
                   size="m"
                   fill
-                  disabled={cart.cartItems === 0}
+                  disabled={cart.cartItems === 0 || !cart.paymentMethod}
                   onClick={placeOrderHandler}
                 >
                   Place order
@@ -342,7 +351,7 @@ const PlaceOrderScreen = ({ history }) => {
                 seller.
               </p>
             </div>
-          </div>
+          </EuiPageBody>
         </div>
       </EuiPage>
     </>

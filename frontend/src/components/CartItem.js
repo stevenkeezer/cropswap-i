@@ -21,14 +21,14 @@ export default function CartItem({ item }) {
               <div className="tw-text-sm tw-text-gray-800 tw-font-semibold tw-tracking-wide">
                 {item.name}
               </div>
-              <div class="tw-text-gray-800 tw-text-sm tw-py-1">Each</div>
+              <div class="tw-text-gray-800 tw-text-sm tw-py-1">each</div>
               <div class="tw-text-gray-800 tw-text-sm tw-tracking-wide ">
                 ${item.price}
               </div>
             </Link>
           </div>
           <div
-            class={` tw-text-sm  tw-tracking-wide tw-font-semibold tw-mt-auto tw-py-1 tw-align-baseline `}
+            class={` tw-text-sm  tw-tracking-wide tw-font-semibold tw-mt-auto  tw-align-baseline `}
           >
             x{item.qty}
           </div>

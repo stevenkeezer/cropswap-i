@@ -135,13 +135,13 @@ export default ({ theme }) => {
             <EuiIcon type={"discoverApp"} size="l" />
           </EuiKeyPadMenuItem> */}
           <EuiKeyPadMenuItem
-            label="My cropswap"
+            label="Orders"
             onClick={(e) => {
               history.push("/profile");
               closeMenu();
             }}
           >
-            <EuiIcon type="dashboardApp" size="l" />
+            <EuiIcon type="sqlApp" size="l" />
           </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Cart"
@@ -161,7 +161,7 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="devToolsApp" size="l" />
+                <EuiIcon type="indexRollupApp" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
@@ -174,7 +174,7 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="usersRolesApp" size="l" />
+                <EuiIcon type="users" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
@@ -187,7 +187,7 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="usersRolesApp" size="l" />
+                <EuiIcon type="list" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
@@ -198,7 +198,7 @@ export default ({ theme }) => {
               closeMenu();
             }}
           >
-            <EuiIcon type="usersRolesApp" size="l" />
+            <EuiIcon type="lock" size="l" />
           </EuiKeyPadMenuItem>
         </EuiKeyPadMenu>
       </EuiPopover>

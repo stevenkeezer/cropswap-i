@@ -84,7 +84,7 @@ const ProductListScreen = ({ history, match }) => {
 
             <EuiButton
               color="secondary"
-              className="tw-mt-3 "
+              className="tw-mt-3 tw-font-bold tw-text-sm tw-px-4"
               size="m"
               fill
               onClick={createProductHandler}

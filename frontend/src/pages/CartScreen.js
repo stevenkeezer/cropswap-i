@@ -66,13 +66,13 @@ const CartScreen = ({ match, location, history }) => {
             </div>
 
             <EuiShowFor sizes={["xs", "s", "m"]}>
-              <EuiHorizontalRule margin="s" className="tw-bg-gray-300" />
+              <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
             </EuiShowFor>
             <EuiShowFor sizes={["xs", "s", "m"]}>
               <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">
                 <div
                   onClick={() => history.push("/")}
-                  className="sm:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
+                  className="lg:tw-py-2 tw-mb-1 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-600"
                 >
                   Continue shopping{" "}
                   <svg
@@ -91,7 +91,7 @@ const CartScreen = ({ match, location, history }) => {
               </div>
             </EuiShowFor>
             <EuiShowFor sizes={["xs", "s", "m"]}>
-              <EuiHorizontalRule margin="s" className="tw-bg-gray-300" />
+              <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
             </EuiShowFor>
 
             <div className=" ">
@@ -100,7 +100,7 @@ const CartScreen = ({ match, location, history }) => {
               </div>
             </div>
             <EuiShowFor sizes={["xs", "s", "m"]}>
-              <EuiHorizontalRule margin="s" className="tw-bg-gray-300" />
+              <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
             </EuiShowFor>
 
             <div className="tw-flex tw-gap-6  tw-justify-between  tw-mx-auto xl:tw-flex-row tw-flex-col">
@@ -123,7 +123,7 @@ const CartScreen = ({ match, location, history }) => {
                             title={
                               <div className="tw-flex  tw-items-center tw-justify-between">
                                 <div
-                                  className="tw-cursor-pointer tw-text-gray-900 "
+                                  className="tw-cursor-pointer tw-tracking-wide tw-text-gray-900 "
                                   onClick={() =>
                                     history.push(`/product/${item.product}`)
                                   }
@@ -158,9 +158,9 @@ const CartScreen = ({ match, location, history }) => {
                                 </div>
                                 <div className="tw-flex tw-w-full ">
                                   <div className="tw-flex tw-mt-auto tw-w-full tw-items-baseline tw-justify-between">
-                                    <div className="tw-ml-3 lg:tw-ml-2">
-                                      <div className="tw-text-sm tw-text-gray-700">
-                                        Each
+                                    <div className="tw-ml-3 lg:tw-ml-3">
+                                      <div className="tw-text-sm sm:tw-pb-1 tw-text-gray-700">
+                                        each
                                       </div>
                                       <div className=" tw-text-sm tw-tracking-wider tw-text-gray-900 tw-font-semibold tw-pb-2 tw-pt-1">
                                         ${item.price}
@@ -196,21 +196,26 @@ const CartScreen = ({ match, location, history }) => {
               </div>
               <div className="xl:tw-w-1/2">
                 <EuiShowFor sizes={["xs", "s", "m"]}>
-                  <EuiHorizontalRule margin="no ne" />
+                  <EuiHorizontalRule
+                    margin="no ne"
+                    className="tw-bg-gray-200"
+                  />
                 </EuiShowFor>
                 <CheckoutSummary cartItems={cartItems} />
                 <EuiShowFor sizes={["xl"]}>
-                  <EuiButton
-                    fullWidth
-                    color="secondary"
-                    className="tw-mt-3 tw-font-semibold "
-                    size="m"
-                    fill
-                    disabled={cartItems.length === 0}
-                    onClick={checkoutHandler}
-                  >
-                    Proceed to checkout
-                  </EuiButton>
+                  <div className="tw-p-4 tw-bg-white tw-shadow tw-rounded tw-mt-2">
+                    <EuiButton
+                      fullWidth
+                      color="secondary"
+                      className="tw-font-semibold  "
+                      size="m"
+                      fill
+                      disabled={cartItems.length === 0}
+                      onClick={checkoutHandler}
+                    >
+                      Proceed to checkout
+                    </EuiButton>
+                  </div>
                 </EuiShowFor>
                 <EuiShowFor sizes={["xs", "s", "m", "l"]}>
                   <CheckoutBottomBar>

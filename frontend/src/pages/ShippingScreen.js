@@ -67,71 +67,53 @@ const ShippingScreen = ({ history }) => {
           </Container>
         )}
       </NProgress>
-      <EuiPage className="tw-px-0 tw-bg-white tw-min-h-screen sm:tw-bg-gray-100 sm:tw-bg-opacity-50 ">
+      <EuiPage className="tw-px-0 tw-min-h-screen  tw-bg-white lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
         <EuiPageBody component="div">
-          <CheckoutSteps step1 step2 />
+          <div className="tw-px-4">
+            <CheckoutSteps step1 step2 />
+          </div>
 
-          <EuiPageContent className="tw-bg-transparent tw-px-0 tw-shadow-none">
-            <EuiPageContentBody>
-              <div className=" tw-max-w-screen-xl sm:tw-mx-auto tw-flex tw-flex-col xl:tw-flex-row">
+          <EuiPageContent className="tw-bg-transparent tw-p-0 tw-pt-4  tw-shadow-none">
+            <EuiPageBody className="tw-py-0">
+              <div className=" tw-w-full lg:tw-max-w-screen-xl xl:tw-px-4 lg:tw-mx-auto tw-gap-2 tw-flex tw-flex-col xl:tw-flex-row">
                 <div className=" tw-w-full">
-                  <div className=" tw-text-xl  sm:tw-pt-4 tw-pt-0  tw-pb-3">
-                    <div className="tw-p-0  tw-pb-1  tw-tracking-normal tw-pt-2  tw-px-4 tw-text-gray-900 tw-text-xl tw-font-semibold ">
-                      Confirm delivery details
-                    </div>
+                  <div className=" tw-text-xl tw-pt-0  tw-pb-3">
                     <EuiShowFor sizes={["xs", "s", "m"]}>
-                      <EuiHorizontalRule margin="s" />
-                    </EuiShowFor>
-                    <div className="tw-flex tw-px-4 tw-gap-8">
-                      <div className="tw-flex tw-items-center tw-text-sm tw-font-medium tw-text-gray-800 sm:tw-pt-3">
-                        <svg
-                          class="tw-w-5 tw-h-5 tw-mr-2 tw-text-gray-700"
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fill-rule="evenodd"
-                            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 0010 16a5.986 5.986 0 004.546-2.084A5 5 0 0010 11z"
-                            clip-rule="evenodd"
-                          ></path>
-                        </svg>
-                        {userInfo.name}
-                      </div>
-                    </div>
-                    <EuiShowFor sizes={["xs", "s", "m"]}>
-                      <EuiHorizontalRule margin="s" />
+                      <EuiHorizontalRule
+                        margin="s"
+                        className="tw-bg-gray-200"
+                      />
                     </EuiShowFor>
 
                     <div className="tw-px-4">
-                      <div className=" tw-text-sm tw-mt-0 sm:tw-mt-8 lg:tw-py-3 tw-w-full tw-tracking-wide tw-text-gray-700">
+                      <div className=" tw-text-sm tw-mt-0 tw-pb-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                         Your address
                       </div>
                     </div>
 
                     <EuiShowFor sizes={["xs", "s", "m"]}>
-                      <EuiHorizontalRule margin="s" />
+                      <EuiHorizontalRule
+                        margin="s"
+                        className="tw-bg-gray-200"
+                      />
                     </EuiShowFor>
-                    <div className="sm:tw-bg-white tw-py-2 tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-pt-2 tw-pb-4  sm:tw-rounded">
+                    <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-pt-2 tw-pb-4  sm:tw-rounded">
                       <EuiAccordion
                         id="accordionExtraWithRightArrow"
                         arrowDisplay="none"
                         paddingSize="none"
                         initialIsOpen={
-                          address.length === 0 ||
-                          city.length === 0 ||
-                          country.length === 0 ||
-                          postalCode.length === 0
+                          !address || !city || !country || !postalCode
                         }
-                        className="tw-py-2"
+                        className="tw-pb-2 tw-pt-1"
                         buttonClassName="focus:tw-outline-none tw-no-underline tw-truncate"
                         buttonContentClassName="tw-flex tw-w-full  tw-justify-between"
                         buttonContent={
                           <>
-                            <div className="tw-flex  tw-items-center tw-w-11/12 tw-pb-1 tw-justify-between">
+                            <div className="tw-flex  tw-items-center tw-w-11/12  tw-justify-between">
                               <div className="tw-flex tw-mb-2 tw-w-full tw-items-center">
                                 <svg
-                                  class="tw-w-5 tw-h-5 tw-text-gray-800 tw-mr-3 "
+                                  class="tw-w-5 tw-h-5 tw-text-gray-700 tw-mr-3 "
                                   fill="currentColor"
                                   viewBox="0 0 20 20"
                                   xmlns="http://www.w3.org/2000/svg"
@@ -144,7 +126,7 @@ const ShippingScreen = ({ history }) => {
                                 </svg>
 
                                 <div className="tw-truncate  tw-text-sm tw-text-gray-800 tw-w-11/12">
-                                  {address === "" ? (
+                                  {!address ? (
                                     <button className="tw-text-red-500">
                                       Enter address
                                     </button>
@@ -152,7 +134,7 @@ const ShippingScreen = ({ history }) => {
                                     address
                                   )}
                                   ,{" "}
-                                  {city === "" ? (
+                                  {!city ? (
                                     <button className="tw-text-red-500">
                                       Enter city
                                     </button>
@@ -160,7 +142,7 @@ const ShippingScreen = ({ history }) => {
                                     city
                                   )}
                                   ,{" "}
-                                  {country === "" ? (
+                                  {!country ? (
                                     <button className="tw-text-red-500">
                                       Enter country
                                     </button>
@@ -168,7 +150,7 @@ const ShippingScreen = ({ history }) => {
                                     country
                                   )}
                                   ,{" "}
-                                  {postalCode === "" ? (
+                                  {!postalCode ? (
                                     <button className="tw-text-red-500">
                                       Enter zip
                                     </button>
@@ -184,7 +166,7 @@ const ShippingScreen = ({ history }) => {
                           </>
                         }
                       >
-                        <EuiFlexItem className="tw-mt-4">
+                        <EuiFlexItem className="tw-pt-2">
                           <EuiFormRow
                             fullWidth
                             helpText="No shipping available right now this app is still in development!"
@@ -192,8 +174,8 @@ const ShippingScreen = ({ history }) => {
                           >
                             <EuiFieldText
                               placeholder="Address"
-                              className="tw-mb-3"
                               fullWidth
+                              className="tw-rounded"
                               value={address}
                               onChange={(e) => setAddress(e.target.value)}
                             />
@@ -206,6 +188,7 @@ const ShippingScreen = ({ history }) => {
                             <EuiFormRow fullWidth label="City">
                               <EuiFieldText
                                 fullWidth
+                                className="tw-rounded"
                                 value={city}
                                 onChange={(e) => setCity(e.target.value)}
                               />
@@ -216,6 +199,7 @@ const ShippingScreen = ({ history }) => {
                             <EuiFormRow fullWidth label="Country">
                               <EuiFieldText
                                 fullWidth
+                                className="tw-rounded"
                                 value={country}
                                 onChange={(e) => setCountry(e.target.value)}
                               />
@@ -225,10 +209,12 @@ const ShippingScreen = ({ history }) => {
                             <EuiFormRow fullWidth label="Postal Code">
                               <EuiFieldText
                                 fullWidth
+                                className="tw-rounded"
                                 value={postalCode}
                                 onChange={(e) => setPostalCode(e.target.value)}
                               />
                             </EuiFormRow>
+                            <div className="tw-h-4"></div>
                           </EuiFlexItem>
                         </EuiFlexGroup>
                       </EuiAccordion>
@@ -252,31 +238,33 @@ const ShippingScreen = ({ history }) => {
                     </div>
                   </div>
                 </div>
-                <div className="lg:tw-w-3/5  tw-px-0 sm:tw-px-4 tw-mt-5 lg:tw-mt-0 tw-w-full">
+                <div className="xl:tw-w-1/2 tw-px-0 sm:tw-mt-6  tw-w-full">
                   <CheckoutSummary cartItems={cartItems} />
 
-                  <div className=" tw-pt-3">
-                    <EuiButton
-                      fullWidth
-                      color="secondary"
-                      className=" tw-font-semibold "
-                      size="m"
-                      fill
-                      disabled={
-                        cartItems.length === 0 ||
-                        address === "" ||
-                        city === "" ||
-                        country === "" ||
-                        postalCode === ""
-                      }
-                      onClick={submitHandler}
-                    >
-                      Continue to payment
-                    </EuiButton>
+                  <div className=" tw-px-4 sm:tw-px-0">
+                    <div className="sm:tw-p-4 sm:tw-bg-white sm:tw-shadow sm:tw-rounded tw-mt-2">
+                      <EuiButton
+                        fullWidth
+                        color="secondary"
+                        className=" tw-font-semibold "
+                        size="m"
+                        fill
+                        disabled={
+                          cartItems.length === 0 ||
+                          !address ||
+                          !city ||
+                          !country ||
+                          !postalCode
+                        }
+                        onClick={submitHandler}
+                      >
+                        Continue to payment
+                      </EuiButton>
+                    </div>
                   </div>
                   <br></br>
                   <EuiShowFor sizes={["xs", "s", "m"]}>
-                    <EuiHorizontalRule margin="s" />
+                    <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                   </EuiShowFor>
 
                   <div className="tw-px-4 sm:tw-px-0">
@@ -286,7 +274,7 @@ const ShippingScreen = ({ history }) => {
                   </div>
 
                   <EuiShowFor sizes={["xs", "s", "m"]}>
-                    <EuiHorizontalRule margin="s" />
+                    <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                   </EuiShowFor>
                   <div className=" tw-text-2xl tw-font-medium tw-px-4 sm:tw-px-0  tw-mt-3 tw-pb-2  tw-text-gray-800 tw-mx-auto ">
                     {cartItems &&
@@ -294,7 +282,7 @@ const ShippingScreen = ({ history }) => {
                   </div>
                 </div>
               </div>
-            </EuiPageContentBody>
+            </EuiPageBody>
           </EuiPageContent>
         </EuiPageBody>
       </EuiPage>
