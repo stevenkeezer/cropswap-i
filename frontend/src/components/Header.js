@@ -505,7 +505,12 @@ export default ({ theme }) => {
   const search = (
     <Route
       render={({ history }) => (
-        <SearchBox history={history} products={products} fullWidth />
+        <SearchBox
+          history={history}
+          products={products}
+          loading={loading}
+          fullWidth
+        />
       )}
     />
   );
@@ -568,38 +573,36 @@ export default ({ theme }) => {
                       <HeaderSpacesMenu history={history} />
                     ),
                     (
-                      <EuiToolTip position="bottom" delay="long" content="Cart">
-                        <EuiHeaderSectionItemButton
-                          aria-expanded={isOpen}
-                          notification={cartItems.length}
-                          aria-haspopup="true"
-                          aria-label="Apps menu with 1 new app"
-                          onClick={onMenuButtonClick}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            history.push("/cart");
-                          }}
-                        >
-                          <EuiShowFor sizes={["xs", "s", "m"]}>
-                            <EuiIcon
-                              type="menu"
-                              className="tw-invisible"
-                              size="l"
-                              style={{ padding: "3px" }}
-                            />
-                          </EuiShowFor>
-                          <EuiShowFor sizes={["l", "xl"]}>
-                            <svg
-                              className="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                            </svg>
-                          </EuiShowFor>
-                        </EuiHeaderSectionItemButton>
-                      </EuiToolTip>
+                      <EuiHeaderSectionItemButton
+                        aria-expanded={isOpen}
+                        notification={cartItems.length}
+                        aria-haspopup="true"
+                        aria-label="Apps menu with 1 new app"
+                        onClick={onMenuButtonClick}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          history.push("/cart");
+                        }}
+                      >
+                        <EuiShowFor sizes={["xs", "s", "m"]}>
+                          <EuiIcon
+                            type="menu"
+                            className="tw-invisible"
+                            size="l"
+                            style={{ padding: "3px" }}
+                          />
+                        </EuiShowFor>
+                        <EuiShowFor sizes={["l", "xl"]}>
+                          <svg
+                            className="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                          </svg>
+                        </EuiShowFor>
+                      </EuiHeaderSectionItemButton>
                     ))
                   }
                   {userInfo ? (

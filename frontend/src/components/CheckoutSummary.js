@@ -33,13 +33,13 @@ export default function CheckoutSummary({ cartItems }) {
 
           <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
 
-          <div className="tw-border-none tw-tracking-wide">
+          <div className="tw-border-none  tw-tracking-wide">
             <div className="tw-flex tw-pb-3 tw-justify-between">
-              <div className="tw-text-sm">Est. tax & fees</div>
+              <div className="tw-text-sm">Est. taxes & fees</div>
               <div className="tw-text-right tw-text-sm">$0.00</div>
             </div>
           </div>
-          <div className="tw-border-none ">
+          <div className="tw-border-none tw-pb-1">
             <div className="tw-flex tw-justify-between">
               <div className="tw-text-sm">Delivery fee</div>
               <div className="tw-text-right tw-text-sm tw-tracking-wide">
@@ -47,10 +47,10 @@ export default function CheckoutSummary({ cartItems }) {
               </div>
             </div>
           </div>
-          <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
+          <EuiHorizontalRule margin="xs" className="tw-bg-gray-200" />
 
           <div lines="none" className="tw-border-none ">
-            <div className="tw-flex  tw-justify-between">
+            <div className="tw-flex tw-py-2 tw-justify-between">
               <div className="tw-font-bold tw-text-sm tw-text-gray-900">
                 Order total
               </div>
@@ -64,7 +64,7 @@ export default function CheckoutSummary({ cartItems }) {
               </div>
             </div>
           </div>
-          <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
+          <EuiHorizontalRule margin="xs" className="tw-bg-gray-200" />
 
           <p class="tw-justify-end tw-flex  tw-text-xs tw-pt-2  tw-pb-4 tw-px-1 tw-text-center tw-tracking-wide tw-text-gray-800 tw-leading-normal ">
             Taxes (if shown) are estimates. The seller, and not Cropswap, is

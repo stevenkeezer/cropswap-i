@@ -1,17 +1,13 @@
 import {
-  EuiBadge,
   EuiFlexGroup,
   EuiFlexItem,
   EuiLink,
-  EuiAvatar,
+  EuiOutsideClickDetector,
   EuiSelectableTemplateSitewide,
-  EuiSelectableTemplateSitewideOption,
   EuiText,
 } from "@elastic/eui";
-import LazyImage from "./LazyImage";
-import Loader from "../components/Loader";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import LazyImage from "./LazyImage";
 
 export default ({ history, products, loading }) => {
   const [keyword, setKeyword] = useState("");
@@ -84,7 +80,7 @@ export default ({ history, products, loading }) => {
     };
   });
 
-  const onWindowKeyDown = (e: any) => {
+  const onWindowKeyDown = (e) => {
     if (e.metaKey && e.key.toLowerCase() === "k") {
       window.addEventListener("keyup", onWindowKeyUp);
     }
@@ -96,7 +92,7 @@ export default ({ history, products, loading }) => {
     window.removeEventListener("keyup", onWindowKeyUp);
   };
 
-  const onKeyUpCapture = (e: any) => {
+  const onKeyUpCapture = (e) => {
     if (e.key === "Enter") {
       submitHandler(e);
     }
@@ -107,13 +103,13 @@ export default ({ history, products, loading }) => {
 
   const searchHandler = (e) => {
     // make it lowercase
-
-    console.log(e);
-    // e.preventDefault();
+    e.preventDefault();
     if (e.trim()) {
       history.push(`/search/${e}`);
+      setIsOpen(!isOpen);
     } else {
       history.push("/");
+      setIsOpen(!isOpen);
     }
   };
 
@@ -128,49 +124,51 @@ export default ({ history, products, loading }) => {
   };
 
   return (
-    // <form onSubmit={submitHandler}>
     <div className="xl:tw-pt-1 tw-ml-auto tw-antialiased">
-      <EuiSelectableTemplateSitewide
-        // onClick={() => setIsOpen(!isOpen)}
-        isLoading={isLoading}
-        onChange={onChange}
-        onSubmit={submitHandler}
-        options={searchValueExists ? searchData : recentsWithIcon}
-        searchProps={{
-          placeholder: "Products, brands, farms and more",
-          onKeyUpCapture: onKeyUpCapture,
-          className:
-            "mainSearch tw-bg-gray-200 tw-rounded-md tw-font-sans tw-border-none tw-shadow-none tw-tracking-wide tw-placeholder-gray-500 tw-text-sm",
-          inputRef: setSearchRef,
+      <EuiOutsideClickDetector
+        onOutsideClick={() => {
+          setIsOpen(false);
         }}
-        listProps={{
-          className: "customListClass",
-        }}
-        popoverProps={{
-          className: "customPopoverClass",
-          // isOpen: isOpen,
-        }}
-        popoverButtonBreakpoints={["xs", "s"]}
-        popoverFooter={
-          <EuiText color="subdued" size="xs">
-            <EuiFlexGroup
-              alignItems="center"
-              gutterSize="s"
-              responsive={false}
-              wrap
-            >
-              <EuiFlexItem grow={false}>
-                {searchValueExists && <EuiLink>View more results</EuiLink>}
-              </EuiFlexItem>
-              <EuiFlexItem />
-              <EuiFlexItem grow={false}>Quickly search using</EuiFlexItem>
-              <EuiFlexItem grow={false}>
-                <EuiBadge>Command + K</EuiBadge>
-              </EuiFlexItem>
-            </EuiFlexGroup>
-          </EuiText>
-        }
-      />
+      >
+        <EuiSelectableTemplateSitewide
+          isLoading={isLoading}
+          onChange={onChange}
+          singleSelection="always"
+          onSubmit={submitHandler}
+          options={searchValueExists ? searchData : recentsWithIcon}
+          searchProps={{
+            placeholder: "Products, brands, farms and more",
+            onKeyUpCapture: onKeyUpCapture,
+            onClick: () => setIsOpen(true),
+            className:
+              "mainSearch tw-bg-gray-200 tw-rounded-md tw-font-sans tw-border-none tw-shadow-none tw-tracking-wide tw-placeholder-gray-500 tw-text-sm",
+            inputRef: setSearchRef,
+          }}
+          listProps={{
+            className: "customListClass",
+          }}
+          popoverProps={{
+            className: "customPopoverClass",
+            isOpen: isOpen,
+          }}
+          popoverButtonBreakpoints={["xs", "s"]}
+          popoverFooter={
+            <EuiText color="subdued" size="xs">
+              <EuiFlexGroup
+                alignItems="center"
+                gutterSize="s"
+                responsive={false}
+                wrap
+              >
+                <EuiFlexItem grow={false}>
+                  {searchValueExists && <EuiLink>View more results</EuiLink>}
+                </EuiFlexItem>
+                <EuiFlexItem />
+              </EuiFlexGroup>
+            </EuiText>
+          }
+        />
+      </EuiOutsideClickDetector>
       <div style={{ height: 1.85 }}></div>
       <div
         style={{ color: "rgb(74, 74, 74) !important" }}
@@ -231,11 +229,5 @@ export default ({ history, products, loading }) => {
         </div>
       </div>
     </div>
-
-    // </form>
   );
 };
-
-/**
- * The options object
- */

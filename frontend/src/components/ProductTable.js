@@ -10,7 +10,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
           <div class="euiTableHeaderMobile">
             <div class="euiFlexGroup euiFlexGroup--gutterLarge euiFlexGroup--alignItemsBaseline euiFlexGroup--justifyContentSpaceBetween euiFlexGroup--directionRow">
               <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                <div class="euiCheckbox">
+                {/* <div class="euiCheckbox">
                   <input
                     class="euiCheckbox__input"
                     type="checkbox"
@@ -24,7 +24,7 @@ const ProductTable = ({ products, deleteHandler, history }) => {
                   >
                     Select all rows
                   </label>
-                </div>
+                </div> */}
               </div>
               <div class="euiFlexItem euiFlexItem--flexGrowZero">
                 <div class="euiTableSortMobile">
@@ -67,20 +67,6 @@ const ProductTable = ({ products, deleteHandler, history }) => {
             <caption class="euiScreenReaderOnly euiTableCaption"></caption>
             <thead>
               <tr>
-                <th class="euiTableHeaderCellCheckbox" scope="col">
-                  <div class="euiTableCellContent">
-                    <div class="euiCheckbox euiCheckbox--inList euiCheckbox--noLabel">
-                      <input
-                        class="euiCheckbox__input"
-                        type="checkbox"
-                        id="_selection_column-checkbox_i4ba71c14-13ea-11eb-a273-5b026e5e2741"
-                        data-test-subj="checkboxSelectAll"
-                        aria-label="Select all rows"
-                      />
-                      <div class="euiCheckbox__square"></div>
-                    </div>
-                  </div>
-                </th>
                 <th
                   class="euiTableHeaderCell euiTableHeaderCell--hideForMobile"
                   scope="col"
@@ -191,22 +177,6 @@ const ProductTable = ({ products, deleteHandler, history }) => {
               {products &&
                 products.map((product) => (
                   <tr class="euiTableRow euiTableRow-isSelectable euiTableRow-hasActions">
-                    <td class="euiTableRowCellCheckbox">
-                      <div class="euiTableCellContent">
-                        <div class="euiCheckbox euiCheckbox--inList euiCheckbox--noLabel">
-                          <input
-                            class="euiCheckbox__input"
-                            type="checkbox"
-                            id="_selection_column_1-checkbox"
-                            disabled=""
-                            title="User is currently offline"
-                            aria-label="User is currently offline"
-                            data-test-subj="checkboxSelectRow-1"
-                          />
-                          <div class="euiCheckbox__square"></div>
-                        </div>
-                      </div>
-                    </td>
                     <td class="euiTableRowCell euiTableRowCell--enlargeForMobile euiTableRowCell--isMobileFullWidth">
                       <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
                         <span class="euiTableCellContent__text">

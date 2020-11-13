@@ -51,7 +51,9 @@ const ProductCarousel = () => {
                       <Rating
                         value={products.length > 1 && products[1].rating}
                       ></Rating>
-                      <div>{products.length > 1 && products[1].category}</div>
+                      <div className="tw-mt-2">
+                        {products.length > 1 && products[1].category}
+                      </div>
                     </div>
                   </div>
                   <div>{/* <i class="mdi mdi-thumb-up"></i> 18 */}</div>

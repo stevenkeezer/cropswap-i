@@ -58,7 +58,7 @@ const CartScreen = ({ match, location, history }) => {
       ) : (
         <EuiPage
           paddingSize="none"
-          className="tw-px-0 sm:tw-px-0 tw-pb-32 sm:tw-pb-0 tw-bg-white tw-min-h-screen lg:tw-bg-gray-200 lg:tw-bg-opacity-25"
+          className="tw-px-0 sm:tw-px-0 tw-pb-32 sm:tw-pb-0  tw-min-h-screen tw-bg-white lg:tw-bg-gray-200 lg:tw-bg-opacity-25"
         >
           <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto  tw-w-full">
             <div className="tw-p-0  lg:tw-pt-3 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl tw-font-semibold ">
@@ -103,7 +103,7 @@ const CartScreen = ({ match, location, history }) => {
               <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
             </EuiShowFor>
 
-            <div className="tw-flex tw-gap-6  tw-justify-between  tw-mx-auto xl:tw-flex-row tw-flex-col">
+            <div className="tw-flex tw-gap-6 lg:tw-gap-8  tw-justify-between  tw-mx-auto xl:tw-flex-row tw-flex-col">
               <div className="tw-w-full">
                 {cartItems && cartItems.length === 0 ? (
                   <Message>

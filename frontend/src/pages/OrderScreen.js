@@ -131,25 +131,32 @@ const OrderScreen = ({ match, history }) => {
             <ListGroup variant="flush">
               <div className="tw-border-none tw-rounded  tw-bg-white sm:tw-shadow tw-mb-3 sm:tw-mx-4 tw-mx-0">
                 {order.isPaid && (
-                  <div className="tw-flex tw-justify-between tw-p-4">
-                    <div className="tw-text-base ">
-                      Order
-                      <span> #{order._id}</span>
-                      <div className="tw-text-xs tw-mt-2">
-                        Placed {order.createdAt}
+                  <>
+                    <div className="tw-flex tw-justify-between tw-p-4">
+                      <div className="tw-text-base ">
+                        Order
+                        <span> #{order._id}</span>
+                        <div className="tw-text-xs tw-mt-2">
+                          Placed {order.createdAt}
+                        </div>
+                      </div>
+                      <div>
+                        <EuiButton
+                          className="tw-bg-teal-500 tw-text-sm tw-px-2 tw-font-bold tw-border-teal-500"
+                          fill
+                          color="secondary"
+                          onClick={() => history.push("/")}
+                        >
+                          Return to menu
+                        </EuiButton>
                       </div>
                     </div>
-                    <div>
-                      <EuiButton
-                        className="tw-bg-teal-500 tw-text-sm tw-px-2 tw-font-bold tw-border-teal-500"
-                        fill
-                        color="secondary"
-                        onClick={() => history.push("/")}
-                      >
-                        Return to menu
-                      </EuiButton>
-                    </div>
-                  </div>
+
+                    <EuiHorizontalRule
+                      margin="none"
+                      className="tw-bg-gray-200"
+                    />
+                  </>
                 )}
 
                 <div className="tw-p-4">
@@ -158,7 +165,7 @@ const OrderScreen = ({ match, history }) => {
                       Delivered on {order.deliveredAt}
                     </Message>
                   ) : (
-                    <Message variant="warning">Not Delivered</Message>
+                    <Message variant="warning">Not delivered</Message>
                   )}
                 </div>
               </div>

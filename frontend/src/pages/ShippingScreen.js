@@ -75,7 +75,7 @@ const ShippingScreen = ({ history }) => {
 
           <EuiPageContent className="tw-bg-transparent tw-p-0 tw-pt-4  tw-shadow-none">
             <EuiPageBody className="tw-py-0">
-              <div className=" tw-w-full lg:tw-max-w-screen-xl xl:tw-px-4 lg:tw-mx-auto tw-gap-2 tw-flex tw-flex-col xl:tw-flex-row">
+              <div className=" tw-w-full lg:tw-max-w-screen-xl sm:tw-px-4 lg:tw-mx-auto tw-gap-8 tw-flex tw-flex-col xl:tw-flex-row">
                 <div className=" tw-w-full">
                   <div className=" tw-text-xl tw-pt-0  tw-pb-3">
                     <EuiShowFor sizes={["xs", "s", "m"]}>
@@ -85,7 +85,7 @@ const ShippingScreen = ({ history }) => {
                       />
                     </EuiShowFor>
 
-                    <div className="tw-px-4">
+                    <div className="tw-px-4 sm:tw-px-0">
                       <div className=" tw-text-sm tw-mt-0 tw-pb-3 tw-w-full tw-tracking-wide tw-text-gray-700">
                         Your address
                       </div>
@@ -97,7 +97,7 @@ const ShippingScreen = ({ history }) => {
                         className="tw-bg-gray-200"
                       />
                     </EuiShowFor>
-                    <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-mx-4 sm:tw-pt-2 tw-pb-4  sm:tw-rounded">
+                    <div className="sm:tw-bg-white tw-shadow-md sm:tw-shadow tw-px-4 sm:tw-pt-2 tw-pb-4  sm:tw-rounded">
                       <EuiAccordion
                         id="accordionExtraWithRightArrow"
                         arrowDisplay="none"
@@ -276,7 +276,7 @@ const ShippingScreen = ({ history }) => {
                   <EuiShowFor sizes={["xs", "s", "m"]}>
                     <EuiHorizontalRule margin="s" className="tw-bg-gray-200" />
                   </EuiShowFor>
-                  <div className=" tw-text-2xl tw-font-medium tw-px-4 sm:tw-px-0  tw-mt-3 tw-pb-2  tw-text-gray-800 tw-mx-auto ">
+                  <div className=" tw-text-2xl tw-font-medium tw-px-4 sm:tw-px-0  tw-pb-2  tw-text-gray-800 tw-mx-auto ">
                     {cartItems &&
                       cartItems.map((item) => <CartItem item={item} />)}
                   </div>

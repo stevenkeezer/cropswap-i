@@ -453,9 +453,23 @@ tbody tr:last-child td:last-child {
   padding: 8px !important;
 }
 
+.euiRadioGroup__item + .euiRadioGroup__item {
+  margin-top: 0px !important;
+}
+
+/* .euiRadio__input + .euiRadio__circle {
+  display: none !important;
+} */
+
 @media (min-width: 992px) {
   .euiHeader {
     height: 6.05rem !important;
+  }
+}
+
+@media only screen and (max-width: 574px) {
+  .euiTable.euiTable--responsive .euiTableRow.euiTableRow-isSelectable {
+    padding-left: 8px !important;
   }
 }
 

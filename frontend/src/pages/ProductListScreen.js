@@ -74,7 +74,7 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <div
         style={{ backgroundColor: "#fafbfd" }}
-        className="tw-antialiased tw-h-auto tw-min-h-screen"
+        className="tw-antialiased tw-h-auto tw-min-h-screen "
       >
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
           <div className="tw-flex tw-pt-4 tw-justify-between tw-items-center">
