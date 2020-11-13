@@ -612,7 +612,7 @@ export default ({ theme }) => {
                     </>
                   ) : (
                     <>
-                      <EuiLink
+                      <EuiHeaderSectionItemButton
                         className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
                         onClick={(e) => {
                           history.push("/login");
@@ -621,7 +621,7 @@ export default ({ theme }) => {
                         <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
                           Log in
                         </span>
-                      </EuiLink>
+                      </EuiHeaderSectionItemButton>
                       <EuiHeaderSectionItemButton
                         className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
                         onClick={(e) => {
