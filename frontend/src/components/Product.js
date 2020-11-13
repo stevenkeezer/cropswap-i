@@ -64,11 +64,19 @@ export default function Product({ product, history, scrollPosition }) {
             description={
               <EuiText>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md   tw-font-bold tw-tracking-wider">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-wider">
                   ${product.price}
-                  <div className=" tw-text-xs tw-text-gray-800  tw-text-opacity-75 tw-font-medium tw-tracking-normal">
-                    Each
-                  </div>
+                  <span className=" tw-text-xs tw-text-gray-800 tw-px-1 tw-text-opacity-75 tw-font-medium tw-tracking-normal">
+                    each
+                  </span>
+                </div>
+                <div
+                  style={{ color: "#B12704" }}
+                  className="tw-text-sm tw--mt-1  tw-font-medium tw-tracking-normal"
+                >
+                  {product.countInStock <= 20 &&
+                    product.countInStock > 0 &&
+                    `Only ${product.countInStock} left in stock - order soon.`}
                 </div>
               </EuiText>
             }

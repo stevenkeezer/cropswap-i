@@ -103,13 +103,12 @@ export default ({ history, products, loading }) => {
 
   const searchHandler = (e) => {
     // make it lowercase
-    e.preventDefault();
     if (e.trim()) {
       history.push(`/search/${e}`);
-      setIsOpen(!isOpen);
+      setIsOpen(false);
     } else {
       history.push("/");
-      setIsOpen(!isOpen);
+      setIsOpen(false);
     }
   };
 
