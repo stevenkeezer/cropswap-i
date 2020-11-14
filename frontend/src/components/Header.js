@@ -118,15 +118,7 @@ export default ({
           >
             <EuiIcon type="sqlApp" size="l" />
           </EuiKeyPadMenuItem>
-          {/* <EuiKeyPadMenuItem
-            label="Cart"
-            onClick={(e) => {
-              history.push("/cart");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="submodule" size="l" />
-          </EuiKeyPadMenuItem> */}
+
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
