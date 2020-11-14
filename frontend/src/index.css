@@ -384,6 +384,11 @@ select {
   }
 }
 
+.euiPanel,
+.euiPopover__panel-isOpen {
+  z-index: 6001 !important;
+}
+
 @media (max-width: 400px) {
   .hero-img {
     margin-right: 15vw;
