@@ -46,12 +46,15 @@ const ShippingScreen = ({ history }) => {
   const [country, setCountry] = useState(
     shippingAddress && shippingAddress.country
   );
+  const [state, setState] = useState(shippingAddress && shippingAddress.state);
 
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(saveShippingAddress({ address, city, postalCode, country }));
+    dispatch(
+      saveShippingAddress({ address, city, postalCode, country, state })
+    );
     history.push("/payment");
   };
   return (
@@ -142,6 +145,14 @@ const ShippingScreen = ({ history }) => {
                                     city
                                   )}
                                   ,{" "}
+                                  {!state ? (
+                                    <button className="tw-text-red-500">
+                                      Enter state
+                                    </button>
+                                  ) : (
+                                    state
+                                  )}
+                                  ,{" "}
                                   {!country ? (
                                     <button className="tw-text-red-500">
                                       Enter country
@@ -212,6 +223,17 @@ const ShippingScreen = ({ history }) => {
                                 className="tw-rounded"
                                 value={postalCode}
                                 onChange={(e) => setPostalCode(e.target.value)}
+                              />
+                            </EuiFormRow>
+                            <div className="tw-h-4"></div>
+                          </EuiFlexItem>
+                          <EuiFlexItem grow={false}>
+                            <EuiFormRow fullWidth label="State">
+                              <EuiFieldText
+                                fullWidth
+                                className="tw-rounded"
+                                value={state}
+                                onChange={(e) => setState(e.target.value)}
                               />
                             </EuiFormRow>
                             <div className="tw-h-4"></div>

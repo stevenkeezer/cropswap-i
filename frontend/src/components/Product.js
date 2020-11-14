@@ -21,7 +21,7 @@ export default function Product({ product, history, scrollPosition }) {
   return (
     <>
       <EuiFlexItem
-        className="flexCard  "
+        className="flexCard"
         onClick={(e) => clickHandler(product._id)}
       >
         {product.image ? (
@@ -32,19 +32,23 @@ export default function Product({ product, history, scrollPosition }) {
             image={
               <>
                 <EuiShowFor sizes={["xs"]}>
-                  <LazyImage
-                    src={product.image}
-                    height={"20vh"}
-                    placeholder={product.image}
-                  />
+                  <div className="tw-cursor-pointer">
+                    <LazyImage
+                      src={product.image}
+                      height={"20vh"}
+                      placeholder={product.image}
+                    />
+                  </div>
                 </EuiShowFor>
 
                 <EuiShowFor sizes={["s", "m", "l", "xl"]}>
-                  <LazyImage
-                    src={product.image}
-                    placeholder={product.image}
-                    height={200}
-                  />
+                  <div className="tw-cursor-pointer">
+                    <LazyImage
+                      src={product.image}
+                      placeholder={product.image}
+                      height={200}
+                    />
+                  </div>
                 </EuiShowFor>
               </>
             }

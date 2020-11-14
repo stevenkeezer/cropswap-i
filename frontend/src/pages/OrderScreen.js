@@ -183,7 +183,8 @@ const OrderScreen = ({ match, history }) => {
                 <div className="tw-flex tw-gap-8 tw-px-4 tw-mb-4">
                   <div className="tw-text-gray-900  tw-text-sm tw-py-1 tw-font-normal">
                     {order.shippingAddress.address} {order.shippingAddress.city}
-                    , {order.shippingAddress.postalCode}{" "}
+                    , {order.shippingAddress.state},{" "}
+                    {order.shippingAddress.postalCode}{" "}
                     {order.shippingAddress.country}
                   </div>
                 </div>
