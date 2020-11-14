@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { EuiPortal, EuiProgress } from "@elastic/eui";
+import {
+  EuiPortal,
+  EuiProgress,
+  EuiOverlayMask,
+  EuiTitle,
+  EuiFlyout,
+  EuiFlyoutHeader,
+} from "@elastic/eui";
 import { IonApp, IonContent, IonLoading } from "@ionic/react";
 import { Container } from "react-bootstrap";
 
@@ -31,11 +38,30 @@ import store from "./store";
 import { set } from "mongoose";
 
 const PublicRoutes = ({ history }) => {
+  const [isCartPopoverOpen, setIsCartPopoverOpen] = useState(false);
+  const [maskOpen, changeMask] = useState(true);
+
+  const onButtonClick = () =>
+    setIsCartPopoverOpen((isCartPopoverOpen) => !isCartPopoverOpen);
+  const closeCartPopover = () => setIsCartPopoverOpen(false);
+
   return (
     <>
       <Router>
-        <Header></Header>
-        {/* <IonRouterOutlet> */}
+        <Header
+          isCartPopoverOpen={isCartPopoverOpen}
+          setIsCartPopoverOpen={setIsCartPopoverOpen}
+          closeCartPopover={closeCartPopover}
+        />
+        {isCartPopoverOpen && (
+          <>
+            <EuiOverlayMask
+              onClick={() => {
+                setIsCartPopoverOpen(false);
+              }}
+            />
+          </>
+        )}
         <IonContent className="custom-ion-content">
           <div
             style={{ height: "calc(100% - 65px)vh" }}
@@ -48,7 +74,17 @@ const PublicRoutes = ({ history }) => {
             <Route path="/placeorder" component={PlaceOrderScreen} />
             <Route path="/login" component={LoginScreen} />
             <Route path="/settings" component={SettingsScreen} />
-            <Route path="/product/:id" component={ProductScreen} />
+            <Route
+              path="/product/:id"
+              render={(props) => (
+                <ProductScreen
+                  {...props}
+                  isCartPopoverOpen={isCartPopoverOpen}
+                  setIsCartPopoverOpen={setIsCartPopoverOpen}
+                  closeCartPopover={closeCartPopover}
+                />
+              )}
+            />
             <Route path="/register" component={RegisterScreen} exact={true} />
             <Route path="/profile" component={ProfileScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
@@ -79,8 +115,6 @@ const PublicRoutes = ({ history }) => {
             <Route path="/" component={HomeScreen} exact />
           </div>
         </IonContent>
-
-        {/* </IonRouterOutlet> */}
       </Router>
     </>
   );

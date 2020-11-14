@@ -29,13 +29,14 @@ import Product from "../components/Product";
 import ReviewChart from "../components/ReviewChart";
 import ReviewModal from "../components/ReviewModal";
 import { listProducts } from "../actions/productActions.js";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import ReviewTab from "../components/ReviewTab";
 import {
   PRODUCT_CREATE_REVIEW_RESET,
   PRODUCT_DETAILS_RESET,
 } from "../constants/productConstants";
 
-const ProductScreen = ({ history, match }) => {
+const ProductScreen = ({ history, match, setIsCartPopoverOpen }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
@@ -83,7 +84,9 @@ const ProductScreen = ({ history, match }) => {
   }, [dispatch, match, successProductReview, keyword, pageNumber]);
 
   const addToCartHandler = () => {
-    history.push(`/cart/${match.params.id}?qty=${qty}`);
+    // history.push(`/cart/${match.params.id}?qty=${qty}`);
+    dispatch(addToCart(match.params.id, qty));
+    setIsCartPopoverOpen(true);
   };
 
   const submitHandler = (e) => {
@@ -105,7 +108,6 @@ const ProductScreen = ({ history, match }) => {
             isFinished={isFinished}
           >
             <Bar animationDuration={animationDuration} progress={progress} />
-            {/* <Spinner /> */}
           </Container>
         )}
       </NProgress>
