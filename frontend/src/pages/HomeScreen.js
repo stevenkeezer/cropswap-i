@@ -101,7 +101,7 @@ const HomeScreen = ({ match }) => {
       </div>
 
       <div className="tw-max-w-screen-xl tw-mx-auto">
-        {!keyword && <Carousel />}
+        {!keyword && <Carousel history={history} />}
       </div>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">

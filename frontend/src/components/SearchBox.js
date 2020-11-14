@@ -15,6 +15,7 @@ export default ({ history, products, loading }) => {
   const [isLoading, setLoading] = useState(false);
   const [searchRef, setSearchRef] = useState("");
   const [isOpen, setIsOpen] = useState(null);
+  const [selected, setSelected] = useState("");
 
   const searchValueExists = searchValue && searchValue.length;
 
@@ -105,6 +106,7 @@ export default ({ history, products, loading }) => {
     // make it lowercase
     if (e.trim()) {
       history.push(`/search/${e}`);
+      setSelected(e);
       setIsOpen(false);
     } else {
       history.push("/");
@@ -175,44 +177,58 @@ export default ({ history, products, loading }) => {
       >
         <span
           onClick={(e) => searchHandler("seasonal")}
-          className="hover:tw-text-teal-700 tw-pr-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-pr-2 tw-cursor-pointer ${
+            selected === "seasonal" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Seasonal
         </span>
 
         <span
           onClick={(e) => searchHandler("tomatoe")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "tomatoe" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Tomatoes
         </span>
         <span
           onClick={(e) => searchHandler("vegetable")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "vegetable" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Vegetables
         </span>
         <span
           onClick={(e) => searchHandler("fruit")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "fruit" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Fruits
         </span>
         <span
           onClick={(e) => searchHandler("soil")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "soil" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Soil
         </span>
         <span
           onClick={(e) => searchHandler("squash")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "squash" && "tw-font-bold tw-text-teal-500"
+          }`}
         >
           Squash
         </span>
         <span
           onClick={(e) => searchHandler("compost")}
-          className="hover:tw-text-teal-700 tw-px-2 tw-cursor-pointer"
+          className={`hover:tw-text-teal-500 tw-px-2 tw-cursor-pointer ${
+            selected === "compost" && "tw-font-bold tw-text-teal-500"
+          } `}
         >
           Compost
         </span>
