@@ -33,10 +33,10 @@ const OrderListScreen = ({ history }) => {
         <>
           <div
             style={{ backgroundColor: "#fafbfd" }}
-            className="tw-antialiased tw-h-screen tw-pb-12 tw-h-auto"
+            className="tw-antialiased  tw-pb-12 tw-h-auto tw-min-h-screen"
           >
             <div className="tw-max-w-screen-xl tw-mx-auto tw-px-4 tw-pt-4 ">
-              <div className="tw-text-gray-800 tw-text-2xl tw-py-4 tw-font-medium tw-pt-4 ">
+              <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl sm:tw-text-2xl tw-font-semibold ">
                 Orders
               </div>
               <div className="xl:tw-shadow xl:tw-rounded-lg tw-mt-2 ">

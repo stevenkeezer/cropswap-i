@@ -32,6 +32,9 @@ import Meta from "../components/Meta";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
 import SearchEmpty from "../components/SearchEmpty";
+import { NProgress } from "@tanem/react-nprogress";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 
 const HomeScreen = ({ match }) => {
   function doRefresh(event) {
@@ -71,25 +74,38 @@ const HomeScreen = ({ match }) => {
 
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress, minimum }) => (
+          <Container
+            animationDuration={animationDuration}
+            minimum={0.1}
+            isFinished={isFinished}
+          >
+            <Bar
+              animationDuration={animationDuration}
+              minimum={0.1}
+              progress={progress}
+            />
+          </Container>
+        )}
+      </NProgress>
       <div className="">
-        <EuiShowFor sizes={["xs", "s", "m"]}>
-          <CategorySlider history={history} />
-        </EuiShowFor>
-        {!keyword && <Alert />}
+        {!keyword && (
+          <>
+            <EuiShowFor sizes={["xs", "s", "m"]}>
+              <CategorySlider history={history} />
+            </EuiShowFor>
+            <Alert />
+          </>
+        )}
       </div>
-      <IonRefresher slot="fixed" onIonRefresh={doRefresh}>
-        <IonRefresherContent
-          pullingIcon={chevronDown}
-          pullingText="Pull to refresh"
-          refreshingSpinner="circles"
-          refreshingText="Loading..."
-        ></IonRefresherContent>
-      </IonRefresher>
+
+      <div className="tw-max-w-screen-xl tw-mx-auto">
+        {!keyword && <Carousel />}
+      </div>
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
-          {!keyword && <Carousel />}
-
-          <EuiPageContent className="tw-bg-white tw-p-2  tw-shadow-none">
+          <div className="tw-bg-white tw-p-2  tw-shadow-none">
             <Meta />
             <div>
               {!keyword ? (
@@ -131,9 +147,9 @@ const HomeScreen = ({ match }) => {
                 />
               ) : (
                 <>
-                  <div className=" tw-mb-4  sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
+                  <div className=" tw-mb-4 tw-px-2 sm:tw-pt-2 tw-items-center  tw-text-gray-900 tw-antialiased tw-leading-tight ">
                     {!keyword ? (
-                      <div className="tw-p-0  tw-mx-auto xl:tw-px-4 md:tw-pt-2 tw-px-2  tw-items-center  tw-justify-between tw-text-2xl tw-font-medium tw-flex  sm:tw-pb-4 ">
+                      <div className="tw-p-0  tw-mx-auto md:tw-pt-2   tw-items-center  tw-justify-between  xl:tw-px-0 tw-text-2xl tw-font-medium tw-flex tw-pb-2 sm:tw-pb-4 ">
                         <div className="tw-text-xl  tw-font-semibold tw-tracking-wide tw-text-gray-900">
                           Featured brands
                         </div>
@@ -144,15 +160,15 @@ const HomeScreen = ({ match }) => {
                         </div>
                       </div>
                     ) : products.length !== 0 ? (
-                      <div className="tw-p-0  tw-mx-auto tw-px-4  tw-mt-10 tw-justify-between tw-text-xl tw-font-medium tw-flex tw-pb-3 ">
+                      <div className="tw-max-w-screen-xl tw--mt-6 lg:tw-mt-0 tw-px-0 sm:tw-px-2  md:tw-px-0 tw-justify-between tw-text-xl tw-font-semibold tw-flex tw-pb-3 ">
                         Search results
                       </div>
                     ) : (
                       <SearchEmpty history={history} />
                     )}
                   </div>
-                  <div className="md:tw-px-2 lg:tw-px-3 xl:tw-px-4">
-                    <EuiFlexGroup wrap columns={4} gutterSize="s">
+                  <div className="tw-max-w-screen-xl md:tw-px-2 tw-px-0">
+                    <EuiFlexGroup wrap columns={4} gutterSize="m">
                       {products &&
                         products.length !== 0 &&
                         products.map((product) => (
@@ -161,24 +177,20 @@ const HomeScreen = ({ match }) => {
                     </EuiFlexGroup>
                   </div>
 
-                  <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justiy-center">
-                    <Paginate
-                      history={history}
-                      pages={pages && pages}
-                      page={page && page}
-                      keyword={keyword ? keyword : ""}
-                    />
-                  </div>
-
-                  {/* <HomeHero /> */}
-                  {/* <Regions /> */}
+                  <Paginate
+                    history={history}
+                    pages={pages && pages}
+                    page={page && page}
+                    keyword={keyword ? keyword : ""}
+                  />
+                  {/* <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justify-center"> */}
+                  {/* </div> */}
                 </>
               )}
             </div>
-          </EuiPageContent>
+          </div>
         </EuiPageBody>
       </EuiPage>
-
       {!keyword && !loading && <Footer history={history} />}
     </>
   );

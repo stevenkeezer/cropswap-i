@@ -4,6 +4,7 @@ import {
   EuiFlexGroup,
   EuiFlexItem,
   EuiHeader,
+  EuiHeaderSection,
   EuiHeaderSectionItem,
   EuiHeaderSectionItemButton,
   EuiIcon,
@@ -97,7 +98,7 @@ export default ({ theme }) => {
           onClick={onMenuButtonClick}
         >
           <EuiShowFor sizes={["xs", "s", "m"]}>
-            <EuiIcon type="menu" size="l" style={{ padding: "3px" }} />
+            <EuiIcon type="menu" size="lg" />
           </EuiShowFor>
           <EuiShowFor sizes={[, "l", "xl"]}>
             <svg
@@ -140,7 +141,7 @@ export default ({ theme }) => {
               closeMenu();
             }}
           >
-            <EuiIcon type="dashboardApp" size="l" />
+            <EuiIcon type="sqlApp" size="l" />
           </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Cart"
@@ -151,7 +152,6 @@ export default ({ theme }) => {
           >
             <EuiIcon type="submodule" size="l" />
           </EuiKeyPadMenuItem>
-
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
@@ -161,7 +161,7 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="devToolsApp" size="l" />
+                <EuiIcon type="indexRollupApp" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
@@ -174,7 +174,7 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="usersRolesApp" size="l" />
+                <EuiIcon type="users" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
@@ -187,19 +187,10 @@ export default ({ theme }) => {
                   closeMenu();
                 }}
               >
-                <EuiIcon type="usersRolesApp" size="l" />
+                <EuiIcon type="list" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
-          <EuiKeyPadMenuItem
-            label="Settings"
-            onClick={(e) => {
-              history.push("/settings");
-              closeMenu();
-            }}
-          >
-            <EuiIcon type="gear" size="l" />
-          </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Logout"
             onClick={(e) => {
@@ -207,7 +198,7 @@ export default ({ theme }) => {
               closeMenu();
             }}
           >
-            <EuiIcon type="usersRolesApp" size="l" />
+            <EuiIcon type="lock" size="l" />
           </EuiKeyPadMenuItem>
         </EuiKeyPadMenu>
       </EuiPopover>
@@ -514,7 +505,12 @@ export default ({ theme }) => {
   const search = (
     <Route
       render={({ history }) => (
-        <SearchBox history={history} products={products} fullWidth />
+        <SearchBox
+          history={history}
+          products={products}
+          loading={loading}
+          fullWidth
+        />
       )}
     />
   );
@@ -546,107 +542,101 @@ export default ({ theme }) => {
       {fullScreen && (
         <>
           <EuiShowFor sizes={["l", "xl"]}>
-            <span>
-              <EuiHeader
-                restrictWidth="75rem"
-                onProgress
-                position="static"
-                className=" tw-mx-auto sm:tw-px-10 lg:tw-px-0  tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
-                borderBottom="none"
-                style={{
-                  boxShadow: "none!important",
-                }}
-                // theme="light"
-                sections={[
+            <EuiHeader
+              onProgress
+              position="static"
+              className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+              borderBottom="none"
+              style={{
+                boxShadow: "none!important",
+              }}
+            >
+              <span
+                style={{ maxWidth: "75rem" }}
+                className="tw-flex tw-justify-between  lg:tw-px-4 xl:tw-px-8 tw-items-center tw-w-full tw-mx-auto"
+              >
+                <EuiHeaderSection>
+                  <EuiShowFor sizes={["m", "l", "xl"]}>
+                    <div className="tw-mt-4">
+                      <Logo history={history} />
+                    </div>
+                  </EuiShowFor>
+
+                  <div className="tw-ml-6 tw-w-full" grow>
+                    {products && search}
+                  </div>
+                </EuiHeaderSection>
+
+                <EuiHeaderSection>
                   {
-                    items: [
-                      <EuiShowFor sizes={["m", "l", "xl"]}>
-                        <Logo history={history} />
-                      </EuiShowFor>,
-
-                      // <EuiShowFor fullWidth sizes={["m", "l", "xl"]}>
-                      <div className="tw-ml-6 tw-w-full" grow>
-                        {products && search}
-                      </div>,
-                      // </EuiShowFor>,
-                    ],
-                    borders: "none",
-                  },
-
-                  {
-                    items: [
-                      // <EuiShowFor sizes={["xs", "s"]}>{search}</EuiShowFor>,
-                      userInfo && userInfo.isAdmin && (
-                        <HeaderSpacesMenu history={history} />
-                      ),
-                      <EuiToolTip position="bottom" delay="long" content="Cart">
-                        <EuiHeaderSectionItemButton
-                          // aria-controls={keypadId}
-                          aria-expanded={isOpen}
-                          notification={cartItems.length}
-                          aria-haspopup="true"
-                          aria-label="Apps menu with 1 new app"
-                          onClick={onMenuButtonClick}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            history.push("/cart");
-                          }}
-                        >
-                          <EuiShowFor sizes={["xs", "s", "m"]}>
-                            <EuiIcon
-                              type="menu"
-                              size="l"
-                              style={{ padding: "3px" }}
-                            />
-                          </EuiShowFor>
-                          <EuiShowFor sizes={[, "l", "xl"]}>
-                            <svg
-                              className="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
-                              fill="currentColor"
-                              viewBox="0 0 20 20"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
-                            </svg>
-                          </EuiShowFor>
-                        </EuiHeaderSectionItemButton>
-                      </EuiToolTip>,
-
-                      userInfo ? (
-                        <>
-                          {/* <HeaderUserMenu history={history} /> */}
-                          <HeaderAppMenu history={history} />
-                        </>
-                      ) : (
-                        <>
-                          <EuiLink
-                            className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
-                            onClick={(e) => {
-                              history.push("/login");
-                            }}
+                    (userInfo && userInfo.isAdmin && (
+                      <HeaderSpacesMenu history={history} />
+                    ),
+                    (
+                      <EuiHeaderSectionItemButton
+                        aria-expanded={isOpen}
+                        notification={cartItems.length}
+                        aria-haspopup="true"
+                        aria-label="Apps menu with 1 new app"
+                        onClick={onMenuButtonClick}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          history.push("/cart");
+                        }}
+                      >
+                        <EuiShowFor sizes={["xs", "s", "m"]}>
+                          <EuiIcon
+                            type="menu"
+                            className="tw-invisible"
+                            size="l"
+                            style={{ padding: "3px" }}
+                          />
+                        </EuiShowFor>
+                        <EuiShowFor sizes={["l", "xl"]}>
+                          <svg
+                            className="tw-w-5 tw-h-5 tw-mx-auto tw-text-gray-800"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
                           >
-                            <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
-                              Log in
-                            </span>
-                          </EuiLink>
-                          <EuiLink
-                            className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
-                            onClick={(e) => {
-                              history.push("/register");
-                            }}
-                          >
-                            <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
-                              Sign Up
-                            </span>
-                          </EuiLink>
-                        </>
-                      ),
-                    ],
-                    borders: "none",
-                  },
-                ]}
-              />
-            </span>
+                            <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+                          </svg>
+                        </EuiShowFor>
+                      </EuiHeaderSectionItemButton>
+                    ))
+                  }
+                  {userInfo ? (
+                    <>
+                      {/* <HeaderUserMenu history={history} /> */}
+                      <HeaderAppMenu history={history} />
+                    </>
+                  ) : (
+                    <>
+                      <EuiHeaderSectionItemButton
+                        className="tw-no-underline tw-px-4 focus:tw-bg-white focus:tw-outline-none"
+                        onClick={(e) => {
+                          history.push("/login");
+                        }}
+                      >
+                        <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
+                          Log in
+                        </span>
+                      </EuiHeaderSectionItemButton>
+                      <EuiHeaderSectionItemButton
+                        className="tw-no-underline focus:tw-bg-white focus:tw-outline-none"
+                        onClick={(e) => {
+                          history.push("/register");
+                        }}
+                      >
+                        <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs ">
+                          Sign Up
+                        </button>
+                      </EuiHeaderSectionItemButton>
+                    </>
+                  )}
+                </EuiHeaderSection>
+              </span>
+            </EuiHeader>
           </EuiShowFor>
           <EuiShowFor sizes={["xs", "s", "m"]}>
             <EuiHeader
@@ -677,7 +667,7 @@ export default ({ theme }) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
+                      <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py- tw-text-xs  ">
                         Sign Up
                       </span>
                     </EuiLink>
@@ -687,12 +677,12 @@ export default ({ theme }) => {
 
               {/* <EuiHeaderLink>Code</EuiHeaderLink> */}
               <EuiHeaderSectionItem
-                onClick={() => history.push("/")}
+                onClick={(e) => history.push("/")}
                 border="center"
               >
                 <EuiIcon
                   type="/images/shopping.svg"
-                  className="tw-bg-gray-300  tw-rounded-full tw-h-8 tw-p-1 tw-w-8"
+                  className="tw-bg-gray-300  tw-rounded-full  tw-h-8 tw-p-1 tw-w-8"
                 ></EuiIcon>
               </EuiHeaderSectionItem>
 
@@ -711,14 +701,14 @@ export default ({ theme }) => {
                     </EuiHeaderSectionItemButton>
 
                     <EuiHeaderSectionItemButton
-                      className="tw-no-underline  focus:tw-bg-white focus:tw-outline-none"
+                      className="tw-no-underline  focus:tw-bg-white  focus:tw-outline-none"
                       onClick={(e) => {
                         history.push("/register");
                       }}
                     >
-                      <span className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs tw-py-1 ">
+                      <button className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
                         Sign Up
-                      </span>
+                      </button>
                     </EuiHeaderSectionItemButton>
                   </>
                 )}
@@ -733,7 +723,7 @@ export default ({ theme }) => {
                     }}
                   >
                     <svg
-                      className="tw-w-4 tw-h-4 tw-mx-auto   tw-text-gray-800"
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"
@@ -754,7 +744,7 @@ export default ({ theme }) => {
                     }}
                   >
                     <svg
-                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-mr-3 tw-text-gray-800"
+                      className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                       xmlns="http://www.w3.org/2000/svg"

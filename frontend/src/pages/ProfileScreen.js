@@ -16,12 +16,11 @@ import Message from "../components/Message";
 import OrdersEmpty from "../components/OrdersEmpty";
 import Toolbar from "../components/Toolbar";
 import UserOrderTable from "../components/UserOrderTable";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
 
   const dispatch = useDispatch();
@@ -42,7 +41,8 @@ const ProfileScreen = ({ location, history }) => {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user || !user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
         dispatch(listMyOrders());
       } else {
@@ -50,21 +50,13 @@ const ProfileScreen = ({ location, history }) => {
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user, orders]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
-    } else {
-      dispatch(updateUserProfile({ id: user._id, name, email, password }));
-    }
-  };
+  }, [dispatch, history, userInfo, user, success]);
 
   return (
     <>
-      <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen">
-        <EuiPage restrictWidth="75rem" className="">
+      <EuiPage className=" sm:tw-px-0  tw-min-h-screen lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
+        <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
+          {/* <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen"> */}
           <EuiPageSideBar>
             <Toolbar history={history} profile />
           </EuiPageSideBar>
@@ -115,8 +107,9 @@ const ProfileScreen = ({ location, history }) => {
               )}
             </EuiPageContentBody>
           </EuiPageBody>
-        </EuiPage>
-      </div>
+        </div>
+      </EuiPage>
+      {/* </div> */}
     </>
   );
 };

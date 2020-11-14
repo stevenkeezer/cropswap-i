@@ -11,22 +11,20 @@ export default function Paginate({
   return (
     pages > 1 && (
       <EuiFlexGroup justifyContent="spaceAround">
-        <EuiFlexItem grow={false}>
-          <EuiPagination
-            aria-label="Centered pagination example"
-            pageCount={pages}
-            activePage={page - 1}
-            onPageClick={(activePage) =>
-              history.push(
-                !isAdmin
-                  ? keyword
-                    ? `/search/${keyword}/page/${activePage + 1}`
-                    : `/page/${activePage + 1}`
-                  : `/admin/productlist/${activePage + 1}`
-              )
-            }
-          />
-        </EuiFlexItem>
+        <EuiPagination
+          aria-label="Centered pagination example"
+          pageCount={pages}
+          activePage={page - 1}
+          onPageClick={(activePage) =>
+            history.push(
+              !isAdmin
+                ? keyword
+                  ? `/search/${keyword}/page/${activePage + 1}`
+                  : `/page/${activePage + 1}`
+                : `/admin/productlist/${activePage + 1}`
+            )
+          }
+        />
       </EuiFlexGroup>
     )
   );

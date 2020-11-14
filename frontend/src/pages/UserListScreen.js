@@ -37,7 +37,9 @@ const UserListScreen = ({ history }) => {
       >
         <div className=" ">
           <div className="tw-text-2xl tw-px-4 tw-max-w-screen-xl  tw-pt-8 tw-mx-auto tw-h-screen">
-            <div className="tw-font-medium tw-text-gray-800">Users</div>
+            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl sm:tw-text-2xl tw-font-semibold ">
+              Users
+            </div>
             <div className="tw-mt-6 sm:tw-shadow   tw-text-gray-800 ">
               <UsersTable users={users} deleteHandler={deleteHandler} />
             </div>

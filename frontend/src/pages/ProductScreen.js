@@ -1,30 +1,48 @@
-import { EuiButton, EuiTextArea } from "@elastic/eui";
+import {
+  EuiButton,
+  EuiHorizontalRule,
+  EuiFlexGroup,
+  EuiPage,
+  EuiShowFor,
+} from "@elastic/eui";
 import { IonIcon, IonText } from "@ionic/react";
+import { NProgress } from "@tanem/react-nprogress";
 import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
-import { Button, Col, Form, ListGroup, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import NumericInput from "react-numeric-input";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-// import Meta from "../components/Meta";
 import {
   createProductReview,
   listProductDetails,
 } from "../actions/productActions";
+import Bar from "../components/Bar";
+import Container from "../components/Container";
 import ElasticComment from "../components/ElasticComment";
 import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Meta from "../components/Meta";
 import Rating from "../components/Rating";
-import RatingSelect from "../components/RatingSelect";
-import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
+import Product from "../components/Product";
+import ReviewChart from "../components/ReviewChart";
+import ReviewModal from "../components/ReviewModal";
+import { listProducts } from "../actions/productActions.js";
+import ReviewTab from "../components/ReviewTab";
+import {
+  PRODUCT_CREATE_REVIEW_RESET,
+  PRODUCT_DETAILS_RESET,
+} from "../constants/productConstants";
 
 const ProductScreen = ({ history, match }) => {
   const [qty, setQty] = useState(1);
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState("");
-  const [showAdminPopover, setShowAdminPopover] = useState(false);
-  const [showPopover, setShowPopover] = useState(false);
+
+  const keyword = match.params.keyword;
+
+  const pageNumber = match.params.pageNumber || 1;
 
   const dispatch = useDispatch();
 
@@ -33,6 +51,15 @@ const ProductScreen = ({ history, match }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const productList = useSelector((state) => state.productList);
+  const {
+    loading: loadingProducts,
+    error: errorProducts,
+    products,
+    page,
+    pages,
+  } = productList;
 
   const productReviewCreate = useSelector((state) => state.productReviewCreate);
   const {
@@ -47,10 +74,13 @@ const ProductScreen = ({ history, match }) => {
       setComment("");
     }
     if (!product._id || product._id !== match.params.id) {
+      dispatch({ type: PRODUCT_DETAILS_RESET });
+      dispatch(listProducts(keyword, pageNumber));
+
       dispatch(listProductDetails(match.params.id));
       dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
     }
-  }, [dispatch, match, successProductReview]);
+  }, [dispatch, match, successProductReview, keyword, pageNumber]);
 
   const addToCartHandler = () => {
     history.push(`/cart/${match.params.id}?qty=${qty}`);
@@ -68,22 +98,30 @@ const ProductScreen = ({ history, match }) => {
 
   return (
     <>
-      <div
-        style={{ backgroundColor: "#fafbfd" }}
-        className=" tw-h-auto tw-antialiased "
-      >
-        <div className=" tw-px-4  tw-pt-3 tw-max-w-screen-xl tw-mx-auto">
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+            {/* <Spinner /> */}
+          </Container>
+        )}
+      </NProgress>
+      <EuiPage restrictWidth="75rem" className="tw-px-4 tw-bg-white">
+        <div className=" ">
           <Link
-            className="tw-items-center tw-flex hover:tw-no-underline  "
+            className="tw-items-center tw-px-0 tw-flex hover:tw-no-underline  "
             to="/"
           >
             <IonIcon
               icon={chevronBackOutline}
-              className="tw-text-sm tw-text-gray-700 tw-h-4 tw-w-4  tw-mr-1 "
+              className="tw-text-sm tw-text-gray-700 tw-h-5 tw-w-5 tw--ml-1 tw-mr-2 "
               size="small"
             ></IonIcon>
             <IonText
-              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800 d"
+              className="tw-text-md hover:tw-text-gray-600  tw-text-gray-800"
               color="light"
             >
               Back to search
@@ -96,30 +134,41 @@ const ProductScreen = ({ history, match }) => {
           ) : (
             <>
               <Meta title={product && product.name} />
-              <div className=" tw-flex tw-flex-col lg:tw-flex-row tw-max-w-screen-lg tw-gap-6 tw-pt-5 tw-mx-auto tw-justify-center mt-3">
-                <div className="tw-w-full lg:tw-w-3/5 tw-mb-8 tw-mx-auto">
-                  <LazyImage
-                    src={product && product.image}
-                    placeholder={product && product.image}
-                    // height={350}
-                    shadow
-                    border
-                  />
+              <div className="sm:tw-pt-8 lg:tw-pt-16  tw-flex tw-flex-col sm:tw-flex-row tw-max-w-screen-lg  tw-pt-5 tw-mx-auto tw-justify-center ">
+                <div className=" tw-w-full sm:tw-w-8/12  tw-mx-auto">
+                  <EuiShowFor sizes={["xs"]}>
+                    <LazyImage
+                      src={product && product.image}
+                      placeholder={product && product.image}
+                      shadow
+                      height={470}
+                      border={false}
+                    />
+                  </EuiShowFor>
+                  <EuiShowFor sizes={["s", "m", "l", "xl"]}>
+                    <LazyImage
+                      src={product && product.image}
+                      placeholder={product && product.image}
+                      shadow
+                      height={"auto"}
+                      border={false}
+                    />
+                  </EuiShowFor>
                 </div>
 
-                <div className="tw-w-full lg:tw-w-2/5">
-                  <div className="tw-text-xs  tw-font-base tw-pb-2 tw-tracking-wide tw-font-base tw-text-gray-800">
+                <div className="tw-w-full sm:tw-px-4 ">
+                  <div className="tw-text-xs  tw-font-base tw-pb-2  tw-mt-3 tw-tracking-wide tw-font-base tw-text-gray-600">
                     {product && product.category}
                   </div>
-                  <div className="tw-text-2xl  tw-font-medium tw-text-gray-900">
+                  <div className=" tw-text-2xl sm:tw-text-3xl tw-font-semibold  tw-text-gray-900">
                     {product && product.name}
                   </div>
 
-                  <div variant="flush" className="tw-border-none tw-mt-2">
-                    <div>
+                  <div variant="flush" className="tw-border-none tw-mt-3">
+                    <div className="tw-hidden sm:tw-flex">
                       <Rating
                         value={product && product.rating}
-                        text={`${product && product.numReviews} reviews`}
+                        text={`${product && product.numReviews}`}
                       />
                     </div>
                     <div className="tw-py-6">
@@ -142,25 +191,18 @@ const ProductScreen = ({ history, match }) => {
 
                         {product && product.countInStock > 0 && (
                           <div>
-                            <Row>
-                              <Col>Quantity</Col>
-
-                              <Form.Control
-                                as="select"
-                                value={qty}
-                                onChange={(e) => setQty(e.target.value)}
-                              >
-                                {[
-                                  ...Array(
-                                    product && product.countInStock
-                                  ).keys(),
-                                ].map((x) => (
-                                  <option key={x + 1} value={x + 1}>
-                                    {x + 1}
-                                  </option>
-                                ))}
-                              </Form.Control>
-                            </Row>
+                            <div className="tw-font-semibold tw-text-sm tw-pb-3 tw-tracking-wide">
+                              Quantity
+                            </div>
+                            <NumericInput
+                              mobile
+                              className="numericInput tw-w-32 tw-h-8 tw-bg-gray-200 tw-text-sm tw-border-none tw-bg-opacity-75"
+                              min={1}
+                              onKeyDown={(e) => e.preventDefault()}
+                              max={product.countInStock}
+                              value={qty}
+                              onChange={(e) => setQty(e)}
+                            />
                           </div>
                         )}
                       </div>
@@ -168,103 +210,124 @@ const ProductScreen = ({ history, match }) => {
                   </div>
                   {product && product.countInStock > 0 ? (
                     <EuiButton
-                      fullWidth
                       color="secondary"
-                      className="tw-mt-3 tw-rounded-full"
+                      className="tw-mt-6 tw-w-48 tw-text-sm tw-font-semibold tw-rounded-full"
                       size="m"
                       fill
                       onClick={addToCartHandler}
                     >
-                      Add To Cart
+                      Add to cart
                     </EuiButton>
                   ) : (
                     <EuiButton
-                      fullWidth
                       color="secondary"
-                      className="tw-mt-3 tw-rounded-full"
+                      className="tw-mt-5 tw-w-48 tw-text-sm tw-font-semibold tw-rounded-full"
                       size="m"
                       fill
                       disabled
                       onClick={addToCartHandler}
                     >
-                      Add To Cart
+                      Add to cart
                     </EuiButton>
                   )}
-                </div>
-              </div>
-
-              <div className="tw-py-3 tw-pt-5 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
-                Product Description
-              </div>
-              <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-mx-auto">
-                {product ? (
-                  product && product.description
-                ) : (
-                  <div>No description</div>
-                )}
-              </div>
-              <Row>
-                <div className="tw-max-w-screen-lg tw-mx-10 tw-text-gray-800 tw-my-8 tw-mx-auto">
-                  <ListGroup variant="flush">
-                    <ListGroup.Item>
-                      {successProductReview && (
-                        <Message variant="success">
-                          Review submitted successfully
-                        </Message>
-                      )}
-                      {loadingProductReview && <Loader />}
-                      {errorProductReview && (
-                        <Message variant="danger">{errorProductReview}</Message>
-                      )}
-                      {userInfo ? (
-                        <>
-                          <form onSubmit={submitHandler}>
-                            <RatingSelect
-                              controlId="rating"
-                              rating={rating}
-                              setRating={setRating}
-                            />
-
-                            <EuiTextArea
-                              fullWidth
-                              placeholder="Write a comment or review"
-                              aria-label="Use aria labels when no actual label is in use"
-                              value={comment}
-                              onChange={(e) => setComment(e.target.value)}
-                            />
-
-                            <button
-                              type="submit"
-                              className="tw-py-3 tw-mt-3 tw-px-3 tw-border tw-border-gray-300 tw-bg-gray-400 tw-rounded tw-text-900 "
-                              disabled={loadingProductReview}
-                            >
-                              Submit
-                            </button>
-                          </form>
-                        </>
-                      ) : (
-                        <Message>
-                          Please <Link to="/login">sign in</Link> to write a
-                          review{" "}
-                        </Message>
-                      )}
-                    </ListGroup.Item>
-                  </ListGroup>
-                  <div className="tw-py-3 tw-pt-5 tw-mb-3 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
-                    Customer Reviews
+                  <div className="tw-py-3 tw-pt-10 tw-text-xl tw-text-gray-900 tw-max-w-screen-lg tw-mx-auto tw-font-semibold">
+                    Product description
                   </div>
-                  {product &&
-                    product.reviews &&
-                    product.reviews.length === 0 && (
-                      <Message>No Reviews</Message>
+                  <div className="tw-leading-6 tw-text-md tw-max-w-screen-lg tw-text-gray-900 tw-tracking-normal tw-mx-auto">
+                    {product ? (
+                      product && product.description
+                    ) : (
+                      <div>No description</div>
                     )}
-                  <ElasticComment reviews={product.reviews}></ElasticComment>
+                  </div>
+
+                  <div className="tw-my-4">
+                    <span className="tw-bg-gray-300 tw-bg-opacity-50 tw-text-gray-900 tw-font-semibold tw-px-1 tw-text-xs  tw-rounded-sm">
+                      {product && product.brand}
+                    </span>
+                  </div>
+
+                  <div className="tw-flex tw-mt-8">
+                    <EuiButton
+                      className="tw-border-gray-400 tw-text-sm tw-text-gray-800 tw-shadow-none"
+                      iconType="heart"
+                    >
+                      Favorite
+                    </EuiButton>
+                    <EuiButton
+                      className="tw-border-gray-400 tw-ml-4 tw-text-sm tw-text-gray-800 tw-shadow-none "
+                      iconType="share"
+                    >
+                      Share
+                    </EuiButton>
+                  </div>
                 </div>
-              </Row>
+              </div>
             </>
           )}
         </div>
-      </div>
+      </EuiPage>
+      {loading ? (
+        <Loader />
+      ) : error ? (
+        <Message variant="danger">{error}</Message>
+      ) : (
+        <>
+          <div className="tw-px-4 tw-max-w-screen-xl tw-text-xl tw-pt-10 tw-mx-auto tw-font-semibold tw-text-gray-900 tw-pb-3">
+            Related products
+          </div>
+          <div className="tw-py-3  md:tw-px-4 tw-px-2 tw-max-w-screen-xl tw-mx-auto ">
+            <EuiFlexGroup wrap columns={4} gutterSize="m">
+              {products &&
+                products.length !== 0 &&
+                products
+                  .slice(0, 5)
+                  .map((product) => (
+                    <Product product={product} history={history} />
+                  ))}
+            </EuiFlexGroup>
+          </div>
+          <EuiHorizontalRule margin="none" />
+          <ReviewTab />
+
+          <EuiHorizontalRule margin="none" />
+
+          <div
+            style={{ maxWidth: 792 }}
+            className=" tw-mx-auto tw-mt-8 tw-px-4 lg:tw-px-0 tw-mb-12"
+          >
+            <div className="tw-flex tw-justify-between">
+              <h2 class="tw-text-gray-900 tw-font-semibold tw-pb-5 tw-mt-2">
+                Reviews
+              </h2>
+              <ReviewModal
+                submitHandler={submitHandler}
+                successProductReview={successProductReview}
+                loadingProductReview={loadingProductReview}
+                errorProductReview={errorProductReview}
+                userInfo={userInfo}
+                comment={comment}
+                setComment={setComment}
+                setRating={setRating}
+                rating={rating}
+              />
+            </div>
+            {product && product.reviews && product.reviews.length < 1 ? (
+              <>
+                <Message>No Reviews</Message>
+              </>
+            ) : (
+              <>
+                <ReviewChart product={product} />
+                <div className="tw-h-12"></div>
+              </>
+            )}
+            {product && product.reviews && product.reviews.length > 0 && (
+              <ElasticComment reviews={product.reviews}></ElasticComment>
+            )}
+          </div>
+        </>
+      )}
     </>
   );
 };

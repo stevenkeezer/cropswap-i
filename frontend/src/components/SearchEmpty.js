@@ -5,12 +5,15 @@ import SubFooter from "./SubFooter";
 
 const SearchEmpty = ({ history }) => (
   <>
-    <div className="tw-mt-4"></div>
     <EuiEmptyPrompt
       iconType={"/cartEmpty.svg"}
-      title={<h4>No search results were found.</h4>}
+      title={
+        <div className="tw-font-medium tw-text-2xl tw-text-gray-900 tw-tracking-normal">
+          No search results found.
+        </div>
+      }
       actions={
-        <EuiButton onClick={() => history.push("/")} color="secondary" fill>
+        <EuiButton onClick={() => history.push("/")} color="secondary">
           Go back
         </EuiButton>
       }

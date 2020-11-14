@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const ImageLoad = React.memo(
-  ({ src, placeholder, alt = "", height, border, shadow }) => {
+  ({ src, placeholder, alt = "", height, border, shadow, width }) => {
     const [loading, setLoading] = useState(true);
     const [currentSrc, updateSrc] = useState(placeholder);
 
@@ -19,12 +19,12 @@ const ImageLoad = React.memo(
     return (
       <img
         src={currentSrc}
-        className={`tw-object-cover ${shadow && "tw-shadow"}`}
+        className={`tw-object-cover`}
         style={{
           height: height,
+          width: width,
           opacity: loading ? 0.5 : 1,
           filter: loading ? "blur(25px)" : "initial",
-          border: border && "12px solid white",
           transition: "opacity .15s linear",
         }}
         alt={alt}

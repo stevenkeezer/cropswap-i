@@ -1,10 +1,11 @@
 import React from "react";
+import { EuiSpacer } from "@elastic/eui";
 
 export default function CategorySlider({ history }) {
   return (
     <div
       style={{ color: "rgb(74, 74, 74) !important", paddingBottom: "1px" }}
-      className=" tw-text-xs category-slider  tw-px-2 tw-my-3 tw-items-center tw-overflow-x-scroll tw-font-semibold tw-flex tw-tracking-wider tw-text-gray-900 tw-text-opacity-75 tw-antialiased tw-leading-wide"
+      className=" tw-text-sm category-slider tw-pl-2 tw-my-2 tw-h-6 tw-items-center tw-overflow-x-scroll tw-font-semibold tw-flex tw-tracking-wider tw-text-gray-900 tw-text-opacity-75 tw-antialiased tw-leading-wide"
     >
       <div
         onClick={(e) => history.push("/search/seasonal")}

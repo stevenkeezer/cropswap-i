@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { EuiSelect } from "@elastic/eui";
 
-export default ({ rating, setRating }) => {
+export default function RatingSelect({ rating, setRating }) {
   const options = [
     { value: "1", text: "1 - Poor" },
     { value: "2", text: "2 - Fair" },
@@ -10,7 +10,7 @@ export default ({ rating, setRating }) => {
     { value: "5", text: "5 - Excellent" },
   ];
 
-  const [value, setValue] = useState(options[1].value);
+  // const [value, setValue] = useState(options[5].value);
 
   return (
     /* DisplayToggles wrapper for Docs only */
@@ -18,9 +18,9 @@ export default ({ rating, setRating }) => {
     <EuiSelect
       id="selectDocExample"
       options={options}
-      value={rating}
+      value={rating ? rating : "5"}
       onChange={(e) => setRating(e.target.value)}
       aria-label="Use aria labels when no actual label is in use"
     />
   );
-};
+}

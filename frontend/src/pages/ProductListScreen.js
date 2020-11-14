@@ -74,17 +74,17 @@ const ProductListScreen = ({ history, match }) => {
     <>
       <div
         style={{ backgroundColor: "#fafbfd" }}
-        className="tw-antialiased tw-h-auto tw-min-h-screen"
+        className="tw-antialiased tw-h-auto tw-min-h-screen "
       >
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
           <div className="tw-flex tw-pt-4 tw-justify-between tw-items-center">
-            <div className="tw-text-2xl tw-text-gray-800 tw-font-medium">
+            <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl sm:tw-text-2xl tw-font-semibold ">
               Products
             </div>
 
             <EuiButton
               color="secondary"
-              className="tw-mt-3 "
+              className="tw-mt-3 tw-font-bold tw-text-sm tw-px-4"
               size="m"
               fill
               onClick={createProductHandler}
