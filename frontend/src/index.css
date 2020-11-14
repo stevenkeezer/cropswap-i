@@ -587,9 +587,17 @@ td:not(:last-child) {
   background: rgba(0, 0, 0, 0.5) !important;
 }
 .euiFieldSearch {
-  height: 36.5px !important;
+  height: 38.5px !important;
 }
 
+.euiListGroupItem:first-child {
+  padding-left: 0px !important;
+}
+
+.euiListGroupItem {
+  color: rgb(0, 0, 0, 0.6) !important;
+  font-weight: 500;
+}
 .category-slider::-webkit-scrollbar {
   display: none;
 }

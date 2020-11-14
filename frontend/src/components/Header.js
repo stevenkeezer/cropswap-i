@@ -110,7 +110,7 @@ export default ({
       >
         <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
           <EuiKeyPadMenuItem
-            label="Orders"
+            label="Order history"
             onClick={(e) => {
               history.push("/profile");
               closeMenu();
@@ -122,7 +122,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Products"
+                label="All products"
                 onClick={(e) => {
                   history.push("/admin/productlist");
                   closeMenu();
@@ -135,7 +135,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Orders"
+                label="Store orders"
                 onClick={(e) => {
                   history.push("/admin/orderlist");
                   closeMenu();
@@ -148,7 +148,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Users"
+                label="All users"
                 onClick={(e) => {
                   history.push("/admin/userlist");
                   closeMenu();
