@@ -85,8 +85,8 @@ const ProductScreen = ({ history, match, setIsCartPopoverOpen }) => {
 
   const addToCartHandler = () => {
     // history.push(`/cart/${match.params.id}?qty=${qty}`);
-    dispatch(addToCart(match.params.id, qty));
     setIsCartPopoverOpen(true);
+    dispatch(addToCart(match.params.id, qty));
   };
 
   const submitHandler = (e) => {
