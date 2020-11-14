@@ -118,7 +118,7 @@ export default ({
           >
             <EuiIcon type="sqlApp" size="l" />
           </EuiKeyPadMenuItem>
-          <EuiKeyPadMenuItem
+          {/* <EuiKeyPadMenuItem
             label="Cart"
             onClick={(e) => {
               history.push("/cart");
@@ -126,43 +126,43 @@ export default ({
             }}
           >
             <EuiIcon type="submodule" size="l" />
-          </EuiKeyPadMenuItem>
+          </EuiKeyPadMenuItem> */}
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Product List"
+                label="Products"
                 onClick={(e) => {
                   history.push("/admin/productlist");
                   closeMenu();
                 }}
               >
-                <EuiIcon type="indexRollupApp" size="l" />
+                <EuiIcon type="indexSettings" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Users List"
+                label="Orders"
+                onClick={(e) => {
+                  history.push("/admin/orderlist");
+                  closeMenu();
+                }}
+              >
+                <EuiIcon type="tag" size="l" />
+              </EuiKeyPadMenuItem>
+            </>
+          )}
+          {userInfo && userInfo.isAdmin && (
+            <>
+              <EuiKeyPadMenuItem
+                label="Users"
                 onClick={(e) => {
                   history.push("/admin/userlist");
                   closeMenu();
                 }}
               >
                 <EuiIcon type="users" size="l" />
-              </EuiKeyPadMenuItem>
-            </>
-          )}
-          {userInfo && userInfo.isAdmin && (
-            <>
-              <EuiKeyPadMenuItem
-                label="Orders List"
-                onClick={(e) => {
-                  history.push("/admin/orderlist");
-                  closeMenu();
-                }}
-              >
-                <EuiIcon type="list" size="l" />
               </EuiKeyPadMenuItem>
             </>
           )}

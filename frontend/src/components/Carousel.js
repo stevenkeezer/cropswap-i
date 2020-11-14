@@ -8,7 +8,7 @@ import { listTopProducts } from "../actions/productActions";
 import { IonImg } from "@ionic/react";
 import Rating from "./Rating";
 
-const ProductCarousel = () => {
+const ProductCarousel = ({ history }) => {
   const dispatch = useDispatch();
 
   const productTopRated = useSelector((state) => state.productTopRated);
@@ -27,7 +27,10 @@ const ProductCarousel = () => {
       <div style={{ height: 10 }} className=" tw-hidden sm:tw-block"></div>
       <div class="  sm:tw-px-4 xl:tw-px-0   tw-pb-0">
         <div class="tw-flex tw-flex-row tw-flex-wrap tw--mx-2">
-          <div class="tw-w-full md:tw-w-1/2  tw-hidden sm:tw-block tw-h-56 md:tw-h-auto tw-mb-4 tw-px-2">
+          <div
+            onClick={() => history.push(`/product/${products[1]._id}`)}
+            class="tw-w-full md:tw-w-1/2 tw-cursor-pointer  tw-hidden sm:tw-block tw-h-56 md:tw-h-auto tw-mb-4 tw-px-2"
+          >
             <div class="tw-relative tw-bg-gray-100 tw-h-full  tw-w-full sm:tw-rounded-3xl">
               <img
                 class="tw-absolute tw-h-full sm:tw-rounded-3xl tw-w-full tw-object-cover"
@@ -84,7 +87,12 @@ const ProductCarousel = () => {
                   title="Link"
                 >
                   <div class="tw-relative tw-h-full">
-                    <div class="tw-relative lg:tw-flex tw-h-full sm:tw-rounded-3xl tw-bg-gray-100 tw-overflow-hidden">
+                    <div
+                      onClick={() =>
+                        history.push(`/product/${products[0]._id}`)
+                      }
+                      class="tw-relative tw-cursor-pointer lg:tw-flex tw-h-full sm:tw-rounded-3xl tw-bg-gray-100 tw-overflow-hidden"
+                    >
                       <div class="lg:tw-w-5/12 tw-h-full tw-relative tw-flex tw-items-center tw-justify-center">
                         <img
                           class="tw-absolute tw-h-full tw-w-full tw-object-cover"
