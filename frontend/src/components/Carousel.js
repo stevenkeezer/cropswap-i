@@ -110,7 +110,6 @@ const ProductCarousel = ({ history }) => {
                         >
                           <polygon points="50,0 100,0 50,100 0,100" />
                         </svg>
-
                         <div class="tw-relative tw-py-12 lg:tw-py-4  tw-px-8 lg:tw-px-16 tw-text-gray-700 tw-leading-relaxed">
                           <p class="tw-mt-2">
                             <a
