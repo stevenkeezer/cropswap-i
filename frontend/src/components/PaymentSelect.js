@@ -43,14 +43,14 @@ export default () => {
           }}
         />
       </EuiFlexItem>
-      <EuiFlexItem>
+      {/* <EuiFlexItem>
         <EuiCard
           selectable={{
             onClick: () => {},
             isDisabled: true,
           }}
         />
-      </EuiFlexItem>
+      </EuiFlexItem> */}
     </EuiFlexGroup>
   );
 };

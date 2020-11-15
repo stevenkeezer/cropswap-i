@@ -3,6 +3,7 @@ import {
   EuiPortal,
   EuiProgress,
   EuiOverlayMask,
+  EuiShowFor,
   EuiTitle,
   EuiFlyout,
   EuiFlyoutHeader,
@@ -55,11 +56,13 @@ const PublicRoutes = ({ history }) => {
         />
         {isCartPopoverOpen && (
           <>
-            <EuiOverlayMask
-              onClick={() => {
-                setIsCartPopoverOpen(false);
-              }}
-            />
+            <EuiShowFor sizes={["l", "xl"]}>
+              <EuiOverlayMask
+                onClick={() => {
+                  setIsCartPopoverOpen(false);
+                }}
+              />
+            </EuiShowFor>
           </>
         )}
         <IonContent className="custom-ion-content">

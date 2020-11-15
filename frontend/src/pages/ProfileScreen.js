@@ -16,6 +16,7 @@ import Message from "../components/Message";
 import OrdersEmpty from "../components/OrdersEmpty";
 import Toolbar from "../components/Toolbar";
 import UserOrderTable from "../components/UserOrderTable";
+import OrderHistoryCard from "../components/OrderHistoryCard";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = ({ location, history }) => {
@@ -70,7 +71,7 @@ const ProfileScreen = ({ location, history }) => {
                 </EuiTitle>
               </EuiPageHeaderSection>
             </EuiPageHeader>
-
+            <OrderHistoryCard orders={orders} />
             <EuiPageContentBody>
               {loading ? (
                 <Loader />
@@ -97,7 +98,7 @@ const ProfileScreen = ({ location, history }) => {
                       ) : errorOrders ? (
                         <Message variant="danger">{errorOrders}</Message>
                       ) : (
-                        <div className="md:tw-bg-white sm:tw-p-2 md:tw-rounded md:tw-shadow ">
+                        <div className="tw-bg-transparent sm:tw-p-2 ">
                           <UserOrderTable orders={orders} history={history} />
                         </div>
                       )}

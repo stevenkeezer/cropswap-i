@@ -600,6 +600,15 @@ td:not(:last-child) {
   color: rgb(0, 168, 163) !important;
 }
 
+.order-history-header {
+  display: grid;
+  grid-template-columns: 2fr repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+/*  */
+
 /* color: rgb(0, 168, 163) !important; */
 .euiListGroupItem-isActive:not(.euiListGroupItem--ghost)
   .euiListGroupItem__button {
