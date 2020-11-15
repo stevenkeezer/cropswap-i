@@ -590,9 +590,26 @@ td:not(:last-child) {
   height: 38px !important;
 }
 
-.euiListGroupItem:first-child,
 .euiListGroupItem__button {
-  padding-left: 2px !important;
+  background-color: white !important;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.euiListGroupItem__button:hover {
+  color: rgb(0, 168, 163) !important;
+}
+
+/* color: rgb(0, 168, 163) !important; */
+.euiListGroupItem-isActive:not(.euiListGroupItem--ghost)
+  .euiListGroupItem__button {
+  color: rgb(0, 168, 163) !important;
+  font-weight: 600 !important;
+}
+
+.euiListGroupItem.euiListGroupItem-isActive,
+.euiListGroupItem.euiListGroupItem-isClickable:hover {
+  background-color: white !important;
 }
 
 .euiListGroupItem {

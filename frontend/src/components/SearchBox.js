@@ -138,7 +138,7 @@ export default ({ history, products, loading }) => {
     {
       label: "Tomatoes",
       onClick: () => searchHandler("tomatoe"),
-      isActive: location.pathname === "/search/tomato",
+      isActive: location.pathname === "/search/tomatoe",
       size: "s",
     },
     {
@@ -149,28 +149,27 @@ export default ({ history, products, loading }) => {
     },
     {
       label: "Peppers",
-      onClick: () => searchHandler("fruit"),
-      isActive: location.pathname === "/search/fruit",
+      onClick: () => searchHandler("peppers"),
+      isActive: location.pathname === "/search/peppers",
       size: "s",
     },
     {
       label: "Berries",
-      onClick: () => searchHandler("seasonal"),
+      onClick: () => searchHandler("berries"),
+      isActive: location.pathname === "/search/berries",
       size: "s",
-
-      // isActive: location.pathname === "/search/seasonal",
     },
 
     {
       label: "Compost",
-      onClick: () => searchHandler("vegetable"),
-      isActive: location.pathname === "/search/vegetable",
+      onClick: () => searchHandler("compost"),
+      isActive: location.pathname === "/search/compost",
       size: "s",
     },
     {
       label: "Deliveries",
-      onClick: () => searchHandler("fruit"),
-      isActive: location.pathname === "/search/fruit",
+      onClick: () => searchHandler("deliveries"),
+      isActive: location.pathname === "/search/deliveries",
       size: "s",
     },
     {
@@ -194,7 +193,9 @@ export default ({ history, products, loading }) => {
 
   return (
     <div className=" tw-ml-auto tw-antialiased">
-      <div style={{ height: 8 }}></div>
+      <EuiShowFor sizes={["l", "xl"]}>
+        <div style={{ height: 8 }}></div>
+      </EuiShowFor>
       <EuiOutsideClickDetector
         onOutsideClick={() => {
           setIsOpen(false);
@@ -246,7 +247,7 @@ export default ({ history, products, loading }) => {
           maxWidth={false}
           listItems={myContent}
           gutterSize="none"
-          className="tw-flex tw-text-sm"
+          className="tw-flex tw-text-sm tw-bg-transparent active:tw-bg-transparent"
         ></EuiListGroup>
       </EuiShowFor>
 
