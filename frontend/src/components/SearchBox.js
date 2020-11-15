@@ -194,7 +194,7 @@ export default ({ history, products, loading }) => {
 
   return (
     <div className=" tw-ml-auto tw-antialiased">
-      <div style={{ height: 5 }}></div>
+      <div style={{ height: 8 }}></div>
       <EuiOutsideClickDetector
         onOutsideClick={() => {
           setIsOpen(false);

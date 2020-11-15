@@ -324,7 +324,7 @@ const OrderTable = ({ orders, deleteHandler, history }) => {
                               ) : (
                                 <div class="euiFlexItem euiFlexItem--flexGrowZero">
                                   <span className="tw-bg-orange-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-orange-800 tw-text-xs tw-font-medium">
-                                    Not Delivered
+                                    Not delivered
                                   </span>
                                 </div>
                               )}

@@ -4,13 +4,13 @@ import React from "react";
 const Bar = ({ progress, animationDuration }) => (
   <div
     style={{
-      background: "#319795",
+      background: "rgb(1, 168, 163)",
       height: 4,
       left: 0,
       marginLeft: `${(-1 + progress) * 100}%`,
       position: "fixed",
       top: 0,
-      transition: `margin-left ${animationDuration}ms linear`,
+      transition: `margin-left ${animationDuration}ms linear ease-in-out`,
       width: "100%",
       zIndex: 1031,
     }}

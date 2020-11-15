@@ -587,11 +587,12 @@ td:not(:last-child) {
   background: rgba(0, 0, 0, 0.5) !important;
 }
 .euiFieldSearch {
-  height: 38.5px !important;
+  height: 38px !important;
 }
 
-.euiListGroupItem:first-child {
-  padding-left: 0px !important;
+.euiListGroupItem:first-child,
+.euiListGroupItem__button {
+  padding-left: 2px !important;
 }
 
 .euiListGroupItem {
