@@ -599,6 +599,19 @@ td:not(:last-child) {
   color: rgb(0, 168, 163) !important;
 }
 
+.flexCard:active {
+  background-color: rgb(255, 255, 255);
+  border-radius: 0.25rem;
+  box-shadow: rgb(204, 204, 204) 0px 0px 0px 0.0625rem,
+    rgb(255, 255, 255) 0px 0px 0px 0.1875rem,
+    rgb(204, 204, 204) 0px 0px 0px 0.3125rem !important;
+  display: inline-block;
+  /* height: auto; */
+  position: relative;
+  transition: box-shadow 300ms ease 0s !important;
+  width: 100%;
+}
+
 .order-history-header {
   display: grid;
   grid-template-columns: 3fr 7.5rem 7.5rem 9.5rem 7.5rem 8rem;

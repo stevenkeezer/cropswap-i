@@ -64,15 +64,16 @@ const ProfileScreen = ({ location, history }) => {
           <EuiPageBody component="div">
             <EuiPageHeader>
               <EuiPageHeaderSection>
-                <EuiTitle size="l">
-                  <div className="tw-p-0    tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-semibold ">
-                    My orders
-                  </div>
-                </EuiTitle>
+                <div className="tw-p-0  tw-pt-2  tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-semibold ">
+                  My orders
+                </div>
+                <div className="tw-p-0 tw-pt-4   tw-pb-3 sm:tw-pb-12  tw-tracking-normal tw-text-gray-900 tw-text-base ">
+                  Back to profile
+                </div>
               </EuiPageHeaderSection>
             </EuiPageHeader>
             <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">
-              <div className=" tw-mb-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-800">
+              <div className=" tw-mb-2 tw-text-xs tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-800">
                 {orders && !loading && orders.length + " Orders"}
               </div>
             </div>

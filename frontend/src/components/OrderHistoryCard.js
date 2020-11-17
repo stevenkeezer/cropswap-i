@@ -17,8 +17,11 @@ export default function OrderHistoryCard({ orders, history }) {
     <>
       {orders &&
         orders.map((order) => (
-          <div className="tw-w-full tw-bg-white tw-tracking-wide tw-mb-3  tw-shadow tw-rounded">
-            <div className="tw-px-4 tw-pt-5 order-history-header tw-items-center  tw-pb-5">
+          <div className="tw-w-full tw-bg-white tw-tracking-wide tw-mb-3   tw-shadow tw-rounded">
+            <div
+              onClick={() => history.push(`/order/${order._id}`)}
+              className="tw-px-4 tw-pt-5 order-history-header tw-items-center tw-cursor-pointer tw-pb-5"
+            >
               <div className="tw-text-sm  tw-text-gray-900 tw-font-semibold ">
                 Address{" "}
                 <div className="tw-font-normal tw-mt-1 tw-text-xs tw-text-gray-600">
@@ -72,7 +75,10 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
             </div>
             <EuiHorizontalRule margin="none" className="tw-bg-gray-200" />
-            <div className="tw-flex tw-justify-between tw-items-center tw-px-4 ">
+            <div
+              onClick={() => history.push(`/order/${order._id}`)}
+              className="tw-flex tw-justify-between tw-items-center tw-cursor-pointer tw-px-4 "
+            >
               <div className="tw-flex tw-mt-auto tw-pb-4 tw-gap-5">
                 {order.orderItems.map((order) => (
                   <LazyImage

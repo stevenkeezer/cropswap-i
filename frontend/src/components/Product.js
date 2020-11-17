@@ -54,19 +54,19 @@ export default function Product({ product, history, scrollPosition }) {
             }
             grow={false}
             display="plain"
-            className="tw-object-fit"
+            className="tw-object-fit product-card"
             title={
-              <EuiText>
-                <div className="tw-cursor-pointer sm:tw-mt-1 tw-text-gray-800 tw-text-xs tw-tracking-wide">
+              <div className="tw-leading-5">
+                <div className="tw-cursor-pointer tw-capitalize tw-text-gray-700 tw-text-xs tw-tracking-wide">
                   {product.category}
                 </div>
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-font-semibold tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-base tw-font-semibold tw-tracking-wide">
                   {product.name}
                 </div>
-              </EuiText>
+              </div>
             }
             description={
-              <EuiText>
+              <div>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
                 <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-normal">
                   ${product.price}
@@ -82,7 +82,7 @@ export default function Product({ product, history, scrollPosition }) {
                     product.countInStock > 0 &&
                     `Only ${product.countInStock} left in stock - order soon.`}
                 </div>
-              </EuiText>
+              </div>
             }
           />
         ) : (

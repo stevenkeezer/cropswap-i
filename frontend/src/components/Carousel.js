@@ -31,16 +31,15 @@ const ProductCarousel = ({ history }) => {
             onClick={() => history.push(`/product/${products[1]._id}`)}
             class="tw-w-full md:tw-w-1/2 tw-cursor-pointer  tw-hidden sm:tw-block tw-h-56 md:tw-h-auto tw-mb-4 tw-px-2"
           >
-            <div class="tw-relative tw-bg-gray-100 tw-h-full  tw-w-full sm:tw-rounded-3xl">
+            <div class="tw-relative tw-bg-gray-100 tw-h-full tw-w-full sm:tw-rounded-3xl">
               <img
                 class="tw-absolute tw-h-full sm:tw-rounded-3xl tw-w-full tw-object-cover"
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class=" sm:tw-rounded-3xl tw-px-12 tw-absolute tw-transform tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full tw-transition-all tw-duration-300 tw-scale-100">
-                <div class="tw-h-32 md:tw-h-48"></div>
-
-                <h2 class="tw-text-white  tw-text-2xl tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
+              <div class=" sm:tw-rounded-3xl tw-px-12 tw-absolute tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full">
+                <div className="tw-h-24  md:tw-h-56"></div>
+                <h2 class="tw-text-white  tw-text-2xl  tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
                   {products && (
                     <div>{products.length > 1 && products[1].name}</div>
                   )}
