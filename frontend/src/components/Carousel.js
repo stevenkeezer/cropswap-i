@@ -37,7 +37,7 @@ const ProductCarousel = ({ history }) => {
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class=" sm:tw-rounded-3xl sm:tw-px-6  tw-absolute tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full">
+              <div class=" sm:tw-rounded-3xl sm:tw-px-8  tw-absolute tw-px-4 tw-bg-black tw-bg-opacity-25 tw-h-full tw-w-full">
                 <div className="tw-h-24  md:tw-h-56"></div>
                 <h2 class="tw-text-white  tw-text-2xl  tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
                   {products && (

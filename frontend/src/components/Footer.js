@@ -30,13 +30,13 @@ const Footer = ({ history }) => (
           href="/"
           class="  tw-items-baseline tw-mr-4 tw-w-1/3 hover:tw-no-underline"
         >
-          <div className="tw-flex tw-items-center tw-px-2">
+          <div className="tw-flex tw-items-center tw-px-4">
             <Logo history={history} />
-            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-mb-1 tw-font-semibold  tw-ml-3">
+            <span className="tw-italic tw-text-orange-700 tw-text-3xl tw-mb-1 tw-font-bold  tw-ml-2">
               cropswap
             </span>
           </div>
-          <div className="tw-text-gray-600 tw-px-5 tw-tracking-wide tw-leading-6 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
+          <div className="tw-text-gray-600 tw-px-4 tw-tracking-wide tw-leading-6 tw-text-sm tw-mt-4 lg:tw-flex tw-hidden tw-w-11/12 ">
             A community connecting farmers consumers, people, retailers, and
             brands since 2020.
           </div>
