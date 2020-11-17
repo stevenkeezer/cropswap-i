@@ -124,9 +124,9 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
                         <Message variant="danger">{errorOrders}</Message>
                       ) : (
                         <div className="tw-bg-transparent sm:tw-p-2 ">
-                          <EuiShowFor sizes={["xs"]}>
+                          {/* <EuiShowFor sizes={["xs"]}>
                             <UserOrderTable orders={orders} history={history} />
-                          </EuiShowFor>
+                          </EuiShowFor> */}
                         </div>
                       )}
                     </div>
