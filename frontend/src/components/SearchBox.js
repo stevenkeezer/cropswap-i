@@ -177,7 +177,7 @@ export default ({ history, products, loading }) => {
         <div
           style={{ paddingTop: ".125rem", paddingBottom: ".125rem" }}
           className="tw-bg-teal-600 tw-font-medium tw-tracking-normal hover:tw-bg-teal-500  tw-flex tw-items-center 
-            tw-rounded-full tw-text-teal-100 tw-px-3 tw-ml-1 tw-shadow-none
+            tw-rounded-full tw-text-teal-100 tw-px-3  tw-ml-1 tw-shadow-none
             tw-text-sm tw-cursor-pointer"
         >
           <div onClick={(e) => history.push("/cart")} className="">

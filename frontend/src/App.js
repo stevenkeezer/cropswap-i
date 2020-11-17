@@ -68,7 +68,7 @@ const PublicRoutes = ({ history }) => {
         <IonContent className="custom-ion-content">
           <div
             style={{ height: "calc(100% - 65px)vh" }}
-            className="tw-antialiased  tw-container"
+            className="tw-antialiased tw-font-sans tw-container"
           >
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/shipping" component={ShippingScreen} />

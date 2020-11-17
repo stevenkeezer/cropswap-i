@@ -11,6 +11,7 @@ import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductTable from "../components/ProductTable";
 import { PRODUCT_CREATE_RESET } from "../constants/productConstants";
+import Meta from "../components/Meta";
 
 const ProductListScreen = ({ history, match }) => {
   const pageNumber = match.params.pageNumber || 1;
@@ -76,6 +77,7 @@ const ProductListScreen = ({ history, match }) => {
         style={{ backgroundColor: "#fafbfd" }}
         className="tw-antialiased tw-h-auto tw-min-h-screen "
       >
+        <Meta title="Products" />
         <div className="tw-max-w-screen-xl tw-mx-auto tw-pb-4 tw-px-4">
           <div className="tw-flex tw-pt-4 tw-justify-between tw-items-center">
             <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 sm:tw-px-0 tw-px-4 tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-xl sm:tw-text-2xl tw-font-semibold ">

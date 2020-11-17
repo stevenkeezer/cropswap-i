@@ -497,7 +497,7 @@ export default ({
           <EuiHeader
             onProgress
             position="static"
-            className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+            className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-font-sans tw-antialiased tw-leading-tight"
             borderBottom="none"
             style={{
               boxShadow: "none!important",
@@ -509,7 +509,7 @@ export default ({
             >
               <EuiHeaderSection>
                 <EuiShowFor sizes={["m", "l", "xl"]}>
-                  <div className="tw-mt-4">
+                  <div className="tw-mt-5">
                     <Logo history={history} />
                   </div>
                 </EuiShowFor>

@@ -602,7 +602,7 @@ td:not(:last-child) {
 
 .order-history-header {
   display: grid;
-  grid-template-columns: 2fr repeat(5, 1fr);
+  grid-template-columns: 3.2fr 7.5rem 7.5rem 9rem 7.5rem 7.5rem;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }

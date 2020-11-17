@@ -5,6 +5,7 @@ import {
   EuiPageHeader,
   EuiPageHeaderSection,
   EuiPageSideBar,
+  EuiShowFor,
   EuiTitle,
 } from "@elastic/eui";
 import React, { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ import OrdersEmpty from "../components/OrdersEmpty";
 import Toolbar from "../components/Toolbar";
 import UserOrderTable from "../components/UserOrderTable";
 import OrderHistoryCard from "../components/OrderHistoryCard";
+import Meta from "../components/Meta";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 const ProfileScreen = ({ location, history }) => {
@@ -55,23 +57,26 @@ const ProfileScreen = ({ location, history }) => {
 
   return (
     <>
-      <EuiPage className=" sm:tw-px-0  tw-min-h-screen lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
-        <div className="tw-max-w-screen-xl sm:tw-px-4 tw-px-0 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
-          {/* <div style={{ backgroundColor: "#fafbfd" }} className="tw-h-screen"> */}
-          <EuiPageSideBar>
-            <Toolbar history={history} profile />
-          </EuiPageSideBar>
+      <EuiPage className=" tw-px-0 tw-pt-1  tw-min-h-screen  lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
+        <div className="tw-max-w-screen-xl sm:tw-px-12  tw-px-0 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
+          <Meta title="My orders" />
+
           <EuiPageBody component="div">
             <EuiPageHeader>
               <EuiPageHeaderSection>
                 <EuiTitle size="l">
-                  <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-2xl tw-font-semibold ">
-                    Orders
+                  <div className="tw-p-0    tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-semibold ">
+                    My orders
                   </div>
                 </EuiTitle>
               </EuiPageHeaderSection>
             </EuiPageHeader>
-            <OrderHistoryCard orders={orders} />
+            <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">
+              <div className=" tw-mb-3 tw-text-sm tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-800">
+                {orders && !loading && orders.length + " Orders"}
+              </div>
+            </div>
+            <OrderHistoryCard orders={orders} history={history} />
             <EuiPageContentBody>
               {loading ? (
                 <Loader />
@@ -99,7 +104,9 @@ const ProfileScreen = ({ location, history }) => {
                         <Message variant="danger">{errorOrders}</Message>
                       ) : (
                         <div className="tw-bg-transparent sm:tw-p-2 ">
-                          <UserOrderTable orders={orders} history={history} />
+                          <EuiShowFor sizes={["xs"]}>
+                            <UserOrderTable orders={orders} history={history} />
+                          </EuiShowFor>
                         </div>
                       )}
                     </div>
@@ -110,7 +117,6 @@ const ProfileScreen = ({ location, history }) => {
           </EuiPageBody>
         </div>
       </EuiPage>
-      {/* </div> */}
     </>
   );
 };
