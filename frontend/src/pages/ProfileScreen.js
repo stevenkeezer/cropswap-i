@@ -10,6 +10,7 @@ import {
 } from "@elastic/eui";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NProgress } from "@tanem/react-nprogress";
 import { listMyOrders } from "../actions/orderActions";
 import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import Loader from "../components/Loader";
@@ -20,6 +21,8 @@ import UserOrderTable from "../components/UserOrderTable";
 import OrderHistoryCard from "../components/OrderHistoryCard";
 import Meta from "../components/Meta";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
+import Container from "../components/Container";
+import Bar from "../components/Bar";
 
 const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
   const [name, setName] = useState("");
@@ -57,6 +60,16 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
 
   return (
     <>
+      <NProgress isAnimating={loading}>
+        {({ animationDuration, isFinished, progress }) => (
+          <Container
+            animationDuration={animationDuration}
+            isFinished={isFinished}
+          >
+            <Bar animationDuration={animationDuration} progress={progress} />
+          </Container>
+        )}
+      </NProgress>
       <EuiPage className=" tw-px-0 tw-pt-1  tw-min-h-screen  lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
         <div className="tw-max-w-screen-xl sm:tw-px-12  tw-px-4 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
           <Meta title="My orders" />
@@ -98,41 +111,37 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
               setIsCartPopoverOpen={setIsCartPopoverOpen}
             />
             <EuiPageContentBody>
-              {loading ? (
-                <Loader />
-              ) : (
-                <div>
-                  <div className="">
-                    <div>
-                      {message && <Message variant="danger">{message}</Message>}
-                      {}
-                      {success && (
-                        <Message variant="success">Profile Updated</Message>
-                      )}
-                      {loading ? (
-                        <Loader />
-                      ) : error ? (
-                        <Message variant="danger">{error}</Message>
-                      ) : (
-                        <></>
-                      )}
-                    </div>
-                    <div className="tw-p-0 tw-m-0 ">
-                      {loadingOrders ? (
-                        <Loader />
-                      ) : errorOrders ? (
-                        <Message variant="danger">{errorOrders}</Message>
-                      ) : (
-                        <div className="tw-bg-transparent sm:tw-p-2 ">
-                          {/* <EuiShowFor sizes={["xs"]}>
+              <div>
+                <div className="">
+                  <div>
+                    {message && <Message variant="danger">{message}</Message>}
+                    {}
+                    {success && (
+                      <Message variant="success">Profile Updated</Message>
+                    )}
+                    {loading ? (
+                      <Loader />
+                    ) : error ? (
+                      <Message variant="danger">{error}</Message>
+                    ) : (
+                      <></>
+                    )}
+                  </div>
+                  <div className="tw-p-0 tw-m-0 ">
+                    {loadingOrders ? (
+                      <Loader />
+                    ) : errorOrders ? (
+                      <Message variant="danger">{errorOrders}</Message>
+                    ) : (
+                      <div className="tw-bg-transparent sm:tw-p-2 ">
+                        {/* <EuiShowFor sizes={["xs"]}>
                             <UserOrderTable orders={orders} history={history} />
                           </EuiShowFor> */}
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
+              </div>
             </EuiPageContentBody>
           </EuiPageBody>
         </div>
