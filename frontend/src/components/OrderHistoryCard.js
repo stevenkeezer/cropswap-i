@@ -94,17 +94,19 @@ export default function OrderHistoryCard({
               onClick={() => history.push(`/order/${order._id}`)}
               className="tw-flex tw-justify-between sm:tw-items-center tw-flex-col sm:tw-flex-row tw-cursor-pointer tw-px-4 "
             >
-              <div className="tw-flex  tw-my-4 tw-gap-5">
+              <div className="tw-flex  tw-my-4">
                 {order.orderItems.map((order) => (
-                  <LazyImage
-                    src={order.image}
-                    alt={order.name}
-                    height={88}
-                    width={88}
-                    border={"0.0625rem solid rgb(230, 229, 229);"}
-                    rounded={"0.125rem"}
-                    placeholder={order.image}
-                  />
+                  <div className="tw-mr-5">
+                    <LazyImage
+                      src={order.image}
+                      alt={order.name}
+                      height={88}
+                      width={88}
+                      border={"0.0625rem solid rgb(230, 229, 229);"}
+                      rounded={"0.125rem"}
+                      placeholder={order.image}
+                    />
+                  </div>
                 ))}
               </div>
               <div className="tw-flex-col tw-py-3">
@@ -116,7 +118,6 @@ export default function OrderHistoryCard({
                       order.orderItems.forEach((e) =>
                         addToCartHandler(e.product, e.qty)
                       );
-                      // addToCartHandler("5f9cffa1ef6e637afe66b6a3", 1);
                     }}
                     className="sm:tw-w-56 tw-text-sm  tw-font-bold tw-text-white tw-bg-orange-500 tw-shadow-none tw-font-bold tw-border-none tw-no-underline tw-mb-3"
                   >
