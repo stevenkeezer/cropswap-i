@@ -88,8 +88,18 @@ const PublicRoutes = ({ history }) => {
                 />
               )}
             />
+            <Route
+              path="/profile"
+              render={(props) => (
+                <ProfileScreen
+                  {...props}
+                  isCartPopoverOpen={isCartPopoverOpen}
+                  setIsCartPopoverOpen={setIsCartPopoverOpen}
+                  closeCartPopover={closeCartPopover}
+                />
+              )}
+            />
             <Route path="/register" component={RegisterScreen} exact={true} />
-            <Route path="/profile" component={ProfileScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/admin/userlist" component={UserListScreen} />
             <Route path="/admin/user/:id/edit" component={UserEditScreen} />

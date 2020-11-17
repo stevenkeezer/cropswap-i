@@ -572,11 +572,14 @@ tbody tr:last-child td:last-child {
   background-color: none;
 }
 
-/* @media (max-width: 499px) {
-  .flexCard {
-    max-width: 100% !important;
+@media (min-width: 992px) {
+  .order-history-header {
+    display: grid;
+    grid-template-columns: 3fr 7.5rem 7.5rem 9.5rem 7.5rem 8rem;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
   }
-} */
+}
 
 td:not(:last-child) {
   border-bottom: 0;
@@ -610,13 +613,6 @@ td:not(:last-child) {
   position: relative;
   transition: box-shadow 300ms ease 0s !important;
   width: 100%;
-}
-
-.order-history-header {
-  display: grid;
-  grid-template-columns: 3fr 7.5rem 7.5rem 9.5rem 7.5rem 8rem;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 }
 
 /*  */

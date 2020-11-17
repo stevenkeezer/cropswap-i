@@ -10,19 +10,33 @@ import {
   EuiPageSideBar,
   EuiTitle,
 } from "@elastic/eui";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addToCart } from "../actions/cartActions";
 import LazyImage from "./LazyImage";
 
-export default function OrderHistoryCard({ orders, history }) {
+export default function OrderHistoryCard({
+  orders,
+  history,
+  setIsCartPopoverOpen,
+}) {
+  const dispatch = useDispatch();
+
+  const addToCartHandler = (id, qty) => {
+    setIsCartPopoverOpen(true);
+    dispatch(addToCart(id, qty));
+  };
   return (
     <>
       {orders &&
         orders.map((order) => (
-          <div className="tw-w-full tw-bg-white tw-tracking-wide tw-mb-3   tw-shadow tw-rounded">
+          <div className="tw-w-full tw-bg-white  tw-mb-3   tw-shadow tw-rounded">
             <div
               onClick={() => history.push(`/order/${order._id}`)}
-              className="tw-px-4 tw-pt-5 order-history-header tw-items-center tw-cursor-pointer tw-pb-5"
+              style={{ lineHeight: ".85rem" }}
+              className="tw-px-4 tw-pt-5 order-history-header tw-items-center  tw-cursor-pointer tw-pb-5"
             >
-              <div className="tw-text-sm  tw-text-gray-900 tw-font-semibold ">
+              <div className="tw-text-sm  tw-text-gray-800 tw-font-bold ">
                 Address{" "}
                 <div className="tw-font-normal tw-mt-1 tw-text-xs tw-text-gray-600">
                   {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
@@ -33,19 +47,19 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Status
-                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-font-bold">
                   {order.isDelivered ? "Complete" : "In progress"}
                 </div>
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Order
-                <div className="tw-mt-1  tw-truncate tw-w-24  tw-text-gray-900 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-truncate tw-w-20  tw-text-gray-800 tw-text-xs tw-font-bold">
                   {order && order._id}
                 </div>
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Placed{" "}
-                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-tracking-normal tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-tracking-normal tw-font-bold">
                   {order && new Date(order.createdAt).toLocaleDateString()},{" "}
                   {order &&
                     new Date(order.createdAt)
@@ -63,7 +77,7 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Total{" "}
-                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-font-bold">
                   ${order && order.totalPrice}
                 </div>
               </div>
@@ -75,11 +89,12 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
             </div>
             <EuiHorizontalRule margin="none" className="tw-bg-gray-200" />
+
             <div
               onClick={() => history.push(`/order/${order._id}`)}
-              className="tw-flex tw-justify-between tw-items-center tw-cursor-pointer tw-px-4 "
+              className="tw-flex tw-justify-between sm:tw-items-center tw-flex-col sm:tw-flex-row tw-cursor-pointer tw-px-4 "
             >
-              <div className="tw-flex tw-mt-auto tw-pb-4 tw-gap-5">
+              <div className="tw-flex  tw-my-4 tw-gap-5">
                 {order.orderItems.map((order) => (
                   <LazyImage
                     src={order.image}
@@ -92,16 +107,30 @@ export default function OrderHistoryCard({ orders, history }) {
                   />
                 ))}
               </div>
-              <div className="tw-flex-col tw-my-4">
+              <div className="tw-flex-col tw-py-3">
                 <div>
-                  <EuiButton className="tw-w-48 tw-text-sm  tw-font-semibold tw-text-white tw-bg-orange-500 tw-shadow-none tw-font-bold tw-border-none tw-no-underline tw-mb-3">
+                  <EuiButton
+                    fullWidth
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      order.orderItems.forEach((e) =>
+                        addToCartHandler(e.product, e.qty)
+                      );
+                      // addToCartHandler("5f9cffa1ef6e637afe66b6a3", 1);
+                    }}
+                    className="sm:tw-w-56 tw-text-sm  tw-font-bold tw-text-white tw-bg-orange-500 tw-shadow-none tw-font-bold tw-border-none tw-no-underline tw-mb-3"
+                  >
                     Reorder all
                   </EuiButton>
                 </div>
                 <div>
                   <EuiButton
-                    onClick={() => history.push("/")}
-                    className="tw-w-48 tw-text-sm  tw-font-semibold tw-border-gray-400 tw-border-opacity-75 tw-font-bold tw-shadow-none tw-text-gray-900 tw-no-underline"
+                    fullWidth
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      history.push("/");
+                    }}
+                    className="sm:tw-w-56 tw-text-sm  tw-font-bold tw-border-gray-400 tw-border-opacity-75 tw-font-bold tw-shadow-none tw-text-gray-800 tw-no-underline"
                   >
                     Return to menu
                   </EuiButton>
