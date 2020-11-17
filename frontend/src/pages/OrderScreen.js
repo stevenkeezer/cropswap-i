@@ -95,8 +95,6 @@ const OrderScreen = ({ match, history }) => {
     dispatch(deliverOrder(order));
   };
 
-  console.log("order", order);
-
   return loading ? (
     <>
       <NProgress isAnimating={loading}>

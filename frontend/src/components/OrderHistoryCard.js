@@ -19,7 +19,7 @@ export default function OrderHistoryCard({ orders, history }) {
         orders.map((order) => (
           <div className="tw-w-full tw-bg-white tw-tracking-wide tw-mb-3  tw-shadow tw-rounded">
             <div className="tw-px-4 tw-pt-5 order-history-header tw-items-center  tw-pb-5">
-              <div className="tw-text-sm  tw-text-gray-800 tw-font-semibold ">
+              <div className="tw-text-sm  tw-text-gray-900 tw-font-semibold ">
                 Address{" "}
                 <div className="tw-font-normal tw-mt-1 tw-text-xs tw-text-gray-600">
                   {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
@@ -30,19 +30,19 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Status
-                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-font-semibold">
                   {order.isDelivered ? "Complete" : "In progress"}
                 </div>
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Order
-                <div className="tw-mt-1  tw-truncate tw-w-24  tw-text-gray-800 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-truncate tw-w-24  tw-text-gray-900 tw-text-xs tw-font-semibold">
                   {order && order._id}
                 </div>
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Placed{" "}
-                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-tracking-normal tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-tracking-normal tw-font-semibold">
                   {order && new Date(order.createdAt).toLocaleDateString()},{" "}
                   {order &&
                     new Date(order.createdAt)
@@ -60,13 +60,13 @@ export default function OrderHistoryCard({ orders, history }) {
               </div>
               <div className="tw-text-xs tw-text-gray-700">
                 Total{" "}
-                <div className="tw-mt-1  tw-text-gray-800 tw-text-xs tw-font-semibold">
+                <div className="tw-mt-1  tw-text-gray-900 tw-text-xs tw-font-semibold">
                   ${order && order.totalPrice}
                 </div>
               </div>
               <div
                 onClick={() => history.push(`/order/${order._id}`)}
-                className="tw-text-sm tw-text-teal-600 tw-ml-auto tw-cursor-pointer"
+                className="tw-text-sm tw-text-teal-600 tw-ml-auto tw-tracking-normal tw-cursor-pointer"
               >
                 View order details
               </div>
@@ -95,7 +95,7 @@ export default function OrderHistoryCard({ orders, history }) {
                 <div>
                   <EuiButton
                     onClick={() => history.push("/")}
-                    className="tw-w-48 tw-text-sm  tw-font-semibold tw-border-gray-400 tw-border-opacity-75 tw-font-bold tw-shadow-none tw-text-gray-800 tw-no-underline"
+                    className="tw-w-48 tw-text-sm  tw-font-semibold tw-border-gray-400 tw-border-opacity-75 tw-font-bold tw-shadow-none tw-text-gray-900 tw-no-underline"
                   >
                     Return to menu
                   </EuiButton>

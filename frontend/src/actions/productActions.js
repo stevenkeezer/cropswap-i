@@ -29,6 +29,7 @@ import {
   PRODUCT_TOP_SUCCESS,
   PRODUCT_TOP_FAIL,
 } from "../constants/productConstants";
+import { logout } from "./userActions";
 
 export const listProducts = (keyword = "", pageNumber = "") => async (
   dispatch
@@ -103,7 +104,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     if (message === "Not authorized, token failed") {
-      // dispatch(logout());
+      dispatch(logout());
     }
     dispatch({
       type: PRODUCT_DELETE_FAIL,
@@ -140,7 +141,7 @@ export const createProduct = () => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     if (message === "Not authorized, token failed") {
-      // dispatch(logout());
+      dispatch(logout());
     }
     dispatch({
       type: PRODUCT_CREATE_FAIL,
@@ -176,13 +177,14 @@ export const updateProduct = (product) => async (dispatch, getState) => {
       type: PRODUCT_UPDATE_SUCCESS,
       payload: data,
     });
+    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     const message =
       error.response && error.response.data.message
         ? error.response.data.message
         : error.message;
     if (message === "Not authorized, token failed") {
-      // dispatch(logout());
+      dispatch(logout());
     }
     dispatch({
       type: PRODUCT_UPDATE_FAIL,
@@ -222,7 +224,7 @@ export const createProductReview = (productId, review) => async (
         ? error.response.data.message
         : error.message;
     if (message === "Not authorized, token failed") {
-      // dispatch(logout());
+      dispatch(logout());
     }
     dispatch({
       type: PRODUCT_CREATE_REVIEW_FAIL,

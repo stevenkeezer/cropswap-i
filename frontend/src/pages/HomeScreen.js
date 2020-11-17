@@ -154,7 +154,7 @@ const HomeScreen = ({ match }) => {
                           Featured brands
                         </div>
                         <div className="tw-justify-end">
-                          <IonText className="tw-border tw-border-gray-300 tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
+                          <IonText className="tw-border tw-border-gray-300 tw-font-sans tw-px-4 tw-py-2 tw-text-gray-700 hover:tw-bg-teal-500 hover:tw-text-white  tw-font-semmibold tw-text-sm tw-rounded">
                             View all
                           </IonText>
                         </div>

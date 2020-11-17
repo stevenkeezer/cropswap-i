@@ -276,6 +276,7 @@ const ShippingScreen = ({ history }) => {
                           !address ||
                           !city ||
                           !country ||
+                          !state ||
                           !postalCode
                         }
                         onClick={submitHandler}

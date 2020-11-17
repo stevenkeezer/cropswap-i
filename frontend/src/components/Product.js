@@ -68,7 +68,7 @@ export default function Product({ product, history, scrollPosition }) {
             description={
               <EuiText>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-wider">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-normal">
                   ${product.price}
                   <span className=" tw-text-xs tw-text-gray-800 tw-px-1 tw-text-opacity-75 tw-font-medium tw-tracking-normal">
                     each

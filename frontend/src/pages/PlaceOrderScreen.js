@@ -1,33 +1,29 @@
 import {
-  EuiButton,
-  EuiCheckableCard,
-  EuiHorizontalRule,
-  EuiImage,
-  EuiPage,
   EuiAccordion,
-  EuiPageBody,
+  EuiButton,
+  EuiCallOut,
+  EuiCheckbox,
+  EuiFieldText,
+  EuiFlexGroup,
   EuiFlexItem,
   EuiFormRow,
+  EuiHorizontalRule,
+  EuiLink,
+  EuiPage,
+  EuiPageBody,
+  EuiShowFor,
   EuiSpacer,
   EuiTextArea,
-  EuiFieldText,
-  EuiCheckbox,
-  EuiFlexGroup,
-  EuiCallOut,
-  EuiLink,
-  EuiShowFor,
 } from "@elastic/eui";
-import { htmlIdGenerator } from "@elastic/eui/lib/services";
 import React, { useEffect, useState } from "react";
-import { Card, Col, ListGroup, Row } from "react-bootstrap";
-
+import { Card, Col, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { createOrder } from "../actions/orderActions";
-import CheckoutSteps from "../components/CheckoutSteps";
 import CartItem from "../components/CartItem";
+import CheckoutSteps from "../components/CheckoutSteps";
 import Message from "../components/Message";
 import { ORDER_CREATE_RESET } from "../constants/orderConstants";
+import { USER_DETAILS_RESET } from "../constants/userConstants";
 
 const PlaceOrderScreen = ({ history }) => {
   const [checkbox, setCheckbox] = useState(false);
@@ -57,11 +53,9 @@ const PlaceOrderScreen = ({ history }) => {
   useEffect(() => {
     if (success) {
       history.push(`/order/${order._id}`);
+      dispatch({ type: USER_DETAILS_RESET });
       dispatch({ type: ORDER_CREATE_RESET });
-      // reset card
-      // dispatch({ type: ORDER_CREATE_RESET });
     }
-
     // eslint-disable-next-line
   }, [history, success]);
 

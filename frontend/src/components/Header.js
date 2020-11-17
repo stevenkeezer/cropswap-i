@@ -3,6 +3,7 @@ import {
   EuiButton,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiHorizontalRule,
   EuiHeader,
   EuiHeaderSection,
   EuiHeaderSectionItem,
@@ -158,6 +159,15 @@ export default ({
               </EuiKeyPadMenuItem>
             </>
           )}
+          <EuiKeyPadMenuItem
+            label="Settings"
+            onClick={(e) => {
+              history.push("/settings");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="gear" size="l" />
+          </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Logout"
             onClick={(e) => {
@@ -560,30 +570,37 @@ export default ({
                       isOpen={isCartPopoverOpen}
                       closePopover={closeCartPopover}
                       anchorPosition="downRight"
+                      panelClassName="tw-px-0 tw-shadow-lg"
                     >
-                      <EuiPopoverTitle className="tw-py-5 tw-border-gray-200">
-                        <span className="tw-text-xl tw-normal-case tw-text-gray-800">
+                      <EuiPopoverTitle className=" tw-pt-5 tw-border-none ">
+                        <span className="tw-text-xl   tw-normal-case tw-px-4 tw-text-gray-800">
                           Added to cart!
                         </span>
+                        <EuiHorizontalRule
+                          className="tw-bg-gray-200 tw-mt-5"
+                          margin="none"
+                        />
                       </EuiPopoverTitle>
                       <div style={{ width: "365px" }}>
                         {cartItems &&
                           cartItems.map((item) => <CartItem item={item} />)}
                       </div>
                       <EuiPopoverFooter className="tw-border-none">
-                        <EuiButton
-                          fullWidth
-                          fill
-                          color="secondary"
-                          onClick={() => {
-                            history.push("/cart");
-                            closeCartPopover();
-                          }}
-                          className="tw-text-sm tw-font-bold"
-                          size="m"
-                        >
-                          View cart
-                        </EuiButton>
+                        <div className="tw-mx-4 tw-pb-1">
+                          <EuiButton
+                            fullWidth
+                            fill
+                            color="secondary"
+                            onClick={() => {
+                              history.push("/cart");
+                              closeCartPopover();
+                            }}
+                            className="tw-text-sm tw-font-bold"
+                            size="m"
+                          >
+                            View cart
+                          </EuiButton>
+                        </div>
                       </EuiPopoverFooter>
                     </EuiPopover>
                   ))
@@ -722,6 +739,7 @@ export default ({
               <EuiShowFor sizes={["xs"]}>
                 <EuiHeaderSectionItemButton
                   aria-haspopup="true"
+                  className="tw-font-sans sm:tw-mr-0 tw-mr-1"
                   aria-label="Apps menu with 1 new app"
                   notification={cartItems.length}
                   onClick={(e) => {
@@ -730,7 +748,7 @@ export default ({
                   }}
                 >
                   <svg
-                    className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
+                    className="tw-w-5 tw-h-5 tw-mx-auto tw-mr-3 tw-font-sans tw-text-gray-800"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

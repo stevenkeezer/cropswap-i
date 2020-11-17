@@ -35,7 +35,7 @@ const PaymentScreen = ({ history }) => {
 
   const { shippingAddress, cartItems, loading } = cart;
 
-  if (!shippingAddress) {
+  if (!shippingAddress.address) {
     history.push("/shipping");
   }
 
