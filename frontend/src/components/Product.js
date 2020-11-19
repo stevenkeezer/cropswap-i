@@ -76,7 +76,7 @@ export default function Product({ product, history, scrollPosition }) {
                 </div>
                 <div
                   style={{ color: "#B12704" }}
-                  className="tw-text-sm tw--mt-1  tw-font-medium tw-tracking-normal"
+                  className="tw-text-xs tw-font-medium tw-tracking-normal"
                 >
                   {product.countInStock <= 20 &&
                     product.countInStock > 0 &&

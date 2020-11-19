@@ -77,27 +77,31 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
           <EuiPageBody component="div">
             <EuiPageHeader>
               <EuiPageHeaderSection>
-                <div className="tw-p-0  sm:tw-pt-4  tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-bold ">
-                  My orders
-                </div>
-                <div
-                  onClick={() => history.push("/")}
-                  className="tw-p-0 tw-pt-4  tw-flex tw-items-center  tw-pb-3 sm:tw-pb-12  tw-tracking-normal tw-text-gray-900 tw-text-base "
-                >
-                  <svg
-                    class="tw-w-6 tw-h-6 tw--ml-2 tw-mr-1 tw-text-gray-700"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                      clip-rule="evenodd"
-                    ></path>
-                  </svg>
-                  Back to shopping
-                </div>
+                {orders && !loading && (
+                  <>
+                    <div className="tw-p-0  sm:tw-pt-4  tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-bold ">
+                      My orders
+                    </div>
+                    <div
+                      onClick={() => history.push("/")}
+                      className="tw-p-0 tw-pt-4  tw-flex tw-items-center  tw-pb-3 sm:tw-pb-12  tw-tracking-normal tw-text-gray-900 tw-text-base "
+                    >
+                      <svg
+                        class="tw-w-6 tw-h-6 tw--ml-2 tw-mr-1 tw-text-gray-700"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                          clip-rule="evenodd"
+                        ></path>
+                      </svg>
+                      Back to shopping
+                    </div>
+                  </>
+                )}
               </EuiPageHeaderSection>
             </EuiPageHeader>
             <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">

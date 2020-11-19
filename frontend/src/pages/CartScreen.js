@@ -9,7 +9,6 @@ import {
 } from "@elastic/eui";
 import { IonIcon } from "@ionic/react";
 import { NProgress } from "@tanem/react-nprogress";
-
 import { trashOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import NumericInput from "react-numeric-input";

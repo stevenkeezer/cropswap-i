@@ -102,7 +102,7 @@ export default function OrderHistoryCard({
                       alt={order.name}
                       height={88}
                       width={88}
-                      border={"0.0625rem solid rgb(230, 229, 229);"}
+                      border={"0.0625rem solid rgb(230, 229, 229)"}
                       rounded={"0.125rem"}
                       placeholder={order.image}
                     />

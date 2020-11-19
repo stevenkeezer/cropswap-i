@@ -19,7 +19,6 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Toolbar from "../components/Toolbar";
 import { listMyOrders } from "../actions/orderActions";
-
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 export default function AccountSettings() {
