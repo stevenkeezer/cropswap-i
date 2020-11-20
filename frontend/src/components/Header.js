@@ -3,6 +3,7 @@ import {
   EuiButton,
   EuiFlexGroup,
   EuiFlexItem,
+  EuiHorizontalRule,
   EuiHeader,
   EuiHeaderSection,
   EuiHeaderSectionItem,
@@ -110,7 +111,7 @@ export default ({
       >
         <EuiKeyPadMenu id={keypadId} style={{ width: 288 }}>
           <EuiKeyPadMenuItem
-            label="Orders"
+            label="Order history"
             onClick={(e) => {
               history.push("/profile");
               closeMenu();
@@ -122,7 +123,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Products"
+                label="All products"
                 onClick={(e) => {
                   history.push("/admin/productlist");
                   closeMenu();
@@ -135,7 +136,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Orders"
+                label="Store orders"
                 onClick={(e) => {
                   history.push("/admin/orderlist");
                   closeMenu();
@@ -148,7 +149,7 @@ export default ({
           {userInfo && userInfo.isAdmin && (
             <>
               <EuiKeyPadMenuItem
-                label="Users"
+                label="All users"
                 onClick={(e) => {
                   history.push("/admin/userlist");
                   closeMenu();
@@ -158,6 +159,15 @@ export default ({
               </EuiKeyPadMenuItem>
             </>
           )}
+          <EuiKeyPadMenuItem
+            label="Settings"
+            onClick={(e) => {
+              history.push("/settings");
+              closeMenu();
+            }}
+          >
+            <EuiIcon type="gear" size="l" />
+          </EuiKeyPadMenuItem>
           <EuiKeyPadMenuItem
             label="Logout"
             onClick={(e) => {
@@ -497,7 +507,7 @@ export default ({
           <EuiHeader
             onProgress
             position="static"
-            className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-antialiased tw-leading-tight"
+            className="xl:tw-px-0 tw-px-4 tw-h-36 tw-text-gray-900 tw-font-sans tw-antialiased tw-leading-tight"
             borderBottom="none"
             style={{
               boxShadow: "none!important",
@@ -509,7 +519,7 @@ export default ({
             >
               <EuiHeaderSection>
                 <EuiShowFor sizes={["m", "l", "xl"]}>
-                  <div className="tw-mt-4">
+                  <div className="tw-mt-5">
                     <Logo history={history} />
                   </div>
                 </EuiShowFor>
@@ -560,30 +570,53 @@ export default ({
                       isOpen={isCartPopoverOpen}
                       closePopover={closeCartPopover}
                       anchorPosition="downRight"
+                      panelClassName="tw-px-0 tw-shadow-lg"
                     >
-                      <EuiPopoverTitle className="tw-py-5 tw-border-gray-200">
-                        <span className="tw-text-xl tw-normal-case tw-text-gray-800">
-                          Added to cart!
-                        </span>
+                      <EuiPopoverTitle className=" tw-pt-5 tw-border-none ">
+                        <div className="tw-flex tw-justify-between">
+                          <span className="tw-text-xl   tw-normal-case tw-px-4 tw-text-gray-800">
+                            Added to cart!
+                          </span>
+                          <div onClick={closeCartPopover}>
+                            <svg
+                              class="tw-w-6 tw-h-6 tw-mr-3"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </div>
+                        </div>
+                        <EuiHorizontalRule
+                          className="tw-bg-gray-200 tw-mt-5"
+                          margin="none"
+                        />
                       </EuiPopoverTitle>
                       <div style={{ width: "365px" }}>
                         {cartItems &&
                           cartItems.map((item) => <CartItem item={item} />)}
                       </div>
                       <EuiPopoverFooter className="tw-border-none">
-                        <EuiButton
-                          fullWidth
-                          fill
-                          color="secondary"
-                          onClick={() => {
-                            history.push("/cart");
-                            closeCartPopover();
-                          }}
-                          className="tw-text-sm tw-font-bold"
-                          size="m"
-                        >
-                          View cart
-                        </EuiButton>
+                        <div className="tw-mx-4 tw-pb-1">
+                          <EuiButton
+                            fullWidth
+                            fill
+                            color="secondary"
+                            onClick={() => {
+                              history.push("/cart");
+                              closeCartPopover();
+                            }}
+                            className="tw-text-sm tw-font-bold"
+                            size="m"
+                          >
+                            View cart
+                          </EuiButton>
+                        </div>
                       </EuiPopoverFooter>
                     </EuiPopover>
                   ))
@@ -722,6 +755,7 @@ export default ({
               <EuiShowFor sizes={["xs"]}>
                 <EuiHeaderSectionItemButton
                   aria-haspopup="true"
+                  className="tw-font-sans sm:tw-mr-0 tw-mr-1"
                   aria-label="Apps menu with 1 new app"
                   notification={cartItems.length}
                   onClick={(e) => {
@@ -730,7 +764,7 @@ export default ({
                   }}
                 >
                   <svg
-                    className="tw-w-5 tw-h-5 tw-mx-auto  tw-text-gray-800"
+                    className="tw-w-5 tw-h-5 tw-mx-auto tw-mr-3 tw-font-sans tw-text-gray-800"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                     xmlns="http://www.w3.org/2000/svg"

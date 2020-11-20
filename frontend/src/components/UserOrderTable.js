@@ -115,122 +115,126 @@ const UserOrderTable = ({ orders, deleteHandler, history }) => {
             <tbody>
               {orders &&
                 orders.map((order) => (
-                  <tr class="euiTableRow euiTableRow-isSelectable euiTableRow-hasActions tw-pl-2">
-                    <td class="euiTableRowCell euiTableRowCell--enlargeForMobile euiTableRowCell--isMobileFullWidth">
-                      <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
-                        <span class="euiTableCellContent__text">
-                          <div class="tw-flex tw-items-center">
-                            <LazyImage
-                              src={order.orderItems[0].image}
-                              alt={order.title}
-                              height={75}
-                            />
-                          </div>
-                        </span>
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
-                        <LazyImage
-                          src={order.orderItems[0].image}
-                          alt={order.title}
-                          height={75}
-                        ></LazyImage>
-                      </div>
-                    </td>
-
-                    <td class="euiTableRowCell">
-                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
-                        Date
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        <div target="_blank" rel="noopener noreferrer">
-                          {order.createdAt.substring(0, 10)}
-                        </div>
-                      </div>
-                    </td>
-                    <td class="euiTableRowCell">
-                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
-                        Total
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        ${order.totalPrice}
-                      </div>
-                    </td>
-                    <td class="euiTableRowCell">
-                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
-                        Paid
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        {order.isPaid ? (
-                          <span className="tw-bg-green-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-green-800 tw-text-xs tw-font-medium">
-                            {order.paidAt.substring(0, 10)}
+                  <>
+                    <tr class="euiTableRow euiTableRow-isSelectable euiTableRow-hasActions tw-pl-2">
+                      <td class="euiTableRowCell euiTableRowCell--enlargeForMobile euiTableRowCell--isMobileFullWidth">
+                        <div class="euiTableCellContent euiTableCellContent--truncateText euiTableCellContent--overflowingContent euiTableRowCell--hideForDesktop">
+                          <span class="euiTableCellContent__text">
+                            <div class="tw-flex tw-items-center">
+                              <LazyImage
+                                src={order.orderItems[0].image}
+                                alt={order.title}
+                                height={75}
+                              />
+                            </div>
                           </span>
-                        ) : (
-                          <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                            <span className="tw-bg-orange-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-orange-800 tw-text-xs tw-font-medium">
-                              Not Paid
-                            </span>
+                        </div>
+                        <div class="euiTableCellContent euiTableCellContent--truncateText euiTableRowCell--hideForMobile">
+                          <LazyImage
+                            src={order.orderItems[0].image}
+                            alt={order.title}
+                            height={75}
+                          ></LazyImage>
+                        </div>
+                      </td>
+
+                      <td class="euiTableRowCell">
+                        <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
+                          Date
+                        </div>
+                        <div class="euiTableCellContent euiTableCellContent--overflowingContent">
+                          <div target="_blank" rel="noopener noreferrer">
+                            {order.createdAt.substring(0, 10)}
                           </div>
-                        )}
-                      </div>
-                    </td>
-                    <td class="euiTableRowCell">
-                      <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
-                        Delivered
-                      </div>
-                      <div class="euiTableCellContent euiTableCellContent--overflowingContent">
-                        <div class="euiHealth">
-                          <div class="euiFlexGroup euiFlexGroup--gutterExtraSmall euiFlexGroup--alignItemsCenter euiFlexGroup--directionRow">
+                        </div>
+                      </td>
+                      <td class="euiTableRowCell">
+                        <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
+                          Total
+                        </div>
+                        <div class="euiTableCellContent euiTableCellContent--overflowingContent">
+                          ${order.totalPrice}
+                        </div>
+                      </td>
+                      <td class="euiTableRowCell">
+                        <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
+                          Paid
+                        </div>
+                        <div class="euiTableCellContent euiTableCellContent--overflowingContent">
+                          {order.isPaid ? (
+                            <span className="tw-bg-green-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-green-800 tw-text-xs tw-font-medium">
+                              {order.paidAt.substring(0, 10)}
+                            </span>
+                          ) : (
                             <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                              {order.isDelivered ? (
-                                <span className="tw-bg-green-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-green-800 tw-text-xs tw-font-medium">
-                                  {order.deliveredAt.substring(0, 10)}
-                                </span>
-                              ) : (
-                                <div class="euiFlexItem euiFlexItem--flexGrowZero">
-                                  <span className="tw-bg-orange-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-orange-800 tw-text-xs tw-font-medium">
-                                    Not delivered
+                              <span className="tw-bg-orange-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-orange-800 tw-text-xs tw-font-medium">
+                                Not Paid
+                              </span>
+                            </div>
+                          )}
+                        </div>
+                      </td>
+                      <td class="euiTableRowCell">
+                        <div class="euiTableRowCell__mobileHeader euiTableRowCell--hideForDesktop">
+                          Delivered
+                        </div>
+                        <div class="euiTableCellContent euiTableCellContent--overflowingContent">
+                          <div class="euiHealth">
+                            <div class="euiFlexGroup euiFlexGroup--gutterExtraSmall euiFlexGroup--alignItemsCenter euiFlexGroup--directionRow">
+                              <div class="euiFlexItem euiFlexItem--flexGrowZero">
+                                {order.isDelivered ? (
+                                  <span className="tw-bg-green-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-green-800 tw-text-xs tw-font-medium">
+                                    {order.deliveredAt.substring(0, 10)}
                                   </span>
-                                </div>
-                              )}
+                                ) : (
+                                  <div class="euiFlexItem euiFlexItem--flexGrowZero">
+                                    <span className="tw-bg-orange-300  tw-bg-opacity-50 tw-px-2 tw-rounded-full tw-text-orange-800 tw-text-xs tw-font-medium">
+                                      Not delivered
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </td>
-                    <td class="euiTableRowCell euiTableRowCell--hasActions">
-                      <div class="euiTableCellContent euiTableCellContent--alignRight euiTableCellContent--showOnHover euiTableCellContent--overflowingContent">
-                        <span class="euiToolTipAnchor">
-                          <button
-                            class="euiButtonIcon euiButtonIcon--primary euiTableCellContent__hoverItem"
-                            onClick={() => history.push(`/order/${order._id}`)}
-                            type="button"
-                            aria-labelledby="i4ba79141-13ea-11eb-a273-5b026e5e2741"
-                          >
-                            <svg
-                              width="16"
-                              height="16"
-                              viewBox="0 0 16 16"
-                              xmlns="http://www.w3.org/2000/svg"
-                              class="euiIcon euiIcon--medium euiButtonIcon__icon"
-                              focusable="false"
-                              role="img"
-                              aria-hidden="true"
+                      </td>
+                      <td class="euiTableRowCell euiTableRowCell--hasActions">
+                        <div class="euiTableCellContent euiTableCellContent--alignRight euiTableCellContent--showOnHover euiTableCellContent--overflowingContent">
+                          <span class="euiToolTipAnchor">
+                            <button
+                              class="euiButtonIcon euiButtonIcon--primary euiTableCellContent__hoverItem"
+                              onClick={() =>
+                                history.push(`/order/${order._id}`)
+                              }
+                              type="button"
+                              aria-labelledby="i4ba79141-13ea-11eb-a273-5b026e5e2741"
                             >
-                              <path d="M11.4 0c.235 0 .46.099.622.273l2.743 3c.151.162.235.378.235.602v9.25a.867.867 0 01-.857.875H3.857A.867.867 0 013 13.125V.875C3 .392 3.384 0 3.857 0H11.4zM14 4h-2.6a.4.4 0 01-.4-.4V1H4v12h10V4z"></path>
-                              <path d="M3 1H2a1 1 0 00-1 1v13a1 1 0 001 1h10a1 1 0 001-1v-1h-1v1H2V2h1V1z"></path>
-                            </svg>
-                          </button>
+                              <svg
+                                width="16"
+                                height="16"
+                                viewBox="0 0 16 16"
+                                xmlns="http://www.w3.org/2000/svg"
+                                class="euiIcon euiIcon--medium euiButtonIcon__icon"
+                                focusable="false"
+                                role="img"
+                                aria-hidden="true"
+                              >
+                                <path d="M11.4 0c.235 0 .46.099.622.273l2.743 3c.151.162.235.378.235.602v9.25a.867.867 0 01-.857.875H3.857A.867.867 0 013 13.125V.875C3 .392 3.384 0 3.857 0H11.4zM14 4h-2.6a.4.4 0 01-.4-.4V1H4v12h10V4z"></path>
+                                <path d="M3 1H2a1 1 0 00-1 1v13a1 1 0 001 1h10a1 1 0 001-1v-1h-1v1H2V2h1V1z"></path>
+                              </svg>
+                            </button>
 
-                          <span
-                            id="i4ba79141-13ea-11eb-a273-5b026e5e2741"
-                            class="euiScreenReaderOnly"
-                          >
-                            Clone
+                            <span
+                              id="i4ba79141-13ea-11eb-a273-5b026e5e2741"
+                              class="euiScreenReaderOnly"
+                            >
+                              Clone
+                            </span>
                           </span>
-                        </span>
-                      </div>
-                    </td>
-                  </tr>
+                        </div>
+                      </td>
+                    </tr>
+                  </>
                 ))}
             </tbody>
           </table>

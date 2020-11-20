@@ -1,29 +1,29 @@
 import {
   EuiButton,
   EuiHorizontalRule,
-  EuiShowFor,
   EuiPage,
+  EuiShowFor,
 } from "@elastic/eui";
+import { NProgress } from "@tanem/react-nprogress";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Card, Col, ListGroup, Row } from "react-bootstrap";
+import { ListGroup } from "react-bootstrap";
 import { PayPalButton } from "react-paypal-button-v2";
 import { useDispatch, useSelector } from "react-redux";
-import CartItem from "../components/CartItem";
 import {
   deliverOrder,
   getOrderDetails,
   payOrder,
 } from "../actions/orderActions";
+import Bar from "../components/Bar";
+import CartItem from "../components/CartItem";
+import Container from "../components/Container";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import {
   ORDER_DELIVER_RESET,
   ORDER_PAY_RESET,
 } from "../constants/orderConstants";
-import { NProgress } from "@tanem/react-nprogress";
-import Bar from "../components/Bar";
-import Container from "../components/Container";
 
 const OrderScreen = ({ match, history }) => {
   const orderId = match.params.id;
@@ -94,8 +94,6 @@ const OrderScreen = ({ match, history }) => {
   const deliverHandler = () => {
     dispatch(deliverOrder(order));
   };
-
-  console.log("order", order);
 
   return loading ? (
     <>

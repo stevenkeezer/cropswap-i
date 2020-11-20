@@ -3,6 +3,7 @@ import {
   EuiPortal,
   EuiProgress,
   EuiOverlayMask,
+  EuiShowFor,
   EuiTitle,
   EuiFlyout,
   EuiFlyoutHeader,
@@ -55,17 +56,19 @@ const PublicRoutes = ({ history }) => {
         />
         {isCartPopoverOpen && (
           <>
-            <EuiOverlayMask
-              onClick={() => {
-                setIsCartPopoverOpen(false);
-              }}
-            />
+            <EuiShowFor sizes={["l", "xl"]}>
+              <EuiOverlayMask
+                onClick={() => {
+                  setIsCartPopoverOpen(false);
+                }}
+              />
+            </EuiShowFor>
           </>
         )}
         <IonContent className="custom-ion-content">
           <div
             style={{ height: "calc(100% - 65px)vh" }}
-            className="tw-antialiased  tw-container"
+            className="tw-antialiased tw-font-sans tw-container"
           >
             <Route path="/order/:id" component={OrderScreen} />
             <Route path="/shipping" component={ShippingScreen} />
@@ -85,8 +88,18 @@ const PublicRoutes = ({ history }) => {
                 />
               )}
             />
+            <Route
+              path="/profile"
+              render={(props) => (
+                <ProfileScreen
+                  {...props}
+                  isCartPopoverOpen={isCartPopoverOpen}
+                  setIsCartPopoverOpen={setIsCartPopoverOpen}
+                  closeCartPopover={closeCartPopover}
+                />
+              )}
+            />
             <Route path="/register" component={RegisterScreen} exact={true} />
-            <Route path="/profile" component={ProfileScreen} />
             <Route path="/cart/:id?" component={CartScreen} />
             <Route path="/admin/userlist" component={UserListScreen} />
             <Route path="/admin/user/:id/edit" component={UserEditScreen} />

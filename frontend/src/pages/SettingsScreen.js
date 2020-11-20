@@ -18,6 +18,8 @@ import { getUserDetails, updateUserProfile } from "../actions/userActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Toolbar from "../components/Toolbar";
+import { listMyOrders } from "../actions/orderActions";
+import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 export default function AccountSettings() {
   const [name, setName] = useState("");
@@ -48,14 +50,16 @@ export default function AccountSettings() {
     if (!userInfo) {
       history.push("/login");
     } else {
-      if (!user || !user.name) {
+      if (!user || !user.name || success) {
+        dispatch({ type: USER_UPDATE_PROFILE_RESET });
         dispatch(getUserDetails("profile"));
+        dispatch(listMyOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
       }
     }
-  }, [dispatch, history, userInfo, user]);
+  }, [dispatch, history, userInfo, user, success]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -70,9 +74,6 @@ export default function AccountSettings() {
     <>
       <div style={{ backgroundColor: "#fafbfd" }} className="">
         <EuiPage restrictWidth="75rem" className="">
-          <EuiPageSideBar>
-            <Toolbar history={history} settings></Toolbar>
-          </EuiPageSideBar>
           <EuiPageBody component="div">
             <div>
               {message && <Message variant="danger">{message}</Message>}

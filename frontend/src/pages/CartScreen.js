@@ -8,6 +8,7 @@ import {
   EuiShowFor,
 } from "@elastic/eui";
 import { IonIcon } from "@ionic/react";
+import { NProgress } from "@tanem/react-nprogress";
 import { trashOutline } from "ionicons/icons";
 import React, { useEffect, useState } from "react";
 import NumericInput from "react-numeric-input";
@@ -19,6 +20,8 @@ import CheckoutSummary from "../components/CheckoutSummary";
 import LazyImage from "../components/LazyImage";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import Container from "../components/Container";
+import Bar from "../components/Bar";
 
 const CartScreen = ({ match, location, history }) => {
   const [value, setValue] = useState("");
@@ -54,7 +57,16 @@ const CartScreen = ({ match, location, history }) => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <NProgress isAnimating={loading}>
+          {({ animationDuration, isFinished, progress }) => (
+            <Container
+              animationDuration={animationDuration}
+              isFinished={isFinished}
+            >
+              <Bar animationDuration={animationDuration} progress={progress} />
+            </Container>
+          )}
+        </NProgress>
       ) : (
         <EuiPage
           paddingSize="none"

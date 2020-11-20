@@ -54,21 +54,21 @@ export default function Product({ product, history, scrollPosition }) {
             }
             grow={false}
             display="plain"
-            className="tw-object-fit"
+            className="tw-object-fit product-card"
             title={
-              <EuiText>
-                <div className="tw-cursor-pointer sm:tw-mt-1 tw-text-gray-800 tw-text-xs tw-tracking-wide">
+              <div className="tw-leading-5">
+                <div className="tw-cursor-pointer tw-capitalize tw-text-gray-700 tw-text-xs tw-tracking-wide">
                   {product.category}
                 </div>
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-font-semibold tw-tracking-wide">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-base tw-font-semibold tw-tracking-wide">
                   {product.name}
                 </div>
-              </EuiText>
+              </div>
             }
             description={
-              <EuiText>
+              <div>
                 <Rating value={product.rating} text={`${product.numReviews}`} />
-                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-wider">
+                <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-normal">
                   ${product.price}
                   <span className=" tw-text-xs tw-text-gray-800 tw-px-1 tw-text-opacity-75 tw-font-medium tw-tracking-normal">
                     each
@@ -76,13 +76,13 @@ export default function Product({ product, history, scrollPosition }) {
                 </div>
                 <div
                   style={{ color: "#B12704" }}
-                  className="tw-text-sm tw--mt-1  tw-font-medium tw-tracking-normal"
+                  className="tw-text-xs tw-font-medium tw-tracking-normal"
                 >
                   {product.countInStock <= 20 &&
                     product.countInStock > 0 &&
                     `Only ${product.countInStock} left in stock - order soon.`}
                 </div>
-              </EuiText>
+              </div>
             }
           />
         ) : (

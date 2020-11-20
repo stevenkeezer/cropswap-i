@@ -1,12 +1,12 @@
 const products = [
   {
     name: "Iceberg Lettuce",
-    balance: 48.6,
+    price: 48.6,
     image: "https://source.unsplash.com/1600x1425/?vegetables,fruit, garden",
     description:
       "Dolor elit anim non laborum cillum dolore nostrud adipisicing occaecat consequat consectetur reprehenderit officia aute. Esse consectetur in in fugiat minim dolore sit fugiat esse eu. Ullamco enim ut nostrud nostrud ullamco voluptate irure ea ipsum. Exercitation excepteur non labore nostrud quis incididunt culpa sint voluptate ipsum sint labore. Lorem anim mollit commodo sunt qui ad commodo culpa cupidatat magna sit aute nostrud incididunt. Lorem ad cupidatat aliqua mollit officia voluptate dolor deserunt ullamco do eiusmod laborum ad. Voluptate sunt quis quis laborum magna pariatur ad cupidatat adipisicing ad Lorem labore.\r\n",
     brand: "Billie Salas",
-    price: 23,
+
     countInStock: 21,
     rating: 3,
     numReviews: 71,
@@ -14,12 +14,11 @@ const products = [
   },
   {
     name: "Broccoli",
-    balance: 36.94,
+    price: 36.94,
     image: "https://source.unsplash.com/1600x1450/?vegetables,fruit, garden",
     description:
       "Pariatur fugiat excepteur id fugiat. Excepteur enim dolor duis reprehenderit ut excepteur voluptate. Et dolore duis est est excepteur nisi irure et laborum consequat enim exercitation irure. Nostrud aliqua incididunt occaecat consequat proident labore est commodo in est eiusmod.\r\n",
     brand: "Mattie Pitts",
-    price: 35,
     countInStock: 29,
     rating: 1,
     numReviews: 100,
@@ -27,12 +26,11 @@ const products = [
   },
   {
     name: "Bok Choy",
-    balance: 34.4,
+    price: 34.4,
     image: "https://source.unsplash.com/1600x1433/?vegetables,fruit, garden",
     description:
       "Eiusmod labore laboris cupidatat consequat adipisicing anim veniam esse proident. Irure dolor eiusmod velit non. Incididunt ad anim velit aliquip laboris mollit amet labore minim reprehenderit aliquip. Laboris officia aliquip exercitation eu laboris nostrud minim officia. Quis fugiat id adipisicing minim commodo pariatur laborum.\r\n",
     brand: "Gina Lamb",
-    price: 30,
     countInStock: 20,
     rating: 1,
     numReviews: 85,
@@ -40,12 +38,11 @@ const products = [
   },
   {
     name: "Guava",
-    balance: 36.67,
+    price: 36.67,
     image: "https://source.unsplash.com/1600x1489/?vegetables,fruit, garden",
     description:
       "Deserunt laboris do in laboris dolor ipsum fugiat veniam et. Qui aute incididunt culpa sunt non cupidatat esse Lorem esse. Nisi velit est qui eu aliqua cupidatat do aute consectetur cillum nulla esse fugiat reprehenderit. Ad labore commodo ad elit officia sunt adipisicing do velit ad. Amet deserunt in proident ad voluptate.\r\n",
     brand: "Patrica Larson",
-    price: 32,
     countInStock: 30,
     rating: 1,
     numReviews: 57,
@@ -53,12 +50,11 @@ const products = [
   },
   {
     name: "Pineapple",
-    balance: 46.4,
+    price: 46.4,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Elit sunt dolor fugiat adipisicing. Excepteur ut exercitation eu sit occaecat ipsum magna. Tempor nulla consectetur et irure quis ex qui aliqua excepteur.\r\n",
     brand: "Shelby Potter",
-    price: 27,
     countInStock: 37,
     rating: 2,
     numReviews: 76,
@@ -66,12 +62,11 @@ const products = [
   },
   {
     name: "Leeks",
-    balance: 11.54,
+    price: 11.54,
     image: "https://source.unsplash.com/1600x1448/?vegetables,fruit, garden",
     description:
       "Nulla culpa tempor commodo duis irure occaecat occaecat duis excepteur non sunt mollit. Eu ipsum non quis enim veniam duis sit amet Lorem dolore. Cupidatat Lorem fugiat ad nostrud laboris aliqua. Nisi in cillum minim excepteur enim amet culpa laboris occaecat. Culpa sunt commodo pariatur incididunt culpa et eiusmod. Veniam elit reprehenderit incididunt mollit id ipsum est eiusmod id minim ut labore.\r\n",
     brand: "Alvarado Fields",
-    price: 33,
     countInStock: 26,
     rating: 2,
     numReviews: 93,
@@ -79,12 +74,11 @@ const products = [
   },
   {
     name: "Parsnip",
-    balance: 32.93,
+    price: 32.93,
     image: "https://source.unsplash.com/1600x1438/?vegetables,fruit, garden",
     description:
       "Dolor magna aliqua amet nisi ipsum mollit voluptate nostrud cillum. Sit sunt sint magna nostrud occaecat esse sint culpa voluptate labore fugiat mollit excepteur ullamco. Nisi pariatur proident aliqua elit esse sunt consequat in magna irure commodo duis. Fugiat cillum nisi Lorem qui nisi dolore laborum. Et cupidatat nisi labore aliquip ex et laborum occaecat fugiat.\r\n",
     brand: "Angelia Franklin",
-    price: 29,
     countInStock: 21,
     rating: 5,
     numReviews: 65,
@@ -92,12 +86,11 @@ const products = [
   },
   {
     name: "Fennel",
-    balance: 36.76,
+    price: 36.76,
     image: "https://source.unsplash.com/1600x1497/?vegetables,fruit, garden",
     description:
       "Nisi quis velit do elit. Quis velit ea culpa sint minim velit mollit sint laboris velit cupidatat. Reprehenderit qui anim ipsum nisi esse aute. Et in veniam sit proident pariatur labore ea minim aute do est aliquip adipisicing. Dolor cupidatat velit dolor occaecat irure quis eu occaecat nostrud fugiat. Commodo laboris culpa amet sunt duis laboris veniam aute laborum ut mollit voluptate. Et dolor qui laborum cillum irure aute non consectetur magna in eu magna.\r\n",
     brand: "Nettie Rutledge",
-    price: 27,
     countInStock: 32,
     rating: 5,
     numReviews: 23,
@@ -105,12 +98,11 @@ const products = [
   },
   {
     name: "Parsnip",
-    balance: 36.19,
+    price: 36.19,
     image: "https://source.unsplash.com/1600x1436/?vegetables,fruit, garden",
     description:
       "Ex minim amet dolor voluptate nulla excepteur. Mollit aliquip Lorem dolor est officia duis quis veniam magna amet pariatur in dolore adipisicing. Lorem qui minim occaecat minim.\r\n",
     brand: "Solis Reilly",
-    price: 39,
     countInStock: 27,
     rating: 2,
     numReviews: 60,
@@ -118,12 +110,11 @@ const products = [
   },
   {
     name: "Turnip",
-    balance: 24.98,
+    price: 24.98,
     image: "https://source.unsplash.com/1600x1489/?vegetables,fruit, garden",
     description:
       "Ut ipsum occaecat commodo proident in officia excepteur fugiat. Et mollit commodo irure minim dolor. Magna officia sunt voluptate esse incididunt exercitation proident voluptate Lorem anim anim magna elit cillum. Voluptate dolor fugiat incididunt excepteur exercitation amet dolor enim velit mollit ut.\r\n",
     brand: "Lela Mueller",
-    price: 27,
     countInStock: 27,
     rating: 2,
     numReviews: 35,
@@ -131,12 +122,11 @@ const products = [
   },
   {
     name: "Carrots",
-    balance: 44.76,
+    price: 44.76,
     image: "https://source.unsplash.com/1600x1494/?vegetables,fruit, garden",
     description:
       "Laborum qui ex cillum sit pariatur dolore pariatur elit ullamco consectetur. Occaecat amet sint sint aute ullamco nisi in sunt enim nisi sint officia. Fugiat voluptate officia voluptate anim minim. Anim ea commodo consectetur eu veniam minim officia occaecat. Ullamco aute cupidatat excepteur nostrud. Consectetur et commodo mollit amet amet irure velit esse ipsum labore amet qui est minim. Excepteur quis culpa eu dolor.\r\n",
     brand: "Samantha Foreman",
-    price: 29,
     countInStock: 29,
     rating: 4,
     numReviews: 73,
@@ -144,12 +134,11 @@ const products = [
   },
   {
     name: "Radishes",
-    balance: 25.71,
+    price: 25.71,
     image: "https://source.unsplash.com/1600x1412/?vegetables,fruit, garden",
     description:
       "Fugiat esse et irure Lorem eiusmod incididunt veniam reprehenderit laborum. Amet ullamco dolore dolore fugiat quis nulla id laboris fugiat exercitation laborum cupidatat. Laborum proident ullamco irure est. Eiusmod amet eiusmod qui sint cupidatat sit sint aliqua eiusmod. Eu cupidatat ea dolore adipisicing non do veniam pariatur deserunt.\r\n",
     brand: "Yvonne Foster",
-    price: 39,
     countInStock: 38,
     rating: 2,
     numReviews: 71,
@@ -157,12 +146,11 @@ const products = [
   },
   {
     name: "Yellow Squash",
-    balance: 1.46,
+    price: 1.46,
     image: "https://source.unsplash.com/1600x1425/?vegetables,fruit, garden",
     description:
       "Elit eu excepteur ex magna ut officia dolore nisi sit est nostrud incididunt tempor. Lorem exercitation sint reprehenderit ut ad excepteur eiusmod sunt mollit tempor aliquip culpa eu culpa. Adipisicing Lorem quis elit ut. Velit dolore ut mollit dolore consequat sint Lorem. Tempor est dolor sint sit quis veniam officia amet quis et ut excepteur officia dolor. Esse ullamco reprehenderit irure consectetur. Nulla excepteur id consequat qui mollit laboris voluptate ut irure enim laborum et.\r\n",
     brand: "Lourdes Reynolds",
-    price: 36,
     countInStock: 31,
     rating: 3,
     numReviews: 39,
@@ -170,12 +158,11 @@ const products = [
   },
   {
     name: "Hominy",
-    balance: 4.62,
+    price: 4.62,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Occaecat est enim exercitation sit. Lorem est sint enim esse reprehenderit nulla voluptate aliquip elit. Ex et esse do nulla enim ad amet ut. Ea qui irure tempor sunt qui. Dolore aliquip consectetur irure deserunt laborum magna mollit adipisicing. Non sit culpa proident aute excepteur. Dolor aliqua eiusmod sint enim nulla duis fugiat do ea proident labore ea.\r\n",
     brand: "Newman Perez",
-    price: 31,
     countInStock: 25,
     rating: 1,
     numReviews: 97,
@@ -183,12 +170,11 @@ const products = [
   },
   {
     name: "Kale",
-    balance: 31.41,
+    price: 31.41,
     image: "https://source.unsplash.com/1600x1437/?vegetables,fruit, garden",
     description:
       "Ad laborum velit anim ex in adipisicing nisi. Cillum duis qui reprehenderit consequat mollit occaecat ipsum nisi ex nostrud est pariatur ut. Quis id minim ipsum laboris et anim nisi esse aliquip mollit sunt. Do cillum ex eiusmod Lorem deserunt pariatur in ipsum. Id mollit reprehenderit fugiat ad enim enim mollit nulla excepteur Lorem do aliquip Lorem voluptate. Pariatur incididunt ut nulla eu nostrud reprehenderit non.\r\n",
     brand: "Joyce Lara",
-    price: 40,
     countInStock: 23,
     rating: 4,
     numReviews: 100,
@@ -196,12 +182,11 @@ const products = [
   },
   {
     name: "Tomatillo",
-    balance: 22.79,
+    price: 22.79,
     image: "https://source.unsplash.com/1600x1499/?vegetables,fruit, garden",
     description:
       "Sunt occaecat aliqua eu sit enim mollit est nulla dolore aliqua Lorem. Amet deserunt deserunt excepteur exercitation adipisicing ad culpa in. Officia tempor consequat nisi reprehenderit adipisicing in consequat.\r\n",
     brand: "Teresa Mayo",
-    price: 30,
     countInStock: 33,
     rating: 5,
     numReviews: 31,
@@ -209,12 +194,11 @@ const products = [
   },
   {
     name: "Watercress",
-    balance: 3.55,
+    price: 3.55,
     image: "https://source.unsplash.com/1600x1450/?vegetables,fruit, garden",
     description:
       "Adipisicing consectetur nulla anim cupidatat est cillum proident Lorem exercitation occaecat aliquip officia dolore sit. Magna quis aliqua sint quis exercitation id sunt ex. Esse aute reprehenderit reprehenderit voluptate labore in tempor fugiat commodo pariatur.\r\n",
     brand: "Lyons Delaney",
-    price: 23,
     countInStock: 23,
     rating: 3,
     numReviews: 35,
@@ -222,12 +206,11 @@ const products = [
   },
   {
     name: "Tomato",
-    balance: 2.26,
+    price: 2.26,
     image: "https://source.unsplash.com/1600x1438/?vegetables,fruit, garden",
     description:
       "Velit veniam sunt adipisicing proident exercitation cillum ex culpa cupidatat ea. Non consequat ea culpa ullamco. Velit fugiat commodo eu dolore Lorem dolore laborum enim culpa elit reprehenderit ut. Mollit id magna eiusmod velit id veniam est cillum et sit ut. Reprehenderit voluptate mollit exercitation nisi ipsum fugiat in tempor laboris nisi. Reprehenderit enim officia ex eu Lorem sit occaecat ad. Reprehenderit exercitation ad esse est.\r\n",
     brand: "Erika Ingram",
-    price: 28,
     countInStock: 38,
     rating: 2,
     numReviews: 41,
@@ -235,12 +218,11 @@ const products = [
   },
   {
     name: "Green Onions",
-    balance: 35.42,
+    price: 35.42,
     image: "https://source.unsplash.com/1600x1426/?vegetables,fruit, garden",
     description:
       "Aliqua occaecat ad amet sint id pariatur consectetur proident amet. Voluptate velit amet reprehenderit sint nisi non. Cupidatat cupidatat esse exercitation excepteur nisi nulla. Quis elit et labore cupidatat est amet. Magna reprehenderit minim Lorem esse ad dolore occaecat excepteur incididunt dolor non excepteur velit.\r\n",
     brand: "Jannie Preston",
-    price: 26,
     countInStock: 22,
     rating: 4,
     numReviews: 79,
@@ -248,12 +230,11 @@ const products = [
   },
   {
     name: "Loquat",
-    balance: 44.01,
+    price: 44.01,
     image: "https://source.unsplash.com/1600x1492/?vegetables,fruit, garden",
     description:
       "Ullamco proident incididunt veniam voluptate laborum nulla. Duis nulla excepteur et est cillum id. Proident laborum enim aute velit qui enim. Ea velit elit consequat dolore irure. Ea ullamco consectetur ad dolore eu magna.\r\n",
     brand: "Sellers Hinton",
-    price: 20,
     countInStock: 39,
     rating: 5,
     numReviews: 40,
@@ -261,12 +242,11 @@ const products = [
   },
   {
     name: "Belgian Endive",
-    balance: 26.1,
+    price: 26.1,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Voluptate tempor aliqua adipisicing dolor ex labore officia in excepteur ullamco. Ea cupidatat incididunt laboris nostrud irure anim consequat eiusmod consectetur commodo ut. Enim excepteur in aliquip amet ad do dolore consectetur. Aute dolore quis Lorem cupidatat in ut qui non. Ex ullamco enim laboris fugiat cillum mollit.\r\n",
     brand: "Rachael Day",
-    price: 27,
     countInStock: 23,
     rating: 2,
     numReviews: 23,
@@ -274,12 +254,11 @@ const products = [
   },
   {
     name: "Yuca/Cassava",
-    balance: 6.36,
+    price: 6.36,
     image: "https://source.unsplash.com/1600x1419/?vegetables,fruit, garden",
     description:
       "Id adipisicing sint deserunt incididunt sint laboris. Ut sit quis adipisicing sunt officia tempor aliqua. Non esse anim labore excepteur. Officia exercitation non adipisicing mollit culpa excepteur in irure dolore.\r\n",
     brand: "Rivera Steele",
-    price: 29,
     countInStock: 38,
     rating: 5,
     numReviews: 47,
@@ -287,12 +266,11 @@ const products = [
   },
   {
     name: "Leeks",
-    balance: 21.11,
+    price: 21.11,
     image: "https://source.unsplash.com/1600x1426/?vegetables,fruit, garden",
     description:
       "Elit amet non nisi aute nostrud voluptate irure minim. Veniam reprehenderit commodo duis culpa mollit excepteur excepteur ullamco. Sit irure dolor nisi fugiat dolore esse dolor veniam eiusmod velit.\r\n",
     brand: "Laura Hurley",
-    price: 34,
     countInStock: 37,
     rating: 1,
     numReviews: 70,
@@ -300,12 +278,11 @@ const products = [
   },
   {
     name: "Hominy",
-    balance: 44.83,
+    price: 44.83,
     image: "https://source.unsplash.com/1600x1469/?vegetables,fruit, garden",
     description:
       "Commodo in est Lorem nulla adipisicing consectetur anim. Lorem ut ipsum proident do exercitation aliqua tempor irure cupidatat duis qui. Est non enim qui ut ipsum exercitation culpa et aliqua. Ipsum eiusmod proident nostrud cupidatat consectetur mollit voluptate sit pariatur laboris aute commodo. Quis exercitation elit ipsum deserunt velit duis tempor commodo minim do reprehenderit pariatur cupidatat ex. Labore ut eu fugiat exercitation nostrud mollit ad.\r\n",
     brand: "Mcdonald Cross",
-    price: 36,
     countInStock: 27,
     rating: 4,
     numReviews: 98,
@@ -313,12 +290,11 @@ const products = [
   },
   {
     name: "Coconuts",
-    balance: 39.55,
+    price: 39.55,
     image: "https://source.unsplash.com/1600x1452/?vegetables,fruit, garden",
     description:
       "Ullamco aliquip sit incididunt reprehenderit tempor. Ipsum cillum elit mollit voluptate aliqua amet. Dolore labore ex sunt cupidatat nulla sint dolore laborum do id officia. Fugiat aliquip id esse deserunt ad exercitation exercitation. Enim eu cillum cillum excepteur aute.\r\n",
     brand: "Valdez Grant",
-    price: 34,
     countInStock: 33,
     rating: 2,
     numReviews: 34,
@@ -326,12 +302,11 @@ const products = [
   },
   {
     name: "Okra",
-    balance: 9.69,
+    price: 9.69,
     image: "https://source.unsplash.com/1600x1467/?vegetables,fruit, garden",
     description:
       "Ea nisi labore amet reprehenderit pariatur magna. Officia exercitation amet laboris occaecat amet exercitation aliquip aliquip deserunt nulla sint sint. Esse ut reprehenderit sint do excepteur nisi ad qui Lorem ut esse. Qui laboris sunt in incididunt ut amet aliquip eu ea irure qui aliquip ut dolore.\r\n",
     brand: "Tanisha Pacheco",
-    price: 31,
     countInStock: 20,
     rating: 5,
     numReviews: 64,
@@ -339,12 +314,11 @@ const products = [
   },
   {
     name: "Pomegranate",
-    balance: 43.78,
+    price: 43.78,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Est dolore sunt mollit pariatur sit esse ullamco tempor commodo amet enim. Non excepteur commodo elit esse aute fugiat aliquip exercitation esse veniam sit. Labore aliquip proident sint non irure fugiat. Ullamco id reprehenderit laboris esse qui enim. Amet veniam sint amet velit commodo commodo laboris. Enim nisi exercitation do consectetur. Nulla ullamco ad officia ea ad ipsum.\r\n",
     brand: "Franco Donovan",
-    price: 34,
     countInStock: 31,
     rating: 3,
     numReviews: 43,
@@ -352,12 +326,11 @@ const products = [
   },
   {
     name: "Tangelo",
-    balance: 25.77,
+    price: 25.77,
     image: "https://source.unsplash.com/1600x1438/?vegetables,fruit, garden",
     description:
       "Laboris elit consectetur qui quis. Deserunt eu deserunt ad irure elit culpa commodo. Qui proident do anim occaecat nisi id consectetur sit irure excepteur elit duis voluptate.\r\n",
     brand: "Hallie Butler",
-    price: 37,
     countInStock: 33,
     rating: 2,
     numReviews: 62,
@@ -365,12 +338,11 @@ const products = [
   },
   {
     name: "Sprouts",
-    balance: 33.24,
+    price: 33.24,
     image: "https://source.unsplash.com/1600x1422/?vegetables,fruit, garden",
     description:
       "Sunt nostrud ipsum deserunt commodo elit. Magna do voluptate deserunt ea ut pariatur irure. Dolor cillum amet incididunt in nulla duis minim minim qui id exercitation. Aliquip dolor non velit proident.\r\n",
     brand: "Bailey Garner",
-    price: 22,
     countInStock: 29,
     rating: 4,
     numReviews: 77,
@@ -378,12 +350,11 @@ const products = [
   },
   {
     name: "Pears",
-    balance: 39.5,
+    price: 39.5,
     image: "https://source.unsplash.com/1600x1436/?vegetables,fruit, garden",
     description:
       "Ea eiusmod ullamco dolore dolor quis sunt quis est non ut velit. Lorem duis velit sint reprehenderit qui amet ut tempor eiusmod aliqua ullamco. Consequat aliquip occaecat exercitation Lorem occaecat ex. Occaecat ipsum qui esse eiusmod nostrud ad occaecat fugiat deserunt velit. Officia mollit commodo anim do nisi laborum est excepteur adipisicing incididunt cillum sint consequat.\r\n",
     brand: "Jodi Fry",
-    price: 39,
     countInStock: 33,
     rating: 1,
     numReviews: 27,
@@ -391,12 +362,11 @@ const products = [
   },
   {
     name: "Avocado",
-    balance: 37.12,
+    price: 37.12,
     image: "https://source.unsplash.com/1600x1426/?vegetables,fruit, garden",
     description:
       "Non non duis duis fugiat. Voluptate aute non nulla est. Anim ut occaecat fugiat commodo in minim veniam est cupidatat.\r\n",
     brand: "Brown Spence",
-    price: 25,
     countInStock: 27,
     rating: 1,
     numReviews: 100,
@@ -404,12 +374,11 @@ const products = [
   },
   {
     name: "Cherimoya",
-    balance: 21.2,
+    price: 21.2,
     image: "https://source.unsplash.com/1600x1415/?vegetables,fruit, garden",
     description:
       "Esse commodo culpa officia quis duis consectetur ullamco ad laborum sint proident amet excepteur. Tempor mollit ut exercitation eiusmod nostrud sunt eu ea dolor eu occaecat proident deserunt consectetur. Nisi id Lorem labore ea esse minim nulla irure ullamco reprehenderit.\r\n",
     brand: "Yesenia Williamson",
-    price: 24,
     countInStock: 23,
     rating: 2,
     numReviews: 83,
@@ -417,12 +386,11 @@ const products = [
   },
   {
     name: "Plantains",
-    balance: 25.07,
+    price: 25.07,
     image: "https://source.unsplash.com/1600x1448/?vegetables,fruit, garden",
     description:
       "Minim culpa nisi reprehenderit elit consectetur qui voluptate est. Reprehenderit mollit quis occaecat aliquip culpa nulla culpa quis laboris. Fugiat deserunt velit veniam enim aliqua cillum irure excepteur magna consequat. Aliqua eiusmod eiusmod labore mollit. Dolore anim incididunt sint deserunt est non. Nisi cupidatat culpa duis est minim anim reprehenderit.\r\n",
     brand: "Sheppard Massey",
-    price: 21,
     countInStock: 37,
     rating: 5,
     numReviews: 49,
@@ -430,12 +398,11 @@ const products = [
   },
   {
     name: "Papayas",
-    balance: 32.63,
+    price: 32.63,
     image: "https://source.unsplash.com/1600x1497/?vegetables,fruit, garden",
     description:
       "Sunt sunt ex aliqua qui ad fugiat nisi qui enim minim. Cupidatat cupidatat sint est sunt aliqua. Minim nulla officia duis ullamco excepteur nulla. Consequat ipsum irure ut reprehenderit irure sunt.\r\n",
     brand: "Skinner Berg",
-    price: 29,
     countInStock: 29,
     rating: 5,
     numReviews: 87,
@@ -443,12 +410,11 @@ const products = [
   },
   {
     name: "Blackberries",
-    balance: 24.36,
+    price: 24.36,
     image: "https://source.unsplash.com/1600x1484/?vegetables,fruit, garden",
     description:
       "Eiusmod anim reprehenderit ut nulla. Anim qui non elit occaecat nulla adipisicing duis consequat deserunt exercitation consectetur. Cillum proident sunt consectetur cupidatat sit laborum. Aliquip nisi est eiusmod esse amet anim. Culpa deserunt incididunt voluptate duis cillum ipsum velit mollit do ut aliqua fugiat sit. Culpa velit enim Lorem sint exercitation. Sint ad excepteur est excepteur minim reprehenderit proident minim esse ex occaecat consectetur.\r\n",
     brand: "Luella Singleton",
-    price: 39,
     countInStock: 35,
     rating: 5,
     numReviews: 45,
@@ -456,12 +422,11 @@ const products = [
   },
   {
     name: "Jerusalem Artichoke",
-    balance: 19.11,
+    price: 19.11,
     image: "https://source.unsplash.com/1600x1411/?vegetables,fruit, garden",
     description:
       "Consequat nisi esse nostrud magna nulla nisi laboris qui sint incididunt eu in sunt et. Laborum nisi proident magna non officia et consequat dolor non ullamco irure magna. Ut culpa esse aute labore qui id commodo. Veniam labore nostrud officia fugiat sit aute sunt dolore irure. Ex culpa ea veniam eu id ullamco nostrud minim qui proident labore amet velit. Et consectetur et consectetur culpa ipsum nulla consectetur in voluptate dolor. Magna eiusmod do occaecat id in culpa occaecat laboris voluptate cupidatat officia labore nulla non.\r\n",
     brand: "Lora Golden",
-    price: 20,
     countInStock: 21,
     rating: 1,
     numReviews: 68,
@@ -469,12 +434,11 @@ const products = [
   },
   {
     name: "Carambola",
-    balance: 31.73,
+    price: 31.73,
     image: "https://source.unsplash.com/1600x1447/?vegetables,fruit, garden",
     description:
       "Dolor minim aliquip est aliquip ipsum. Adipisicing id excepteur aliqua esse. Ex anim mollit laboris excepteur tempor fugiat proident qui. Ullamco elit sunt eiusmod labore excepteur elit exercitation et. Elit mollit proident non eiusmod in officia cupidatat ipsum do dolor occaecat in culpa dolore. Consectetur elit do nostrud et qui ad ex ex.\r\n",
     brand: "Sharon Chavez",
-    price: 31,
     countInStock: 34,
     rating: 4,
     numReviews: 100,
@@ -482,12 +446,11 @@ const products = [
   },
   {
     name: "Tomato",
-    balance: 21.51,
+    price: 21.51,
     image: "https://source.unsplash.com/1600x1496/?vegetables,fruit, garden",
     description:
       "Ipsum labore Lorem laboris ut fugiat non enim. Ea magna proident amet nulla nisi irure dolor veniam enim adipisicing eiusmod nostrud cupidatat amet. Excepteur dolore sint ullamco eiusmod sunt excepteur deserunt deserunt. Nisi adipisicing dolor non do nostrud Lorem officia in non reprehenderit commodo.\r\n",
     brand: "Jewel Tanner",
-    price: 29,
     countInStock: 40,
     rating: 4,
     numReviews: 51,
@@ -495,12 +458,11 @@ const products = [
   },
   {
     name: "Zucchini Squash",
-    balance: 16.08,
+    price: 16.08,
     image: "https://source.unsplash.com/1600x1426/?vegetables,fruit, garden",
     description:
       "Amet occaecat duis id do in anim. Ad labore dolore Lorem quis. Aute nulla ipsum do id officia pariatur nulla. Nisi elit incididunt eu duis non amet aliquip exercitation. Incididunt quis velit sint mollit qui excepteur elit labore Lorem irure in excepteur voluptate reprehenderit. Excepteur exercitation eu in ullamco duis sunt reprehenderit sit anim irure ex.\r\n",
     brand: "Hampton Jimenez",
-    price: 23,
     countInStock: 34,
     rating: 3,
     numReviews: 39,
@@ -508,12 +470,11 @@ const products = [
   },
   {
     name: "Madarins",
-    balance: 37.03,
+    price: 37.03,
     image: "https://source.unsplash.com/1600x1430/?vegetables,fruit, garden",
     description:
       "Do ex id consectetur nostrud officia aliquip Lorem occaecat Lorem velit enim mollit. Voluptate aute elit pariatur anim id adipisicing minim ut labore cillum ut. Mollit tempor irure cillum veniam. Mollit nostrud irure culpa ullamco ipsum enim. Ipsum mollit sit sint quis et Lorem magna amet occaecat veniam mollit culpa. Do nulla quis dolore eu excepteur reprehenderit tempor culpa deserunt fugiat non.\r\n",
     brand: "Bradley Abbott",
-    price: 37,
     countInStock: 20,
     rating: 3,
     numReviews: 24,
@@ -521,12 +482,11 @@ const products = [
   },
   {
     name: "Cactus Pear",
-    balance: 43.15,
+    price: 43.15,
     image: "https://source.unsplash.com/1600x1429/?vegetables,fruit, garden",
     description:
       "Consectetur officia ex sit aliqua. In est adipisicing minim veniam do tempor. Dolore ea dolor consectetur elit excepteur.\r\n",
     brand: "Cooke Kinney",
-    price: 26,
     countInStock: 37,
     rating: 2,
     numReviews: 20,
@@ -534,12 +494,11 @@ const products = [
   },
   {
     name: "Potatoes",
-    balance: 4.08,
+    price: 4.08,
     image: "https://source.unsplash.com/1600x1444/?vegetables,fruit, garden",
     description:
       "Excepteur reprehenderit sint do cupidatat dolore cillum. Exercitation incididunt incididunt ad mollit dolore esse elit veniam sint. Duis qui minim ea aliqua mollit ullamco voluptate proident adipisicing sit ad adipisicing occaecat tempor. Ea officia aliqua amet mollit fugiat est reprehenderit ipsum aute anim.\r\n",
     brand: "Claudia Berger",
-    price: 20,
     countInStock: 24,
     rating: 1,
     numReviews: 40,
@@ -547,12 +506,11 @@ const products = [
   },
   {
     name: "Madarins",
-    balance: 17.83,
+    price: 17.83,
     image: "https://source.unsplash.com/1600x1490/?vegetables,fruit, garden",
     description:
       "Dolore voluptate consequat duis consequat. Nisi aliqua nisi id et ullamco culpa aliquip nisi pariatur Lorem aute reprehenderit adipisicing magna. Cupidatat duis esse voluptate consectetur magna commodo sit laboris officia sit culpa consectetur proident ipsum. Culpa eu voluptate dolore amet consequat velit deserunt. Nostrud ad est aliquip Lorem occaecat aliqua aliquip tempor ut. Nulla dolore laboris elit fugiat ad elit officia esse adipisicing proident laborum do.\r\n",
     brand: "Bianca Jensen",
-    price: 36,
     countInStock: 31,
     rating: 2,
     numReviews: 24,
@@ -560,12 +518,11 @@ const products = [
   },
   {
     name: "Figs",
-    balance: 24.25,
+    price: 24.25,
     image: "https://source.unsplash.com/1600x1449/?vegetables,fruit, garden",
     description:
       "Eu ea duis exercitation reprehenderit irure ad tempor irure adipisicing laboris. Id exercitation do est elit labore Lorem ad. Eu eu nisi consectetur ipsum proident magna tempor dolor adipisicing qui aliqua nostrud voluptate sit. Nisi labore occaecat est eu eu in elit culpa in ea.\r\n",
     brand: "Patterson Kaufman",
-    price: 37,
     countInStock: 37,
     rating: 5,
     numReviews: 50,
@@ -573,12 +530,11 @@ const products = [
   },
   {
     name: "Boysenberries",
-    balance: 6.16,
+    price: 6.16,
     image: "https://source.unsplash.com/1600x1431/?vegetables,fruit, garden",
     description:
       "Quis tempor veniam sint elit fugiat elit occaecat irure proident. Excepteur enim laborum exercitation labore culpa excepteur amet dolor nostrud dolore ipsum eu consectetur. Magna ullamco ad irure qui quis minim officia. Nostrud irure nisi qui exercitation aute exercitation irure culpa velit voluptate elit amet. Laborum ea enim cupidatat proident irure culpa in nulla.\r\n",
     brand: "Yang Greene",
-    price: 23,
     countInStock: 34,
     rating: 5,
     numReviews: 90,
@@ -586,12 +542,11 @@ const products = [
   },
   {
     name: "Broccoli",
-    balance: 28.94,
+    price: 28.94,
     image: "https://source.unsplash.com/1600x1418/?vegetables,fruit, garden",
     description:
       "In veniam cupidatat cillum quis amet elit dolore elit dolore amet ad anim. Irure in qui ut velit ipsum cillum ut cupidatat adipisicing laborum adipisicing voluptate aliqua voluptate. Sint dolor ut sit nulla ex dolore cillum sint consequat. Tempor labore et aliquip tempor. Occaecat eu minim do consectetur reprehenderit eiusmod mollit cillum nisi commodo et occaecat dolore et. Lorem sit incididunt proident incididunt aliqua duis nulla. Sunt amet ex sunt ut laborum eiusmod.\r\n",
     brand: "Carson Barron",
-    price: 27,
     countInStock: 38,
     rating: 1,
     numReviews: 32,
@@ -599,12 +554,11 @@ const products = [
   },
   {
     name: "Rhubarb",
-    balance: 22.17,
+    price: 22.17,
     image: "https://source.unsplash.com/1600x1478/?vegetables,fruit, garden",
     description:
       "Fugiat labore exercitation excepteur culpa veniam tempor culpa magna elit id nulla esse consequat aute. Voluptate mollit eu aliquip qui cillum veniam tempor quis minim adipisicing nostrud deserunt dolore. Est minim voluptate quis sit magna et. Sunt nostrud exercitation ullamco reprehenderit amet culpa occaecat id occaecat nisi in dolore.\r\n",
     brand: "Corrine Bowman",
-    price: 27,
     countInStock: 24,
     rating: 2,
     numReviews: 50,
@@ -612,12 +566,11 @@ const products = [
   },
   {
     name: "Yams",
-    balance: 13.47,
+    price: 13.47,
     image: "https://source.unsplash.com/1600x1478/?vegetables,fruit, garden",
     description:
       "Adipisicing incididunt ut velit sint. Cupidatat aute sunt cupidatat eiusmod consectetur magna quis. Ex minim sint ullamco irure labore esse dolor pariatur ea nisi ullamco non do id. Quis exercitation exercitation ex nostrud nisi quis magna commodo sit ullamco.\r\n",
     brand: "Candice Branch",
-    price: 39,
     countInStock: 35,
     rating: 2,
     numReviews: 27,
@@ -625,12 +578,11 @@ const products = [
   },
   {
     name: "Alfalfa Sprouts",
-    balance: 15.16,
+    price: 15.16,
     image: "https://source.unsplash.com/1600x1432/?vegetables,fruit, garden",
     description:
       "Nostrud sit pariatur laborum reprehenderit dolor. Commodo nulla amet elit occaecat velit exercitation. Ex consequat esse quis duis reprehenderit mollit aute enim eu elit in Lorem nostrud nulla. Voluptate velit incididunt sunt exercitation nostrud nostrud esse ad anim duis. Occaecat minim eu labore ex ullamco magna ea ad consequat amet dolor consequat. Dolore tempor in laboris nostrud aliquip ut mollit. Dolor nulla cillum officia consequat consequat esse eiusmod aliqua amet occaecat mollit veniam ullamco fugiat.\r\n",
     brand: "Rae Carver",
-    price: 33,
     countInStock: 37,
     rating: 4,
     numReviews: 54,
@@ -638,12 +590,11 @@ const products = [
   },
   {
     name: "Grapefruit",
-    balance: 19.21,
+    price: 19.21,
     image: "https://source.unsplash.com/1600x1412/?vegetables,fruit, garden",
     description:
       "Pariatur excepteur cupidatat nisi elit ex pariatur sunt labore nisi aute incididunt eu. Mollit officia voluptate irure enim eu enim velit excepteur nulla veniam nisi. Cupidatat aliquip amet quis mollit in. Pariatur excepteur tempor Lorem tempor commodo nostrud laborum culpa. Veniam non irure incididunt pariatur reprehenderit aute elit est.\r\n",
     brand: "Clare Savage",
-    price: 36,
     countInStock: 33,
     rating: 1,
     numReviews: 93,
@@ -651,12 +602,11 @@ const products = [
   },
   {
     name: "Potatoes",
-    balance: 6.16,
+    price: 6.16,
     image: "https://source.unsplash.com/1600x1472/?vegetables,fruit, garden",
     description:
       "Laborum nulla Lorem anim consectetur exercitation pariatur esse sint ex nulla enim veniam enim. Irure dolore commodo sit id cupidatat anim cillum sunt culpa. Voluptate in cupidatat exercitation irure amet aute consequat minim reprehenderit. Laboris occaecat aute nulla ipsum magna consequat quis incididunt veniam aliquip id ad excepteur. Aliquip ullamco irure excepteur velit nostrud labore exercitation aute quis ea. Quis deserunt incididunt dolor irure ad nulla sunt enim proident mollit.\r\n",
     brand: "Gonzalez Barton",
-    price: 40,
     countInStock: 30,
     rating: 3,
     numReviews: 21,
@@ -664,12 +614,11 @@ const products = [
   },
   {
     name: "Garlic",
-    balance: 12.58,
+    price: 12.58,
     image: "https://source.unsplash.com/1600x1437/?vegetables,fruit, garden",
     description:
       "Adipisicing amet aute pariatur in labore nulla eiusmod occaecat anim officia veniam Lorem. Esse Lorem adipisicing nulla non incididunt dolore excepteur in voluptate tempor cupidatat ex irure sit. Cillum elit consectetur veniam nisi. Deserunt incididunt qui tempor ut dolor labore cupidatat ea labore qui sunt tempor dolore veniam. Enim dolor consequat velit id et anim ipsum do irure irure ipsum est amet. Commodo laboris cillum cillum mollit sit pariatur fugiat deserunt. Et deserunt eiusmod duis velit officia consectetur Lorem non.\r\n",
     brand: "Case Leon",
-    price: 29,
     countInStock: 38,
     rating: 4,
     numReviews: 67,
@@ -677,12 +626,11 @@ const products = [
   },
   {
     name: "Tomato",
-    balance: 45.03,
+    price: 45.03,
     image: "https://source.unsplash.com/1600x1443/?vegetables,fruit, garden",
     description:
       "Incididunt reprehenderit fugiat fugiat cupidatat commodo proident do culpa magna nulla magna sint aute. Deserunt elit dolor aute et laborum officia elit elit ea. Excepteur in est commodo laboris aute minim consectetur in sunt.\r\n",
     brand: "Dotson Good",
-    price: 37,
     countInStock: 39,
     rating: 5,
     numReviews: 67,
@@ -690,12 +638,11 @@ const products = [
   },
   {
     name: "Water Chestnuts",
-    balance: 20.08,
+    price: 20.08,
     image: "https://source.unsplash.com/1600x1496/?vegetables,fruit, garden",
     description:
       "Do mollit non proident in non non amet consequat dolore cupidatat. Ea officia exercitation id ipsum consectetur. Aliqua qui id incididunt commodo.\r\n",
     brand: "Traci Nguyen",
-    price: 24,
     countInStock: 37,
     rating: 1,
     numReviews: 98,
@@ -703,12 +650,11 @@ const products = [
   },
   {
     name: "Boysenberries",
-    balance: 6.81,
+    price: 6.81,
     image: "https://source.unsplash.com/1600x1467/?vegetables,fruit, garden",
     description:
       "Lorem ex sunt mollit eiusmod excepteur magna dolor incididunt mollit consequat culpa nulla. Minim id incididunt enim duis ullamco minim esse cillum amet in eiusmod voluptate officia ullamco. Eiusmod pariatur cillum consequat officia laborum sit ut. Amet consequat anim aliquip veniam magna commodo proident mollit adipisicing in.\r\n",
     brand: "Pearl Bond",
-    price: 31,
     countInStock: 40,
     rating: 2,
     numReviews: 84,
@@ -716,12 +662,11 @@ const products = [
   },
   {
     name: "Belgian Endive",
-    balance: 43.37,
+    price: 43.37,
     image: "https://source.unsplash.com/1600x1442/?vegetables,fruit, garden",
     description:
       "Labore sunt est enim officia deserunt nulla do excepteur. Proident officia eu consequat officia ea Lorem dolor dolor irure minim ut. Duis nostrud commodo in voluptate magna esse. Nulla magna nulla ipsum sit quis velit veniam laborum qui commodo quis id cupidatat. Et pariatur minim ipsum dolor culpa consequat nulla anim veniam et. Qui voluptate pariatur voluptate ut est aute excepteur. Exercitation sit fugiat incididunt incididunt quis aliqua exercitation in.\r\n",
     brand: "Riley Roberson",
-    price: 39,
     countInStock: 28,
     rating: 3,
     numReviews: 24,
@@ -729,12 +674,11 @@ const products = [
   },
   {
     name: "Passion Fruit",
-    balance: 1.27,
+    price: 1.27,
     image: "https://source.unsplash.com/1600x1468/?vegetables,fruit, garden",
     description:
       "Anim culpa dolore consequat Lorem proident duis officia proident tempor quis pariatur. Labore aliquip in incididunt laborum aliquip eiusmod ad do laborum irure ullamco proident aute et. Mollit eiusmod cupidatat nisi in. Proident tempor consectetur adipisicing commodo do proident non culpa excepteur nulla. Quis dolore in pariatur ut. Id tempor esse aute do consectetur do amet esse sint consequat quis.\r\n",
     brand: "Mabel Sweeney",
-    price: 36,
     countInStock: 23,
     rating: 5,
     numReviews: 62,
@@ -742,12 +686,11 @@ const products = [
   },
   {
     name: "Quince",
-    balance: 21.23,
+    price: 21.23,
     image: "https://source.unsplash.com/1600x1450/?vegetables,fruit, garden",
     description:
       "Veniam esse minim quis non non ipsum est proident ullamco ad nulla. Deserunt exercitation amet sunt sit labore exercitation duis irure officia. Sunt qui qui ex aliqua deserunt est exercitation dolor eiusmod commodo. Enim non sit culpa eiusmod ea incididunt esse laborum laborum proident.\r\n",
     brand: "Katharine Shaffer",
-    price: 21,
     countInStock: 27,
     rating: 1,
     numReviews: 44,
@@ -755,12 +698,11 @@ const products = [
   },
   {
     name: "Green Beans",
-    balance: 3.42,
+    price: 3.42,
     image: "https://source.unsplash.com/1600x1446/?vegetables,fruit, garden",
     description:
       "Sit eiusmod consectetur nostrud incididunt excepteur dolor. Qui sunt enim ut Lorem excepteur commodo adipisicing aliquip nulla. Adipisicing et reprehenderit aliquip eiusmod aliquip elit aute magna labore esse consectetur. Qui eu ea voluptate commodo reprehenderit excepteur. Ea laboris quis dolor nulla duis aute consequat culpa ipsum occaecat tempor ea deserunt.\r\n",
     brand: "Sadie Wells",
-    price: 30,
     countInStock: 25,
     rating: 5,
     numReviews: 65,
@@ -768,12 +710,11 @@ const products = [
   },
   {
     name: "Green Onions",
-    balance: 18.35,
+    price: 18.35,
     image: "https://source.unsplash.com/1600x1483/?vegetables,fruit, garden",
     description:
       "Nostrud consequat veniam in nulla. Sunt reprehenderit qui pariatur magna tempor fugiat nostrud exercitation ipsum aliqua do. Ullamco sint magna do laborum irure culpa. Esse incididunt aliqua mollit eiusmod occaecat veniam nisi reprehenderit adipisicing cillum occaecat excepteur adipisicing. Et do nostrud non ea enim velit cillum. Elit sint aliqua aliquip ex ea ex consequat sunt excepteur deserunt.\r\n",
     brand: "Amie Booth",
-    price: 27,
     countInStock: 25,
     rating: 3,
     numReviews: 73,
@@ -781,12 +722,11 @@ const products = [
   },
   {
     name: "Lima Beans",
-    balance: 37.13,
+    price: 37.13,
     image: "https://source.unsplash.com/1600x1495/?vegetables,fruit, garden",
     description:
       "Dolor do commodo amet enim ullamco. Id aute consectetur et sint duis mollit. Adipisicing adipisicing est in anim irure excepteur. Incididunt sunt pariatur aliquip excepteur cupidatat incididunt irure et Lorem. Quis cupidatat magna aliquip dolore sit cupidatat aute adipisicing cupidatat.\r\n",
     brand: "Jones Marshall",
-    price: 30,
     countInStock: 26,
     rating: 1,
     numReviews: 87,
@@ -794,12 +734,11 @@ const products = [
   },
   {
     name: "Celery",
-    balance: 2.61,
+    price: 2.61,
     image: "https://source.unsplash.com/1600x1442/?vegetables,fruit, garden",
     description:
       "Qui in aliqua in quis quis ut laboris ex exercitation deserunt minim cupidatat consectetur. Laborum pariatur in quis tempor anim duis esse. Sunt consectetur eu anim nulla sunt. Nostrud labore magna nulla dolore deserunt voluptate reprehenderit esse. Voluptate pariatur duis anim id reprehenderit id.\r\n",
     brand: "Holland Vance",
-    price: 23,
     countInStock: 39,
     rating: 2,
     numReviews: 29,
@@ -807,12 +746,11 @@ const products = [
   },
   {
     name: "Lima Beans",
-    balance: 1.24,
+    price: 1.24,
     image: "https://source.unsplash.com/1600x1467/?vegetables,fruit, garden",
     description:
       "Officia non consectetur ad voluptate esse nulla commodo cillum nulla. Et consectetur eiusmod proident et ad minim fugiat id non consequat. Proident sunt consequat laboris ea ea commodo est est non do consectetur dolore veniam deserunt. Irure aute aliqua mollit nisi reprehenderit dolore anim do labore enim sit commodo. Dolor dolore culpa ad sit dolor laboris.\r\n",
     brand: "Nanette Berry",
-    price: 25,
     countInStock: 28,
     rating: 4,
     numReviews: 57,
@@ -820,12 +758,11 @@ const products = [
   },
   {
     name: "Napa",
-    balance: 1.51,
+    price: 1.51,
     image: "https://source.unsplash.com/1600x1424/?vegetables,fruit, garden",
     description:
       "Enim incididunt id laborum elit. Anim commodo commodo est exercitation aute nisi adipisicing reprehenderit elit. Est Lorem ea nostrud quis ut excepteur minim aliquip. In Lorem voluptate reprehenderit ut sint qui. Dolor est ex dolore eiusmod fugiat ex velit. Dolore laboris laborum elit excepteur non officia anim ullamco eiusmod ea quis pariatur aliqua laboris. Deserunt est adipisicing Lorem voluptate in laboris ex commodo deserunt esse qui dolor ad magna.\r\n",
     brand: "Mcmahon Bates",
-    price: 29,
     countInStock: 35,
     rating: 4,
     numReviews: 55,
@@ -833,12 +770,11 @@ const products = [
   },
   {
     name: "Ugli Fruit",
-    balance: 9.31,
+    price: 9.31,
     image: "https://source.unsplash.com/1600x1483/?vegetables,fruit, garden",
     description:
       "Nisi ex proident fugiat in laboris deserunt sunt qui mollit. Minim dolor in ullamco minim culpa Lorem ea aute officia. Consequat anim mollit occaecat quis reprehenderit. Officia amet incididunt mollit proident mollit consequat sit enim. Anim cillum ea eiusmod ea sit magna aute irure qui. Deserunt proident excepteur excepteur culpa ea.\r\n",
     brand: "Keller Guy",
-    price: 23,
     countInStock: 29,
     rating: 1,
     numReviews: 77,
@@ -846,12 +782,11 @@ const products = [
   },
   {
     name: "Kale",
-    balance: 2.89,
+    price: 2.89,
     image: "https://source.unsplash.com/1600x1410/?vegetables,fruit, garden",
     description:
       "Officia occaecat occaecat minim in deserunt anim cupidatat sunt est voluptate sint proident. Occaecat qui velit ipsum irure. Laborum ea ut nulla laborum ipsum laboris. Dolor sint et esse id veniam sit dolore irure amet occaecat. Dolor officia amet eu cillum. Ullamco aliqua ullamco veniam veniam ex eiusmod enim.\r\n",
     brand: "Kline Elliott",
-    price: 36,
     countInStock: 38,
     rating: 5,
     numReviews: 72,
@@ -859,12 +794,11 @@ const products = [
   },
   {
     name: "Papayas",
-    balance: 15.11,
+    price: 15.11,
     image: "https://source.unsplash.com/1600x1423/?vegetables,fruit, garden",
     description:
       "Sit dolor eiusmod ea mollit mollit fugiat adipisicing deserunt quis dolore reprehenderit incididunt culpa. Ad duis mollit est ullamco commodo commodo proident laboris nostrud quis occaecat nulla magna non. Velit do labore in dolore excepteur. Lorem magna est deserunt cillum excepteur consectetur dolore veniam ad aliqua dolore.\r\n",
     brand: "Melva Clemons",
-    price: 20,
     countInStock: 34,
     rating: 4,
     numReviews: 50,
@@ -872,12 +806,11 @@ const products = [
   },
   {
     name: "Blackberries",
-    balance: 37.51,
+    price: 37.51,
     image: "https://source.unsplash.com/1600x1436/?vegetables,fruit, garden",
     description:
       "Dolore pariatur dolore enim id sit ea labore deserunt duis. Ex commodo proident ea anim culpa voluptate in consectetur nisi non nulla. Culpa quis nulla cupidatat amet dolor id aliquip. Incididunt velit in amet elit nisi excepteur. Ipsum enim quis officia occaecat commodo.\r\n",
     brand: "Myra Espinoza",
-    price: 28,
     countInStock: 40,
     rating: 4,
     numReviews: 71,
@@ -885,12 +818,11 @@ const products = [
   },
   {
     name: "Gooseberries",
-    balance: 39.61,
+    price: 39.61,
     image: "https://source.unsplash.com/1600x1490/?vegetables,fruit, garden",
     description:
       "Ad proident in eu irure consectetur. Qui labore occaecat tempor enim ea consectetur ipsum pariatur ullamco ut nisi occaecat sit aliquip. Proident voluptate adipisicing nulla elit duis proident enim nostrud. Nulla ipsum et et enim consequat ad occaecat esse culpa ex ipsum sit. Ea sit duis consequat labore nostrud cupidatat labore.\r\n",
     brand: "Ola Hogan",
-    price: 23,
     countInStock: 20,
     rating: 3,
     numReviews: 49,
@@ -898,12 +830,11 @@ const products = [
   },
   {
     name: "Iceberg Lettuce",
-    balance: 16.29,
+    price: 16.29,
     image: "https://source.unsplash.com/1600x1482/?vegetables,fruit, garden",
     description:
       "Occaecat occaecat aliquip aute tempor occaecat do Lorem deserunt officia enim labore nisi aute. Exercitation eu voluptate proident quis Lorem deserunt enim eu eu id. Ipsum pariatur minim enim velit duis ad consectetur proident ad minim consequat. Aute Lorem minim quis in. Esse cillum consectetur ex sint dolor fugiat aute velit fugiat exercitation est aute.\r\n",
     brand: "Susanne Ayala",
-    price: 32,
     countInStock: 27,
     rating: 3,
     numReviews: 82,
@@ -911,12 +842,11 @@ const products = [
   },
   {
     name: "Green Beans",
-    balance: 20.96,
+    price: 20.96,
     image: "https://source.unsplash.com/1600x1414/?vegetables,fruit, garden",
     description:
       "Nulla cupidatat aliquip reprehenderit ex Lorem et ea do dolore esse magna deserunt. Consequat laboris ex velit culpa adipisicing ea eu aliquip et dolor. Duis velit occaecat aliqua est elit anim. Et amet dolor amet tempor tempor esse amet officia consequat do excepteur. Deserunt ex ea nulla commodo exercitation nostrud cupidatat ex sint ea aliquip eu laboris. Non esse tempor esse laboris sint fugiat excepteur eiusmod laborum.\r\n",
     brand: "Williamson Weiss",
-    price: 38,
     countInStock: 36,
     rating: 1,
     numReviews: 89,
@@ -924,12 +854,11 @@ const products = [
   },
   {
     name: "Rutabaga",
-    balance: 15.33,
+    price: 15.33,
     image: "https://source.unsplash.com/1600x1490/?vegetables,fruit, garden",
     description:
       "Consectetur sit occaecat dolore esse ad enim. Officia officia magna nulla Lorem officia ut eiusmod. Veniam fugiat minim excepteur nulla anim reprehenderit deserunt minim fugiat officia dolor nostrud. Veniam cillum cillum ea incididunt. Dolor aliquip officia nostrud enim duis sunt.\r\n",
     brand: "Jill Workman",
-    price: 34,
     countInStock: 21,
     rating: 2,
     numReviews: 78,
@@ -937,12 +866,11 @@ const products = [
   },
   {
     name: "Bean Sprouts",
-    balance: 31.06,
+    price: 31.06,
     image: "https://source.unsplash.com/1600x1471/?vegetables,fruit, garden",
     description:
       "Commodo duis consectetur sit ipsum esse. Esse eiusmod exercitation sint sit. Et cupidatat et dolore cupidatat ipsum consequat aute nostrud anim. Irure in consectetur proident ullamco commodo ut duis reprehenderit labore dolore sunt occaecat ut.\r\n",
     brand: "Wiggins Martinez",
-    price: 25,
     countInStock: 27,
     rating: 5,
     numReviews: 38,
@@ -950,12 +878,11 @@ const products = [
   },
   {
     name: "Persimmons",
-    balance: 11.53,
+    price: 11.53,
     image: "https://source.unsplash.com/1600x1415/?vegetables,fruit, garden",
     description:
       "Aute occaecat ullamco fugiat consequat ea laboris. Qui id tempor consequat exercitation ad. Ex ut dolore aute tempor consectetur aliqua et labore. Aute cupidatat dolor commodo elit. Non voluptate ea elit amet occaecat non ex. Velit aliquip pariatur irure exercitation magna veniam pariatur non tempor.\r\n",
     brand: "Lydia Avila",
-    price: 40,
     countInStock: 24,
     rating: 4,
     numReviews: 46,
@@ -963,12 +890,11 @@ const products = [
   },
   {
     name: "Bean Sprouts",
-    balance: 2.21,
+    price: 2.21,
     image: "https://source.unsplash.com/1600x1495/?vegetables,fruit, garden",
     description:
       "Cillum velit amet officia et. Esse velit officia velit id nulla aliquip et labore. Commodo sint ad culpa excepteur culpa consequat dolore enim officia sunt eiusmod ipsum. Aliquip duis quis commodo fugiat labore pariatur amet ullamco ad excepteur amet occaecat anim.\r\n",
     brand: "Willie Love",
-    price: 34,
     countInStock: 32,
     rating: 4,
     numReviews: 77,
@@ -976,12 +902,11 @@ const products = [
   },
   {
     name: "Okra",
-    balance: 31.94,
+    price: 31.94,
     image: "https://source.unsplash.com/1600x1413/?vegetables,fruit, garden",
     description:
       "Amet ut aliqua officia elit fugiat occaecat ipsum adipisicing excepteur. Dolore nostrud exercitation adipisicing sint. Consequat culpa deserunt irure fugiat minim commodo nulla fugiat veniam sunt. Aliquip enim anim esse qui cupidatat adipisicing nostrud nisi enim proident incididunt incididunt. Elit Lorem ullamco officia irure cupidatat dolore culpa. Laborum incididunt sunt ut ut.\r\n",
     brand: "Penny Lewis",
-    price: 31,
     countInStock: 38,
     rating: 4,
     numReviews: 73,
@@ -989,12 +914,11 @@ const products = [
   },
   {
     name: "Yellow Squash",
-    balance: 27.64,
+    price: 27.64,
     image: "https://source.unsplash.com/1600x1492/?vegetables,fruit, garden",
     description:
       "Voluptate in incididunt excepteur Lorem tempor Lorem adipisicing irure. In sit fugiat nostrud ex ad. Quis duis anim ullamco est eiusmod excepteur. Consequat consectetur officia sunt tempor ea aute ullamco Lorem et ipsum est nisi duis cupidatat. Adipisicing incididunt exercitation mollit nostrud sint.\r\n",
     brand: "Rosario Simpson",
-    price: 20,
     countInStock: 34,
     rating: 1,
     numReviews: 54,
@@ -1002,12 +926,11 @@ const products = [
   },
   {
     name: "Malanga",
-    balance: 47.17,
+    price: 47.17,
     image: "https://source.unsplash.com/1600x1480/?vegetables,fruit, garden",
     description:
       "Reprehenderit labore irure ex amet officia Lorem ea. Officia cupidatat minim minim Lorem sunt exercitation mollit id ipsum. Laboris in fugiat nostrud occaecat cillum voluptate dolor occaecat cupidatat deserunt cillum sunt. In voluptate irure anim occaecat cupidatat aute non magna. Do sint est fugiat officia elit officia. In in pariatur dolore ipsum cillum do eu commodo exercitation est. Adipisicing tempor amet consequat duis officia aute ea excepteur mollit dolore exercitation fugiat.\r\n",
     brand: "Robin Stanley",
-    price: 38,
     countInStock: 36,
     rating: 1,
     numReviews: 85,
@@ -1015,12 +938,11 @@ const products = [
   },
   {
     name: "Grapes",
-    balance: 31.14,
+    price: 31.14,
     image: "https://source.unsplash.com/1600x1499/?vegetables,fruit, garden",
     description:
       "Ut ex laborum occaecat in esse magna sunt quis deserunt voluptate consectetur fugiat. Ex sunt non sint ad pariatur non tempor nisi aliqua irure officia cupidatat. Labore deserunt sit pariatur ex nulla reprehenderit velit veniam. Ex officia aute nisi ut incididunt non in duis laborum ad in nisi sunt.\r\n",
     brand: "Moss Sparks",
-    price: 26,
     countInStock: 22,
     rating: 5,
     numReviews: 82,
@@ -1028,12 +950,11 @@ const products = [
   },
   {
     name: "Kumquat",
-    balance: 15.94,
+    price: 15.94,
     image: "https://source.unsplash.com/1600x1474/?vegetables,fruit, garden",
     description:
       "Voluptate pariatur in anim anim anim elit est incididunt sit veniam labore magna dolore velit. Do excepteur nisi cupidatat ex officia ad. Velit in incididunt nulla cillum adipisicing commodo aute culpa id fugiat deserunt et amet commodo.\r\n",
     brand: "Janell Wiggins",
-    price: 26,
     countInStock: 32,
     rating: 2,
     numReviews: 50,
@@ -1041,12 +962,11 @@ const products = [
   },
   {
     name: "Lemons",
-    balance: 26.45,
+    price: 26.45,
     image: "https://source.unsplash.com/1600x1417/?vegetables,fruit, garden",
     description:
       "Irure et ut laboris sunt eu. Ad excepteur sint laboris minim id eu esse sit irure et enim qui. Commodo cillum mollit ea consectetur eu cillum ad ullamco consectetur laborum. Dolore ipsum occaecat in ipsum deserunt sint mollit occaecat minim eiusmod sit nostrud.\r\n",
     brand: "Hale Frye",
-    price: 32,
     countInStock: 28,
     rating: 4,
     numReviews: 33,
@@ -1054,12 +974,11 @@ const products = [
   },
   {
     name: "Broccoflower",
-    balance: 43.9,
+    price: 43.9,
     image: "https://source.unsplash.com/1600x1418/?vegetables,fruit, garden",
     description:
       "Lorem anim labore officia enim sit esse sunt est qui magna. Laborum pariatur proident sunt labore eiusmod ex exercitation reprehenderit esse aliquip. Ipsum anim eiusmod magna dolor.\r\n",
     brand: "Pearlie Gibbs",
-    price: 33,
     countInStock: 35,
     rating: 5,
     numReviews: 91,
@@ -1067,12 +986,11 @@ const products = [
   },
   {
     name: "Mushrooms",
-    balance: 26.42,
+    price: 26.42,
     image: "https://source.unsplash.com/1600x1478/?vegetables,fruit, garden",
     description:
       "Ex culpa nisi quis exercitation laboris consequat Lorem officia mollit commodo proident consectetur Lorem. Amet minim non elit nisi. Irure tempor Lorem culpa fugiat adipisicing ullamco id. Deserunt ullamco in commodo esse laborum. Labore consectetur quis voluptate tempor consectetur ex officia sit culpa nostrud. Aliquip ex aliqua aute do voluptate culpa cupidatat. Cupidatat reprehenderit esse ullamco tempor voluptate nostrud occaecat.\r\n",
     brand: "Chen Slater",
-    price: 26,
     countInStock: 25,
     rating: 3,
     numReviews: 27,
@@ -1080,12 +998,11 @@ const products = [
   },
   {
     name: "Rhubarb",
-    balance: 45.29,
+    price: 45.29,
     image: "https://source.unsplash.com/1600x1429/?vegetables,fruit, garden",
     description:
       "Deserunt non pariatur dolor laboris sint elit Lorem eiusmod irure cupidatat exercitation excepteur proident. Occaecat consequat excepteur Lorem commodo incididunt sunt. Id duis et anim voluptate ipsum voluptate laboris aute adipisicing cillum nulla. Excepteur reprehenderit eu fugiat do Lorem esse. Eu do quis aliqua exercitation reprehenderit esse eu. Sunt anim duis ullamco eu incididunt culpa labore excepteur.\r\n",
     brand: "Rosa Whitley",
-    price: 30,
     countInStock: 28,
     rating: 2,
     numReviews: 42,
@@ -1093,12 +1010,11 @@ const products = [
   },
   {
     name: "Kumquat",
-    balance: 1.53,
+    price: 1.53,
     image: "https://source.unsplash.com/1600x1468/?vegetables,fruit, garden",
     description:
       "Laborum et id minim exercitation nostrud. Esse ex ut duis duis eu sunt officia nostrud labore dolore. Fugiat et et est aliquip nulla occaecat aliquip exercitation eiusmod. Non laboris anim mollit ea aliquip.\r\n",
     brand: "Evangeline Duncan",
-    price: 23,
     countInStock: 38,
     rating: 5,
     numReviews: 57,
@@ -1106,12 +1022,11 @@ const products = [
   },
   {
     name: "Red Cabbage",
-    balance: 21.57,
+    price: 21.57,
     image: "https://source.unsplash.com/1600x1424/?vegetables,fruit, garden",
     description:
       "Labore tempor et elit anim. Ullamco quis cupidatat voluptate fugiat consequat exercitation officia esse qui ut sit magna. Elit aute duis aliqua pariatur velit id dolore excepteur nisi veniam aliqua. Officia ex pariatur ipsum irure exercitation anim ad aliqua ad esse ex ex. Qui magna fugiat nulla Lorem veniam pariatur.\r\n",
     brand: "Sullivan Lyons",
-    price: 26,
     countInStock: 38,
     rating: 2,
     numReviews: 28,
@@ -1119,12 +1034,11 @@ const products = [
   },
   {
     name: "Watercress",
-    balance: 16.92,
+    price: 16.92,
     image: "https://source.unsplash.com/1600x1413/?vegetables,fruit, garden",
     description:
       "Veniam dolore aute labore laboris anim nulla nulla quis magna esse incididunt ut dolor nostrud. Lorem elit reprehenderit tempor esse excepteur culpa. Irure esse eu excepteur ullamco nisi eiusmod. Nulla et incididunt amet sit dolore enim fugiat esse irure cillum enim Lorem incididunt veniam. Consectetur officia fugiat laborum fugiat sunt consectetur quis ut magna. Eiusmod tempor eu aliqua nisi enim reprehenderit enim et exercitation eiusmod do.\r\n",
     brand: "Erickson Burnett",
-    price: 38,
     countInStock: 23,
     rating: 3,
     numReviews: 33,
@@ -1132,12 +1046,11 @@ const products = [
   },
   {
     name: "Squash",
-    balance: 8.11,
+    price: 8.11,
     image: "https://source.unsplash.com/1600x1492/?vegetables,fruit, garden",
     description:
       "Commodo velit mollit commodo amet do amet occaecat officia. Ipsum nulla laboris esse mollit. Occaecat cupidatat Lorem tempor labore id dolore eu mollit velit esse veniam cillum. Ea ut veniam do ullamco ipsum laboris nostrud velit quis consectetur magna.\r\n",
     brand: "Mollie Zamora",
-    price: 29,
     countInStock: 35,
     rating: 1,
     numReviews: 44,
@@ -1145,12 +1058,11 @@ const products = [
   },
   {
     name: "Leeks",
-    balance: 43.31,
+    price: 43.31,
     image: "https://source.unsplash.com/1600x1435/?vegetables,fruit, garden",
     description:
       "Veniam ad aliqua deserunt consectetur excepteur anim voluptate proident cupidatat proident. Aute elit eiusmod sit excepteur est aliqua sint dolor. Elit cupidatat elit ea ad. Fugiat ipsum occaecat occaecat dolor laboris aliquip dolor duis. Do cupidatat dolore tempor fugiat voluptate irure ad qui ad ea dolore.\r\n",
     brand: "Lorena Cameron",
-    price: 28,
     countInStock: 37,
     rating: 3,
     numReviews: 65,
@@ -1158,12 +1070,11 @@ const products = [
   },
   {
     name: "Coconuts",
-    balance: 23.72,
+    price: 23.72,
     image: "https://source.unsplash.com/1600x1467/?vegetables,fruit, garden",
     description:
       "Proident ad anim eiusmod ullamco culpa. Aute irure aliquip anim ut duis ut quis magna ut mollit laborum officia. Et commodo nostrud anim culpa nulla anim. Tempor aliqua ullamco nostrud sit minim est ipsum dolor tempor officia veniam nisi. Id ex consequat cupidatat ipsum ad sit aliqua.\r\n",
     brand: "Parks Myers",
-    price: 24,
     countInStock: 29,
     rating: 3,
     numReviews: 20,
@@ -1171,12 +1082,11 @@ const products = [
   },
   {
     name: "Lettuce",
-    balance: 30.53,
+    price: 30.53,
     image: "https://source.unsplash.com/1600x1450/?vegetables,fruit, garden",
     description:
       "Et nisi amet officia ea do culpa. Fugiat magna veniam culpa occaecat incididunt aliquip labore laborum. Do mollit reprehenderit minim est nulla ad id voluptate. Fugiat ea velit culpa mollit ea eiusmod occaecat officia sunt minim irure. Exercitation officia incididunt quis consectetur Lorem in amet reprehenderit fugiat nulla. Non anim aliquip labore aliquip irure et commodo. Adipisicing anim pariatur adipisicing ipsum labore pariatur quis elit id qui ut elit commodo.\r\n",
     brand: "Johnson Sheppard",
-    price: 33,
     countInStock: 34,
     rating: 1,
     numReviews: 38,
@@ -1184,12 +1094,11 @@ const products = [
   },
   {
     name: "Carrots",
-    balance: 39.27,
+    price: 39.27,
     image: "https://source.unsplash.com/1600x1450/?vegetables,fruit, garden",
     description:
       "Sint fugiat magna do pariatur proident dolore sint anim sunt. Cillum tempor veniam esse duis culpa aliqua in proident Lorem duis deserunt ullamco anim minim. Aliquip nisi qui do ad magna commodo exercitation nostrud reprehenderit aute.\r\n",
     brand: "Dillard Tyler",
-    price: 27,
     countInStock: 31,
     rating: 3,
     numReviews: 78,
@@ -1197,12 +1106,11 @@ const products = [
   },
   {
     name: "Madarins",
-    balance: 44.83,
+    price: 44.83,
     image: "https://source.unsplash.com/1600x1491/?vegetables,fruit, garden",
     description:
       "Dolore nisi fugiat nulla ipsum proident aliquip proident laboris cupidatat enim aute. Culpa non deserunt officia dolore consequat magna. Irure in amet elit aliquip. Cillum exercitation sunt reprehenderit veniam ex voluptate officia ex. Consectetur aute voluptate eu aute ea labore ullamco.\r\n",
     brand: "Crawford Sharpe",
-    price: 20,
     countInStock: 34,
     rating: 2,
     numReviews: 50,
@@ -1210,12 +1118,11 @@ const products = [
   },
   {
     name: "Green Onions",
-    balance: 49.47,
+    price: 49.47,
     image: "https://source.unsplash.com/1600x1410/?vegetables,fruit, garden",
     description:
       "Sit reprehenderit duis anim nisi cupidatat laborum veniam minim enim Lorem Lorem laborum dolore. Eu aute exercitation ipsum ut reprehenderit ad. Voluptate nostrud nostrud officia nisi voluptate commodo nisi dolor reprehenderit. Veniam voluptate dolor deserunt reprehenderit ut.\r\n",
     brand: "Imelda Carr",
-    price: 38,
     countInStock: 32,
     rating: 2,
     numReviews: 38,
@@ -1223,12 +1130,11 @@ const products = [
   },
   {
     name: "Tangerines",
-    balance: 49.68,
+    price: 49.68,
     image: "https://source.unsplash.com/1600x1424/?vegetables,fruit, garden",
     description:
       "Deserunt elit cupidatat dolor in esse consequat nostrud elit officia laborum nisi sunt duis nisi. In Lorem occaecat excepteur sint. Cupidatat aute nisi aliqua aliqua ad excepteur dolore labore et anim sunt. Enim ullamco cillum officia amet mollit dolore occaecat fugiat aute duis velit nulla. Id dolore adipisicing deserunt proident amet sit nostrud id sunt commodo fugiat. Veniam proident Lorem anim mollit. Magna tempor sit sint elit ut et sunt.\r\n",
     brand: "Dorothea Daniels",
-    price: 22,
     countInStock: 35,
     rating: 2,
     numReviews: 64,
@@ -1236,12 +1142,11 @@ const products = [
   },
   {
     name: "Grapes",
-    balance: 31.81,
+    price: 31.81,
     image: "https://source.unsplash.com/1600x1455/?vegetables,fruit, garden",
     description:
       "Ea aute fugiat est sint sunt ut. Esse irure fugiat minim excepteur anim. Et id laboris quis commodo in est eu.\r\n",
     brand: "Velasquez Mooney",
-    price: 23,
     countInStock: 34,
     rating: 5,
     numReviews: 68,
@@ -1249,12 +1154,11 @@ const products = [
   },
   {
     name: "Cherimoya",
-    balance: 45.16,
+    price: 45.16,
     image: "https://source.unsplash.com/1600x1424/?vegetables,fruit, garden",
     description:
       "Aliqua sint elit dolore enim reprehenderit eu aute non. Mollit dolor tempor aliqua consectetur. Mollit qui irure Lorem laboris proident cillum irure. Ex ea anim sint sint laboris cillum tempor deserunt proident. Amet aliquip nostrud sit commodo nulla deserunt consequat velit ad cupidatat proident reprehenderit magna eiusmod. Fugiat laborum amet nisi fugiat nulla nostrud et ullamco reprehenderit.\r\n",
     brand: "Arnold Harris",
-    price: 39,
     countInStock: 31,
     rating: 3,
     numReviews: 84,
@@ -1262,12 +1166,11 @@ const products = [
   },
   {
     name: "Plums",
-    balance: 46.95,
+    price: 46.95,
     image: "https://source.unsplash.com/1600x1479/?vegetables,fruit, garden",
     description:
       "Do ad ut proident enim. Sit in nisi in esse magna ut magna eiusmod sit reprehenderit ex. Commodo sit id laborum sunt consectetur.\r\n",
     brand: "Simpson Medina",
-    price: 36,
     countInStock: 40,
     rating: 1,
     numReviews: 77,
@@ -1275,12 +1178,11 @@ const products = [
   },
   {
     name: "Prunes",
-    balance: 32.2,
+    price: 32.2,
     image: "https://source.unsplash.com/1600x1453/?vegetables,fruit, garden",
     description:
       "Veniam ipsum ut exercitation excepteur labore laboris est. Nostrud laboris non elit deserunt veniam do commodo consectetur est proident sunt mollit officia. Aute excepteur id minim elit ullamco. Sunt sit sunt exercitation anim velit incididunt voluptate aute consectetur. Nostrud duis eu aliquip aute proident. Velit magna aliquip do anim in cupidatat minim ea. Sint exercitation ea et sunt laborum ut deserunt.\r\n",
     brand: "Chasity Kelley",
-    price: 22,
     countInStock: 30,
     rating: 2,
     numReviews: 82,
@@ -1288,12 +1190,11 @@ const products = [
   },
   {
     name: "Lettuce",
-    balance: 33.81,
+    price: 33.81,
     image: "https://source.unsplash.com/1600x1494/?vegetables,fruit, garden",
     description:
       "Proident ex ad veniam labore nulla consectetur id nulla incididunt labore duis. Magna consectetur est dolor velit mollit sunt laboris quis officia fugiat nostrud. Commodo proident elit laborum officia et ipsum qui nulla do aliqua enim magna laboris mollit. Do tempor adipisicing id et ut. Aliqua dolor cupidatat proident sit officia culpa cupidatat anim ullamco dolor esse ex nostrud. Adipisicing anim duis labore est excepteur ut deserunt magna voluptate in mollit Lorem amet elit. Occaecat amet esse laboris dolore.\r\n",
     brand: "Bright Sargent",
-    price: 28,
     countInStock: 31,
     rating: 2,
     numReviews: 95,
@@ -1301,12 +1202,11 @@ const products = [
   },
   {
     name: "Turnip",
-    balance: 39.25,
+    price: 39.25,
     image: "https://source.unsplash.com/1600x1411/?vegetables,fruit, garden",
     description:
       "Dolore veniam esse nostrud veniam. Labore consectetur nisi laboris aute ipsum minim non ea consectetur consectetur enim tempor. Aliqua qui sit consectetur aute exercitation eu esse mollit elit labore pariatur. Ut cillum cupidatat id culpa tempor.\r\n",
     brand: "Wall Collier",
-    price: 27,
     countInStock: 20,
     rating: 4,
     numReviews: 75,
@@ -1314,12 +1214,11 @@ const products = [
   },
   {
     name: "Raspberries",
-    balance: 44.26,
+    price: 44.26,
     image: "https://source.unsplash.com/1600x1447/?vegetables,fruit, garden",
     description:
       "Dolor velit ex non voluptate commodo consectetur nostrud pariatur enim. Cupidatat excepteur ut aliquip ea deserunt sunt consectetur adipisicing non id ut enim. Quis incididunt enim magna exercitation dolor velit in minim ex sunt. Lorem aute veniam ex eiusmod exercitation laboris. Officia deserunt aute ad duis labore adipisicing. Minim aute enim irure nisi cillum aliqua id non.\r\n",
     brand: "Stacey Roy",
-    price: 23,
     countInStock: 28,
     rating: 4,
     numReviews: 77,

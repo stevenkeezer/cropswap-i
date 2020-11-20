@@ -1,13 +1,16 @@
 import {
   EuiFlexGroup,
   EuiFlexItem,
+  EuiShowFor,
   EuiLink,
+  EuiListGroup,
   EuiOutsideClickDetector,
   EuiSelectableTemplateSitewide,
   EuiText,
 } from "@elastic/eui";
 import React, { useEffect, useState } from "react";
 import LazyImage from "./LazyImage";
+import { useLocation } from "react-router-dom";
 
 export default ({ history, products, loading }) => {
   const [keyword, setKeyword] = useState("");
@@ -18,6 +21,7 @@ export default ({ history, products, loading }) => {
   const [selected, setSelected] = useState("");
 
   const searchValueExists = searchValue && searchValue.length;
+  const location = useLocation();
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -124,8 +128,74 @@ export default ({ history, products, loading }) => {
     if (!clickedItem) return;
   };
 
+  const myContent = [
+    {
+      label: "Seasonal",
+      onClick: () => searchHandler("seasonal"),
+      isActive: location.pathname === "/search/seasonal",
+      size: "s",
+    },
+    {
+      label: "Tomatoes",
+      onClick: () => searchHandler("tomatoe"),
+      isActive: location.pathname === "/search/tomatoe",
+      size: "s",
+    },
+    {
+      label: "Vegetables",
+      onClick: () => searchHandler("vegetable"),
+      isActive: location.pathname === "/search/vegetable",
+      size: "s",
+    },
+    {
+      label: "Peppers",
+      onClick: () => searchHandler("peppers"),
+      isActive: location.pathname === "/search/peppers",
+      size: "s",
+    },
+    {
+      label: "Berries",
+      onClick: () => searchHandler("berries"),
+      isActive: location.pathname === "/search/berries",
+      size: "s",
+    },
+
+    {
+      label: "Compost",
+      onClick: () => searchHandler("compost"),
+      isActive: location.pathname === "/search/compost",
+      size: "s",
+    },
+    {
+      label: "Deliveries",
+      onClick: () => searchHandler("deliveries"),
+      isActive: location.pathname === "/search/deliveries",
+      size: "s",
+    },
+    {
+      label: (
+        <div
+          style={{ paddingTop: ".125rem", paddingBottom: ".125rem" }}
+          className="tw-bg-teal-600 tw-font-medium tw-tracking-normal hover:tw-bg-teal-500  tw-flex tw-items-center 
+            tw-rounded-full tw-text-teal-100 tw-px-3  tw-ml-1 tw-shadow-none
+            tw-text-sm tw-cursor-pointer"
+        >
+          <div onClick={(e) => history.push("/cart")} className="">
+            Order online
+          </div>
+        </div>
+      ),
+      onClick: () => searchHandler("seasonal"),
+      // isActive: location.pathname === "/search/seasonal",
+      size: "s",
+    },
+  ];
+
   return (
-    <div className="xl:tw-pt-1 tw-ml-auto tw-antialiased">
+    <div className=" tw-ml-auto tw-antialiased">
+      <EuiShowFor sizes={["l", "xl"]}>
+        <div style={{ height: 8 }}></div>
+      </EuiShowFor>
       <EuiOutsideClickDetector
         onOutsideClick={() => {
           setIsOpen(false);
@@ -170,8 +240,18 @@ export default ({ history, products, loading }) => {
           }
         />
       </EuiOutsideClickDetector>
-      <div style={{ height: 1.85 }}></div>
-      <div
+      <div style={{ height: 3 }}></div>
+
+      <EuiShowFor sizes={["l", "xl"]}>
+        <EuiListGroup
+          maxWidth={false}
+          listItems={myContent}
+          gutterSize="none"
+          className="tw-flex tw-text-sm tw-bg-transparent active:tw-bg-transparent"
+        ></EuiListGroup>
+      </EuiShowFor>
+
+      {/* <div
         style={{ color: "rgb(74, 74, 74) !important" }}
         className=" tw-text-sm  tw-mt-1 tw-px-1 tw-items-center lg:tw-flex tw-tracking-wide tw-text-gray-800   tw-leading-tight  tw-text-gray-700 tw-hidden"
       >
@@ -243,6 +323,7 @@ export default ({ history, products, loading }) => {
           </div>
         </div>
       </div>
+    */}
     </div>
   );
 };

@@ -84,7 +84,6 @@ const ProductScreen = ({ history, match, setIsCartPopoverOpen }) => {
   }, [dispatch, match, successProductReview, keyword, pageNumber]);
 
   const addToCartHandler = () => {
-    // history.push(`/cart/${match.params.id}?qty=${qty}`);
     setIsCartPopoverOpen(true);
     dispatch(addToCart(match.params.id, qty));
   };
