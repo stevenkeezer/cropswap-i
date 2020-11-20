@@ -72,7 +72,7 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
       </NProgress>
       <EuiPage className=" tw-px-0 tw-pt-1  tw-min-h-screen  lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
         <div className="tw-max-w-screen-xl sm:tw-px-12  tw-px-4 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
-          <Meta title="My orders" />
+          <Meta title="Your orders" />
 
           <EuiPageBody component="div">
             <EuiPageHeader>
@@ -80,7 +80,7 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
                 {orders && !loading && (
                   <>
                     <div className="tw-p-0  sm:tw-pt-4  tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-bold ">
-                      My orders
+                      Your orders
                     </div>
                     <div
                       onClick={() => history.push("/")}
