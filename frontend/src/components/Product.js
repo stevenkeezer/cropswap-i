@@ -66,7 +66,7 @@ export default function Product({ product, history, scrollPosition }) {
               </div>
             }
             description={
-              <div>
+              <div className="tw-my-1 tw-mb-2">
                 <Rating value={product.rating} text={`${product.numReviews}`} />
                 <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-normal">
                   ${product.price}
