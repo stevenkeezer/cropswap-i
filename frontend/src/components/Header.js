@@ -29,6 +29,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { useHistory } from "react-router";
 import { Route } from "react-router-dom";
+import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
 import SearchBox from "../components/SearchBox";
 import Logo from "./Logo";
@@ -491,6 +492,8 @@ export default ({
     />
   );
 
+  const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
 
   const userLogin = useSelector((state) => state.userLogin);
@@ -498,6 +501,10 @@ export default ({
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const reload = () => {
+    dispatch(listProducts("", 1));
+  };
 
   return (
     <>
@@ -519,7 +526,7 @@ export default ({
             >
               <EuiHeaderSection>
                 <EuiShowFor sizes={["m", "l", "xl"]}>
-                  <div className="tw-mt-5">
+                  <div className="tw-mt-5" onClick={() => reload()}>
                     <Logo history={history} />
                   </div>
                 </EuiShowFor>

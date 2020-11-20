@@ -1,51 +1,27 @@
 // MOBX
-import {
-  EuiFlexGroup,
-  EuiPage,
-  EuiPageBody,
-  EuiPageContent,
-  EuiShowFor,
-  EuiPageHeader,
-  EuiPageContentHeader,
-} from "@elastic/eui";
-import {
-  IonAlert,
-  IonIcon,
-  IonRefresher,
-  IonRefresherContent,
-  IonText,
-} from "@ionic/react";
-import { chevronBackOutline, chevronDown } from "ionicons/icons";
+import { EuiFlexGroup, EuiPage, EuiPageBody, EuiShowFor } from "@elastic/eui";
+import { IonAlert, IonIcon, IonText } from "@ionic/react";
+import { NProgress } from "@tanem/react-nprogress";
+import { chevronBackOutline } from "ionicons/icons";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { listProducts } from "../actions/productActions.js";
-import { logout } from "../actions/userActions";
 import Alert from "../components/Alert";
+import Bar from "../components/Bar";
 import Carousel from "../components/Carousel";
 import Categories from "../components/Categories";
 import CategorySlider from "../components/CategorySlider";
+import Container from "../components/Container";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 import Meta from "../components/Meta";
 import Paginate from "../components/Paginate";
 import Product from "../components/Product";
 import SearchEmpty from "../components/SearchEmpty";
-import { NProgress } from "@tanem/react-nprogress";
-import Bar from "../components/Bar";
-import Container from "../components/Container";
 
 const HomeScreen = ({ match }) => {
-  function doRefresh(event) {
-    console.log("Begin async operation");
-
-    setTimeout(() => {
-      console.log("Async operation has ended");
-      event.detail.complete();
-    }, 2000);
-  }
-
   const keyword = match.params.keyword;
 
   const pageNumber = match.params.pageNumber || 1;
@@ -64,13 +40,6 @@ const HomeScreen = ({ match }) => {
   /**
    *
    */
-
-  const logoutHandler = () => {
-    dispatch(logout());
-  };
-  // if (!store.activeUser) return null;
-  const userLogin = useSelector((state) => state.userLogin);
-  const { userInfo } = userLogin;
 
   return (
     <>
@@ -103,6 +72,7 @@ const HomeScreen = ({ match }) => {
       <div className="tw-max-w-screen-xl tw-mx-auto">
         {!keyword && <Carousel history={history} />}
       </div>
+
       <EuiPage className=" tw-m-0 tw-p-0  tw-bg-white">
         <EuiPageBody restrictWidth="75rem">
           <div className="tw-bg-white tw-p-2  tw-shadow-none">
@@ -138,7 +108,6 @@ const HomeScreen = ({ match }) => {
               ) : error ? (
                 <IonAlert
                   isOpen={error}
-                  // onDidDismiss={() => setShowAlert1(false)}
                   cssClass="my-custom-class"
                   header={"Alert"}
                   subHeader={"Subtitle"}
@@ -183,8 +152,6 @@ const HomeScreen = ({ match }) => {
                     page={page && page}
                     keyword={keyword ? keyword : ""}
                   />
-                  {/* <div className="tw-mx-auto tw-flex tw-pt-16 tw-pb-16 tw-justify-center"> */}
-                  {/* </div> */}
                 </>
               )}
             </div>
