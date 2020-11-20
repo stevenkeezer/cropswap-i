@@ -12,7 +12,6 @@ const Bar = ({ progress, animationDuration }) => (
       top: 0,
       transition: `margin-left ${animationDuration}ms linear ease-in-out`,
       width: "100%",
-      boxShadow: "0 0 10px #29d, 0 0 5px #29d",
       zIndex: 1031,
       opacity: 1,
     }}

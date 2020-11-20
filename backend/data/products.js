@@ -1,7 +1,7 @@
 const products = [
   {
     name: "Iceberg Lettuce",
-    price: 48.6,
+    price: 48.66,
     image: "https://source.unsplash.com/1600x1425/?vegetables,fruit, garden",
     description:
       "Dolor elit anim non laborum cillum dolore nostrud adipisicing occaecat consequat consectetur reprehenderit officia aute. Esse consectetur in in fugiat minim dolore sit fugiat esse eu. Ullamco enim ut nostrud nostrud ullamco voluptate irure ea ipsum. Exercitation excepteur non labore nostrud quis incididunt culpa sint voluptate ipsum sint labore. Lorem anim mollit commodo sunt qui ad commodo culpa cupidatat magna sit aute nostrud incididunt. Lorem ad cupidatat aliqua mollit officia voluptate dolor deserunt ullamco do eiusmod laborum ad. Voluptate sunt quis quis laborum magna pariatur ad cupidatat adipisicing ad Lorem labore.\r\n",
@@ -26,7 +26,7 @@ const products = [
   },
   {
     name: "Bok Choy",
-    price: 34.4,
+    price: 34.48,
     image: "https://source.unsplash.com/1600x1433/?vegetables,fruit, garden",
     description:
       "Eiusmod labore laboris cupidatat consequat adipisicing anim veniam esse proident. Irure dolor eiusmod velit non. Incididunt ad anim velit aliquip laboris mollit amet labore minim reprehenderit aliquip. Laboris officia aliquip exercitation eu laboris nostrud minim officia. Quis fugiat id adipisicing minim commodo pariatur laborum.\r\n",
@@ -50,7 +50,7 @@ const products = [
   },
   {
     name: "Pineapple",
-    price: 46.4,
+    price: 46.46,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Elit sunt dolor fugiat adipisicing. Excepteur ut exercitation eu sit occaecat ipsum magna. Tempor nulla consectetur et irure quis ex qui aliqua excepteur.\r\n",
@@ -242,7 +242,7 @@ const products = [
   },
   {
     name: "Belgian Endive",
-    price: 26.1,
+    price: 26.17,
     image: "https://source.unsplash.com/1600x1464/?vegetables,fruit, garden",
     description:
       "Voluptate tempor aliqua adipisicing dolor ex labore officia in excepteur ullamco. Ea cupidatat incididunt laboris nostrud irure anim consequat eiusmod consectetur commodo ut. Enim excepteur in aliquip amet ad do dolore consectetur. Aute dolore quis Lorem cupidatat in ut qui non. Ex ullamco enim laboris fugiat cillum mollit.\r\n",
@@ -350,7 +350,7 @@ const products = [
   },
   {
     name: "Pears",
-    price: 39.5,
+    price: 39.85,
     image: "https://source.unsplash.com/1600x1436/?vegetables,fruit, garden",
     description:
       "Ea eiusmod ullamco dolore dolor quis sunt quis est non ut velit. Lorem duis velit sint reprehenderit qui amet ut tempor eiusmod aliqua ullamco. Consequat aliquip occaecat exercitation Lorem occaecat ex. Occaecat ipsum qui esse eiusmod nostrud ad occaecat fugiat deserunt velit. Officia mollit commodo anim do nisi laborum est excepteur adipisicing incididunt cillum sint consequat.\r\n",
@@ -374,7 +374,7 @@ const products = [
   },
   {
     name: "Cherimoya",
-    price: 21.2,
+    price: 21.29,
     image: "https://source.unsplash.com/1600x1415/?vegetables,fruit, garden",
     description:
       "Esse commodo culpa officia quis duis consectetur ullamco ad laborum sint proident amet excepteur. Tempor mollit ut exercitation eiusmod nostrud sunt eu ea dolor eu occaecat proident deserunt consectetur. Nisi id Lorem labore ea esse minim nulla irure ullamco reprehenderit.\r\n",

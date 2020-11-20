@@ -116,6 +116,10 @@ b {
   text-shadow: 0 0 0 black;
 }
 
+b {
+  cursor: pointer !important;
+}
+
 .numericInput:focus {
   outline: none;
 }
