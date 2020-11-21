@@ -61,7 +61,7 @@ export default function Rating({ value, text, color }) {
         </EuiShowFor>
       </div>
       <div className="tw-flex  tw-text-gray-900  tw-text-xs ">
-        {value}
+        {text && value}
         <span className=" tw-text-xs  tw-text-gray-700 tw-font-normal tw-tracking-wide tw-pl-1">
           {text && <span>({text})</span>}
         </span>

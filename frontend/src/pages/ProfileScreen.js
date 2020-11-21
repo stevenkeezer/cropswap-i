@@ -27,7 +27,7 @@ import Bar from "../components/Bar";
 const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
 
