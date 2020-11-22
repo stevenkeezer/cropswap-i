@@ -31,6 +31,7 @@ import { useHistory } from "react-router";
 import { Route } from "react-router-dom";
 import { listProducts } from "../actions/productActions.js";
 import { logout } from "../actions/userActions";
+import { useLocation } from "react-router-dom";
 import SearchBox from "../components/SearchBox";
 import Logo from "./Logo";
 
@@ -505,6 +506,11 @@ export default ({
   const reload = () => {
     dispatch(listProducts("", 1));
   };
+
+  const location = useLocation();
+
+  if (location.pathname === "/login" || location.pathname === "/register")
+    return null;
 
   return (
     <>

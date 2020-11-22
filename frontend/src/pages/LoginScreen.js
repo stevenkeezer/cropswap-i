@@ -1,22 +1,16 @@
 import {
-  EuiPage,
-  EuiPageBody,
-  EuiPageContent,
-  EuiPageContentBody,
-  EuiPageContentHeader,
-  EuiPageContentHeaderSection,
+  EuiButton,
   EuiFieldPassword,
   EuiFieldText,
-  EuiButton,
   EuiForm,
   EuiFormRow,
-  EuiTitle,
+  EuiPage,
 } from "@elastic/eui";
-import { IonButton, IonImg } from "@ionic/react";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 import Loader from "../components/Loader";
+import Logo from "../components/Logo";
 
 const LoginScreen = ({ location, history }) => {
   const [email, setEmail] = useState("");
@@ -28,13 +22,20 @@ const LoginScreen = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { loading, error, userInfo } = userLogin;
 
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
   const redirect = location.search ? location.search.split("=")[1] : "/";
 
   const onChange = (e) => {
     setEmail(e.target.value);
   };
 
+  const textInput = useRef(null);
+
   useEffect(() => {
+    textInput.current.focus();
+
     if (userInfo) {
       history.push(redirect);
     }
@@ -52,59 +53,35 @@ const LoginScreen = ({ location, history }) => {
         <Loader />
       ) : (
         <>
-          <EuiPage class="tw-min-h-screen  tw-flex tw-flex-col tw-items-center tw-mt-10 ">
-            <div class="tw-flex tw-flex-col tw-bg-white tw-shadow-md tw-px-4 sm:tw-px-6 md:tw-px-8 lg:tw-px-10 tw-py-8 tw-rounded-md tw-w-full tw-max-w-md">
-              <div class="tw-font-medium tw-self-center tw-text-xl sm:tw-text-2xl tw-uppercase tw-text-gray-800">
-                Login To Your Account
-              </div>
-              <button
-                aria-disabled="true"
-                class="tw-relative tw-mt-6 tw-border tw-rounded-md tw-py-2 tw-text-sm tw-text-gray-800 tw-bg-gray-100 hover:tw-bg-gray-200"
-              >
-                <span class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-items-center tw-justify-center tw-h-full tw-w-10 tw-text-blue-500">
-                  <i class="fab fa-facebook-f"></i>
-                </span>
-                <span>Login with Facebook</span>
-              </button>
-              <div class="tw-relative tw-mt-10 tw-h-px tw-bg-gray-300">
-                <div class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-justify-center tw-w-full tw--mt-2">
-                  <span class="tw-bg-white tw-px-4 tw-text-xs tw-text-gray-500 tw-uppercase">
-                    Or Login With Email
-                  </span>
-                </div>
-              </div>
-              <div class="tw-mt-10">
+          <EuiPage class="tw-min-h-screen  tw-flex tw-flex-col tw-items-center sm:tw-mt-6 tw-mt-2">
+            <div className="tw-ml-1">
+              <Logo history={history} />
+            </div>
+            <div class="sm:tw-h-1 tw-h-4 "></div>
+            <div className="tw-text-2xl sm:tw-pt-6 tw-mt-5 tw-pb-5 tw-font-bold tw-text-gray-800">
+              {cartItems.length > 0 ? "Welcome back" : "Sign in"}
+            </div>
+            <div class="tw-flex tw-flex-col login-container tw-bg-white tw-px-4 sm:tw-px-6  tw-py-8 tw-rounded-md tw-w-full tw-max-w-lg">
+              <div class=" tw-border">
                 <EuiForm>
                   <EuiFormRow fullWidth label="">
                     <div class="tw-w-full md:tw-w-full  tw-mb-6">
-                      <label
-                        class="tw-block tw-uppercase tw-tracking-wide tw-text-gray-700 tw-text-xs tw-font-bold tw-mb-2"
-                        for="Password"
-                      >
-                        Email address
-                      </label>
-
                       <EuiFieldText
                         type="text"
-                        placeholder="Email"
+                        placeholder="Email or username"
                         value={email}
                         fullWidth
+                        className="login-form"
+                        inputRef={textInput}
                         onChange={(e) => onChange(e)}
                         aria-label="Use aria labels when no actual label is in use"
                       />
                     </div>
                   </EuiFormRow>
 
-                  <div class="tw-w-full md:tw-w-full tw-mb-6">
-                    <label
-                      class="tw-block tw-uppercase tw-tracking-wide tw-text-gray-700 tw-text-xs tw-font-bold tw-mb-2"
-                      for="Password"
-                    >
-                      Password
-                    </label>
-
+                  <div class="tw-w-full md:tw-w-full tw-mb-6 login-password">
                     <EuiFieldPassword
-                      placeholder="Placeholder text"
+                      placeholder="Password"
                       type={dual ? "dual" : undefined}
                       value={password}
                       fullWidth
@@ -112,27 +89,28 @@ const LoginScreen = ({ location, history }) => {
                       aria-label="Use aria labels when no actual label is in use"
                     />
                   </div>
-                  <div class="tw-w-full tw-flex tw-items-center tw-justify-between tw-mb-3 ">
-                    <label
-                      for="remember"
-                      class="tw-flex tw-items-center tw-w-1/2"
-                    >
-                      <input
-                        type="checkbox"
-                        name=""
-                        id=""
-                        class="tw-mr-1 tw-bg-white tw-shadow"
-                      />
-                      <span class="tw-text-sm tw-text-gray-700 tw-pt-1">
-                        Remember Me
-                      </span>
-                    </label>
-                  </div>
+
                   <div class="tw-w-full md:tw-w-full tw-mb-6">
-                    <EuiButton fullWidth onClick={submitHandler}>
+                    <EuiButton
+                      color="secondary"
+                      // className="tw-bg-teal-500 tw-border-teal-500 tw-text-white tw-font-bold tw-text-sm"
+                      disabled={email === "" && password === ""}
+                      fullWidth
+                      fill
+                      onClick={submitHandler}
+                    >
                       Log in
                     </EuiButton>
                   </div>
+                  <a
+                    href="#"
+                    target="_blank"
+                    class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
+                  >
+                    <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
+                      Having trouble sigining in? Reset password
+                    </span>
+                  </a>
                 </EuiForm>
               </div>
               <div class="tw-flex tw-justify-center tw-items-center tw-mt-6">
@@ -141,20 +119,9 @@ const LoginScreen = ({ location, history }) => {
                   target="_blank"
                   class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
                 >
-                  <span>
-                    <svg
-                      class="tw-h-6 tw-w-6"
-                      fill="none"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
-                    </svg>
+                  <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
+                    New to cropswap? Sign up
                   </span>
-                  <span class="tw-ml-2">You don't have an account?</span>
                 </a>
               </div>
             </div>

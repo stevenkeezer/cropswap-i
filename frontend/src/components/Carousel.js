@@ -6,6 +6,7 @@ import Loader from "./Loader";
 import Message from "./Message";
 import { listTopProducts } from "../actions/productActions";
 import { IonImg } from "@ionic/react";
+import LazyImage from "./LazyImage";
 import Rating from "./Rating";
 
 const ProductCarousel = ({ history }) => {
@@ -32,12 +33,17 @@ const ProductCarousel = ({ history }) => {
             class="tw-w-full md:tw-w-1/2 tw-cursor-pointer  tw-hidden sm:tw-block tw-h-56 md:tw-h-auto tw-mb-4 tw-px-2"
           >
             <div class="tw-relative tw-h-full tw-w-full sm:tw-rounded-3xl">
-              <img
-                class="tw-absolute tw-h-full sm:tw-rounded-3xl tw-w-full tw-object-cover"
+              <LazyImage
+                carousel
+                placeholder={products.length > 1 && products[1].image}
                 src={products.length > 1 && products[1].image}
                 alt=""
               />
-              <div class=" sm:tw-rounded-3xl sm:tw-px-8  tw-absolute tw-px-4    tw-bg-gradient-to-t tw-from-black  tw-bg-opacity-25 tw-h-full tw-w-full">
+              <div
+                class={` sm:tw-rounded-3xl sm:tw-px-8  tw-absolute tw-px-4   ${
+                  products && !loading && "tw-bg-gradient-to-t tw-from-black"
+                }  tw-bg-opacity-25 tw-h-full tw-w-full`}
+              >
                 <div className="tw-h-24  md:tw-h-48 md:tw-mt-3"></div>
                 <h2 class="tw-text-white tw-tracking-wide tw-text-3xl  tw-font-bold tw-leading-tight tw-mb-2 tw-pr-5">
                   {products && (
@@ -92,11 +98,13 @@ const ProductCarousel = ({ history }) => {
                       class="tw-relative tw-cursor-pointer lg:tw-flex tw-h-full sm:tw-rounded-3xl tw-bg-gray-100 tw-overflow-hidden"
                     >
                       <div class="lg:tw-w-5/12 tw-h-full tw-relative tw-flex tw-items-center tw-justify-center">
-                        <img
-                          class="tw-absolute tw-h-full tw-w-full tw-object-cover"
+                        <LazyImage
+                          carousel
+                          placeholder={products.length > 1 && products[0].image}
                           src={products.length > 1 && products[0].image}
                           alt=""
                         />
+
                         <div class="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-opacity-25"></div>
                       </div>
                       <div class="tw-relative lg:tw-w-7/12  tw-bg-gray-100">

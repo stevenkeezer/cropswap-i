@@ -1,6 +1,8 @@
 import { IonButton, IonInput, IonItem, IonLabel, IonText } from "@ionic/react";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Message from "../components/Message";
+
 import { Link } from "react-router-dom";
 import { register } from "../actions/userActions";
 
@@ -38,15 +40,15 @@ const RegisterScreen = ({ location, history }) => {
   return (
     <>
       <form>
-        Interested in selling your farm goods direct to customers?
-        <IonText color="danger" padding style={{ fontWeight: "500" }}>
-          {/* {initializationError && initializationError.message} */}
-          Sign up
-        </IonText>
-        {message && <div>{message}</div>}
-        {error && <div>{error}</div>}
+        {message && <Message>{message}</Message>}
+        {error && <Message variant="danger">{error}</Message>}
         {loading && <div>Loading</div>}
         <IonItem>
+          Interested in selling your farm goods direct to customers?
+          <IonText color="danger" padding style={{ fontWeight: "500" }}>
+            {/* {initializationError && initializationError.message} */}
+            Sign up
+          </IonText>
           <IonLabel position="floating">Name</IonLabel>
           <IonInput
             type="name"
