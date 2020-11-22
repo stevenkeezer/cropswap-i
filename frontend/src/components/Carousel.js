@@ -129,13 +129,13 @@ const ProductCarousel = ({ history }) => {
                           </div> */}
 
                           <div className="tw-text-center tw-py-8 tw-text-xl tw-text-gray-900 tw-font-bold">
-                            Join Our Growing Community!
+                            Join our growing community!
                             <div
                               onClick={(e) => {
                                 e.stopPropagation();
                                 history.push("/register");
                               }}
-                              className="tw-bg-teal-500 tw-py-1 tw-mt-3 tw-text-sm tw-w-40 tw-mx-auto tw-text-teal-100 tw-px-1 tw-font-bold  tw-text-center tw-rounded-full"
+                              className="tw-bg-teal-500 tw-py-1 tw-px-2 tw-mt-3 tw-text-sm tw-w-40 tw-mx-auto tw-text-teal-100 tw-px-1 tw-font-bold  tw-text-center tw-rounded-full"
                             >
                               Sign up today
                             </div>
