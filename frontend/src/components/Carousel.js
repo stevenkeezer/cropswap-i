@@ -99,7 +99,7 @@ const ProductCarousel = ({ history }) => {
                         />
                         <div class="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-opacity-25"></div>
                       </div>
-                      <div class="tw-relative lg:tw-w-7/12 tw-bg-gray-100">
+                      <div class="tw-relative lg:tw-w-7/12  tw-bg-gray-100">
                         <svg
                           class="tw-absolute tw-h-full tw-text-gray-100  tw-w-24 tw--ml-12"
                           fill="currentColor"
@@ -108,8 +108,8 @@ const ProductCarousel = ({ history }) => {
                         >
                           <polygon points="50,0 100,0 50,100 0,100" />
                         </svg>
-                        <div class="tw-relative tw-py-2  lg:tw-px-4 tw-text-gray-700 tw-leading-relaxed">
-                          <a
+                        <div class="tw-relative tw-items-center lg:tw-pr-4 tw-text-gray-700 tw-leading-relaxed">
+                          {/* <a
                             href="#"
                             class="tw-font-bold tw-tracking-wide tw-text-2xl tw-text-gray-900 tw-w-full tw-flex hover:tw-text-teal-900"
                           >
@@ -125,6 +125,19 @@ const ProductCarousel = ({ history }) => {
                             </div>
                             <div className="tw-bg-teal-500 tw-py-1 tw-text-sm tw-text-teal-100 tw-px-5 tw-font-bold  tw-text-center tw-rounded-full">
                               See more
+                            </div>
+                          </div> */}
+
+                          <div className="tw-text-center tw-py-8 tw-text-xl tw-text-gray-900 tw-font-bold">
+                            Join Our Growing Community!
+                            <div
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                history.push("/register");
+                              }}
+                              className="tw-bg-teal-500 tw-py-1 tw-mt-3 tw-text-sm tw-w-40 tw-mx-auto tw-text-teal-100 tw-px-1 tw-font-bold  tw-text-center tw-rounded-full"
+                            >
+                              Sign up today
                             </div>
                           </div>
                         </div>
