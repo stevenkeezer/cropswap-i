@@ -38,6 +38,7 @@ const RegisterScreen = ({ location, history }) => {
   return (
     <>
       <form>
+        Interested in selling your farm goods direct to customers?
         <IonText color="danger" padding style={{ fontWeight: "500" }}>
           {/* {initializationError && initializationError.message} */}
           Sign up
@@ -87,7 +88,6 @@ const RegisterScreen = ({ location, history }) => {
             name="confirm password"
           />
         </IonItem>
-
         <div style={{ padding: 10, paddingTop: 20 }}>
           <Link to={redirect ? `/login?redirect=${redirect}` : "/login"}>
             <IonButton expand="full" style={{ margin: 14 }}>
