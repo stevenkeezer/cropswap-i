@@ -124,6 +124,26 @@ b {
   height: 50px !important;
 }
 
+.separator-container {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.separator-container .separator {
+  border-bottom: 1px solid #898989;
+  opacity: 50%;
+  flex: 1 1;
+}
+
+.euiButton-isDisabled {
+  background-color: #008480 !important;
+  opacity: 50% !important;
+  color: white !important;
+  font-weight: bold !important;
+  font-size: 0.875rem !important;
+}
+
 b {
   cursor: pointer !important;
 }

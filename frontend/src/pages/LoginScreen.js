@@ -1,6 +1,7 @@
 import {
   EuiButton,
   EuiFieldPassword,
+  EuiHorizontalRule,
   EuiFieldText,
   EuiForm,
   EuiFormRow,
@@ -58,10 +59,10 @@ const LoginScreen = ({ location, history }) => {
               <Logo history={history} />
             </div>
             <div class="sm:tw-h-1 tw-h-4 "></div>
-            <div className="tw-text-2xl sm:tw-pt-6 tw-mt-5 tw-pb-5 tw-font-bold tw-text-gray-800">
+            <div className="tw-text-2xl sm:tw-pt-6 tw-mt-5 sm:tw-pb-5 tw-font-bold tw-text-gray-800">
               {cartItems.length > 0 ? "Welcome back" : "Sign in"}
             </div>
-            <div class="tw-flex tw-flex-col login-container tw-bg-white tw-px-4 sm:tw-px-6  tw-py-8 tw-rounded-md tw-w-full tw-max-w-lg">
+            <div class="tw-flex tw-flex-col login-container tw-bg-white tw-px-4 sm:tw-px-6  lg:tw-py-8  tw-py-5 tw-rounded-md tw-w-full sm:tw-max-w-lg">
               <div class=" tw-border">
                 <EuiForm>
                   <EuiFormRow fullWidth label="">
@@ -78,7 +79,6 @@ const LoginScreen = ({ location, history }) => {
                       />
                     </div>
                   </EuiFormRow>
-
                   <div class="tw-w-full md:tw-w-full tw-mb-6 login-password">
                     <EuiFieldPassword
                       placeholder="Password"
@@ -102,16 +102,56 @@ const LoginScreen = ({ location, history }) => {
                       Log in
                     </EuiButton>
                   </div>
-                  <a
-                    href="#"
-                    target="_blank"
-                    class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
-                  >
-                    <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
-                      Having trouble sigining in? Reset password
+                  <div className="tw-flex  tw-py-3 tw-justify-center">
+                    <a
+                      href="#"
+                      target="_blank"
+                      class="tw-inline-flex  tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs"
+                    >
+                      <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
+                        Having trouble accessing your account? Click Here
+                      </span>
+                    </a>
+                  </div>
+
+                  <div class="separator-container">
+                    <span class="separator left"></span>
+                    <span className="tw-px-4 tw-tracking-wide tw-text-gray-900 tw-text-sm">
+                      or
                     </span>
-                  </a>
+                    <span class="separator right"></span>
+                  </div>
                 </EuiForm>
+              </div>
+              <div class="tw-w-full   sm:tw-mb-0">
+                <button
+                  disabled
+                  style={{ borderRadius: 4 }}
+                  class="tw-w-full tw-bg-blue-800 hover:tw-bg-blue-900  tw-text-white tw-font-bold tw-py-2 sm:tw-py-3 tw-px-4 tw-cursor-not-allowed focus:tw-outline-none focus:tw-shadow-outline"
+                  type="button"
+                >
+                  Continue with Facebook
+                </button>
+              </div>
+              <div class="tw-w-full sm:tw-mt-3 tw-mt-2 ">
+                <button
+                  disabled
+                  style={{ borderRadius: 4 }}
+                  class="tw-w-full tw-bg-blue-600 tw-text-white    tw-font-bold tw-py-2 sm:tw-py-3 tw-px-4 tw-cursor-not-allowed focus:tw-outline-none focus:tw-shadow-outline"
+                  type="button"
+                >
+                  Continue with Google
+                </button>
+              </div>
+              <div class="tw-w-full sm:tw-mt-3 tw-mt-2">
+                <button
+                  disabled
+                  style={{ borderRadius: 4 }}
+                  class="tw-w-full tw-bg-black tw-text-white    tw-font-bold tw-py-2 sm:tw-py-3 tw-px-4 tw-cursor-not-allowed focus:tw-outline-none focus:tw-shadow-outline"
+                  type="button"
+                >
+                  Continue with Apple
+                </button>
               </div>
               <div class="tw-flex tw-justify-center tw-items-center tw-mt-6">
                 <a

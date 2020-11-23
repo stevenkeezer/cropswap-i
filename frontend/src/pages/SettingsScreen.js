@@ -89,7 +89,7 @@ export default function AccountSettings() {
           <EuiPageHeader>
             <EuiPageHeaderSection>
               <EuiTitle size="l">
-                <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-2xl tw-font-semibold ">
+                <div className="tw-p-0  lg:tw-pt-6 tw-pt-2 tw-pb-1 tw-px-4 sm:tw-px-0  tw-tracking-normal lg:tw-pt-1 tw-text-gray-900 tw-text-2xl tw-font-semibold ">
                   Account settings
                 </div>
               </EuiTitle>
