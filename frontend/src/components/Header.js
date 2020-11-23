@@ -647,7 +647,7 @@ export default ({
                         history.push("/login");
                       }}
                     >
-                      <span className="tw-py-1 tw-font-bold tw-text-xs tw-text-gray-700  ">
+                      <span className="tw-py-1 tw-font-bold tw-text-xs sm:tw-text-sm tw-text-gray-700">
                         Log in
                       </span>
                     </EuiHeaderSectionItemButton>
@@ -657,8 +657,8 @@ export default ({
                         history.push("/register");
                       }}
                     >
-                      <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs ">
-                        Sign Up
+                      <button className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-semibold tw-px-3 tw-py-2 tw-text-xs tw-tracking-wide sm:tw-text-sm ">
+                        Sign up
                       </button>
                     </EuiHeaderSectionItemButton>
                   </>
@@ -685,7 +685,7 @@ export default ({
                       history.push("/login");
                     }}
                   >
-                    <span className="tw-py-1 tw-font-bold tw-text-xs tw-mr-2 tw-text-gray-700  ">
+                    <span className="tw-py-1 tw-font-bold tw-text-xs sm:tw-text-sm tw-mr-2 tw-text-gray-700  ">
                       Log in
                     </span>
                   </EuiLink>
@@ -696,8 +696,8 @@ export default ({
                       history.push("/register");
                     }}
                   >
-                    <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py- tw-text-xs  ">
-                      Sign Up
+                    <span className="tw-bg-teal-700 tw-rounded-full tw-text-white tw-font-semibold tw-px-3 tw-py-3 tw-text-xs sm:tw-text-sm  ">
+                      Sign up
                     </span>
                   </EuiLink>
                 </>
@@ -724,7 +724,7 @@ export default ({
                       history.push("/login");
                     }}
                   >
-                    <span className="tw-py-1 sm:tw-px-2 tw-font-bold tw-text-xs tw-whitespace-no-wrap tw-text-gray-700  ">
+                    <span className="tw-py-1 sm:tw-px-2 tw-font-bold tw-text-xs sm:tw-text-sm tw-whitespace-no-wrap tw-text-gray-700  ">
                       Log in
                     </span>
                   </EuiHeaderSectionItemButton>
@@ -735,8 +735,8 @@ export default ({
                       history.push("/register");
                     }}
                   >
-                    <button className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-bold tw-px-3 tw-py-2 tw-text-xs  ">
-                      Sign Up
+                    <button className="tw-bg-teal-700 tw-whitespace-no-wrap tw-rounded-full tw-text-white tw-font-semibold tw-px-3 tw-py-2 tw-text-xs tw-tracking-wide sm:tw-text-sm  ">
+                      Sign up
                     </button>
                   </EuiHeaderSectionItemButton>
                 </>
