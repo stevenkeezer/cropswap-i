@@ -37,8 +37,8 @@ const LoginScreen = ({ location, history }) => {
   useEffect(() => {
     if (userInfo) {
       history.push(redirect);
-      textInput.current.focus();
     }
+    // textInput.current.focus();
   }, [history, userInfo, redirect]);
 
   const submitHandler = (e) => {
