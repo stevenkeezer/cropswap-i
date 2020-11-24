@@ -119,7 +119,7 @@ export default ({
               closeMenu();
             }}
           >
-            <EuiIcon type="sqlApp" size="l" />
+            <EuiIcon type="package" size="l" />
           </EuiKeyPadMenuItem>
 
           {userInfo && userInfo.isAdmin && (

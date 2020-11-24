@@ -73,7 +73,7 @@ export default function AccountSettings() {
   return (
     <>
       <EuiPage className="tw-px-0 sm:tw-pt-6 tw-pt-0 tw-tracking-wide tw-text-gray-800 tw-antialiased tw-h-auto tw-min-h-screen ">
-        <EuiPageBody component="div">
+        <EuiPageBody component="div" restrictWidth="75rem">
           <div>
             {message && <Message variant="danger">{message}</Message>}
             {}
