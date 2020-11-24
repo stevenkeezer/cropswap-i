@@ -35,12 +35,12 @@ const LoginScreen = ({ location, history }) => {
   const textInput = useRef(null);
 
   useEffect(() => {
-    if (textInput) {
-      textInput.current.focus();
-    }
-
     if (userInfo) {
       history.push(redirect);
+    }
+
+    if (textInput) {
+      textInput.current.focus();
     }
   }, [history, userInfo, redirect]);
 
