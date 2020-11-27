@@ -462,7 +462,7 @@ export default ({
                   size="s"
                   fullWidth
                   onClick={addMoreSpaces}
-                  disabled={true}
+                  isDisabled={true}
                 >
                   Add more spaces
                 </EuiButton>

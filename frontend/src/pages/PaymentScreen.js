@@ -99,7 +99,7 @@ const PaymentScreen = ({ history }) => {
                     className="tw-font-semibold"
                     size="m"
                     fill
-                    disabled={cartItems.length === 0}
+                    isDisabled={cartItems.length === 0}
                     onClick={submitHandler}
                   >
                     Continue

@@ -93,7 +93,7 @@ const LoginScreen = ({ location, history }) => {
                     <EuiButton
                       color="secondary"
                       // className="tw-bg-teal-500 tw-border-teal-500 tw-text-white tw-font-bold tw-text-sm"
-                      disabled={email === "" && password === ""}
+                      isDisabled={email === "" && password === ""}
                       fullWidth
                       fill
                       onClick={submitHandler}

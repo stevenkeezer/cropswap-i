@@ -98,7 +98,7 @@ export default ({
             </EuiModalBody>
             <EuiModalFooter>
               <EuiButton
-                disabled={loadingProductReview}
+                isDisabled={loadingProductReview}
                 type="submit"
                 fullWidth
                 className="tw-font-bold"
