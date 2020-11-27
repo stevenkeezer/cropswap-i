@@ -136,14 +136,6 @@ b {
   flex: 1 1;
 }
 
-.euiButton-isDisabled {
-  background-color: #008480 !important;
-  opacity: 50% !important;
-  color: white !important;
-  font-weight: bold !important;
-  font-size: 0.875rem !important;
-}
-
 b {
   cursor: pointer !important;
 }
