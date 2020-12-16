@@ -184,7 +184,7 @@ const RegisterScreen = ({ location, history }) => {
               class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
             >
               <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
-                Already a memer? Log in
+                Already a member? Log in
               </span>
             </Link>
           </div>
