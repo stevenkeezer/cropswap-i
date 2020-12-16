@@ -136,7 +136,7 @@ const PublicRoutes = ({ history }) => {
 const App = () => {
   return !store ? (
     <IonApp>
-      <Loader message="Starting App..." />
+      <Loader />
     </IonApp>
   ) : (
     <IonApp>

@@ -116,6 +116,30 @@ b {
   text-shadow: 0 0 0 black;
 }
 
+.login-form {
+  height: 50px !important;
+}
+
+.login-password > .euiFormControlLayout {
+  height: 50px !important;
+}
+
+.separator-container {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.separator-container .separator {
+  border-bottom: 1px solid #898989;
+  opacity: 50%;
+  flex: 1 1;
+}
+
+b {
+  cursor: pointer !important;
+}
+
 .numericInput:focus {
   outline: none;
 }
@@ -193,7 +217,7 @@ b {
 }
 
 .euiHeaderSection--left:last-child {
-  height: 65px !important;
+  height: 80px !important;
 }
 
 :root {
@@ -342,16 +366,6 @@ select {
 .euiFieldNumber--inGroup {
   background: #eeeeee !important;
 }
-/* .euiRadio .euiRadio__input + .euiRadio__circle {
-  display: none !important;
-}
-.euiRadio .euiRadio__input ~ .euiRadio__label {
-  padding-left: 0px !important;
-}
-
-.euiRadioGroup__item + .euiRadioGroup__item {
-  margin-top: 0px !important;
-} */
 
 .ion-content {
   max-width: 75rem;
@@ -386,6 +400,11 @@ select {
   }
   thead tr:not(:first-child) {
     display: none;
+  }
+  .login-container {
+    border: 1px solid #ccc !important;
+    padding: 24 !important;
+    border-radius: 6 !important;
   }
 }
 
@@ -460,10 +479,6 @@ tbody tr:last-child td:last-child {
 .euiRadioGroup__item + .euiRadioGroup__item {
   margin-top: 0px !important;
 }
-
-/* .euiRadio__input + .euiRadio__circle {
-  display: none !important;
-} */
 
 @media (min-width: 992px) {
   .euiHeader {

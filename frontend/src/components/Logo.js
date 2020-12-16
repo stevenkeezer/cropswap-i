@@ -10,9 +10,9 @@ export default ({ history }) => (
   >
     <EuiIcon
       size="original"
-      style={{ height: 40, width: 40 }}
+      style={{ height: 43, width: 43 }}
       type="/images/shopping.svg"
-      className="tw-bg-gray-300 tw-p-1 tw-rounded-full tw-shadow-sm"
+      className="tw-bg-gray-300 tw-p-2 tw-rounded-full tw-shadow-sm"
     ></EuiIcon>
   </EuiHeaderSectionItemButton>
 );

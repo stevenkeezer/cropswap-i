@@ -38,7 +38,7 @@ export default function OrderHistoryCard({
             >
               <div className="tw-text-sm  tw-text-gray-800 tw-font-bold ">
                 Address{" "}
-                <div className="tw-font-normal tw-mt-1 tw-text-xs tw-text-gray-600">
+                <div className="tw-font-normal tw-mt-2 tw-text-xs tw-text-gray-600">
                   {order.shippingAddress.address}, {order.shippingAddress.city},{" "}
                   {order.shippingAddress.state}{" "}
                   {order.shippingAddress.postalCode},{" "}

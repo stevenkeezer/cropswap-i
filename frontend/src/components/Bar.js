@@ -13,6 +13,7 @@ const Bar = ({ progress, animationDuration }) => (
       transition: `margin-left ${animationDuration}ms linear ease-in-out`,
       width: "100%",
       zIndex: 1031,
+      opacity: 1,
     }}
   >
     <div

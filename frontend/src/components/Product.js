@@ -41,11 +41,21 @@ export default function Product({ product, history, scrollPosition }) {
                   </div>
                 </EuiShowFor>
 
-                <EuiShowFor sizes={["s", "m", "l", "xl"]}>
+                <EuiShowFor sizes={["s", "m", "l"]}>
                   <div className="tw-cursor-pointer">
                     <LazyImage
                       src={product.image}
                       placeholder={product.image}
+                      height={200}
+                    />
+                  </div>
+                </EuiShowFor>
+                <EuiShowFor sizes={[, "xl"]}>
+                  <div className="tw-cursor-pointer">
+                    <LazyImage
+                      src={product.image}
+                      placeholder={product.image}
+                      width={220}
                       height={200}
                     />
                   </div>
@@ -66,7 +76,7 @@ export default function Product({ product, history, scrollPosition }) {
               </div>
             }
             description={
-              <div>
+              <div className="tw-my-1 tw-mb-2">
                 <Rating value={product.rating} text={`${product.numReviews}`} />
                 <div className="tw-cursor-pointer tw-text-gray-800  tw-text-md tw-items-baseline tw-flex  tw-font-bold tw-tracking-normal">
                   ${product.price}

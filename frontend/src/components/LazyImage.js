@@ -1,7 +1,17 @@
 import React, { useState, useEffect } from "react";
 
 const ImageLoad = React.memo(
-  ({ src, placeholder, alt = "", height, border, shadow, width, rounded }) => {
+  ({
+    src,
+    placeholder,
+    alt = "",
+    height,
+    border,
+    shadow,
+    width,
+    carousel,
+    rounded,
+  }) => {
     const [loading, setLoading] = useState(true);
     const [currentSrc, updateSrc] = useState(placeholder);
 
@@ -19,7 +29,10 @@ const ImageLoad = React.memo(
     return (
       <img
         src={currentSrc}
-        className={`tw-object-cover ${rounded && "tw-rounded"}`}
+        className={`tw-object-cover ${rounded && "tw-rounded"} ${
+          carousel &&
+          "tw-absolute tw-h-full sm:tw-rounded-3xl tw-w-full tw-object-cover"
+        }`}
         style={{
           height: height,
           width: width,

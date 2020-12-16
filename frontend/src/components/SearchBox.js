@@ -221,6 +221,7 @@ export default ({ history, products, loading }) => {
           popoverProps={{
             className: "customPopoverClass",
             isOpen: isOpen,
+            width: 650,
           }}
           popoverButtonBreakpoints={["xs", "s"]}
           popoverFooter={

@@ -271,7 +271,7 @@ const ShippingScreen = ({ history }) => {
                         className=" tw-font-semibold "
                         size="m"
                         fill
-                        disabled={
+                        isDisabled={
                           cartItems.length === 0 ||
                           !address ||
                           !city ||

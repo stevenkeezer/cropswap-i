@@ -27,7 +27,7 @@ import Bar from "../components/Bar";
 const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [message, setMessage] = useState(null);
+  const [message, setMessage] = useState("");
 
   const dispatch = useDispatch();
 
@@ -72,19 +72,20 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
       </NProgress>
       <EuiPage className=" tw-px-0 tw-pt-1  tw-min-h-screen  lg:tw-bg-gray-200 lg:tw-bg-opacity-25">
         <div className="tw-max-w-screen-xl sm:tw-px-12  tw-px-4 tw-mx-auto tw-flex tw-flex-col lg:tw-flex-row tw-w-full">
-          <Meta title="My orders" />
+          <Meta title="Your orders" />
 
           <EuiPageBody component="div">
+            {orders && orders.length === 0 && <OrdersEmpty history={history} />}
             <EuiPageHeader>
               <EuiPageHeaderSection>
-                {orders && !loading && (
+                {orders && orders.length > 0 && !loading && (
                   <>
                     <div className="tw-p-0  sm:tw-pt-4  tw-pb-1  tw-tracking-normal tw-text-gray-900 tw-text-base tw-font-bold ">
-                      My orders
+                      Your orders
                     </div>
                     <div
                       onClick={() => history.push("/")}
-                      className="tw-p-0 tw-pt-4  tw-flex tw-items-center  tw-pb-3 sm:tw-pb-12  tw-tracking-normal tw-text-gray-900 tw-text-base "
+                      className="tw-p-0 tw-pt-4 tw-cursor-pointer tw-flex tw-items-center  tw-pb-3 sm:tw-pb-12  tw-tracking-normal tw-text-gray-900 tw-text-base "
                     >
                       <svg
                         class="tw-w-6 tw-h-6 tw--ml-2 tw-mr-1 tw-text-gray-700"
@@ -98,7 +99,7 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
                           clip-rule="evenodd"
                         ></path>
                       </svg>
-                      Back to shopping
+                      Shop now
                     </div>
                   </>
                 )}
@@ -106,7 +107,7 @@ const ProfileScreen = ({ location, history, setIsCartPopoverOpen }) => {
             </EuiPageHeader>
             <div className="tw-px-4 sm:tw-px-0 sm:tw-pb-0 ">
               <div className=" tw-mb-3 tw-text-xs tw-flex tw-items-center tw-cursor-pointer hover:tw-text-teal-600 tw-tracking-wide tw-text-gray-800">
-                {orders && !loading && orders.length + " Orders"}
+                {orders && orders.length > 0 && !loading && " Orders"}
               </div>
             </div>
             <OrderHistoryCard

@@ -222,7 +222,7 @@ const CartScreen = ({ match, location, history }) => {
                       className="tw-font-semibold  "
                       size="m"
                       fill
-                      disabled={cartItems.length === 0}
+                      isDisabled={cartItems.length === 0}
                       onClick={checkoutHandler}
                     >
                       Proceed to checkout
@@ -237,7 +237,7 @@ const CartScreen = ({ match, location, history }) => {
                       className="tw-mt-3 md:tw-mt-0 tw-font-semibold "
                       size="m"
                       fill
-                      disabled={cartItems.length === 0}
+                      isDisabled={cartItems.length === 0}
                       onClick={checkoutHandler}
                     >
                       Proceed to checkout

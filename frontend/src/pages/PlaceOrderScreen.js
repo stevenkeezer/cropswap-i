@@ -304,7 +304,7 @@ const PlaceOrderScreen = ({ history }) => {
                   className="tw-mt-3 tw-font-sm tw-font-bold tw-px-2"
                   size="m"
                   fill
-                  disabled={cart.cartItems === 0 || !cart.paymentMethod}
+                  isDisabled={cart.cartItems === 0 || !cart.paymentMethod}
                   onClick={placeOrderHandler}
                 >
                   Place order
