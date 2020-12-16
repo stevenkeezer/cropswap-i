@@ -7,7 +7,9 @@ import {
   EuiFormRow,
   EuiPage,
 } from "@elastic/eui";
+
 import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../actions/userActions";
 import Loader from "../components/Loader";
@@ -153,15 +155,14 @@ const LoginScreen = ({ location, history }) => {
                 </button>
                 </div>
                 <div class="tw-flex tw-justify-center tw-items-center tw-mt-6">
-                  <a
+                  <Link
                     href="/register"
-                    target="_blank"
                     class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
                   >
                     <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
                       New to cropswap? Sign up
                   </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </EuiPage>

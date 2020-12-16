@@ -179,15 +179,14 @@ const RegisterScreen = ({ location, history }) => {
             </button>
           </div>
           <div class="tw-flex tw-justify-center tw-items-center tw-mt-6">
-            <a
-              href="/register"
-              target="_blank"
+            <Link
+              to="/register"
               class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
             >
               <span class="tw-ml-2 tw-text-base tw-font-medium tw-text-teal-500">
                 New to cropswap? Sign up
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </EuiPage>
