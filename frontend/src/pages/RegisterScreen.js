@@ -180,7 +180,7 @@ const RegisterScreen = ({ location, history }) => {
           </div>
           <div class="tw-flex tw-justify-center tw-items-center tw-mt-6">
             <a
-              href="#"
+              href="/register"
               target="_blank"
               class="tw-inline-flex tw-items-center tw-font-bold tw-text-blue-500 hover:tw-text-blue-700 tw-text-xs tw-text-center"
             >
