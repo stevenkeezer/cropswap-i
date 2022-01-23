@@ -20,6 +20,7 @@ import { register } from "../actions/userActions";
 const RegisterScreen = ({ location, history }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [value, setValue] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState(null);
@@ -53,7 +54,8 @@ const RegisterScreen = ({ location, history }) => {
     }
   };
 
-  console.log("err", { error });
+
+  console.log("err", value);
   return (
     <>
       <EuiPage class="tw-min-h-screen  tw-flex tw-flex-col tw-items-center sm:tw-mt-6 tw-mt-2">
@@ -72,13 +74,14 @@ const RegisterScreen = ({ location, history }) => {
                   <EuiFieldText
                     type="text"
                     placeholder="Name"
-                    value={email}
+                    value={name}
                     fullWidth
                     className="login-form"
                     inputRef={textInput}
-                    onChange={(e) => setName(e)}
+                    onChange={(e) => setName(e.target.value)}
                     aria-label="Use aria labels when no actual label is in use"
                   />
+                  
                 </div>
               </EuiFormRow>
               <EuiFormRow fullWidth label="">
@@ -90,7 +93,7 @@ const RegisterScreen = ({ location, history }) => {
                     fullWidth
                     className="login-form"
                     inputRef={textInput}
-                    onChange={(e) => setEmail(e)}
+                    onChange={(e) => setEmail(e.target.value)}
                     aria-label="Use aria labels when no actual label is in use"
                   />
                 </div>
